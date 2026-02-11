@@ -114,9 +114,9 @@ const HeroSection = () => {
                 {/* Panel Header */}
                 <div className="px-4 py-3 border-b border-border flex items-center gap-2">
                   <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground text-[10px] font-bold">C</span>
+                    <span className="text-primary-foreground text-[10px] font-bold">N</span>
                   </div>
-                  <span className="text-sm font-semibold text-foreground">Cluely AI</span>
+                  <span className="text-sm font-semibold text-foreground">Natively AI</span>
                   <span className="ml-auto flex items-center gap-1 text-[10px] text-primary">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-soft" />
                     Live

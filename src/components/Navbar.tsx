@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
@@ -33,10 +34,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">C</span>
-          </div>
-          <span className="text-xl font-bold text-foreground">Cluely</span>
+          <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
+          <span className="text-xl font-bold text-foreground">Natively</span>
         </a>
 
         {/* Desktop Nav */}
