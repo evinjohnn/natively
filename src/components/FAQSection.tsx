@@ -9,23 +9,23 @@ import {
 
 const faqs = [
   {
-    question: "What makes Cluely different from other meeting AI tools?",
-    answer: "Cluely runs entirely on your local device — no bots join your call, nothing shows up for other participants. Unlike tools like Otter.ai or Fireflies that add a visible 'notetaker' to the meeting, Cluely is 100% undetectable. Plus, it provides real-time AI assistance during the call, not just notes after.",
+    question: "What makes Natively different from other meeting AI tools?",
+    answer: "Natively runs entirely on your local device — no bots join your call, nothing shows up for other participants. Unlike tools like Otter.ai or Fireflies that add a visible 'notetaker' to the meeting, Natively is 100% undetectable. Plus, it provides real-time AI assistance during the call, not just notes after.",
   },
   {
-    question: "Who is Cluely for?",
-    answer: "Cluely is for professionals who want AI-powered meeting assistance without compromising discretion. Whether you're in sales, consulting, management, or any role that involves frequent meetings, Cluely helps you stay sharp, prepared, and productive.",
+    question: "Who is Natively for?",
+    answer: "Natively is for professionals who want AI-powered meeting assistance without compromising discretion. Whether you're in sales, consulting, management, or any role that involves frequent meetings, Natively helps you stay sharp, prepared, and productive.",
   },
   {
-    question: "Is Cluely free to use?",
-    answer: "Yes! Cluely offers a free tier with core features including live transcription, meeting notes, and basic AI assistance. Premium features like unlimited meetings, advanced analytics, and team collaboration are available with a paid plan.",
+    question: "Is Natively free to use?",
+    answer: "Yes! Natively offers a free tier with core features including live transcription, meeting notes, and basic AI assistance. Premium features like unlimited meetings, advanced analytics, and team collaboration are available with a paid plan.",
   },
   {
-    question: "Which languages does Cluely support?",
-    answer: "Cluely supports 12+ languages including English, Spanish, French, German, Portuguese, Italian, Japanese, Korean, Chinese (Mandarin), Hindi, Dutch, and Russian. We're constantly adding more languages based on user demand.",
+    question: "Which languages does Natively support?",
+    answer: "Natively supports 12+ languages including English, Spanish, French, German, Portuguese, Italian, Japanese, Korean, Chinese (Mandarin), Hindi, Dutch, and Russian. We're constantly adding more languages based on user demand.",
   },
   {
-    question: "Does Cluely offer enterprise support?",
+    question: "Does Natively offer enterprise support?",
     answer: "Yes, we offer enterprise plans with dedicated support, custom integrations, SSO, admin controls, and advanced security features. Contact our sales team for a tailored solution for your organization.",
   },
 ];
@@ -46,7 +46,7 @@ const FAQSection = () => {
             Frequently asked questions
           </h2>
           <p className="text-muted-foreground text-lg">
-            Everything you need to know about Cluely.
+            Everything you need to know about Natively.
           </p>
         </motion.div>
 

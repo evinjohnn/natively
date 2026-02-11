@@ -1,4 +1,5 @@
 import { Github, Twitter } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const columns = [
@@ -37,10 +38,8 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">C</span>
-              </div>
-              <span className="text-xl font-bold">Cluely</span>
+              <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
+              <span className="text-xl font-bold">Natively</span>
             </div>
             <p className="text-sm text-primary-foreground/60 mb-6">
               The #1 undetectable AI meeting assistant.
@@ -85,7 +84,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
           <p className="text-sm text-primary-foreground/40">
-            © {new Date().getFullYear()} Cluely. All rights reserved.
+            © {new Date().getFullYear()} Natively. All rights reserved.
           </p>
         </div>
       </div>

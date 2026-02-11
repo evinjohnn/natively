@@ -24,7 +24,7 @@ const ComparisonSection = () => {
             <span className="text-gradient">100% Undetectable.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Unlike other tools that add visible bots to your call, Cluely runs silently on your device.
+            Unlike other tools that add visible bots to your call, Natively runs silently on your device.
           </p>
         </motion.div>
 
@@ -68,7 +68,7 @@ const ComparisonSection = () => {
           >
             <div className="flex items-center gap-2 mb-4">
               <ShieldCheck className="w-5 h-5 text-primary" />
-              <h3 className="font-semibold text-foreground">Cluely</h3>
+              <h3 className="font-semibold text-foreground">Natively</h3>
             </div>
             {/* Clean meeting */}
             <div className="bg-secondary rounded-xl p-4 space-y-3">
@@ -83,7 +83,7 @@ const ComparisonSection = () => {
                 <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                   <span className="text-[10px] text-primary">✓</span>
                 </div>
-                <span className="text-xs text-primary font-medium">Cluely running locally</span>
+                <span className="text-xs text-primary font-medium">Natively running locally</span>
               </div>
               <p className="text-[11px] text-muted-foreground italic">No one knows you're using AI assistance</p>
             </div>

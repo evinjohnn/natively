@@ -28,7 +28,7 @@ const CTASection = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto"
         >
-          Try Cluely on your next meeting today.
+          Try Natively on your next meeting today.
         </motion.p>
 
         <motion.div

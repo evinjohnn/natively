@@ -6,7 +6,7 @@ const steps = [
   {
     number: "01",
     icon: Play,
-    title: "Start Cluely",
+    title: "Start Natively",
     description: "One click to activate before or during your meeting. Works with Zoom, Google Meet, Teams.",
     mockup: (
       <div className="mt-4 bg-secondary rounded-xl p-4 flex items-center justify-center">
@@ -19,8 +19,8 @@ const steps = [
   {
     number: "02",
     icon: Square,
-    title: "End Cluely",
-    description: "Stop whenever you're done. Cluely processes everything in seconds.",
+    title: "End Natively",
+    description: "Stop whenever you're done. Natively processes everything in seconds.",
     mockup: (
       <div className="mt-4 bg-secondary rounded-xl p-4 flex items-center justify-center">
         <div className="w-16 h-16 rounded-2xl bg-destructive/10 border-2 border-destructive/30 flex items-center justify-center">
