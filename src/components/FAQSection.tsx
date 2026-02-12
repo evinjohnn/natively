@@ -34,7 +34,7 @@ const FAQSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-background">
+    <section ref={ref} className="py-24 px-6 section-alt">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ const FAQSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight">
             Frequently asked questions
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -60,7 +60,7 @@ const FAQSection = () => {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="border border-border rounded-xl px-6 data-[state=open]:bg-secondary/50"
+                className="border border-border rounded-xl px-6 bg-card data-[state=open]:bg-card shadow-sm hover:shadow-md transition-shadow"
               >
                 <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
                   {faq.question}
