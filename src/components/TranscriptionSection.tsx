@@ -16,16 +16,16 @@ const TranscriptionSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-secondary/30">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="py-24 px-6 bg-card">
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Real-time <span className="text-gradient">transcription</span>
+          <h2 className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight">
+            Real-time transcription
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Industry-leading speech recognition with multi-language support.
@@ -38,10 +38,10 @@ const TranscriptionSection = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card border border-border rounded-2xl overflow-hidden"
+            className="bg-card border border-border rounded-[20px] overflow-hidden shadow-sm"
           >
             <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+              <span className="w-2 h-2 rounded-full bg-natively-green animate-pulse-soft" />
               <span className="text-sm font-medium text-foreground">Live Transcription</span>
             </div>
             <div className="p-4 space-y-4 max-h-80 overflow-hidden">
@@ -74,9 +74,9 @@ const TranscriptionSection = () => {
               { value: `${languages}+`, label: "Languages supported", sublabel: "Including English, Spanish, French, German, Japanese, and more" },
               { value: `${responseTime}ms`, label: "Response time", sublabel: "Near-instant processing with on-device acceleration" },
               { value: `${accuracy}%`, label: "Transcription accuracy", sublabel: "Industry-leading accuracy powered by latest AI models" },
-            ].map((stat, i) => (
+            ].map((stat) => (
               <div key={stat.label} className="flex items-start gap-4">
-                <span className="text-4xl md:text-5xl font-extrabold text-primary tabular-nums min-w-[120px]">
+                <span className="text-4xl md:text-5xl font-extrabold text-natively-green tabular-nums min-w-[120px]">
                   {stat.value}
                 </span>
                 <div>

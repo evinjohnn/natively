@@ -32,16 +32,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-primary-foreground py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+    <footer className="footer-bg text-primary-foreground py-16 px-6">
+      <div className="max-w-[1200px] mx-auto">
         <div className="grid md:grid-cols-4 gap-12">
-          {/* Logo & Tagline */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
               <span className="text-xl font-bold">Natively</span>
             </div>
-            <p className="text-sm text-primary-foreground/60 mb-6">
+            <p className="text-sm text-primary-foreground/50 mb-6">
               The #1 undetectable AI meeting assistant.
             </p>
             <div className="flex gap-3">
@@ -49,20 +48,19 @@ const Footer = () => {
                 href="https://github.com/evinjohnn/natively-cluely-ai-assistant"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                className="w-9 h-9 rounded-full bg-primary-foreground/8 flex items-center justify-center hover:bg-primary-foreground/15 transition-colors"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                className="w-9 h-9 rounded-full bg-primary-foreground/8 flex items-center justify-center hover:bg-primary-foreground/15 transition-colors"
               >
                 <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Link Columns */}
           {columns.map((col) => (
             <div key={col.title}>
               <h4 className="font-semibold mb-4 text-sm">{col.title}</h4>
@@ -71,7 +69,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                      className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors"
                     >
                       {link.label}
                     </a>

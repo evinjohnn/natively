@@ -31,14 +31,12 @@ const Navbar = () => {
         scrolled ? "glass-nav border-b border-border shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
           <span className="text-xl font-bold text-foreground">Natively</span>
         </a>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -49,14 +47,13 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button asChild className="rounded-full px-6 bg-primary hover:bg-primary/90">
+          <Button asChild className="rounded-full px-6 bg-primary hover:bg-primary/90 h-10">
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               Download
             </a>
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -66,14 +63,13 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="md:hidden bg-card border-b border-border overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (

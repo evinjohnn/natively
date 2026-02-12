@@ -9,17 +9,17 @@ const CTASection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-secondary/30">
+    <section ref={ref} className="py-24 px-6 bg-card">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-bold text-foreground mb-4"
+          className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight"
         >
           Meeting AI that helps
           <br />
-          <span className="text-gradient">during the call, not after</span>
+          during the call, not after
         </motion.h2>
 
         <motion.p
@@ -36,7 +36,7 @@ const CTASection = () => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <Button asChild size="lg" className="rounded-full px-10 text-base bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25">
+          <Button asChild size="lg" className="rounded-full px-10 text-base bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 h-12">
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               Download Free <ArrowRight className="ml-1 w-4 h-4" />
             </a>
