@@ -1,91 +1,58 @@
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
+import transcriptImg from "@/assets/transcript.png";
 
 const TranscriptionSection = () => {
-  const { ref, isVisible } = useScrollAnimation(0.2);
-  const languages = useCountUp(12, 1500, isVisible);
-  const responseTime = useCountUp(300, 1500, isVisible);
-  const accuracy = useCountUp(95, 1500, isVisible);
-
-  const transcriptLines = [
-    { time: "10:42", speaker: "Sarah", text: "Let's review the quarterly results and compare them with our projections." },
-    { time: "10:43", speaker: "Alex", text: "Revenue came in at $2.4 million, which is 18% above our initial target." },
-    { time: "10:43", speaker: "Sarah", text: "That's great. What about the customer acquisition cost?" },
-    { time: "10:44", speaker: "Jordan", text: "CAC dropped by 12% thanks to the new referral program we launched in October." },
-  ];
-
   return (
-    <section ref={ref} className="py-24 px-6 bg-card">
-      <div className="max-w-[1200px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight">
-            Real-time transcription
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Industry-leading speech recognition with multi-language support.
-          </p>
-        </motion.div>
+    <section className="py-8 bg-white">
+      <div className="max-content">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Transcription UI */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card border border-border rounded-[20px] overflow-hidden shadow-sm"
-          >
-            <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-natively-green animate-pulse-soft" />
-              <span className="text-sm font-medium text-foreground">Live Transcription</span>
-            </div>
-            <div className="p-4 space-y-4 max-h-80 overflow-hidden">
-              {transcriptLines.map((line, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.3, duration: 0.4 }}
-                  className="flex gap-3"
-                >
-                  <span className="text-[10px] text-muted-foreground w-10 shrink-0 pt-0.5">{line.time}</span>
-                  <div>
-                    <span className="text-xs font-semibold text-primary">{line.speaker}</span>
-                    <p className="text-sm text-foreground leading-relaxed">{line.text}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          {/* Transcript Image */}
+          <div className="rounded-[40px] overflow-hidden aspect-[4/5] bg-gray-100 relative">
+            <img
+              src={transcriptImg}
+              alt="Live Transcript UI"
+              className="w-full h-full object-cover scale-110 translate-y-3 translate-x-2"
+            />
+          </div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-8"
-          >
-            {[
-              { value: `${languages}+`, label: "Languages supported", sublabel: "Including English, Spanish, French, German, Japanese, and more" },
-              { value: `${responseTime}ms`, label: "Response time", sublabel: "Near-instant processing with on-device acceleration" },
-              { value: `${accuracy}%`, label: "Transcription accuracy", sublabel: "Industry-leading accuracy powered by latest AI models" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex items-start gap-4">
-                <span className="text-4xl md:text-5xl font-extrabold text-natively-green tabular-nums min-w-[120px]">
-                  {stat.value}
-                </span>
+          {/* Stats Blocks */}
+          <div className="flex flex-col pl-4">
+            <h2 className="hero-headline !text-black text-[48px] leading-tight mb-6 text-left">Real-time transcription</h2>
+
+            <div className="flex flex-col">
+              <div className="flex gap-8 py-6 border-t border-gray-100 first:border-t-0 items-start">
+                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">12+</div>
                 <div>
-                  <p className="text-base font-semibold text-foreground">{stat.label}</p>
-                  <p className="text-sm text-muted-foreground">{stat.sublabel}</p>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Languages</h3>
+                  <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
+                    We support over 12 different languages, including English, Chinese, Spanish, and more.
+                  </p>
                 </div>
               </div>
-            ))}
-          </motion.div>
+
+              <div className="flex gap-8 py-6 border-t border-gray-100 items-start">
+                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">
+                  300<span className="text-[24px]">ms</span>
+                </div>
+                <div>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Response time</h3>
+                  <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
+                    We have the fastest live transcription available. Test us against any other competitor.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-8 py-6 border-t border-gray-100 items-start">
+                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">95%</div>
+                <div>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Transcription accuracy</h3>
+                  <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
+                    Trusted by many teams for reliable transcription. All processed with industry-leading accuracy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

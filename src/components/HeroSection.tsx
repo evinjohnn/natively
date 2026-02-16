@@ -1,182 +1,130 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+import heroBackdrop from "@/assets/heroimage.jpeg";
+import desktopUI from "@/assets/desktopui.png";
+import heroVideo from "@/assets/hero.m4v";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden hero-bg">
-      <div className="max-w-[1200px] mx-auto px-6">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex justify-center mb-8"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/5 border border-primary/15 px-5 py-2 text-xs font-medium text-primary backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
-            Now available for macOS & Windows
-          </span>
-        </motion.div>
+    <section className="relative pt-32 pb-24 overflow-hidden min-h-screen flex items-center">
+      {/* Backdrop Image - Full Width */}
+      <div className="absolute -top-20 left-0 z-0 w-full h-[800px] overflow-hidden pointer-events-none">
+        <img
+          src={heroBackdrop}
+          alt="Hero Backdrop"
+          className="w-full h-full object-cover object-top opacity-100"
+        />
+        {/* Cubic eased gradient mask: super feeble start x^3 curve */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 100% at 50% 0%, transparent 30%, rgba(255,255,255,0.005) 40%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.12) 70%, rgba(255,255,255,0.25) 78%, rgba(255,255,255,0.40) 85%, rgba(255,255,255,0.58) 90%, rgba(255,255,255,0.80) 95%, rgba(255,255,255,0.95) 98%, #FFFFFF 100%)'
+          }}
+        />
+      </div>
 
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center text-5xl md:text-[64px] font-extrabold tracking-tight leading-[1.08] mb-6"
-        >
-          <span className="text-gradient">#1 Undetectable AI</span>
-          <br />
-          <span className="text-foreground">for Meetings</span>
-        </motion.h1>
+      <div className="max-content relative z-10 flex flex-col items-center text-center pt-20">
+        {/* Title */}
+        <h1 className="hero-headline mb-6 text-[#111827] drop-shadow-sm">
+          #1 Undetectable<br />AI for Meetings
+        </h1>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          Real-time AI meeting assistant that provides live transcription, smart answers, and beautiful notes — completely invisible to others.
-        </motion.p>
+        {/* Subheading */}
+        <p className="body-text-geist !text-[#6B7280] max-w-[540px] mb-12 drop-shadow-none font-medium text-lg">
+          Natively takes perfect meeting notes and gives real-time answers,<br className="hidden md:block" />
+          all while completely undetectable
+        </p>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex justify-center gap-4 mb-16"
-        >
-          <Button asChild size="lg" className="rounded-full px-8 text-base bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 h-12">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-              Download Free <ArrowRight className="ml-1 w-4 h-4" />
+        {/* CTA Button: Get for Mac */}
+        <div className="mb-24 scale-110">
+          <Button asChild size="lg" className="rounded-xl px-10 bg-gradient-to-b from-[#3B82F6] to-[#1E3A8A] hover:opacity-90 text-white h-14 border-none shadow-[0_10px_30px_-10px_rgba(30,58,138,0.3)] transition-all">
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 384 512">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+              </svg>
+              <span className="font-semibold btn-text">Get for Mac</span>
             </a>
           </Button>
-        </motion.div>
+        </div>
 
-        {/* Animated Mockup */}
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="relative max-w-[1000px] mx-auto"
-        >
-          <div className="rounded-2xl overflow-hidden mockup-shadow bg-foreground">
-            {/* Title Bar */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-foreground/95 border-b border-primary-foreground/10">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-destructive/80" />
-                <div className="w-3 h-3 rounded-full bg-[hsl(45,80%,55%)]" />
-                <div className="w-3 h-3 rounded-full bg-natively-green" />
-              </div>
-              <div className="flex-1 text-center">
-                <span className="text-xs text-primary-foreground/50">Zoom Meeting</span>
-              </div>
+        {/* Hero Mockup Composition */}
+        <div className="relative w-full max-w-[1040px] mx-auto mt-8 scale-[1.1] -translate-y-12">
+          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura */}
+          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura */}
+          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura - Tighter Radius */}
+          {/* Main Aura: Orange -> Purple -> Blue vertical gradient to match reference */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[102%] h-[102%] bg-gradient-to-b from-[#FB923C] via-[#A855F7] to-[#3B82F6] blur-[25px] opacity-30 rounded-[2rem] z-0 pointer-events-none mix-blend-normal" />
+
+          {/* Secondary Glow for extra vibrance */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[108%] h-[80%] bg-gradient-to-tr from-[#3B82F6]/50 via-[#A855F7]/50 to-[#FB923C]/50 blur-[60px] opacity-30 rounded-full z-0 pointer-events-none" />
+
+          <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+            <img
+              src={desktopUI}
+              alt="MacOS Desktop Interface"
+              className="w-full h-auto object-cover"
+            />
+
+            {/* Layer 2: Zoom Meeting GIF Placeholder 
+                Positioned to overlay where the meeting window would be on the desktop UI.
+                Adjust top/left/width/height based on the actual desktopui.png layout.
+            */}
+            <div className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner">
+              <video
+                src={heroVideo}
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
             </div>
 
-            {/* Meeting UI */}
-            <div className="relative bg-foreground p-6 min-h-[380px] flex items-center justify-center">
-              {/* Video Grid */}
-              <div className="grid grid-cols-2 gap-4 w-full max-w-lg">
-                {[
-                  { name: "Sarah Chen", initials: "SC", bg: "hsl(200,60%,30%)" },
-                  { name: "Alex Rivera", initials: "AR", bg: "hsl(160,50%,28%)" },
-                  { name: "Jordan Park", initials: "JP", bg: "hsl(258,50%,30%)" },
-                  { name: "You", initials: "YO", bg: "hsl(217,50%,28%)" },
-                ].map((person, i) => (
-                  <motion.div
-                    key={person.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8 + i * 0.1 }}
-                    className="aspect-video rounded-xl flex flex-col items-center justify-center relative overflow-hidden"
-                    style={{ backgroundColor: person.bg }}
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary-foreground/15 flex items-center justify-center text-primary-foreground font-semibold text-sm mb-1">
-                      {person.initials}
-                    </div>
-                    <span className="text-primary-foreground/70 text-xs">{person.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Natively Overlay Panel */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute right-4 top-4 bottom-4 w-72 rounded-xl bg-card/95 backdrop-blur-xl border border-border shadow-2xl flex flex-col overflow-hidden"
-              >
-                <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground text-[10px] font-bold">N</span>
+            {/* Layer 3: Natively Interface Overlay */}
+            <div className="absolute top-[28%] left-1/2 -translate-x-1/2 w-[45%] z-30">
+              <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20">
+                {/* Header */}
+                <div className="p-4 pb-2 flex justify-end">
+                  <div className="bg-[#2563EB] px-3 py-1.5 rounded-full text-white text-[11px] font-semibold tracking-wide shadow-lg shadow-blue-500/30">
+                    What should I say?
                   </div>
-                  <span className="text-sm font-semibold text-foreground">Natively AI</span>
-                  <span className="ml-auto flex items-center gap-1 text-[10px] text-natively-green">
-                    <span className="w-1.5 h-1.5 rounded-full bg-natively-green animate-pulse-soft" />
-                    Live
-                  </span>
                 </div>
 
-                <div className="flex-1 p-4 space-y-3 overflow-hidden">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5 }}
-                    className="bg-secondary rounded-lg p-3"
-                  >
-                    <p className="text-[11px] text-muted-foreground mb-1">Suggested Answer</p>
-                    <p className="text-xs text-foreground leading-relaxed">
-                      Based on last quarter's data, our conversion rate improved by 23% after implementing the new onboarding flow.
-                    </p>
-                  </motion.div>
+                {/* Content */}
+                <div className="px-5 pb-5">
+                  <p className="text-white/90 text-[15px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
+                    "A discounted cash flow model values a company by projecting future free cash flows and discounting them to present value using the weighted average cost of capital."
+                  </p>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.8 }}
-                    className="bg-secondary rounded-lg p-3"
-                  >
-                    <p className="text-[11px] text-muted-foreground mb-1">Key Point Detected</p>
-                    <p className="text-xs text-foreground leading-relaxed">
-                      Sarah mentioned budget review deadline is March 15th.
-                    </p>
-                  </motion.div>
+                  <div className="flex items-center gap-3 mb-4 text-[11px] text-white/50 font-medium">
+                    <div className="flex items-center gap-1.5 hover:text-white/80 transition-colors cursor-pointer">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                      What should I say?
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-1.5 hover:text-white/80 transition-colors cursor-pointer">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                      Follow-up questions
+                    </div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2.1 }}
-                    className="space-y-1"
-                  >
-                    <p className="text-[11px] text-muted-foreground">Live Transcription</p>
-                    <p className="text-xs text-foreground/70 leading-relaxed">
-                      "...so if we look at the numbers from Q4, I think we can agree that the strategy is working..."
-                    </p>
-                  </motion.div>
+                  {/* Input Field */}
+                  <div className="relative group">
+                    <input
+                      type="text"
+                      placeholder="Ask anything about the screen or conversation"
+                      className="w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-[13px] text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all font-light"
+                      readOnly
+                    />
+                  </div>
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Dock */}
-            <div className="flex items-center justify-center gap-2 py-3 bg-foreground border-t border-primary-foreground/5">
-              {["🌐", "📹", "⚙️", "📁", "💬"].map((icon, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + i * 0.05 }}
-                  className="w-10 h-10 rounded-xl bg-primary-foreground/8 flex items-center justify-center text-lg hover:bg-primary-foreground/15 transition-colors cursor-pointer"
-                >
-                  {icon}
-                </motion.div>
-              ))}
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,77 +1,52 @@
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "What makes Natively different from other meeting AI tools?",
-    answer: "Natively runs entirely on your local device — no bots join your call, nothing shows up for other participants. Unlike tools like Otter.ai or Fireflies that add a visible 'notetaker' to the meeting, Natively is 100% undetectable. Plus, it provides real-time AI assistance during the call, not just notes after.",
+    question: "How does Natively stay undetectable?",
+    answer: "Natively runs locally on your computer and captures audio from your system. No bots join the meeting, making it 100% invisible to other participants.",
   },
   {
     question: "Who is Natively for?",
-    answer: "Natively is for professionals who want AI-powered meeting assistance without compromising discretion. Whether you're in sales, consulting, management, or any role that involves frequent meetings, Natively helps you stay sharp, prepared, and productive.",
+    answer: "Natively is designed for professionals, engineers, and researchers who need high-quality transcription and AI assistance without the distraction of visible bots.",
   },
   {
-    question: "Is Natively free to use?",
-    answer: "Yes! Natively offers a free tier with core features including live transcription, meeting notes, and basic AI assistance. Premium features like unlimited meetings, advanced analytics, and team collaboration are available with a paid plan.",
+    question: "Is Natively free?",
+    answer: "Yes, we offer a generous free tier for individuals. Professional plans are available for power users who need advanced features.",
   },
   {
-    question: "Which languages does Natively support?",
-    answer: "Natively supports 12+ languages including English, Spanish, French, German, Portuguese, Italian, Japanese, Korean, Chinese (Mandarin), Hindi, Dutch, and Russian. We're constantly adding more languages based on user demand.",
+    question: "What languages are supported?",
+    answer: "We support over 12 major languages including English, Spanish, French, German, and more with industry-leading accuracy.",
   },
   {
-    question: "Does Natively offer enterprise support?",
-    answer: "Yes, we offer enterprise plans with dedicated support, custom integrations, SSO, admin controls, and advanced security features. Contact our sales team for a tailored solution for your organization.",
+    question: "Can I talk to customer support?",
+    answer: "Absolutely. Our team is available via email and Discord to help you with any questions or technical issues.",
   },
 ];
 
 const FAQSection = () => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-
   return (
-    <section ref={ref} className="py-24 px-6 section-alt">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight">
-            Frequently asked questions
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Everything you need to know about Natively.
-          </p>
-        </motion.div>
+    <section className="section-spacing bg-white">
+      <div className="max-content max-w-3xl mx-auto">
+        <h2 className="hero-headline !text-black text-[48px] leading-tight mb-12 text-center">Frequently asked questions</h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                className="border border-border rounded-xl px-6 bg-card data-[state=open]:bg-card shadow-sm hover:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`item-${i}`} className="border-b border-[#E5E7EB] py-2">
+              <AccordionTrigger className="card-title-geist hover:no-underline py-4">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-small leading-relaxed pb-4">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

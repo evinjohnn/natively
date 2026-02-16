@@ -1,13 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: 'Biennale';
+  src: url('./assets/fonts/Fontspring-DEMO-biennale-semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 0 0% 100%;
+    /* #FFFFFF */
+    --background-hex: #FFFFFF;
     --foreground: 222 47% 11%;
+    /* #111827 */
+    --foreground-hex: #111827;
 
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -15,48 +26,48 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 217 91% 60%;
+    --primary: 142 71% 45%;
+    /* #22C55E */
+    --primary-hex: #22C55E;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
+    /* #F3F4F6 */
     --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96%;
+    --muted: 215 16% 47%;
+    /* #6B7280 */
     --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 142 71% 95%;
+    /* #DCFCE7 */
+    --accent-hex: #DCFCE7;
+    --accent-foreground: 142 76% 36%;
+    /* #16A34A */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --border: 214 32% 92%;
+    /* #E5E7EB */
+    --input: 214 32% 92%;
+    --ring: 142 71% 45%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
+    /* 16px */
 
-    --hero-gradient-start: 226 100% 93%;
-    --hero-gradient-mid: 216 100% 95%;
-    --hero-gradient-end: 220 33% 97%;
-
-    --natively-blue: 217 91% 60%;
-    --natively-blue-hover: 217 91% 52%;
-    --natively-purple: 258 90% 66%;
-    --natively-green: 142 71% 45%;
-    --natively-dark: 222 47% 11%;
-    --natively-gray: 215 16% 47%;
-    --natively-light: 210 40% 98%;
-    --natively-border: 214 32% 91%;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 217 91% 60%;
+    /* Custom Tokens */
+    --hero-gradient: linear-gradient(180deg, #0F172A 0%, #111827 100%);
+    --primary-green: #22C55E;
+    --primary-green-hover: #16A34A;
+    --soft-green: #DCFCE7;
+    --muted-green-border: #BBF7D0;
+    --primary-text: #111827;
+    --body-text: #6B7280;
+    --supporting-text: #9CA3AF;
+    --border-gray: #E5E7EB;
+    --card-gray: #F3F4F6;
+    --footer-dark: #0F172A;
   }
 
   .dark {
@@ -100,65 +111,141 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    --background: 0 0% 100%;
+    /* #FFFFFF */
+    --background-hex: #FFFFFF;
+    --foreground: 222 47% 11%;
+    /* #111827 */
+    --primary: 142 71% 45%;
+    /* #22C55E */
+    --primary-green: #22C55E;
+    --primary-green-dark: #16A34A;
+    --primary-green-soft: #DCFCE7;
+    --primary-text: #111827;
+    --secondary-text: #6B7280;
+    --muted-text: #9CA3AF;
+    --border: 214 32% 92%;
+    /* #E5E7EB */
+    --input: 214 32% 91%;
+    --ring: 142 71% 45%;
+    --radius: 1rem;
+    /* 16px */
+
+    /* Typography Tokens */
+    --font-heading: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --font-hero: 'EB Garamond', serif;
+
+    /* Spacing System */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 96px;
+
+    --max-width: 1120px;
+    --section-padding: 96px;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
+    @apply bg-[var(--background-hex)] text-[var(--primary-text)] font-sans antialiased;
+    font-family: var(--font-body);
+    font-weight: 400;
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(222 47% 11%), hsl(258 90% 40%));
+  .max-content {
+    @apply max-w-[var(--max-width)] mx-auto px-6;
   }
 
-  .hero-bg {
-    background: linear-gradient(
-      180deg,
-      hsl(226, 100%, 93%) 0%,
-      hsl(240, 80%, 95%) 30%,
-      hsl(216, 100%, 95%) 60%,
-      hsl(220, 33%, 97%) 100%
-    );
+  .section-spacing {
+    @apply py-[var(--section-padding)];
   }
 
-  .glass-nav {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background: hsla(0, 0%, 100%, 0.85);
+  /* 2️⃣ HERO HEADLINE RULES */
+  .hero-headline {
+    font-family: var(--font-hero);
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 81.6px;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 900px;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga", "kern";
+    -webkit-font-smoothing: antialiased;
   }
 
-  .card-hover {
-    @apply transition-all duration-300;
+  /* 3️⃣ HEADING HIERARCHY (Geist) */
+  .section-heading-geist {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: #111827;
   }
 
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -12px hsla(217, 91%, 60%, 0.08);
+  .card-title-geist {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #111827;
   }
 
-  .mockup-shadow {
-    box-shadow: 0 25px 60px -12px hsla(222, 47%, 11%, 0.18),
-                0 0 0 1px hsla(214, 32%, 91%, 0.5);
+  /* 4️⃣ BODY TEXT SYSTEM */
+  .body-text-geist {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #6B7280;
   }
 
-  .section-alt {
-    background-color: hsl(210, 40%, 98%);
+  .text-muted-small {
+    font-size: 14px;
+    line-height: 20px;
+    color: #9CA3AF;
   }
 
-  .footer-bg {
-    background: linear-gradient(180deg, hsl(222, 47%, 7%) 0%, hsl(220, 40%, 9%) 100%);
+  /* 5️⃣ BUTTON TYPOGRAPHY */
+  .btn-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
-  .undetectable-bg {
-    background: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(152, 81%, 96%) 50%, hsl(0, 0%, 100%) 100%);
+  /* 6️⃣ BADGES / SMALL LABELS */
+  .badge-text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    text-transform: none;
+  }
+
+  /* 7️⃣ COLOR CONTEXT RULES */
+  .on-dark-heading {
+    color: #FFFFFF;
+  }
+
+  .on-dark-body {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .button-shadow {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 4px 12px rgba(34, 197, 94, 0.2);
+  }
+
+  .hero-mockup-shadow {
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
   }
 }

@@ -1,95 +1,66 @@
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MessageSquare, Mail, Users, FileText } from "lucide-react";
 
 const features = [
   {
     icon: MessageSquare,
-    iconColor: "text-primary",
-    iconBg: "bg-primary/10",
     title: "AI answers questions for you",
     description: "Get real-time suggested answers based on your meeting context and past data.",
-    mockup: (
-      <div className="mt-4 space-y-2">
-        <div className="flex gap-2 items-start">
-          <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary shrink-0 font-semibold">S</div>
-          <div className="bg-secondary rounded-lg rounded-tl-none px-3 py-2 text-xs text-foreground">"What was our Q4 revenue?"</div>
+    preview: (
+      <div className="mt-6 bg-[#F3F4F6] rounded-[12px] p-3 space-y-2">
+        <div className="flex gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A] mt-1" />
+          <p className="text-[11px] text-[#374151]">"What was our Q2 growth?"</p>
         </div>
-        <div className="flex gap-2 items-start justify-end">
-          <div className="bg-primary/5 border border-primary/15 rounded-lg rounded-tr-none px-3 py-2 text-xs text-foreground">
-            <span className="text-primary text-[10px] font-medium block mb-0.5">AI Suggestion</span>
-            "$2.4M, up 18% YoY"
-          </div>
-          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-[10px] text-primary-foreground shrink-0 font-semibold">N</div>
+        <div className="bg-white rounded-lg p-2 border border-[#E5E7EB] shadow-sm">
+          <p className="text-[10px] font-semibold text-[#16A34A] mb-0.5">Natively Suggestion</p>
+          <p className="text-[10px] text-[#6B7280]">Our Q2 growth was 24% year-over-year.</p>
         </div>
       </div>
     ),
   },
   {
     icon: Mail,
-    iconColor: "text-natively-purple",
-    iconBg: "bg-natively-purple/10",
     title: "Instant follow-up emails",
     description: "Automatically draft personalized follow-up emails right after your meeting ends.",
-    mockup: (
-      <div className="mt-4 bg-secondary rounded-xl p-3 space-y-2">
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-natively-purple/15 flex items-center justify-center"><Mail className="w-2.5 h-2.5 text-natively-purple" /></div>
-          <span className="text-xs font-medium text-foreground">Follow-up: Q4 Review</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">Hi Sarah, Thank you for the productive meeting today. As discussed, here are the key action items...</p>
-        <div className="flex gap-2">
-          <span className="text-[10px] bg-natively-purple/10 text-natively-purple px-2 py-0.5 rounded-full">Auto-generated</span>
-        </div>
+    preview: (
+      <div className="mt-6 bg-[#F3F4F6] rounded-[12px] p-4 text-[10px] space-y-2">
+        <div className="font-semibold text-[#111827]">Follow-up: Project Titan</div>
+        <p className="text-[#6B7280]">Hi Alex, Great meeting today. Here are the action items we discussed...</p>
+        <div className="inline-block px-2 py-0.5 bg-[#DCFCE7] text-[#16A34A] rounded-full">Email Drafted</div>
       </div>
     ),
   },
   {
     icon: Users,
-    iconColor: "text-natively-green",
-    iconBg: "bg-natively-green/10",
     title: "Who are you really talking to?",
     description: "Instant background research on meeting participants with LinkedIn and company data.",
-    mockup: (
-      <div className="mt-4 bg-secondary rounded-xl p-3 space-y-2">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-natively-purple/20 flex items-center justify-center text-natively-purple text-sm font-semibold">JD</div>
-          <div>
-            <p className="text-xs font-medium text-foreground">Jane Doe</p>
-            <p className="text-[11px] text-muted-foreground">VP of Engineering, Acme Inc.</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          <div className="text-[10px] text-muted-foreground">🏢 500+ employees</div>
-          <div className="text-[10px] text-muted-foreground">📍 San Francisco</div>
-          <div className="text-[10px] text-muted-foreground">💼 12 years exp.</div>
-          <div className="text-[10px] text-muted-foreground">🔗 2nd connection</div>
+    preview: (
+      <div className="mt-6 border border-[#E5E7EB] rounded-[12px] p-3 flex gap-3 items-center bg-white">
+        <div className="w-10 h-10 rounded-full bg-[#F3F4F6] flex items-center justify-center text-[12px] font-bold text-[#111827]">JD</div>
+        <div>
+          <p className="text-[11px] font-semibold text-[#111827]">John Doe</p>
+          <p className="text-[10px] text-[#9CA3AF]">CTO at TechFlow</p>
         </div>
       </div>
     ),
   },
   {
     icon: FileText,
-    iconColor: "text-primary",
-    iconBg: "bg-primary/10",
     title: "Beautiful meeting notes",
     description: "Structured, searchable notes with action items, decisions, and key moments.",
-    mockup: (
-      <div className="mt-4 bg-secondary rounded-xl p-3 space-y-2">
-        <p className="text-xs font-medium text-foreground">📋 Meeting Notes — Q4 Review</p>
-        <div className="space-y-1.5">
-          <div className="flex items-start gap-2">
-            <span className="text-natively-green text-xs">✓</span>
-            <span className="text-[11px] text-foreground">Revenue hit $2.4M target</span>
+    preview: (
+      <div className="mt-6 space-y-2">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded bg-[#DCFCE7] flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-[#16A34A]" />
           </div>
-          <div className="flex items-start gap-2">
-            <span className="text-natively-green text-xs">✓</span>
-            <span className="text-[11px] text-foreground">New onboarding flow approved</span>
+          <p className="text-[10px] text-[#374151]">Decision: Move deadline to Oct 15</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded bg-[#DCFCE7] flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-[#16A34A]" />
           </div>
-          <div className="flex items-start gap-2">
-            <span className="text-primary text-xs">→</span>
-            <span className="text-[11px] text-foreground">Action: Budget proposal by Mar 15</span>
-          </div>
+          <p className="text-[10px] text-[#374151]">Action: Send contract to legal</p>
         </div>
       </div>
     ),
@@ -97,45 +68,45 @@ const features = [
 ];
 
 const FeaturesSection = () => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-
   return (
-    <section ref={ref} className="py-24 px-6 bg-card">
-      <div className="max-w-[1200px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-[40px] font-bold text-foreground mb-4 leading-tight">
-            Four ways we make your
-            <br />
-            meetings better
+    <section className="section-spacing bg-white" id="features" style={{ backgroundColor: '#ffffff' }}>
+      <div className="max-content">
+        <div className="text-center mb-16">
+          <h2 className="hero-headline !text-black text-[56px] leading-[1.1] mb-6 text-center">
+            Four ways we make your<br />meetings better
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            From real-time answers to automated follow-ups, Natively transforms how you handle meetings.
-          </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="group bg-card border border-border rounded-[20px] p-6 card-hover"
+            <div
+              key={i}
+              className={`rounded-[24px] p-8 flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg ${i === 0
+                ? "bg-gradient-to-br from-[#3B82F6] to-[#2563EB] text-white border-none"
+                : "bg-white border border-[#E5E7EB] text-[#111827]"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <div className={`w-10 h-10 rounded-xl ${feature.iconBg} flex items-center justify-center`}>
-                  <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+              <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center mb-6 ${i === 0 ? "bg-white/20 text-white" : "bg-[#F3F4F6] text-[#6B7280]"
+                }`}>
+                <feature.icon size={24} />
               </div>
-              <p className="text-sm text-muted-foreground">{feature.description}</p>
-              {feature.mockup}
-            </motion.div>
+
+              <h3 className={`text-[24px] font-medium mb-3 ${i === 0 ? "text-white" : "text-[#111827]"
+                } font-geist`}>
+                {feature.title}
+              </h3>
+
+              <p className={`text-[16px] leading-relaxed mb-8 max-w-[90%] ${i === 0 ? "text-white/80" : "text-[#6B7280]"
+                } font-geist`}>
+                {feature.description}
+              </p>
+
+              {/* Mini UI Preview Container */}
+              <div className={`mt-auto rounded-t-[12px] overflow-hidden border-t-4 shadow-sm ${i === 0 ? "bg-white/10 border-white/20" : "bg-[#F9FAFB] border-[#F3F4F6]"
+                }`}>
+                {feature.preview}
+              </div>
+            </div>
           ))}
         </div>
       </div>

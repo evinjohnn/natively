@@ -4,21 +4,19 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   const columns = [
     {
-      title: "Product",
+      title: "Resources",
       links: [
-        { label: "Download", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases" },
-        { label: "Features", href: "#features" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Changelog", href: "#" },
+        { label: "Mobile", href: "#" },
+        { label: "Manifesto", href: "#" },
+        { label: "Press", href: "#" },
+        { label: "Bug Bounty", href: "#" },
       ],
     },
     {
-      title: "Company",
+      title: "Support",
       links: [
-        { label: "About", href: "#" },
-        { label: "Blog", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "Help Center", href: "#" },
+        { label: "Contact Us", href: "#" },
       ],
     },
     {
@@ -26,64 +24,49 @@ const Footer = () => {
       links: [
         { label: "Privacy Policy", href: "#" },
         { label: "Terms of Service", href: "#" },
-        { label: "Cookie Policy", href: "#" },
+        { label: "Data Processing Agreement", href: "#" },
+        { label: "Subprocessors", href: "#" },
       ],
     },
   ];
 
   return (
-    <footer className="footer-bg text-primary-foreground py-16 px-6">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid md:grid-cols-4 gap-12">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
-              <span className="text-xl font-bold">Natively</span>
-            </div>
-            <p className="text-sm text-primary-foreground/50 mb-6">
-              The #1 undetectable AI meeting assistant.
-            </p>
-            <div className="flex gap-3">
-              <a
-                href="https://github.com/evinjohnn/natively-cluely-ai-assistant"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-primary-foreground/8 flex items-center justify-center hover:bg-primary-foreground/15 transition-colors"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-primary-foreground/8 flex items-center justify-center hover:bg-primary-foreground/15 transition-colors"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
+    <footer className="bg-transparent pt-0 pb-10 border-t border-transparent z-10 relative">
+      <div className="max-content">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          {/* Logo Column */}
+          <div className="col-span-1 md:col-span-4">
+            <div className="flex items-center gap-2.5 mb-6">
+              <img src={logo} alt="Natively Logo" className="w-6 h-6 object-contain" />
+              <span className="text-xl font-bold text-[#111827] font-geist">Natively</span>
             </div>
           </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-semibold mb-4 text-sm">{col.title}</h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
-          <p className="text-sm text-primary-foreground/40">
-            © {new Date().getFullYear()} Natively. All rights reserved.
-          </p>
+          {/* Links Columns */}
+          <div className="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {columns.map((col, i) => (
+              <div key={i}>
+                <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>
+                <ul className="space-y-3">
+                  {col.links.map((link, j) => (
+                    <li key={j}>
+                      <a
+                        href={link.href}
+                        className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
+                      >
+                        {link.label}
+                        {link.label === "Mobile" && (
+                          <span className="px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[9px] font-bold uppercase tracking-wider">
+                            New
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

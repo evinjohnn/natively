@@ -21,7 +21,6 @@ const Index = () => {
         <FAQSection />
         <CTASection />
       </main>
-      <Footer />
     </div>
   );
 };

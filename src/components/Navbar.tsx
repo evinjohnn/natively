@@ -1,61 +1,67 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import JellyClayButton from "@/components/JellyClayButton";
+import JellyClayGithubStars from "@/components/JellyClayGithubStars";
 import logo from "@/assets/logo.png";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
     { label: "Pricing", href: "#pricing" },
-    { label: "Mobile", href: "#mobile" },
+    { label: "Mobile", href: "#mobile", isNew: true },
     { label: "Blog", href: "#blog" },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav border-b border-border shadow-sm" : "bg-transparent"
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 bg-transparent ${isScrolled ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <img src={logo} alt="Natively logo" className="w-8 h-8 rounded-lg" />
-          <span className="text-xl font-bold text-foreground">Natively</span>
+      <div className="max-content h-20 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="Natively Logo" className="w-8 h-8 object-contain" />
+          <span className="font-['Biennale',sans-serif] text-[24px] font-semibold leading-[24px] text-white">
+            Natively
+          </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-[14px] font-medium flex items-center gap-2 transition-colors text-white hover:opacity-70"
             >
               {link.label}
+              {link.isNew && (
+                <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[10px] font-bold">
+                  New
+                </span>
+              )}
             </a>
           ))}
-          <Button asChild className="rounded-full px-6 bg-primary hover:bg-primary/90 h-10">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-              Download
-            </a>
-          </Button>
+        </div>
+
+        <div className="hidden md:flex items-center gap-4">
+          <JellyClayGithubStars />
         </div>
 
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -63,35 +69,30 @@ const Navbar = () => {
         </button>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-b border-border overflow-hidden"
-          >
-            <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <Button asChild className="rounded-full bg-primary hover:bg-primary/90 w-full">
-                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-b border-border overflow-hidden">
+          <div className="px-6 py-4 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-[#6B7280] hover:text-[#111827] transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="flex justify-center w-full">
+              <JellyClayButton href={GITHUB_URL} className="w-full h-12 text-lg px-6">
+                <span className="relative z-10 flex items-center justify-center gap-2">
                   Download
-                </a>
-              </Button>
+                </span>
+              </JellyClayButton>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 
