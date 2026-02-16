@@ -72,7 +72,7 @@ const FeaturesSection = () => {
     <section className="section-spacing bg-white" id="features" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-content">
         <div className="text-center mb-16">
-          <h2 className="hero-headline !text-black text-[56px] leading-[1.1] mb-6 text-center">
+          <h2 className="hero-headline !text-black text-[56px] leading-[1.1] mb-6 text-center mx-auto">
             Four ways we make your<br />meetings better
           </h2>
         </div>

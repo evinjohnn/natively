@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import JellyClayButton from "@/components/JellyClayButton";
 import JellyClayGithubStars from "@/components/JellyClayGithubStars";
 import logo from "@/assets/logo.png";
+import { motion } from "framer-motion";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
@@ -27,15 +28,19 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 bg-transparent ${isScrolled ? "-translate-y-full" : "translate-y-0"
         }`}
     >
-      <div className="max-content h-20 flex items-center justify-between">
+      <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
           <img src={logo} alt="Natively Logo" className="w-8 h-8 object-contain" />
-          <span className="font-['Biennale',sans-serif] text-[24px] font-semibold leading-[24px] text-white">
-            Natively
+          <span className="font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight text-white flex flex-col md:flex-row md:items-center md:gap-2">
+            <span>Natively</span>
+
           </span>
         </a>
 
@@ -92,7 +97,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

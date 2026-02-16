@@ -37,8 +37,8 @@ const Footer = () => {
           {/* Logo Column */}
           <div className="col-span-1 md:col-span-4">
             <div className="flex items-center gap-2.5 mb-6">
-              <img src={logo} alt="Natively Logo" className="w-6 h-6 object-contain" />
-              <span className="text-xl font-bold text-[#111827] font-geist">Natively</span>
+              <img src={logo} alt="Natively Logo" className="w-6 h-6 object-contain brightness-0" />
+              <span className="font-['Biennale',sans-serif] text-[24px] font-semibold leading-[24px] text-[#111827]">Natively</span>
             </div>
           </div>
 

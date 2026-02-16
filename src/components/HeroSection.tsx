@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import JellyClayButton from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
 
 import heroBackdrop from "@/assets/heroimage.jpeg";
@@ -26,65 +26,202 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="max-content relative z-10 flex flex-col items-center text-center pt-20">
+      <div className="max-content relative z-10 flex flex-col items-center text-center pt-8">
         {/* Title */}
-        <h1 className="hero-headline mb-6 text-[#111827] drop-shadow-sm">
-          #1 Undetectable<br />AI for Meetings
-        </h1>
+        <div className="mb-6 flex flex-col items-center">
+          {/* Main Heading Line 1 */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="hero-headline text-[#111827] drop-shadow-sm"
+          >
+            #1 Undetectable
+          </motion.h1>
+
+          {/* Main Heading Line 2 - Word by Word */}
+          <div className="hero-headline text-[#111827] drop-shadow-sm flex gap-3">
+            {["AI", "for", "Meetings"].map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 1.4 + i * 0.12,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </div>
+        </div>
 
         {/* Subheading */}
-        <p className="body-text-geist !text-[#6B7280] max-w-[540px] mb-12 drop-shadow-none font-medium text-lg">
-          Natively takes perfect meeting notes and gives real-time answers,<br className="hidden md:block" />
-          all while completely undetectable
-        </p>
+        <div className="flex flex-col items-center mb-12">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-lg leading-relaxed"
+          >
+            Natively takes perfect meeting notes and gives real-time answers,
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-lg"
+          >
+            all while completely undetectable
+          </motion.p>
+        </div>
 
         {/* CTA Button: Get for Mac */}
-        <div className="mb-24 scale-110">
-          <Button asChild size="lg" className="rounded-xl px-10 bg-gradient-to-b from-[#3B82F6] to-[#1E3A8A] hover:opacity-90 text-white h-14 border-none shadow-[0_10px_30px_-10px_rgba(30,58,138,0.3)] transition-all">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 384 512">
-                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-              </svg>
-              <span className="font-semibold btn-text">Get for Mac</span>
-            </a>
-          </Button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 3.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-24 flex flex-col items-center gap-4 scale-110"
+        >
+          <div className="relative group">
+            <JellyClayButton href={GITHUB_URL} className="text-xl" />
+            {/* Subtle glow pulse */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: [0, 0.5, 0], scale: 1.2 }}
+              transition={{ delay: 3.8, duration: 2, repeat: 0 }}
+              className="absolute inset-0 bg-blue-400/30 blur-xl rounded-full -z-10"
+            />
+          </div>
+          <p className="text-sm text-gray-600 font-medium tracking-wide">
+            Trusted by 3,000+ Users
+          </p>
+        </motion.div>
 
         {/* Hero Mockup Composition */}
         <div className="relative w-full max-w-[1040px] mx-auto mt-8 scale-[1.1] -translate-y-12">
-          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura */}
-          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura */}
-          {/* Layer 1: MacOS Desktop UI Background with Radiant Aura - Tighter Radius */}
-          {/* Main Aura: Orange -> Purple -> Blue vertical gradient to match reference */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[102%] h-[102%] bg-gradient-to-b from-[#FB923C] via-[#A855F7] to-[#3B82F6] blur-[25px] opacity-30 rounded-[2rem] z-0 pointer-events-none mix-blend-normal" />
+          {/* Main Aura: Orange -> Purple -> Blue vertical gradient */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            transition={{ delay: 3.2, duration: 1 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[102%] h-[102%] bg-gradient-to-b from-[#FB923C] via-[#A855F7] to-[#3B82F6] blur-[25px] rounded-[2rem] z-0 pointer-events-none mix-blend-normal"
+          />
 
           {/* Secondary Glow for extra vibrance */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[108%] h-[80%] bg-gradient-to-tr from-[#3B82F6]/50 via-[#A855F7]/50 to-[#FB923C]/50 blur-[60px] opacity-30 rounded-full z-0 pointer-events-none" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            transition={{ delay: 3.2, duration: 1 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[108%] h-[80%] bg-gradient-to-tr from-[#3B82F6]/50 via-[#A855F7]/50 to-[#FB923C]/50 blur-[60px] rounded-full z-0 pointer-events-none"
+          />
 
-          <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+          {/* Layer 1: Desktop UI - Rises from bottom with smooth easing */}
+          <motion.div
+            initial={{ opacity: 0, y: 80, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              delay: 1.8,
+              duration: 1.8,
+              ease: [0.19, 1, 0.22, 1], // "Buttery" smooth, no bounce
+            }}
+            className="relative z-10 rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+          >
             <img
               src={desktopUI}
               alt="MacOS Desktop Interface"
               className="w-full h-auto object-cover"
             />
 
-            {/* Layer 2: Zoom Meeting GIF Placeholder 
-                Positioned to overlay where the meeting window would be on the desktop UI.
-                Adjust top/left/width/height based on the actual desktopui.png layout.
-            */}
-            <div className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner">
+            {/* Layer 2: Zoom Meeting MP4 Placeholder - Drops from top */}
+            <motion.div
+              initial={{ opacity: 0, y: -60, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                delay: 3.0,
+                duration: 2.2,
+                ease: [0.19, 1, 0.22, 1],
+              }}
+              className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
+            >
               <video
                 src={heroVideo}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 autoPlay
                 loop
                 muted
                 playsInline
               />
-            </div>
 
-            {/* Layer 3: Natively Interface Overlay */}
-            <div className="absolute top-[28%] left-1/2 -translate-x-1/2 w-[45%] z-30">
+              {/* Floating Prompt Button - Jelly Style (Centered) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, x: "-50%", y: "calc(-50% + 12px)" }}
+                animate={{
+                  opacity: [0, 1, 1, 0],
+                  scale: [0.92, 1, 0.96, 0.96],
+                  x: "-50%",
+                  y: ["calc(-50% + 12px)", "-50%", "-50%", "-50%"]
+                }}
+                transition={{
+                  duration: 1.2,
+                  times: [0, 0.2, 0.9, 1],
+                  delay: 3.9
+                }}
+                className="absolute top-1/2 left-1/2 px-5 py-2.5 rounded-full flex items-center gap-2.5 bg-gradient-to-br from-blue-400 to-blue-600 shadow-[0_8px_20px_rgba(37,99,235,0.35)] backdrop-blur-xl border border-white/20 z-20 origin-center cursor-pointer"
+              >
+                <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
+
+                <span className="text-white text-[13px] font-medium drop-shadow-sm">What should I say?</span>
+              </motion.div>
+            </motion.div>
+
+            {/* Cursor Animation Layer */}
+            <motion.div
+              initial={{ opacity: 0, x: 60, y: 60 }}
+              animate={{
+                opacity: [0, 1, 1, 0],
+                x: [60, 0, 0, 0],
+                y: [60, 0, 0, 0],
+                scale: [1, 1, 0.96, 1] // Click pulse
+              }}
+              transition={{
+                duration: 0.8,
+                times: [0, 0.4, 0.8, 1], // Enter 4.3s, arrive 4.6s, click 4.9s, fade 5.1s
+                delay: 4.3,
+                ease: "easeOut"
+              }}
+              // Positioning cursor relative to the video center-ish where the button is
+              className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] pointer-events-none z-50 flex items-end justify-center pb-8"
+            >
+              {/* Offset cursor to align with button center visually */}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="drop-shadow-lg translate-x-4 translate-y-4" // Visual offset
+              >
+                <path
+                  d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19169L25.5001 1.19169L5.65376 12.3673Z"
+                  fill="black"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  className="drop-shadow-sm"
+                />
+              </svg>
+            </motion.div>
+
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.985, x: "-50%" }}
+              animate={{ opacity: 1, scale: 1, x: "-50%" }}
+              transition={{ delay: 5.5, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute top-[28%] left-1/2 w-[45%] z-30"
+            >
               <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20">
                 {/* Header */}
                 <div className="p-4 pb-2 flex justify-end">
@@ -122,11 +259,11 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
