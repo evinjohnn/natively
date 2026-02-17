@@ -23,11 +23,11 @@ const TranscriptionSection = () => {
 
             <div className="flex flex-col">
               <div className="flex gap-8 py-6 border-t border-gray-100 first:border-t-0 items-start">
-                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">12+</div>
+                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">7+</div>
                 <div>
-                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Languages</h3>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Speech Providers</h3>
                   <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
-                    We support over 12 different languages, including English, Chinese, Spanish, and more.
+                    We support over 7 different speech providers, including Google, Deepgram, and more.
                   </p>
                 </div>
               </div>

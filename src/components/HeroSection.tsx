@@ -148,7 +148,7 @@ const HeroSection = () => {
                 duration: 2.2,
                 ease: [0.19, 1, 0.22, 1],
               }}
-              className="absolute top-[12.5%] left-[16.5%] w-[770px] h-[435px] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
+              className="absolute top-[18%] left-[12.5%] w-[770px] h-[435px] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
             >
               <video
                 src={heroVideo}
@@ -199,57 +199,97 @@ const HeroSection = () => {
                 ease: "easeOut"
               }}
               // Positioning cursor relative to the video center-ish where the button is
-              className="absolute top-[12.5%] left-[16.5%] w-[67%] h-[62.5%] pointer-events-none z-50 flex items-end justify-center pb-8"
+              className="absolute top-[18%] left-[12.5%] w-[770px] h-[435px] pointer-events-none z-50 flex items-center justify-center"
             >
               {/* Offset cursor to align with button center visually */}
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="drop-shadow-lg translate-x-4 translate-y-4" // Visual offset
-              >
-                <path
-                  d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19169L25.5001 1.19169L5.65376 12.3673Z"
-                  fill="black"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  className="drop-shadow-sm"
-                />
-              </svg>
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 blur-md opacity-60">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19169L25.5001 1.19169L5.65376 12.3673Z"
+                      fill="#3B82F6"
+                    />
+                  </svg>
+                </div>
+                {/* Main cursor */}
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="relative drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] translate-x-4 translate-y-4"
+                >
+                  <defs>
+                    <linearGradient id="cursorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1F2937" />
+                      <stop offset="100%" stopColor="#111827" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19169L25.5001 1.19169L5.65376 12.3673Z"
+                    fill="url(#cursorGradient)"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </div>
             </motion.div>
 
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.985, x: "-50%" }}
-              animate={{ opacity: 1, scale: 1, x: "-50%" }}
+              initial={{ scale: 0.985, x: "-50%" }}
+              animate={{ scale: 1, x: "-50%" }}
               transition={{ delay: 5.5, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute top-[25%] left-1/2 w-[45%] z-30"
+              className="absolute top-[15%] left-1/2 w-[45%] z-30"
             >
-              <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 5.5, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden"
+              >
                 {/* Header */}
                 <div className="p-4 pb-2 flex justify-end">
-                  <div className="bg-[#2563EB] px-3 py-1.5 rounded-full text-white text-[11px] font-semibold tracking-wide shadow-lg shadow-blue-500/30">
-                    What should I say?
+                  <div className="relative bg-gradient-to-br from-blue-400 to-blue-600 px-3 py-1.5 rounded-full text-white text-[13px] font-semibold tracking-wide shadow-[0_8px_20px_rgba(37,99,235,0.35)] border border-white/20">
+                    {/* Gloss effect */}
+                    <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
+                    <span className="relative drop-shadow-sm">What should I say?</span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="px-5 pb-5">
-                  <p className="text-white/90 text-[15px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
-                    "A discounted cash flow model values a company by projecting future free cash flows and discounting them to present value using the weighted average cost of capital."
+                  <p className="text-white/90 text-[14px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
+                    Natively is open-source, runs locally, and completely undetectable. Takes notes automatically and gives you real-time answers during meetings. Works with Zoom, Meet, and Teams—totally free.
                   </p>
 
-                  <div className="flex items-center gap-3 mb-4 text-[11px] text-white/50 font-medium">
+                  <div className="flex items-center justify-between mb-4 text-[11px] text-white/50 font-medium">
                     <div className="flex items-center gap-1.5 hover:text-white/80 transition-colors cursor-pointer">
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                       What should I say?
                     </div>
                     <span>•</span>
-                    <div className="flex items-center gap-1.5 hover:text-white/80 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-                      Follow-up questions
+                      Follow-up
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                      Recap
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                      Answer
                     </div>
                   </div>
 
@@ -263,7 +303,7 @@ const HeroSection = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
