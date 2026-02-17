@@ -24,9 +24,10 @@ const Footer = () => {
     {
       title: "Support",
       links: [
-        { label: "Donate", href: "#" },
-        { label: "Contact", href: "#" },
-        { label: "Report a Bug", href: "#" },
+        { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
+        { label: "Contact", href: "mailto:natively.contact@gmail.com" },
+        { label: "Report a Bug", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/issues" },
+        { label: "Hire Me", href: "mailto:evinjohnignatious@gmail.com?subject=Work Inquiry" },
       ],
     },
   ];
