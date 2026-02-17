@@ -12,6 +12,7 @@ const Navbar = () => {
 
   const navLinks: { label: string; href: string; isNew?: boolean }[] = [
     { label: "Features", href: "#" },
+    { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
     { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
   ];
 

@@ -1,7 +1,7 @@
 import { Play, CheckCircle, FileCheck } from "lucide-react";
-import startNativelyImg from "@/assets/startnatively.png";
-import endNativelyImg from "@/assets/endnatively.png";
-import notesImg from "@/assets/notes.png";
+import startNativelyImg from "@/assets/startnatively.webp";
+import endNativelyImg from "@/assets/endnatively.webp";
+import notesImg from "@/assets/notes.webp";
 
 const steps = [
   {

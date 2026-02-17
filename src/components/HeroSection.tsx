@@ -1,8 +1,8 @@
 import JellyClayButton from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
 
-import heroBackdrop from "@/assets/heroimage.jpeg";
-import desktopUI from "@/assets/desktopui.png";
+import heroBackdrop from "@/assets/heroimage.webp";
+import desktopUI from "@/assets/desktopui.webp";
 import heroVideo from "@/assets/hero.m4v";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";

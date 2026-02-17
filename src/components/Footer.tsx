@@ -4,6 +4,15 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   const columns = [
     {
+      title: "Open Source",
+      links: [
+        { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
+        { label: "Contribute", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/pulls" },
+        { label: "License", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/LICENSE" },
+        { label: "Changelog", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/CHANGELOG.md" },
+      ],
+    },
+    {
       title: "Trust",
       links: [
         { label: "Security", href: "#" },

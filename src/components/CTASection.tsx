@@ -1,5 +1,5 @@
 import JellyClayButton from "@/components/JellyClayButton";
-import bottomImg from "@/assets/bottom.jpeg";
+import bottomImg from "@/assets/bottom.webp";
 import Footer from "./Footer";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";

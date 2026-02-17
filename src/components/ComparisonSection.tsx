@@ -1,8 +1,8 @@
 import { Check, X, Bot, ChevronsLeftRight, Sparkles, Pencil, Share2, MoreHorizontal } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
-import logo from "@/assets/logo.png";
-import otherAI from "@/assets/otherai.png";
-import nativelyNote from "@/assets/nativelynote.png";
+import logo from "@/assets/logo.png"; // Keep logo as PNG for now as it's small/icon
+import otherAI from "@/assets/otherai.webp";
+import nativelyNote from "@/assets/nativelynote.webp";
 
 const ComparisonSection = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
