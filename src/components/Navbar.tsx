@@ -10,21 +10,10 @@ const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/re
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { label: "Pricing", href: "#pricing" },
-    { label: "Mobile", href: "#mobile", isNew: true },
-    { label: "Blog", href: "#blog" },
+  const navLinks: { label: string; href: string; isNew?: boolean }[] = [
+    { label: "Features", href: "#" },
+    { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
+    { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
   ];
 
   return (
@@ -32,8 +21,7 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 bg-transparent ${isScrolled ? "-translate-y-full" : "translate-y-0"
-        }`}
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
     >
       <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">

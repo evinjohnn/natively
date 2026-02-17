@@ -114,6 +114,14 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
+        "breathe": {
+          "0%, 100%": { opacity: "0.1" },
+          "50%": { opacity: "0.3" },
+        },
+        "pulse-visible": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -124,6 +132,8 @@ export default {
         "slide-up": "slide-up 0.5s ease-out forwards",
         "float": "float 6s ease-in-out infinite",
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
+        "breathe": "breathe 4s ease-in-out infinite",
+        "pulse-visible": "pulse-visible 4s ease-in-out infinite",
       },
     },
   },

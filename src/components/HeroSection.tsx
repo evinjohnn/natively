@@ -133,7 +133,7 @@ const HeroSection = () => {
             <img
               src={desktopUI}
               alt="MacOS Desktop Interface"
-              className="w-full h-auto object-cover"
+              className="scale-101 -mt-[1%] block relative"
             />
 
             {/* Layer 2: Zoom Meeting MP4 Placeholder - Drops from top */}
@@ -145,11 +145,11 @@ const HeroSection = () => {
                 duration: 2.2,
                 ease: [0.19, 1, 0.22, 1],
               }}
-              className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
+              className="absolute top-[12.5%] left-[16.5%] w-[67%] h-[62.5%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
             >
               <video
                 src={heroVideo}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover object-top"
                 autoPlay
                 loop
                 muted
@@ -194,7 +194,7 @@ const HeroSection = () => {
                 ease: "easeOut"
               }}
               // Positioning cursor relative to the video center-ish where the button is
-              className="absolute top-[16%] left-[16.5%] w-[67%] h-[60%] pointer-events-none z-50 flex items-end justify-center pb-8"
+              className="absolute top-[12.5%] left-[16.5%] w-[67%] h-[62.5%] pointer-events-none z-50 flex items-end justify-center pb-8"
             >
               {/* Offset cursor to align with button center visually */}
               <svg
@@ -220,7 +220,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.985, x: "-50%" }}
               animate={{ opacity: 1, scale: 1, x: "-50%" }}
               transition={{ delay: 5.5, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute top-[28%] left-1/2 w-[45%] z-30"
+              className="absolute top-[25%] left-1/2 w-[45%] z-30"
             >
               <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20">
                 {/* Header */}

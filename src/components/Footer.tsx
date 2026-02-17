@@ -4,28 +4,38 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   const columns = [
     {
-      title: "Resources",
+      title: "Project",
       links: [
-        { label: "Mobile", href: "#" },
-        { label: "Manifesto", href: "#" },
-        { label: "Press", href: "#" },
-        { label: "Bug Bounty", href: "#" },
+        { label: "About", href: "#" },
+        { label: "How It Works", href: "#" },
+        { label: "Features", href: "#" },
+        { label: "Roadmap", href: "#" },
+      ],
+    },
+    {
+      title: "Open Source",
+      links: [
+        { label: "GitHub", href: "#" },
+        { label: "Contribute", href: "#" },
+        { label: "License", href: "#" },
+        { label: "Changelog", href: "#" },
+      ],
+    },
+    {
+      title: "Trust",
+      links: [
+        { label: "Security", href: "#" },
+        { label: "Privacy", href: "#" },
+        { label: "FAQ", href: "#" },
+        { label: "Ethical Use", href: "#" },
       ],
     },
     {
       title: "Support",
       links: [
-        { label: "Help Center", href: "#" },
-        { label: "Contact Us", href: "#" },
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        { label: "Privacy Policy", href: "#" },
-        { label: "Terms of Service", href: "#" },
-        { label: "Data Processing Agreement", href: "#" },
-        { label: "Subprocessors", href: "#" },
+        { label: "Donate", href: "#" },
+        { label: "Contact", href: "#" },
+        { label: "Report a Bug", href: "#" },
       ],
     },
   ];
@@ -43,7 +53,7 @@ const Footer = () => {
           </div>
 
           {/* Links Columns */}
-          <div className="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
             {columns.map((col, i) => (
               <div key={i}>
                 <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>
@@ -55,11 +65,6 @@ const Footer = () => {
                         className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
                       >
                         {link.label}
-                        {link.label === "Mobile" && (
-                          <span className="px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[9px] font-bold uppercase tracking-wider">
-                            New
-                          </span>
-                        )}
                       </a>
                     </li>
                   ))}
