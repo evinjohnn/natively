@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import JellyClayButton from "@/components/JellyClayButton";
 import JellyClayGithubStars from "@/components/JellyClayGithubStars";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 import { motion } from "framer-motion";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
