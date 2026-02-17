@@ -1,12 +1,10 @@
-import JellyClayButton from "@/components/JellyClayButton";
+import JellyClayButton, { IntelMacFallbackLink, WindowsPortableLink } from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
 
 import heroBackdrop from "@/assets/hero.webp";
 import desktopUI from "@/assets/desktopui.webp";
 import heroVideo from "@/assets/hero.webm";
 import heroPoster from "@/assets/hero-poster.webp";
-
-const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
 const HeroSection = () => {
   return (
@@ -89,7 +87,7 @@ const HeroSection = () => {
           className="mb-24 flex flex-col items-center gap-4 scale-110"
         >
           <div className="relative group">
-            <JellyClayButton href={GITHUB_URL} className="text-xl" />
+            <JellyClayButton className="text-xl" />
             {/* Subtle glow pulse */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -101,6 +99,8 @@ const HeroSection = () => {
           <p className="text-sm text-gray-600 font-medium tracking-wide">
             Trusted by 3,000+ Users
           </p>
+          <IntelMacFallbackLink />
+          <WindowsPortableLink />
         </motion.div>
 
         {/* Hero Mockup Composition */}
