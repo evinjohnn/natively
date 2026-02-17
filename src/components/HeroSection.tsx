@@ -1,4 +1,4 @@
-import JellyClayButton, { IntelMacFallbackLink, WindowsPortableLink } from "@/components/JellyClayButton";
+import JellyClayButton from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
 
 import heroBackdrop from "@/assets/hero.webp";
@@ -99,8 +99,7 @@ const HeroSection = () => {
           <p className="text-sm text-gray-600 font-medium tracking-wide">
             Trusted by 3,000+ Users
           </p>
-          <IntelMacFallbackLink />
-          <WindowsPortableLink />
+
         </motion.div>
 
         {/* Hero Mockup Composition */}
