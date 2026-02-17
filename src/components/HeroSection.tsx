@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import heroBackdrop from "@/assets/hero.webp";
 import desktopUI from "@/assets/desktopui.webp";
-import heroVideo from "@/assets/hero.m4v";
+import heroVideo from "@/assets/hero.webm";
 import heroPoster from "@/assets/hero-poster.webp";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
@@ -148,17 +148,17 @@ const HeroSection = () => {
                 duration: 2.2,
                 ease: [0.19, 1, 0.22, 1],
               }}
-              className="absolute top-[12.5%] left-[16.5%] w-[67%] h-[62.5%] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
+              className="absolute top-[12.5%] left-[16.5%] w-[770px] h-[420px] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
             >
               <video
                 src={heroVideo}
                 poster={heroPoster}
-                className="w-full h-full -mt-[2%] -mb-[10%] ml-[0%] mr-[0%] object-contain"
+                preload="metadata"
+                className="w-full h-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
               />
 
               {/* Floating Prompt Button - Jelly Style (Centered) */}
