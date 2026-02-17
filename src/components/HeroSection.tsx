@@ -148,7 +148,7 @@ const HeroSection = () => {
                 duration: 2.2,
                 ease: [0.19, 1, 0.22, 1],
               }}
-              className="absolute top-[12.5%] left-[16.5%] w-[770px] h-[420px] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
+              className="absolute top-[12.5%] left-[16.5%] w-[770px] h-[435px] bg-black rounded-lg overflow-hidden border border-white/10 shadow-inner"
             >
               <video
                 src={heroVideo}
