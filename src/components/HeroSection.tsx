@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import heroBackdrop from "@/assets/hero.webp";
 import desktopUI from "@/assets/desktopui.webp";
 import heroVideo from "@/assets/hero.m4v";
+import heroPoster from "@/assets/hero-poster.webp";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
 
@@ -151,7 +152,7 @@ const HeroSection = () => {
             >
               <video
                 src={heroVideo}
-                poster="/src/assets/hero-poster.jpg"
+                poster={heroPoster}
                 className="w-full h-full -mt-[2%] -mb-[10%] ml-[0%] mr-[0%] object-contain"
                 autoPlay
                 loop

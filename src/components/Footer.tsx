@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-transparent pt-0 pb-10 border-t border-transparent z-10 relative">
-      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[80%] h-[3px] bg-gradient-to-r from-transparent via-gray-400/80 to-transparent backdrop-blur-md" />
+      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[74%] h-[3px] bg-white/20 backdrop-blur-md" />
       <div className="max-content">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           {/* Logo Column */}
