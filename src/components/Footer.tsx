@@ -1,5 +1,5 @@
 import { Github, Twitter } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 
 const Footer = () => {
   const columns = [
@@ -15,8 +15,8 @@ const Footer = () => {
     {
       title: "Legal",
       links: [
-        { label: "Security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/SECURITY.md" },
-        { label: "Privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/PRIVACY.md" },
+        { label: "Security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/SECURITY.md" },
+        { label: "Privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/PRIVACY.md" },
       ],
     },
     {
@@ -32,6 +32,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-transparent pt-0 pb-10 border-t border-transparent z-10 relative">
+      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[80%] h-[3px] bg-gradient-to-r from-transparent via-gray-400/80 to-transparent backdrop-blur-md" />
       <div className="max-content">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           {/* Logo Column */}

@@ -1,4 +1,4 @@
-import transcriptImg from "@/assets/transcript.webp";
+import transcriptImg from "@/assets/trancript.webp";
 
 const TranscriptionSection = () => {
   return (

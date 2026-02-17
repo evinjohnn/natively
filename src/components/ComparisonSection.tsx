@@ -1,6 +1,6 @@
 import { Check, X, Bot, ChevronsLeftRight, Sparkles, Pencil, Share2, MoreHorizontal } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
-import logo from "@/assets/logo.png"; // Keep logo as PNG for now as it's small/icon
+import logo from "@/assets/logo.webp";
 import otherAI from "@/assets/otherai.webp";
 import nativelyNote from "@/assets/nativelynote.webp";
 

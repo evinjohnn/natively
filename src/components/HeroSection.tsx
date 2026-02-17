@@ -1,7 +1,7 @@
 import JellyClayButton from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
 
-import heroBackdrop from "@/assets/heroimage.webp";
+import heroBackdrop from "@/assets/hero.webp";
 import desktopUI from "@/assets/desktopui.webp";
 import heroVideo from "@/assets/hero.m4v";
 
@@ -151,13 +151,13 @@ const HeroSection = () => {
             >
               <video
                 src={heroVideo}
-                poster="/hero-video-poster.jpg" // Add your poster image here
-                preload="metadata"
+                poster="/src/assets/hero-poster.jpg"
                 className="w-full h-full -mt-[2%] -mb-[10%] ml-[0%] mr-[0%] object-contain"
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="metadata"
               />
 
               {/* Floating Prompt Button - Jelly Style (Centered) */}
