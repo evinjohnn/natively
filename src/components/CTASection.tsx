@@ -11,6 +11,8 @@ const CTASection = () => {
       <img
         src={bottomImg}
         alt="Meeting AI Background"
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
       />
 

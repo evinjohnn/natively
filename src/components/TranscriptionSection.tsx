@@ -11,6 +11,8 @@ const TranscriptionSection = () => {
             <img
               src={transcriptImg}
               alt="Live Transcript UI"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover scale-110 translate-y-3 translate-x-2"
             />
           </div>

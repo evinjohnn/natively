@@ -15,6 +15,7 @@ const HeroSection = () => {
         <img
           src={heroBackdrop}
           alt="Hero Backdrop"
+          loading="eager" // Keep eager for LCP
           className="w-full h-full object-cover object-top opacity-100"
         />
         {/* Cubic eased gradient mask: super feeble start x^3 curve */}
@@ -133,6 +134,7 @@ const HeroSection = () => {
             <img
               src={desktopUI}
               alt="MacOS Desktop Interface"
+              loading="eager" // Keep eager as it's above fold
               className="scale-101 -mt-[1%] block relative"
             />
 
@@ -149,7 +151,9 @@ const HeroSection = () => {
             >
               <video
                 src={heroVideo}
-                className="w-full h-full object-cover object-top"
+                poster="/hero-video-poster.jpg" // Add your poster image here
+                preload="metadata"
+                className="w-full h-full -mt-[2%] -mb-[10%] ml-[0%] mr-[0%] object-contain"
                 autoPlay
                 loop
                 muted

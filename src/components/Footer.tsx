@@ -4,24 +4,6 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   const columns = [
     {
-      title: "Project",
-      links: [
-        { label: "About", href: "#" },
-        { label: "How It Works", href: "#" },
-        { label: "Features", href: "#" },
-        { label: "Roadmap", href: "#" },
-      ],
-    },
-    {
-      title: "Open Source",
-      links: [
-        { label: "GitHub", href: "#" },
-        { label: "Contribute", href: "#" },
-        { label: "License", href: "#" },
-        { label: "Changelog", href: "#" },
-      ],
-    },
-    {
       title: "Trust",
       links: [
         { label: "Security", href: "#" },

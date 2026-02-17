@@ -66,6 +66,8 @@ const StepsSection = () => {
                 <img
                   src={step.image}
                   alt={step.title}
+                  loading="lazy"
+                  decoding="async"
                   className={step.imageClass}
                 />
               </div>

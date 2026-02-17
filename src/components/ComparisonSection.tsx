@@ -78,6 +78,8 @@ const ComparisonSection = () => {
             <img
               src={otherAI}
               alt="Other AI Notetaker Background"
+              loading="lazy"
+              decoding="async"
               className="scale-150 translate-y-[-14%] translate-x-[-2%]"
               style={{ height: 'auto', maxHeight: '80%' }}
             />
@@ -111,6 +113,8 @@ const ComparisonSection = () => {
             <img
               src={nativelyNote}
               alt="Natively Notetaker Interface"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover z-0 translate-y-[5%] scale-110"
             />
 
