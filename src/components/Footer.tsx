@@ -4,7 +4,7 @@ import logo from "@/assets/logo.png";
 const Footer = () => {
   const columns = [
     {
-      title: "Open Source",
+      title: "Product",
       links: [
         { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
         { label: "Contribute", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/pulls" },
@@ -13,12 +13,10 @@ const Footer = () => {
       ],
     },
     {
-      title: "Trust",
+      title: "Legal",
       links: [
-        { label: "Security", href: "#" },
-        { label: "Privacy", href: "#" },
-        { label: "FAQ", href: "#" },
-        { label: "Ethical Use", href: "#" },
+        { label: "Security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/SECURITY.md" },
+        { label: "Privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/PRIVACY.md" },
       ],
     },
     {
@@ -27,7 +25,7 @@ const Footer = () => {
         { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
         { label: "Contact", href: "mailto:natively.contact@gmail.com" },
         { label: "Report a Bug", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/issues" },
-        { label: "Hire Me", href: "mailto:evinjohnignatious@gmail.com?subject=Work Inquiry" },
+
       ],
     },
   ];
@@ -35,9 +33,9 @@ const Footer = () => {
   return (
     <footer className="bg-transparent pt-0 pb-10 border-t border-transparent z-10 relative">
       <div className="max-content">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div className="flex flex-col md:flex-row justify-between gap-12">
           {/* Logo Column */}
-          <div className="col-span-1 md:col-span-4">
+          <div className="md:max-w-[300px]">
             <div className="flex items-center gap-2.5 mb-6">
               <img src={logo} alt="Natively Logo" className="w-6 h-6 object-contain brightness-0" />
               <span className="font-['Biennale',sans-serif] text-[24px] font-semibold leading-[24px] text-[#111827]">Natively</span>
@@ -45,7 +43,7 @@ const Footer = () => {
           </div>
 
           {/* Links Columns */}
-          <div className="col-span-1 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 md:pr-32">
             {columns.map((col, i) => (
               <div key={i}>
                 <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>
