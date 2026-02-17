@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { CONFIG } from "@/config/app";
 import { detectPlatform, type OSType } from "@/utils/os";
 import { trackEvent } from "@/utils/analytics";
+import DownloadModal from "./DownloadModal";
 
 // --- Components ---
 
@@ -126,6 +127,7 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     const [platform, setPlatform] = useState<OSType>('mac-arm64');
     const [downloadInfo, setDownloadInfo] = useState(getDownloadInfo('mac-arm64'));
     const [isLinuxModalOpen, setIsLinuxModalOpen] = useState(false);
+    const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
     useEffect(() => {
         detectPlatform().then((detectedPlatform) => {
@@ -153,6 +155,7 @@ export default function JellyClayButton({ className, children, href }: JellyClay
         const targetUrl = href || downloadInfo.url;
         const fileName = downloadInfo.fileName;
         const isWindows = platform === 'windows';
+        const isMac = platform === 'mac-arm64' || platform === 'mac-intel';
 
         // Fire generic "download_click"
         trackEvent("download_click", {
@@ -178,6 +181,11 @@ export default function JellyClayButton({ className, children, href }: JellyClay
                 window.location.href = href;
             } else {
                 window.location.href = targetUrl;
+            }
+
+            // Show modal for Mac users after download starts
+            if (isMac) {
+                setIsDownloadModalOpen(true);
             }
         }, 150);
     };
@@ -216,6 +224,14 @@ export default function JellyClayButton({ className, children, href }: JellyClay
             </motion.a>
 
             <LinuxModal isOpen={isLinuxModalOpen} onClose={() => setIsLinuxModalOpen(false)} />
+            <DownloadModal
+                isOpen={isDownloadModalOpen}
+                onClose={() => setIsDownloadModalOpen(false)}
+                onDownloadAgain={() => {
+                    const targetUrl = href || downloadInfo.url;
+                    window.location.href = targetUrl;
+                }}
+            />
         </>
     );
 }

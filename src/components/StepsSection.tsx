@@ -26,7 +26,7 @@ const steps = [
     title: "Get Notes",
     description: "Receive your structured notes and action items instantly in your inbox.",
     image: notesImg,
-    imageClass: "w-full h-full object-cover translate-y-8 scale-110",
+    imageClass: " object-cover translate-y-12",
   },
 ];
 
