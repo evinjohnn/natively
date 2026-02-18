@@ -29,7 +29,7 @@ const otherFeatures = [
 ];
 
 const FirstFeatureCard = () => (
-  <div className="rounded-[24px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-[#6B9BF7] to-[#4D7BF3] text-white border-none aspect-[6/5]">
+  <div className="rounded-[36px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-[#6B9BF7] to-[#4D7BF3] text-white border-none aspect-[6/5]">
     {/* Image area with Natively interface overlay */}
     <div className="relative w-full flex-1 min-h-0">
       {/* Hero poster background — cropped portion */}
@@ -50,7 +50,7 @@ const FirstFeatureCard = () => (
 
       {/* Natively interface overlay */}
       <div className="absolute inset-0 flex items-center justify-center p-5 pt-8">
-        <div className="w-full max-w-[380px] bg-black/40 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden border border-white/10 transform scale-90 sm:scale-100">
+        <div className="w-full max-w-[380px] bg-black/40 backdrop-blur-xl rounded-[24px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] overflow-hidden border border-white/10 transform scale-90 sm:scale-100">
           {/* Header */}
           <div className="p-4 pb-2 flex justify-end">
             <div className="relative bg-gradient-to-br from-blue-400 to-blue-600 px-3 py-1.5 rounded-full text-white text-[13px] font-semibold tracking-wide shadow-[0_8px_20px_rgba(37,99,235,0.35)] border border-white/20">

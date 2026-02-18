@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 
 export default function PremiumMeetingNotesCard() {
     return (
-        <div className="w-full h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[24px] overflow-hidden relative group border border-[#E5E7EB] hover:shadow-lg transition-all duration-300">
+        <div className="w-full h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
             <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="w-full h-full flex items-center justify-center p-4 translate-y-6"
+                className="w-full h-full flex items-center justify-center p-4"
             >
                 <div
-                    className="w-full max-w-[500px] h-[280px] rounded-[24px] p-[2px] transform transition-transform duration-500 hover:scale-[1.02]"
+                    className="w-full max-w-[500px] h-[310px] rounded-[24px] p-[2px] transform transition-transform duration-500 hover:scale-[1.02] translate-y-8"
                     style={{
                         background:
                             "linear-gradient(145deg, rgba(255,255,255,0.85), rgba(220,224,235,0.6))",
@@ -54,7 +54,6 @@ export default function PremiumMeetingNotesCard() {
                                         <div className="w-24 h-1.5 mt-1.5 rounded-full bg-[#dde2ec]" />
                                     </div>
                                 </div>
-                                <div className="w-6 h-6 rounded-lg bg-[#eef1f6] shadow-inner" />
                             </div>
 
                             <div className="h-[1px] bg-[#e4e8f0] rounded-full" />
@@ -74,31 +73,22 @@ export default function PremiumMeetingNotesCard() {
                                         <div className="w-20 h-1.5 mt-1.5 rounded-full bg-[#dde2ec]" />
                                     </div>
                                 </div>
-                                <div className="flex gap-1.5">
-                                    <div className="w-6 h-6 rounded-lg bg-[#eef1f6] shadow-inner" />
-                                    <div className="w-6 h-6 rounded-lg bg-[#eef1f6] shadow-inner" />
-                                </div>
                             </div>
                         </div>
 
                         {/* Notes Section */}
-                        <div className="flex flex-col gap-1.5">
-                            <p className="text-[10px] text-[#9aa3b2] font-medium uppercase tracking-wider">
-                                Meeting notes
-                            </p>
+                        <div className="flex flex-col gap-1.5 mt-4">
                             <h2 className="text-lg font-semibold text-[#2f3542]">
-                                Opening and Introductions
+                                Beautiful meeting notes
                             </h2>
                             <div className="w-full h-1.5 mt-1 rounded-full bg-[#dde2ec]" />
                             <div className="w-4/5 h-1.5 rounded-full bg-[#e3e7ef]" />
+                            <p className="text-[14px] text-[#9aa3b2] font-medium mt-2">
+                                Instant shareable meeting notes by AI
+                            </p>
                         </div>
 
-                        {/* Footer */}
-                        <div className="flex items-center justify-center mt-auto opacity-0 md:opacity-100 transition-opacity">
-                            <span className="text-[10px] text-[#9aa3b2]">
-                                Beautiful meeting notes
-                            </span>
-                        </div>
+                        {/* Footer - Removed */}
                     </div>
                 </div>
             </motion.div>

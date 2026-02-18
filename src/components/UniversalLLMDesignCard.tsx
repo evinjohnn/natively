@@ -44,7 +44,7 @@ export default function UniversalLLMDesignCard() {
                                 ease: "easeInOut"
                             }
                         }}
-                        className="relative w-full h-full 
+                        className="relative w-full h-[115%] 
                             rounded-t-[24px] rounded-b-none
                             bg-gradient-to-br from-white/80 to-white/60
                             backdrop-blur-xl
@@ -62,8 +62,6 @@ export default function UniversalLLMDesignCard() {
 
                             {/* Jelly Button */}
                             <motion.button
-                                whileHover={{ scale: 1.07 }}
-                                whileTap={{ scale: 0.95 }}
                                 transition={{ type: "spring", stiffness: 220, damping: 15 }}
                                 className="relative px-7 py-2.5 rounded-full text-white 
                                     text-[14px] font-medium
@@ -85,10 +83,9 @@ export default function UniversalLLMDesignCard() {
 
                         {/* LLM Rows */}
                         <div className="space-y-5 mt-4">
-                            {[1, 2, 3].map((item) => (
+                            {[1, 2, 3, 4].map((item) => (
                                 <motion.div
                                     key={item}
-                                    whileHover={{ y: -3 }}
                                     className="flex items-center justify-between 
                                         rounded-[28px]
                                         bg-gradient-to-br from-white to-[#f7f9ff]
