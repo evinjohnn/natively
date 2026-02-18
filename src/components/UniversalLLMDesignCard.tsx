@@ -26,7 +26,7 @@ export default function UniversalLLMDesignCard() {
                         Universal LLM Interface
                     </h3>
                     <p className="text-[20px] text-[#7b8596] leading-[1.5]">
-                        Invoke, orchestrate, and monitor multiple AI providers through one refined surface.
+                        Bring your own keys for OpenAI, Claude, Gemini, and more. A model-agnostic workspace for total control.
                     </p>
                 </div>
 
@@ -53,60 +53,69 @@ export default function UniversalLLMDesignCard() {
                                     0_8px_20px_rgba(255,255,255,0.6)_inset]
                             p-6 flex flex-col gap-6">
 
-                        {/* Top Row */}
-                        <div className="flex items-start justify-between">
-                            <div>
-                                <div className="h-3 w-44 bg-neutral-300/60 rounded-full mb-3" />
-                                <div className="h-3 w-32 bg-neutral-300/50 rounded-full" />
+                        {/* Top Row - Header/Status */}
+                        <div className="flex items-center justify-between pb-2 border-b border-black/5">
+                            <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)] animate-pulse" />
+                                <span className="text-sm font-medium text-neutral-600">3 Models Active</span>
                             </div>
 
-                            {/* Jelly Button */}
+                            {/* Add Key Button */}
                             <motion.button
-                                transition={{ type: "spring", stiffness: 220, damping: 15 }}
-                                className="relative px-7 py-2.5 rounded-full text-white 
-                                    text-[14px] font-medium
-                                    bg-gradient-to-br from-[#7bb3ff] to-[#4f8dfc]
-                                    shadow-[0_15px_35px_rgba(79,141,252,0.45)]
-                                    overflow-hidden">
-
-                                <span className="relative z-10">Invoke</span>
-
-                                {/* Gloss highlight */}
-                                <div className="absolute top-0 left-0 w-full h-1/2 
-                                    bg-white/40 blur-md opacity-60" />
-
-                                {/* Inner glow */}
-                                <div className="absolute inset-0 rounded-full 
-                                    shadow-[inset_0_-4px_10px_rgba(0,0,0,0.2)]" />
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="px-4 py-1.5 rounded-full text-white 
+                                    text-[13px] font-medium
+                                    bg-[#2b3445]
+                                    shadow-[0_4px_12px_rgba(43,52,69,0.2)]">
+                                + Add Key
                             </motion.button>
                         </div>
 
                         {/* LLM Rows */}
-                        <div className="space-y-5 mt-4">
-                            {[1, 2, 3, 4].map((item) => (
+                        <div className="space-y-3">
+                            {[
+                                { name: "OpenAI", model: "GPT-4o", color: "bg-black", connected: true },
+                                { name: "Anthropic", model: "Claude 3.5 Sonnet", color: "bg-[#d97757]", connected: true },
+                                { name: "Google", model: "Gemini 1.5 Pro", color: "bg-[#4285F4]", connected: false },
+                                { name: "Groq", model: "Llama 3 70B", color: "bg-[#f55036]", connected: false },
+                            ].map((provider, i) => (
                                 <motion.div
-                                    key={item}
+                                    key={provider.name}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 }}
                                     className="flex items-center justify-between 
-                                        rounded-[28px]
-                                        bg-gradient-to-br from-white to-[#f7f9ff]
-                                        border border-white/80
-                                        px-6 py-5
-                                        shadow-[0_20px_40px_rgba(30,41,59,0.12),
-                                                0_4px_12px_rgba(255,255,255,0.6)_inset]">
+                                        rounded-[20px]
+                                        bg-white/50
+                                        border border-white/60
+                                        pl-4 pr-3 py-3
+                                        hover:bg-white/80 transition-colors duration-300">
 
-                                    <div className="flex items-center gap-5">
-                                        <div className="w-12 h-12 rounded-full 
-                                            bg-gradient-to-br from-[#eef2ff] to-[#dbe4ff]
-                                            shadow-inner" />
+                                    <div className="flex items-center gap-4">
+                                        <div className={`w-10 h-10 rounded-xl ${provider.color} 
+                                            flex items-center justify-center text-white text-[10px] font-bold shadow-sm`}>
+                                            {provider.name[0]}
+                                        </div>
                                         <div>
-                                            <div className="h-3 w-32 bg-neutral-300/60 rounded-full mb-2" />
-                                            <div className="h-2 w-20 bg-neutral-300/50 rounded-full" />
+                                            <div className="text-[15px] font-semibold text-slate-700 leading-tight">
+                                                {provider.name}
+                                            </div>
+                                            <div className="text-[12px] font-medium text-slate-400">
+                                                {provider.model}
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="h-8 w-16 rounded-full 
-                                        bg-gradient-to-br from-[#e4e8f3] to-[#d8deec]
-                                        shadow-inner" />
+                                    {provider.connected ? (
+                                        <div className="px-3 py-1 rounded-full bg-emerald-100/80 border border-emerald-200/50 text-emerald-700 text-[11px] font-semibold">
+                                            Connected
+                                        </div>
+                                    ) : (
+                                        <div className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[11px] font-semibold">
+                                            Connect
+                                        </div>
+                                    )}
                                 </motion.div>
                             ))}
                         </div>
