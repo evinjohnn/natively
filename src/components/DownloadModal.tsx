@@ -68,15 +68,15 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 h-full">
                                     {/* Step 1 */}
                                     <div className="flex flex-col gap-5 group relative">
-                                        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-sm z-20 pointer-events-none">
+                                        <div className="absolute top-[-20px] left-[-12px] w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-sm z-20 pointer-events-none">
                                             1
                                         </div>
-                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300 group-hover:shadow-md">
+                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300">
                                             <div className="w-full h-full p-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
                                                 <img
                                                     src={zipImg}
                                                     alt="Extract Zip"
-                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-125 group-hover:scale-150"
+                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-150"
                                                 />
                                             </div>
                                         </div>
@@ -90,15 +90,15 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
 
                                     {/* Step 2 */}
                                     <div className="flex flex-col gap-5 group relative">
-                                        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 pointer-events-none">
+                                        <div className="absolute top-[-20px] left-[-12px] w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 pointer-events-none">
                                             2
                                         </div>
-                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300 group-hover:shadow-md">
+                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300">
                                             <div className="w-full h-full p-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
                                                 <img
                                                     src={copyImg}
                                                     alt="Move to Applications"
-                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-125 group-hover:scale-150"
+                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-150"
                                                 />
                                             </div>
                                         </div>
@@ -112,15 +112,15 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
 
                                     {/* Step 3 */}
                                     <div className="flex flex-col gap-5 group relative">
-                                        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 pointer-events-none">
+                                        <div className="absolute top-[-20px] left-[-12px] w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 pointer-events-none">
                                             3
                                         </div>
-                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300 group-hover:shadow-md">
+                                        <div className="relative aspect-[4/3] bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden transition-all duration-300">
                                             <div className="w-full h-full p-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
                                                 <img
                                                     src={errorImg}
                                                     alt="Security Warning"
-                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-125 translate-y-4 group-hover:scale-150"
+                                                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 scale-150 translate-y-2"
                                                 />
                                             </div>
                                         </div>
@@ -134,10 +134,10 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
 
                                     {/* Step 4 */}
                                     <div className="flex flex-col gap-5 group relative">
-                                        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 shadow-lg pointer-events-none">
+                                        <div className="absolute top-[-20px] left-[-12px] w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm z-20 shadow-lg pointer-events-none">
                                             4
                                         </div>
-                                        <div className="relative aspect-[4/3] bg-[#1E1E1E] rounded-2xl shadow-sm border border-black/5 overflow-hidden flex flex-col transition-all duration-300 group-hover:shadow-md ring-1 ring-black/5">
+                                        <div className="relative aspect-[4/3] bg-[#1E1E1E] rounded-2xl shadow-sm border border-black/5 overflow-hidden flex flex-col transition-all duration-300 ring-1 ring-black/5">
                                             {/* Terminal Header */}
                                             <div className="h-8 bg-[#2D2D2D] w-full flex items-center gap-1.5 px-3 border-b border-white/5">
                                                 <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
@@ -148,7 +148,7 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                             {/* Terminal Body */}
                                             <div className="flex-1 p-4 flex flex-col justify-center relative font-mono">
                                                 <div className="text-gray-400 text-xs mb-2 select-none">$ Fix "Damaged App"</div>
-                                                <div className="bg-black/30 rounded-lg p-2.5 flex items-center justify-between group/cmd border border-white/10 hover:border-white/20 transition-colors">
+                                                <div className="bg-black/30 rounded-lg p-2.5 flex items-center justify-between group/cmd border border-white/10 animate-glow-breathe transition-colors">
                                                     <code className="text-[11px] text-green-400 font-mono whitespace-nowrap overflow-x-auto scrollbar-none mr-2">
                                                         {command}
                                                     </code>

@@ -1,23 +1,7 @@
-import { MessageSquare, Mail, Users, FileText } from "lucide-react";
+import { Mail, Users, FileText } from "lucide-react";
+import heroPoster from "../assets/hero-poster.webp";
 
-const features = [
-  {
-    icon: MessageSquare,
-    title: "AI answers questions for you",
-    description: "Get real-time suggested answers based on your meeting context and past data.",
-    preview: (
-      <div className="mt-6 bg-[#F3F4F6] rounded-[12px] p-3 space-y-2">
-        <div className="flex gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A] mt-1" />
-          <p className="text-[11px] text-[#374151]">"What was our Q2 growth?"</p>
-        </div>
-        <div className="bg-white rounded-lg p-2 border border-[#E5E7EB] shadow-sm">
-          <p className="text-[10px] font-semibold text-[#16A34A] mb-0.5">Natively Suggestion</p>
-          <p className="text-[10px] text-[#6B7280]">Our Q2 growth was 24% year-over-year.</p>
-        </div>
-      </div>
-    ),
-  },
+const otherFeatures = [
   {
     icon: Mail,
     title: "Instant follow-up emails",
@@ -67,6 +51,97 @@ const features = [
   },
 ];
 
+const FirstFeatureCard = () => (
+  <div className="rounded-[24px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-[#6B9BF7] to-[#4D7BF3] text-white border-none aspect-[6/5]">
+    {/* Image area with Natively interface overlay */}
+    <div className="relative w-full flex-1 min-h-0">
+      {/* Hero poster background — cropped portion */}
+      <img
+        src={heroPoster}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ filter: 'blur(0.5px)' }}
+      />
+      {/* Blue gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(107,155,247,0.55) 0%, rgba(77,123,243,0.7) 60%, rgba(77,123,243,0.92) 100%)',
+        }}
+      />
+
+      {/* Natively interface overlay */}
+      <div className="absolute inset-0 flex items-center justify-center p-5 pt-8">
+        <div className="w-full max-w-[340px] flex flex-col gap-2.5">
+          {/* "What do I say next?" pill — top right */}
+          <div className="flex justify-end">
+            <div
+              className="px-4 py-2 rounded-lg text-[13px] font-medium text-white"
+              style={{
+                background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+              }}
+            >
+              What do I say next?
+            </div>
+          </div>
+
+          {/* Response bubble — glassmorphic */}
+          <div
+            className="rounded-xl px-5 py-4"
+            style={{
+              background: 'rgba(30, 58, 110, 0.55)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <p className="text-[13px] leading-[1.55] text-white/95 font-normal">
+              "I hear you on the integration concerns—that's usually the first thing that comes up. We've actually built direct connectors for the tools you mentioned, and our average setup time is only half a day."
+            </p>
+          </div>
+
+          {/* Ask bar */}
+          <div
+            className="rounded-lg px-4 py-2.5 flex items-center gap-2"
+            style={{
+              background: 'rgba(30, 58, 110, 0.45)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.1)',
+            }}
+          >
+            <span className="text-[13px] text-white/50 font-normal">Ask,</span>
+            <div className="flex items-center gap-1">
+              <span className="px-1.5 py-0.5 rounded bg-white/15 text-[10px] text-white/60 font-medium">⌘</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/15 text-[10px] text-white/60 font-medium">↵</span>
+            </div>
+            <span className="text-[13px] text-white/50 font-normal">for Assist</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom edge: participant name chips */}
+      <div className="absolute bottom-2 left-4 right-4 flex justify-between">
+        <span className="text-[9px] text-white/40 font-medium tracking-wide">all Ray Lee</span>
+        <span className="text-[9px] text-white/40 font-medium tracking-wide">all Neel Shanmugam</span>
+      </div>
+    </div>
+
+    {/* Text content */}
+    <div className="p-8 pt-6 shrink-0">
+      <h3 className="text-[24px] font-medium mb-3 text-white font-geist">
+        AI that answers questions for you, real-time
+      </h3>
+      <p className="text-[16px] leading-relaxed max-w-[90%] text-white/80 font-geist">
+        Cluely uses the screen, transcript, and AI to answer questions for you, live.
+      </p>
+    </div>
+  </div>
+);
+
 const FeaturesSection = () => {
   return (
     <section className="section-spacing bg-white" id="features" style={{ backgroundColor: '#ffffff' }}>
@@ -78,32 +153,29 @@ const FeaturesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feature, i) => (
+          {/* First card — custom hero poster design */}
+          <FirstFeatureCard />
+
+          {/* Other three feature cards */}
+          {otherFeatures.map((feature, i) => (
             <div
               key={i}
-              className={`rounded-[24px] p-8 flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg ${i === 0
-                ? "bg-gradient-to-br from-[#3B82F6] to-[#2563EB] text-white border-none"
-                : "bg-white border border-[#E5E7EB] text-[#111827]"
-                }`}
+              className="rounded-[24px] p-8 flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-white border border-[#E5E7EB] text-[#111827]"
             >
-              <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center mb-6 ${i === 0 ? "bg-white/20 text-white" : "bg-[#F3F4F6] text-[#6B7280]"
-                }`}>
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center mb-6 bg-[#F3F4F6] text-[#6B7280]">
                 <feature.icon size={24} />
               </div>
 
-              <h3 className={`text-[24px] font-medium mb-3 ${i === 0 ? "text-white" : "text-[#111827]"
-                } font-geist`}>
+              <h3 className="text-[24px] font-medium mb-3 text-[#111827] font-geist">
                 {feature.title}
               </h3>
 
-              <p className={`text-[16px] leading-relaxed mb-8 max-w-[90%] ${i === 0 ? "text-white/80" : "text-[#6B7280]"
-                } font-geist`}>
+              <p className="text-[16px] leading-relaxed mb-8 max-w-[90%] text-[#6B7280] font-geist">
                 {feature.description}
               </p>
 
               {/* Mini UI Preview Container */}
-              <div className={`mt-auto rounded-t-[12px] overflow-hidden border-t-4 shadow-sm ${i === 0 ? "bg-white/10 border-white/20" : "bg-[#F9FAFB] border-[#F3F4F6]"
-                }`}>
+              <div className="mt-auto rounded-t-[12px] overflow-hidden border-t-4 shadow-sm bg-[#F9FAFB] border-[#F3F4F6]">
                 {feature.preview}
               </div>
             </div>

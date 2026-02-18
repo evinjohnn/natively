@@ -118,6 +118,16 @@ export default {
           "0%, 100%": { opacity: "0.1" },
           "50%": { opacity: "0.3" },
         },
+        "glow-breathe": {
+          "0%, 100%": {
+            borderColor: "rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 0 0 rgba(255, 255, 255, 0)"
+          },
+          "50%": {
+            borderColor: "rgba(255, 255, 255, 0.5)",
+            boxShadow: "0 0 20px 0 rgba(255, 255, 255, 0.1)"
+          },
+        },
         "pulse-visible": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
@@ -133,6 +143,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "breathe": "breathe 4s ease-in-out infinite",
+        "glow-breathe": "glow-breathe 3s ease-in-out infinite",
         "pulse-visible": "pulse-visible 4s ease-in-out infinite",
       },
     },
