@@ -19,8 +19,7 @@ export default function ResumeJDAwareCard() {
                             </div>
 
                             <h2 className="text-[26px] sm:text-[30px] font-semibold tracking-[-0.02em] text-[#2f3542] leading-snug font-geist">
-                                Resume & JD Aware
-                                <br />
+                                Resume Aware
                                 Responses
                             </h2>
                         </div>
@@ -31,9 +30,9 @@ export default function ResumeJDAwareCard() {
                     </div>
 
                     {/* Visual Clay Surface */}
-                    <div className="relative translate-y-4">
+                    <div className="relative translate-y-8 ">
                         <motion.div
-                            whileHover={{ y: -6 }}
+
                             transition={{ type: "spring", stiffness: 180, damping: 18 }}
                             className="w-full h-[130px] rounded-[24px] p-5 sm:p-7 space-y-3 sm:space-y-4"
                             style={{
