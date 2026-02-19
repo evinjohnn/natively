@@ -18,8 +18,8 @@ const TranscriptionSection = () => {
           </div>
 
           {/* Stats Blocks */}
-          <div className="flex flex-col pl-4">
-            <h2 className="hero-headline !text-black text-[48px] leading-tight mb-6 text-left">Real-time transcription</h2>
+          <div className="flex flex-col pl-0 pt-8 lg:pl-4 lg:pt-0">
+            <h2 className="hero-headline !text-black text-[32px] md:text-[48px] leading-tight mb-6 text-left">Real-time transcription</h2>
 
             <div className="flex flex-col">
               <div className="flex gap-8 py-6 border-t border-gray-100 first:border-t-0 items-start">

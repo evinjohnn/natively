@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import openaiLogo from "../assets/openai.png";
+import claudeLogo from "../assets/claude.png";
+import geminiLogo from "../assets/gemini.webp";
 
 export default function UniversalLLMDesignCard() {
     return (
         <div className="w-full flex items-center justify-center 
-            bg-gradient-to-br from-[#f6f7fb] via-[#eef1f7] to-[#e8ebf4] 
-            rounded-[36px] overflow-hidden aspect-[6/5] pt-12 px-12 pb-0 relative">
+            bg-[#eef0f4] 
+            rounded-[36px] overflow-hidden h-auto md:aspect-[6/5] pt-8 px-6 md:pt-12 md:px-12 pb-0 relative group hover:shadow-lg transition-all duration-300">
 
             {/* Ambient radial glow */}
             <div className="absolute inset-0 pointer-events-none">
@@ -21,98 +24,119 @@ export default function UniversalLLMDesignCard() {
             <div className="relative w-full h-full flex flex-col justify-between">
 
                 {/* Heading */}
-                <div className="space-y-4 max-w-[75%]">
-                    <h3 className="text-[42px] leading-[1.08] font-semibold tracking-[-0.02em] text-[#2b3445]">
+                <div className="space-y-4 max-w-[85%]">
+                    <h3 className="text-[28px] md:text-[38px] leading-[1.1] font-semibold tracking-[-0.02em] text-[#2b3445]">
                         Universal LLM Interface
                     </h3>
-                    <p className="text-[20px] text-[#7b8596] leading-[1.5]">
-                        Bring your own keys for OpenAI, Claude, Gemini, and more. A model-agnostic workspace for total control.
+                    <p className="text-[16px] md:text-[18px] text-[#7b8596] leading-[1.5] font-medium">
+                        Invoke, orchestrate, and monitor multiple AI providers through one refined surface.
                     </p>
                 </div>
 
-                {/* Main Jelly Card */}
-                <div className="relative flex-1 overflow-hidden mt-10">
+                {/* Main Clay Card */}
+                <div className="relative flex-1 mt-8 perspective-1000">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        animate={{ y: [0, -6, 0] }}
+                        initial={{ opacity: 0, y: 40, rotateX: 5 }}
+                        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                         transition={{
-                            y: {
-                                duration: 6,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 20,
+                            mass: 1
                         }}
-                        className="relative w-full h-[115%] 
-                            rounded-t-[24px] rounded-b-none
-                            bg-gradient-to-br from-white/80 to-white/60
-                            backdrop-blur-xl
-                            border border-white/70
-                            shadow-[0_40px_80px_rgba(30,41,59,0.15),
-                                    0_8px_20px_rgba(255,255,255,0.6)_inset]
-                            p-6 flex flex-col gap-6">
+                        className="relative w-full h-[120%] 
+                            rounded-t-[32px] 
+                            p-6 flex flex-col gap-6"
+                        style={{
+                            background: "linear-gradient(180deg, #f7f8fb 0%, #eceff5 100%)",
+                            boxShadow: "inset 6px 6px 12px rgba(163,177,198,0.25), inset -6px -6px 12px rgba(255,255,255,0.8)"
+                        }}>
 
                         {/* Top Row - Header/Status */}
-                        <div className="flex items-center justify-between pb-2 border-b border-black/5">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)] animate-pulse" />
-                                <span className="text-sm font-medium text-neutral-600">3 Models Active</span>
+                        <div className="flex items-center justify-between pb-4 border-b border-black/5">
+                            <div className="flex items-center gap-2.5 bg-white/60 px-3 py-1.5 rounded-full shadow-sm border border-white/50">
+                                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
+                                <span className="text-[11px] md:text-[13px] font-semibold text-neutral-600">3 Models Active</span>
                             </div>
 
-                            {/* Add Key Button */}
+                            {/* Add Key Button - Premium Blue Jelly Style */}
                             <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="px-4 py-1.5 rounded-full text-white 
-                                    text-[13px] font-medium
-                                    bg-[#2b3445]
-                                    shadow-[0_4px_12px_rgba(43,52,69,0.2)]">
-                                + Add Key
+                                whileHover={{ scale: 1.05, translateY: -1 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                className="relative px-5 py-2 rounded-full flex items-center gap-2.5 
+                                    bg-gradient-to-br from-blue-400 to-blue-600 
+                                    shadow-[0_8px_20px_rgba(37,99,235,0.35)] 
+                                    border border-white/20 
+                                    text-white text-[13px] font-semibold tracking-wide overflow-hidden group/btn">
+
+                                {/* Inner Gloss Effect */}
+                                <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
+
+                                <span className="relative drop-shadow-sm">+ Add Key</span>
                             </motion.button>
                         </div>
 
                         {/* LLM Rows */}
                         <div className="space-y-3">
                             {[
-                                { name: "OpenAI", model: "GPT-4o", color: "bg-black", connected: true },
-                                { name: "Anthropic", model: "Claude 3.5 Sonnet", color: "bg-[#d97757]", connected: true },
-                                { name: "Google", model: "Gemini 1.5 Pro", color: "bg-[#4285F4]", connected: false },
-                                { name: "Groq", model: "Llama 3 70B", color: "bg-[#f55036]", connected: false },
+                                { name: "OpenAI", model: "GPT-5.2", logo: openaiLogo, connected: true },
+                                { name: "Anthropic", model: "Sonnet 4.5", logo: claudeLogo, connected: true },
+                                { name: "Google", model: "Gemini 3 Pro", logo: geminiLogo, connected: true },
                             ].map((provider, i) => (
                                 <motion.div
                                     key={provider.name}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
+                                    initial={{ opacity: 0, x: -15, y: 10 }}
+                                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        delay: i * 0.08,
+                                        type: "spring",
+                                        stiffness: 120,
+                                        damping: 12
+                                    }}
+                                    whileHover={{
+                                        scale: 1.02,
+                                        backgroundColor: "rgba(255, 255, 255, 0.95)",
+                                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 4px 10px -3px rgba(0, 0, 0, 0.01)"
+                                    }}
                                     className="flex items-center justify-between 
-                                        rounded-[20px]
-                                        bg-white/50
-                                        border border-white/60
-                                        pl-4 pr-3 py-3
-                                        hover:bg-white/80 transition-colors duration-300">
+                                        rounded-[22px]
+                                        bg-white/60
+                                        border border-white/80
+                                        pl-4 pr-4 py-3.5
+                                        shadow-[0_1px_2px_rgba(0,0,0,0.02),inset_0_0_0_1px_rgba(255,255,255,0.5)]
+                                        cursor-pointer
+                                        group/item">
 
                                     <div className="flex items-center gap-4">
-                                        <div className={`w-10 h-10 rounded-xl ${provider.color} 
-                                            flex items-center justify-center text-white text-[10px] font-bold shadow-sm`}>
-                                            {provider.name[0]}
+                                        <div className="w-11 h-11 rounded-2xl bg-white 
+                                            flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_2px_rgba(255,255,255,0.8)] 
+                                            overflow-hidden p-2 ring-1 ring-black/5">
+                                            <img
+                                                src={provider.logo}
+                                                alt={provider.name}
+                                                className="w-full h-full object-contain filter group-hover/item:brightness-110 transition-all"
+                                            />
                                         </div>
                                         <div>
-                                            <div className="text-[15px] font-semibold text-slate-700 leading-tight">
+                                            <div className="text-[15px] font-bold text-[#2f3542] leading-tight mb-0.5">
                                                 {provider.name}
                                             </div>
-                                            <div className="text-[12px] font-medium text-slate-400">
+                                            <div className="text-[12px] font-medium text-[#8890a0]">
                                                 {provider.model}
                                             </div>
                                         </div>
                                     </div>
 
                                     {provider.connected ? (
-                                        <div className="px-3 py-1 rounded-full bg-emerald-100/80 border border-emerald-200/50 text-emerald-700 text-[11px] font-semibold">
-                                            Connected
+                                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 shadow-sm border border-emerald-100">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
                                         </div>
                                     ) : (
-                                        <div className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[11px] font-semibold">
+                                        <div className="px-3 py-1.5 rounded-full bg-[#f1f3f7] text-[#64748b] text-[11px] font-bold tracking-wide hover:bg-[#e2e6ea] transition-colors">
                                             Connect
                                         </div>
                                     )}

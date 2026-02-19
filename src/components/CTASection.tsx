@@ -20,7 +20,7 @@ const CTASection = () => {
       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
 
       {/* Main Content Area */}
-      <div className="max-content relative z-10 w-full flex-grow flex items-center pt-32 pb-20">
+      <div className="max-content relative z-10 w-full flex-grow flex items-center pt-16 pb-12 md:pt-32 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
           {/* Left Content */}
           <div className="text-left">

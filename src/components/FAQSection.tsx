@@ -59,7 +59,7 @@ const FAQSection = () => {
   return (
     <section className="section-spacing bg-white">
       <div className="max-content max-w-3xl mx-auto">
-        <h2 className="hero-headline !text-black text-[48px] leading-tight mb-12 text-center mx-auto">Frequently asked questions</h2>
+        <h2 className="hero-headline !text-black text-[32px] md:text-[48px] leading-tight mb-12 text-center mx-auto">Frequently asked questions</h2>
 
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, i) => (

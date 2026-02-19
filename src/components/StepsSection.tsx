@@ -35,7 +35,7 @@ const StepsSection = () => {
     <section className="section-spacing bg-white">
       <div className="max-w-[1350px] mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="hero-headline !text-[#111827] text-[48px] leading-tight mb-4 mx-auto text-center">Meeting notes in 3 steps</h2>
+          <h2 className="hero-headline !text-[#111827] text-[32px] md:text-[48px] leading-tight mb-4 mx-auto text-center">Meeting notes in 3 steps</h2>
           <p className="text-[20px] text-[#6B7280] font-normal font-geist">The easiest way to get beautiful, shareable meeting notes.</p>
         </div>
 

@@ -52,15 +52,15 @@ const ComparisonSection = () => {
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 flex flex-col items-center">
           <p className="text-[#3B82F6] font-medium mb-4 uppercase tracking-wider">Works with all platforms</p>
-          <h2 className="hero-headline !text-black text-[56px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl">
+          <h2 className="hero-headline !text-black text-[36px] md:text-[56px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl">
             No meeting bots.<br />100% Undetectable.
           </h2>
         </div>
 
-        <div className="w-full max-w-[1055px] grid grid-cols-1 lg:grid-cols-2 h-[520px] rounded-[32px] overflow-hidden">
+        <div className="w-full max-w-[1055px] grid grid-cols-1 lg:grid-cols-2 h-auto lg:h-[520px] rounded-[32px] overflow-hidden gap-8 lg:gap-0">
 
           {/* Left Side - Competitors */}
-          <div className="bg-gray-50/80 pt-12 flex flex-col items-center text-center relative overflow-hidden group">
+          <div className="bg-gray-50/80 pt-12 flex flex-col items-center text-center relative overflow-hidden group h-[520px] w-full rounded-[32px] lg:rounded-none">
 
             <div className="relative z-10 flex flex-col items-center">
               <h3 className="text-[32px] font-semibold text-gray-900 mb-4 font-geist tracking-tight">
@@ -85,7 +85,7 @@ const ComparisonSection = () => {
             />
 
             {/* Inner Blue Box */}
-            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[280px] bg-[#3B5998] rounded-[32px] shadow-2xl flex flex-col justify-between p-6 z-20">
+            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[280px] bg-[#3B5998] rounded-[32px] shadow-2xl flex flex-col justify-between p-6 z-20">
               {/* Center Logo */}
               <div className="flex-1 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
@@ -105,7 +105,7 @@ const ComparisonSection = () => {
           </div>
 
           {/* Right Side - Natively */}
-          <div className="bg-gray-50/80 pt-12 flex flex-col items-center text-center relative overflow-hidden group">
+          <div className="bg-gray-50/80 pt-12 flex flex-col items-center text-center relative overflow-hidden group h-[520px] w-full rounded-[32px] lg:rounded-none">
             {/* Background Gradient/Texture */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none z-10" />
 
@@ -121,7 +121,7 @@ const ComparisonSection = () => {
             {/* Inner Split Box */}
             <div
               ref={containerRef}
-              className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[280px] rounded-[32px] overflow-hidden z-20 cursor-ew-resize select-none"
+              className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[280px] rounded-[32px] overflow-hidden z-20 cursor-ew-resize select-none"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
             >
@@ -131,7 +131,7 @@ const ComparisonSection = () => {
                 className="absolute inset-y-0 left-0 overflow-hidden bg-[#4B4859]/90 backdrop-blur-xl"
                 style={{ width: `${sliderPosition}%` }}
               >
-                <div className="w-[420px] h-full pt-6 px-6 pb-5 flex flex-col relative">
+                <div className="w-full max-w-[420px] h-full pt-6 px-6 pb-5 flex flex-col relative">
                   {/* Badge */}
                   <div className="self-start bg-white text-black text-[12px] font-bold px-3 py-1.5 rounded-full mb-4 shadow-sm">
                     Visible to you
@@ -179,7 +179,7 @@ const ComparisonSection = () => {
                 className="absolute inset-y-0 right-0 overflow-hidden bg-gray-900/20 backdrop-blur-sm"
                 style={{ width: `${100 - sliderPosition}%` }}
               >
-                <div className="absolute right-0 top-0 bottom-0 w-[420px] h-full p-6 flex flex-col items-end">
+                <div className="absolute right-0 top-0 bottom-0 w-full max-w-[420px] h-full p-6 flex flex-col items-end">
                   {/* Diagonal Stripes Pattern */}
                   <div className="absolute inset-0 opacity-[0.15]"
                     style={{

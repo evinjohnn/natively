@@ -168,9 +168,10 @@
   /* 2️⃣ HERO HEADLINE RULES */
   .hero-headline {
     font-family: var(--font-hero);
-    font-size: 80px;
+    font-size: 48px;
+    /* Mobile default */
     font-weight: 500;
-    line-height: 81.6px;
+    line-height: 1.1;
     letter-spacing: -0.5px;
     color: #FFFFFF;
     text-align: center;
@@ -178,6 +179,13 @@
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga", "kern";
     -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: 768px) {
+    .hero-headline {
+      font-size: 80px;
+      line-height: 81.6px;
+    }
   }
 
   /* 3️⃣ HEADING HIERARCHY (Geist) */

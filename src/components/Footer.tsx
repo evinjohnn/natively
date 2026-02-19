@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 md:pr-32">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 md:pr-32">
             {columns.map((col, i) => (
               <div key={i}>
                 <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>

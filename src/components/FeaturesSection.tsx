@@ -29,7 +29,7 @@ const otherFeatures = [
 ];
 
 const FirstFeatureCard = () => (
-  <div className="rounded-[36px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-[#6B9BF7] to-[#4D7BF3] text-white border-none aspect-[6/5]">
+  <div className="rounded-[36px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-[#6B9BF7] to-[#4D7BF3] text-white border-none aspect-[6/6] md:aspect-[6/5]">
     {/* Image area with Natively interface overlay */}
     <div className="relative w-full flex-1 min-h-0">
       {/* Hero poster background — cropped portion */}
@@ -63,7 +63,7 @@ const FirstFeatureCard = () => (
           {/* Content */}
           <div className="px-5 pb-5">
             <p className="text-white/90 text-[14px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
-              "I hear you on the integration concerns—that's usually the first thing that comes up. We've actually built direct connectors for the tools you mentioned, and our average setup time is only half a day."
+              I hear you on the integration concerns, that's usually the first thing that comes up. We've actually built direct connectors for the tools you mentioned, and our average setup time is only half a day.
             </p>
 
             {/* Actions Row */}
@@ -120,7 +120,7 @@ const FeaturesSection = () => {
     <section className="section-spacing bg-white" id="features" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-content">
         <div className="text-center mb-16">
-          <h2 className="hero-headline !text-black text-[56px] leading-[1.1] mb-6 text-center mx-auto">
+          <h2 className="hero-headline !text-black text-[36px] md:text-[56px] leading-[1.1] mb-6 text-center mx-auto">
             Four ways we make your<br />meetings better
           </h2>
         </div>
