@@ -128,6 +128,7 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     const [downloadInfo, setDownloadInfo] = useState(getDownloadInfo('mac-arm64'));
     const [isLinuxModalOpen, setIsLinuxModalOpen] = useState(false);
     const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+    const [hasClicked, setHasClicked] = useState(false);
 
     useEffect(() => {
         detectPlatform().then((detectedPlatform) => {
@@ -187,6 +188,11 @@ export default function JellyClayButton({ className, children, href }: JellyClay
             if (isMac) {
                 setIsDownloadModalOpen(true);
             }
+
+            // Show Intel fallback if on ARM64
+            if (platform === 'mac-arm64') {
+                setHasClicked(true);
+            }
         }, 150);
     };
 
@@ -223,6 +229,35 @@ export default function JellyClayButton({ className, children, href }: JellyClay
                 </span>
             </motion.a>
 
+            <AnimatePresence>
+                {hasClicked && platform === 'mac-arm64' && downloadInfo.secondaryUrl && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        className="flex flex-col items-center justify-center w-full overflow-hidden"
+                    >
+                        <a
+                            href={downloadInfo.secondaryUrl}
+                            onClick={(e) => {
+                                // Default behavior implies navigation, but we track it too
+                                trackEvent("download_click", {
+                                    os: platform,
+                                    architecture: 'x86', // Fallback is Intel
+                                    file_name: downloadInfo.secondaryUrl?.split('/').pop() || "unknown",
+                                    version: CONFIG.APP_VERSION,
+                                    page_path: window.location.pathname,
+                                    referrer: document.referrer || "direct"
+                                });
+                            }}
+                            className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors underline decoration-dotted underline-offset-4 text-center whitespace-nowrap px-4 py-1"
+                        >
+                            {downloadInfo.secondaryText}
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <LinuxModal isOpen={isLinuxModalOpen} onClose={() => setIsLinuxModalOpen(false)} />
             <DownloadModal
                 isOpen={isDownloadModalOpen}
@@ -236,70 +271,4 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     );
 }
 
-export function IntelMacFallbackLink() {
-    const [platform, setPlatform] = useState<OSType>('mac-arm64');
-    const [downloadInfo, setDownloadInfo] = useState(getDownloadInfo('mac-arm64'));
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        detectPlatform().then((detectedPlatform) => {
-            setPlatform(detectedPlatform);
-            const info = getDownloadInfo(detectedPlatform);
-
-            // Only show secondary link logic if it exists (Mac ARM64 -> Intel, Windows -> Portable)
-            // But requirement said "Windows user clicks installer or portable".
-            // If this component shows the portable link for Windows, we should track that too.
-            // Currently existing code only returned for secondaryURL.
-
-            setDownloadInfo(info);
-            setLoading(false);
-        });
-    }, []);
-
-    const handleFallbackClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        const targetUrl = downloadInfo.secondaryUrl;
-
-        if (!targetUrl) return;
-
-        // Track fallback click
-        trackEvent("download_click", {
-            os: platform,
-            architecture: platform === 'mac-arm64' ? 'x86' : 'unknown', // Fallback from ARM is Intel
-            file_name: targetUrl.split('/').pop() || "unknown",
-            version: CONFIG.APP_VERSION,
-            page_path: window.location.pathname,
-            referrer: document.referrer || "direct"
-        });
-
-        if (platform === 'windows') {
-            trackEvent("windows_download_type", {
-                type: "portable",
-                version: CONFIG.APP_VERSION
-            });
-        }
-
-        setTimeout(() => {
-            window.location.href = targetUrl;
-        }, 150);
-    };
-
-    if (loading || !downloadInfo.secondaryUrl || !downloadInfo.secondaryText) return null;
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.4 }}
-            className="flex flex-col items-center gap-1 mt-2"
-        >
-            <a
-                href={downloadInfo.secondaryUrl}
-                onClick={handleFallbackClick}
-                className="text-xs text-gray-500 hover:text-gray-800 transition-colors underline decoration-dotted underline-offset-4"
-            >
-                {downloadInfo.secondaryText}
-            </a>
-        </motion.div>
-    );
-}

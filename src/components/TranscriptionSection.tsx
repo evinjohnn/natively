@@ -2,7 +2,7 @@ import transcriptImg from "@/assets/trancript.webp";
 
 const TranscriptionSection = () => {
   return (
-    <section className="py-8 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-content">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -18,8 +18,8 @@ const TranscriptionSection = () => {
           </div>
 
           {/* Stats Blocks */}
-          <div className="flex flex-col pl-0 pt-8 lg:pl-4 lg:pt-0">
-            <h2 className="hero-headline !text-black text-[32px] lg:text-[48px] leading-tight mb-6 text-left">Real-time transcription</h2>
+          <div className="flex flex-col pl-0 pt-8 md:pl-4 md:pt-0">
+            <h2 className="hero-headline !text-black text-[32px] md:text-[80px] md:leading-[1.1] leading-tight mb-6 text-left">Real-time transcription</h2>
 
             <div className="flex flex-col">
               <div className="flex gap-8 py-6 border-t border-gray-100 first:border-t-0 items-start">

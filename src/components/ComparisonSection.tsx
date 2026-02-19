@@ -52,7 +52,7 @@ const ComparisonSection = () => {
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 flex flex-col items-center">
           <p className="text-[#3B82F6] font-medium mb-4 uppercase tracking-wider">Works with all platforms</p>
-          <h2 className="hero-headline !text-black text-[36px] md:text-[56px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl">
+          <h2 className="hero-headline !text-black text-[36px] md:text-[80px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl">
             No meeting bots.<br />100% Undetectable.
           </h2>
         </div>
