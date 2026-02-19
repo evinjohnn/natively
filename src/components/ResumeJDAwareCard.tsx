@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ResumeJDAwareCard() {
     return (
-        <div className="w-full h-auto min-h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
+        <div className="w-full h-auto min-h-[330px] md:h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
             <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -10,7 +10,7 @@ export default function ResumeJDAwareCard() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="w-full h-full flex items-center justify-center p-4"
             >
-                <div className="w-full max-w-[500px] h-auto min-h-[310px] px-6 sm:px-12 pt-10 pb-10 flex flex-col justify-between">
+                <div className="w-full max-w-[500px] h-auto min-h-[310px] md:h-[310px] px-6 sm:px-12 pt-10 pb-10 flex flex-col justify-between">
                     {/* Header */}
                     <div className="space-y-4 sm:space-y-5">
                         <div className="space-y-2">

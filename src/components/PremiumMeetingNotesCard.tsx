@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function PremiumMeetingNotesCard() {
     return (
-        <div className="w-full h-auto min-h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
+        <div className="w-full h-auto min-h-[330px] md:h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
             <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -12,7 +12,7 @@ export default function PremiumMeetingNotesCard() {
                 className="w-full h-full flex items-center justify-center p-4"
             >
                 <div
-                    className="w-full max-w-[500px] h-auto min-h-[310px] rounded-[24px] p-[2px] transform transition-transform duration-500 hover:scale-[1.02] translate-y-8"
+                    className="w-full max-w-[500px] h-auto min-h-[310px] md:h-[310px] rounded-[24px] p-[2px] transform transition-transform duration-500 hover:scale-[1.02] translate-y-8"
                     style={{
                         background:
                             "linear-gradient(145deg, rgba(255,255,255,0.85), rgba(220,224,235,0.6))",

@@ -7,7 +7,7 @@ export default function UniversalLLMDesignCard() {
     return (
         <div className="w-full flex items-center justify-center 
             bg-[#eef0f4] 
-            rounded-[36px] overflow-hidden h-auto md:aspect-[6/5] pt-8 px-6 md:pt-12 md:px-12 pb-0 relative group hover:shadow-lg transition-all duration-300">
+            rounded-[36px] overflow-hidden aspect-auto h-auto md:aspect-[6/5] pt-8 px-6 md:pt-12 md:px-12 pb-0 relative group hover:shadow-lg transition-all duration-300">
 
             {/* Ambient radial glow */}
             <div className="absolute inset-0 pointer-events-none">

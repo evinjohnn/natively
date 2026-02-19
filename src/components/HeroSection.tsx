@@ -8,7 +8,7 @@ import heroPoster from "@/assets/hero-poster.webp";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-24 md:pt-32 pb-24 overflow-hidden min-h-screen flex items-center">
       {/* Backdrop Image - Full Width */}
       <div className="absolute -top-20 left-0 z-0 w-full h-[600px] md:h-[800px] overflow-hidden pointer-events-none">
         <img
@@ -103,7 +103,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Hero Mockup Composition */}
-        <div className="relative w-full max-w-[1040px] mx-auto mt-8 scale-100 md:scale-[1.1] md:-translate-y-12 px-4 md:px-0">
+        <div className="relative w-full max-w-[1040px] mx-auto mt-8 md:mt-12 md:scale-[1.1] md:-translate-y-12 px-0 md:px-0">
           {/* Main Aura: Orange -> Purple -> Blue vertical gradient */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -121,13 +121,13 @@ const HeroSection = () => {
           />
 
           {/* --- MOBILE LAYOUT (Stack) --- */}
-          <div className="md:hidden flex flex-col gap-6 relative z-10">
+          <div className="md:hidden flex flex-col relative z-10 w-full px-4">
             {/* Mobile Video Container */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 1.2, ease: "easeOut" }}
-              className="w-full relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 aspect-video bg-black"
+              className="w-full relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 aspect-video bg-black z-0"
             >
               <video
                 src={heroVideo}
@@ -139,15 +139,31 @@ const HeroSection = () => {
                 muted
                 playsInline
               />
-              {/* Floating Prompt Button - Centered */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-full flex items-center gap-2 bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg backdrop-blur-xl border border-white/20 z-20 whitespace-nowrap">
+              {/* Floating Prompt Button - Jelly Style (Centered) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, x: "-50%", y: "calc(-50% + 12px)" }}
+                animate={{
+                  opacity: [0, 1, 1, 0],
+                  scale: [0.92, 1, 0.96, 0.96],
+                  x: "-50%",
+                  y: ["calc(-50% + 12px)", "-50%", "-50%", "-50%"]
+                }}
+                transition={{
+                  duration: 1.2,
+                  times: [0, 0.2, 0.9, 1],
+                  delay: 3.9,
+                  repeat: Infinity,
+                  repeatDelay: 5
+                }}
+                className="absolute top-1/2 left-1/2 px-4 py-2 rounded-full flex items-center gap-2 bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg backdrop-blur-xl border border-white/20 z-20 whitespace-nowrap origin-center"
+              >
                 <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
                 <span className="text-white text-[12px] font-medium drop-shadow-sm">What should I say?</span>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Mobile Interface Card */}
-            <NativelyInterfaceCard className="w-full" isMobile={true} />
+            <NativelyInterfaceCard className="w-full -mt-20 relative z-10" isMobile={true} />
           </div>
 
           {/* --- DESKTOP LAYOUT (Monitor Composition) --- */}
