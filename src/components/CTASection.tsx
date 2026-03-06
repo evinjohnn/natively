@@ -2,7 +2,7 @@ import JellyClayButton from "@/components/JellyClayButton";
 import bottomImg from "@/assets/bottom.webp";
 import Footer from "./Footer";
 
-const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases";
+const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/tag/v2.0.1";
 
 const CTASection = () => {
   return (

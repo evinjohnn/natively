@@ -178,10 +178,23 @@ export default function JellyClayButton({ className, children, href }: JellyClay
 
         // Add 150ms delay before navigation to ensure GA4 event is sent
         setTimeout(() => {
-            if (href) {
+            // macOS Auto-download logic: if it's Mac and we have a targetUrl (asset)
+            // we trigger it even if we are about to navigate to a href (like the releases page)
+            if (isMac && !href) {
+                window.location.href = targetUrl;
+            } else if (isMac && href) {
+                // Secondary trigger for background download if we are navigating away
+                const link = document.createElement('a');
+                link.href = targetUrl;
+                link.download = fileName || '';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Then navigate to the release page
                 window.location.href = href;
             } else {
-                window.location.href = targetUrl;
+                window.location.href = href || targetUrl;
             }
 
             // Show modal for Mac users after download starts

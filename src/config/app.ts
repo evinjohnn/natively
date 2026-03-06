@@ -1,12 +1,12 @@
 
 export const CONFIG = {
     GA_MEASUREMENT_ID: "G-6MX6YCGYGH",
-    APP_VERSION: "1.1.6", // Main version, kept consistent
+    APP_VERSION: "2.0.1", // Main version, kept consistent
     DOWNLOADS: {
         MACOS: {
-            VERSION: "1.1.6",
-            ARM64: "Natively-1.1.6-arm64-mac.zip",
-            INTEL: "Natively-1.1.6-mac.zip",
+            VERSION: "2.0.1",
+            ARM64: "Natively-2.0.1-arm64-mac.zip",
+            INTEL: "Natively-2.0.1-mac.zip",
         },
         WINDOWS: {
             VERSION: "1.1.2",
