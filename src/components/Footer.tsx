@@ -1,5 +1,6 @@
 import { Github, Twitter } from "lucide-react";
 import logo from "@/assets/logo.webp";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const columns = [
@@ -17,6 +18,23 @@ const Footer = () => {
       links: [
         { label: "Security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/SECURITY.md" },
         { label: "Privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/PRIVACY.md" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "AI Interview Assistant", href: "/ai-interview-assistant" },
+        { label: "Cluely Alternative", href: "/cluely-alternative" },
+        { label: "Coding Interview Helper", href: "/ai-coding-interview-helper" },
+        { label: "Local AI Assistant", href: "/local-ai-assistant" },
+      ],
+    },
+    {
+      title: "Blog",
+      links: [
+        { label: "Interview Assistant Guide", href: "/blog/ai-interview-assistant-guide" },
+        { label: "Local vs Cloud AI", href: "/blog/local-ai-vs-cloud-ai-assistants" },
+        { label: "AI for Coding Exams", href: "/blog/how-ai-can-help-with-coding-interviews" },
       ],
     },
     {
@@ -44,19 +62,28 @@ const Footer = () => {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 md:pr-32">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 md:pr-12">
             {columns.map((col, i) => (
               <div key={i}>
                 <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>
                 <ul className="space-y-3">
                   {col.links.map((link, j) => (
                     <li key={j}>
-                      <a
-                        href={link.href}
-                        className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
-                      >
-                        {link.label}
-                      </a>
+                      {link.href.startsWith("/") ? (
+                        <Link
+                          to={link.href}
+                          className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
+                        >
+                          {link.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

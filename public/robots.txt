@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://natively.app/sitemap.xml
+
+Sitemap: https://natively.software/sitemap.xml
