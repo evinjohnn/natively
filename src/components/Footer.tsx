@@ -27,6 +27,10 @@ const Footer = () => {
         { label: "Cluely Alternative", href: "/cluely-alternative" },
         { label: "Coding Interview Helper", href: "/ai-coding-interview-helper" },
         { label: "Local AI Assistant", href: "/local-ai-assistant" },
+        { label: "AI for Coding Exams", href: "/ai-assistant-for-coding-interviews" },
+        { label: "How AI Helps You", href: "/how-ai-helps-in-coding-interviews" },
+        { label: "Local Coding Copilot", href: "/local-ai-coding-assistant" },
+        { label: "Top Technical AI Tools", href: "/ai-tools-for-technical-interviews" },
       ],
     },
     {
@@ -35,6 +39,9 @@ const Footer = () => {
         { label: "Interview Assistant Guide", href: "/blog/ai-interview-assistant-guide" },
         { label: "Local vs Cloud AI", href: "/blog/local-ai-vs-cloud-ai-assistants" },
         { label: "AI for Coding Exams", href: "/blog/how-ai-can-help-with-coding-interviews" },
+        { label: "How Interview Copilots Work", href: "/blog/how-ai-interview-assistants-work" },
+        { label: "Top 5 AI Tools (2026)", href: "/blog/best-ai-tools-for-coding-interviews" },
+        { label: "Preparing for Screenings", href: "/blog/preparing-for-technical-interviews-with-ai" },
       ],
     },
     {
@@ -43,7 +50,6 @@ const Footer = () => {
         { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
         { label: "Contact", href: "mailto:natively.contact@gmail.com" },
         { label: "Report a Bug", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/issues" },
-
       ],
     },
   ];

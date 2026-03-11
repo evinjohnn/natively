@@ -24,6 +24,20 @@ const AIInterviewAssistantGuide = lazy(() => import("./pages/blog/AIInterviewAss
 const LocalAIVsCloudAIAssistants = lazy(() => import("./pages/blog/LocalAIVsCloudAIAssistants"));
 const HowAICanHelpWithCodingInterviews = lazy(() => import("./pages/blog/HowAICanHelpWithCodingInterviews"));
 
+// NEW LONG TAIL PAGES
+const AIAssistantForCodingInterviews = lazy(() => import('./pages/seo/AIAssistantForCodingInterviews'));
+const HowAIHelpsInCodingInterviews = lazy(() => import('./pages/seo/HowAIHelpsInCodingInterviews'));
+const LocalAICodingAssistant = lazy(() => import('./pages/seo/LocalAICodingAssistant'));
+const AIToolsForTechnicalInterviews = lazy(() => import('./pages/seo/AIToolsForTechnicalInterviews'));
+
+// NEW BLOG PAGES
+const HowAIInterviewAssistantsWork = lazy(() => import('./pages/blog/HowAIInterviewAssistantsWork'));
+const BestAIToolsForCodingInterviews = lazy(() => import('./pages/blog/BestAIToolsForCodingInterviews'));
+const PreparingForTechnicalInterviewsWithAI = lazy(() => import('./pages/blog/PreparingForTechnicalInterviewsWithAI'));
+
+// DOCS PAGE
+const DocsAIInterviewAssistant = lazy(() => import('./pages/seo/DocsAIInterviewAssistant'));
+
 const queryClient = new QueryClient();
 
 // Simple loading component
@@ -52,6 +66,20 @@ const App = () => (
               <Route path="/blog/ai-interview-assistant-guide" element={<AIInterviewAssistantGuide />} />
               <Route path="/blog/local-ai-vs-cloud-ai-assistants" element={<LocalAIVsCloudAIAssistants />} />
               <Route path="/blog/how-ai-can-help-with-coding-interviews" element={<HowAICanHelpWithCodingInterviews />} />
+              {/* New SEO Long Tails */}
+          <Route path="/ai-assistant-for-coding-interviews" element={<AIAssistantForCodingInterviews />} />
+          <Route path="/how-ai-helps-in-coding-interviews" element={<HowAIHelpsInCodingInterviews />} />
+          <Route path="/local-ai-coding-assistant" element={<LocalAICodingAssistant />} />
+          <Route path="/ai-tools-for-technical-interviews" element={<AIToolsForTechnicalInterviews />} />
+
+          {/* New Blog Pages */}
+          <Route path="/blog/how-ai-interview-assistants-work" element={<HowAIInterviewAssistantsWork />} />
+          <Route path="/blog/best-ai-tools-for-coding-interviews" element={<BestAIToolsForCodingInterviews />} />
+          <Route path="/blog/preparing-for-technical-interviews-with-ai" element={<PreparingForTechnicalInterviewsWithAI />} />
+
+          {/* Docs Pages */}
+          <Route path="/docs/ai-interview-assistant" element={<DocsAIInterviewAssistant />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

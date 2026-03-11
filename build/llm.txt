@@ -1,0 +1,32 @@
+# Natively - Invisible Live AI Meeting Assistant
+
+## What is Natively?
+Natively is an invisible live AI meeting assistant that works on top of any meeting platform (Zoom, Google Meet, Microsoft Teams) without a bot joining the call. It uses screen capture, transcription, and AI to provide real-time assistance, smart answers, and structured notes.
+
+## Key Features
+
+### Invisible & Private
+- No bot joins the call. Natively runs locally on your machine or cloud (user choice).
+- Completely undetectable by other meeting participants.
+
+### Live AI Assistance
+- **"What should I say?"**: Ask Natively for real-time advice during a meeting.
+- **Smart Answers**: Get instant answers to technical questions or data queries based on the conversation context.
+- **Live Transcription**: Accurate real-time transcription of the conversation.
+
+### Beautiful, Structured Notes
+- automatically generates organized meeting notes.
+- Captures decisions, action items, and key moments.
+- "Resume & JD Aware": Tailors notes and advice based on your resume and the job description (for interviews).
+
+## Pricing
+- **Free Trial**: Available.
+- **Premium**: Includes advanced features like unlimited meetings, custom templates, and priority support.
+
+## Technical Details
+- **Platform**: Mac (Intel & Apple Silicon), Windows, Linux.
+- **Security**: Enterprise-grade encryption. Local processing options available.
+
+## Contact & Support
+- **Website**: https://natively.app
+- **Email**: support@natively.app
