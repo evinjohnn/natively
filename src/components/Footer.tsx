@@ -8,6 +8,7 @@ const Footer = () => {
       title: "Product",
       links: [
         { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
+        { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
         { label: "Contribute", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/pulls" },
         { label: "License", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/LICENSE" },
         { label: "Changelog", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/CHANGELOG.md" },
