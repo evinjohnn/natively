@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { fetchLatestRelease, type LatestAssets } from "@/utils/github";
 import { CONFIG } from "@/config/app";
 import { detectPlatform, type OSType } from "@/utils/os";
 import { trackEvent } from "@/utils/analytics";
@@ -69,34 +70,43 @@ const Icons = {
 
 /**
  * Generates the download info based on detected platform
+ * Modified to support dynamic URLs from GitHub API
  */
-function getDownloadInfo(platform: OSType) {
+function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = null) {
     const { BASE_URL, MACOS, WINDOWS } = CONFIG.DOWNLOADS;
+
+    // Use dynamic URLs if available, otherwise fallback to CONFIG
+    const urls = {
+        macArm64: dynamicAssets?.macArm64 || `${BASE_URL}/v${MACOS.VERSION}/${MACOS.ARM64}`,
+        macIntel: dynamicAssets?.macIntel || `${BASE_URL}/v${MACOS.VERSION}/${MACOS.INTEL}`,
+        winInstaller: dynamicAssets?.winInstaller || `${BASE_URL}/v${WINDOWS.VERSION}/${WINDOWS.INSTALLER}`,
+        winPortable: dynamicAssets?.winPortable || `${BASE_URL}/v${WINDOWS.VERSION}/${WINDOWS.PORTABLE}`,
+    };
 
     switch (platform) {
         case 'mac-arm64':
             return {
-                url: `${BASE_URL}/v${MACOS.VERSION}/${MACOS.ARM64}`,
+                url: urls.macArm64,
                 text: "Get for Mac",
-                secondaryUrl: `${BASE_URL}/v${MACOS.VERSION}/${MACOS.INTEL}`,
+                secondaryUrl: urls.macIntel,
                 secondaryText: "Using Intel Mac? Download Intel version",
-                fileName: MACOS.ARM64
+                fileName: urls.macArm64.split('/').pop() || MACOS.ARM64
             };
         case 'mac-intel':
             return {
-                url: `${BASE_URL}/v${MACOS.VERSION}/${MACOS.INTEL}`,
+                url: urls.macIntel,
                 text: "Get for Mac",
                 secondaryUrl: null,
                 secondaryText: null,
-                fileName: MACOS.INTEL
+                fileName: urls.macIntel.split('/').pop() || MACOS.INTEL
             };
         case 'windows':
             return {
-                url: `${BASE_URL}/v${WINDOWS.VERSION}/${WINDOWS.INSTALLER}`,
+                url: urls.winInstaller,
                 text: "Get for Windows",
-                secondaryUrl: `${BASE_URL}/v${WINDOWS.VERSION}/${WINDOWS.PORTABLE}`,
+                secondaryUrl: urls.winPortable,
                 secondaryText: "Download portable version",
-                fileName: WINDOWS.INSTALLER
+                fileName: urls.winInstaller.split('/').pop() || WINDOWS.INSTALLER
             };
         case 'linux':
             return {
@@ -108,11 +118,11 @@ function getDownloadInfo(platform: OSType) {
             };
         default:
             return {
-                url: `${BASE_URL}/v${MACOS.VERSION}/${MACOS.ARM64}`,
+                url: urls.macArm64,
                 text: "Get for Mac",
-                secondaryUrl: `${BASE_URL}/v${MACOS.VERSION}/${MACOS.INTEL}`,
+                secondaryUrl: urls.macIntel,
                 secondaryText: "Using Intel Mac? Download Intel version",
-                fileName: MACOS.ARM64
+                fileName: urls.macArm64.split('/').pop() || MACOS.ARM64
             };
     }
 }
@@ -131,9 +141,17 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     const [hasClicked, setHasClicked] = useState(false);
 
     useEffect(() => {
+        // Detect platform first
         detectPlatform().then((detectedPlatform) => {
             setPlatform(detectedPlatform);
             setDownloadInfo(getDownloadInfo(detectedPlatform));
+
+            // Then fetch latest release info dynamically
+            fetchLatestRelease().then((latestAssets) => {
+                if (latestAssets) {
+                    setDownloadInfo(getDownloadInfo(detectedPlatform, latestAssets));
+                }
+            });
         });
     }, []);
 
@@ -153,7 +171,8 @@ export default function JellyClayButton({ className, children, href }: JellyClay
 
         // 2. WINDOWS & MAC CASES
         // Determine file name and URL
-        const targetUrl = href || downloadInfo.url;
+        const assetUrl = downloadInfo.url;
+        const navigationUrl = href || assetUrl;
         const fileName = downloadInfo.fileName;
         const isWindows = platform === 'windows';
         const isMac = platform === 'mac-arm64' || platform === 'mac-intel';
@@ -181,11 +200,11 @@ export default function JellyClayButton({ className, children, href }: JellyClay
             // macOS Auto-download logic: if it's Mac and we have a targetUrl (asset)
             // we trigger it even if we are about to navigate to a href (like the releases page)
             if (isMac && !href) {
-                window.location.href = targetUrl;
+                window.location.href = assetUrl;
             } else if (isMac && href) {
                 // Secondary trigger for background download if we are navigating away
                 const link = document.createElement('a');
-                link.href = targetUrl;
+                link.href = assetUrl;
                 link.download = fileName || '';
                 document.body.appendChild(link);
                 link.click();
@@ -194,7 +213,7 @@ export default function JellyClayButton({ className, children, href }: JellyClay
                 // Then navigate to the release page
                 window.location.href = href;
             } else {
-                window.location.href = href || targetUrl;
+                window.location.href = navigationUrl;
             }
 
             // Show modal for Mac users after download starts
