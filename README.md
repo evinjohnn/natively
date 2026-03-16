@@ -79,36 +79,36 @@ This demo shows **a complete live meeting scenario**:
 
 ## How Natively stacks up
 
-<table>
+<table width="100%">
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="padding: 15px;">
 
-**Cluely — $20/mo**
-✗ Breached 83,000 users in 2025; all data on their servers
-✓ Natively: $0, local-only, zero breaches ever
+**Cluely — $20/mo**<br/>
+❌ Breached 83,000 users in 2025; all data on their servers<br/>
+✅ **Natively:** $0, local-only, zero breaches ever
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="padding: 15px;">
 
-**LockedIn AI — $55–70/mo**
-✗ Most expensive in category; cloud-only, no local AI
-✓ Natively: free BYOK + fully offline with Ollama
+**LockedIn AI — $55–70/mo**<br/>
+❌ Most expensive in category; cloud-only, no local AI<br/>
+✅ **Natively:** free BYOK + fully offline with Ollama
 
 </td>
 </tr>
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="padding: 15px;">
 
-**Final Round AI — $149/mo**
-✗ Slowest live latency; taskbar icon visible to proctors
-✓ Natively: <500ms latency + undetectable stealth mode
+**Final Round AI — $149/mo**<br/>
+❌ Slowest live latency; taskbar icon visible to proctors<br/>
+✅ **Natively:** <500ms latency + undetectable stealth mode
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="padding: 15px;">
 
-**Pluely — Free/OSS**
-✗ No meeting history, no RAG, no dual audio, no dashboard
-✓ Natively: full RAG memory, dual audio, meeting dashboard
+**Pluely — Free/OSS**<br/>
+❌ No meeting history, no RAG, no dual audio, no dashboard<br/>
+✅ **Natively:** full RAG memory, dual audio, meeting dashboard
 
 </td>
 </tr>
@@ -118,21 +118,21 @@ This demo shows **a complete live meeting scenario**:
 
 ## Full comparison
 
-| Feature | Natively | Cluely | Pluely | LockedIn AI | Final Round AI |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Price** | ✅ Free (BYOK) | ⚠️ $20/mo | ✅ Free | ❌ $55–70/mo | ❌ $149/mo |
-| **Open source** | ✅ AGPL-3.0 | ❌ | ✅ | ❌ | ❌ |
-| **Local data / no telemetry** | ✅ | ❌ Cloud servers | ✅ | ❌ Cloud servers | ❌ Cloud servers |
-| **Any LLM (BYOK)** | ✅ | ❌ Vendor-locked | ⚠️ Limited | ❌ Vendor-locked | ❌ Vendor-locked |
-| **Local AI (Ollama)** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Real-time <500ms** | ✅ | ⚠️ 5–90s reported | ✅ | ✅ ~116ms | ⚠️ Slowest |
-| **Dual audio channels** | ✅ System + Mic | ❌ Single stream | ❌ | ❌ | ❌ |
-| **Local RAG memory** | ✅ SQLite + sqlite-vec | ❌ | ❌ | ❌ | ❌ |
-| **Meeting history dashboard** | ✅ | ⚠️ Limited | ❌ | ❌ | ⚠️ Limited |
-| **Screenshot / OCR** | ✅ | ⚠️ Limited | ❌ | ✅ | ⚠️ Limited |
-| **Stealth mode** | ✅ Undetectable | ❌ | ❌ | ❌ | ❌ Visible to proctors |
-| **Resume / JD context** | ✅ Pro | ❌ | ❌ | ✅ | ✅ |
-| **Data breach history** | ✅ None | ❌ 83k users exposed | ✅ None | ✅ None | ✅ None |
+| Feature                       |        Natively        |        Cluely        |   Pluely   |   LockedIn AI    |     Final Round AI     |
+| :---------------------------- | :--------------------: | :------------------: | :--------: | :--------------: | :--------------------: |
+| **Price**                     |     ✅ Free (BYOK)     |      ⚠️ $20/mo       |  ✅ Free   |   ❌ $55–70/mo   |       ❌ $149/mo       |
+| **Open source**               |      ✅ AGPL-3.0       |          ❌          |     ✅     |        ❌        |           ❌           |
+| **Local data / no telemetry** |           ✅           |   ❌ Cloud servers   |     ✅     | ❌ Cloud servers |    ❌ Cloud servers    |
+| **Any LLM (BYOK)**            |           ✅           |   ❌ Vendor-locked   | ⚠️ Limited | ❌ Vendor-locked |    ❌ Vendor-locked    |
+| **Local AI (Ollama)**         |           ✅           |          ❌          |     ❌     |        ❌        |           ❌           |
+| **Real-time <500ms**          |           ✅           |  ⚠️ 5–90s reported   |     ✅     |    ✅ ~116ms     |       ⚠️ Slowest       |
+| **Dual audio channels**       |    ✅ System + Mic     |   ❌ Single stream   |     ❌     |        ❌        |           ❌           |
+| **Local RAG memory**          | ✅ SQLite + sqlite-vec |          ❌          |     ❌     |        ❌        |           ❌           |
+| **Meeting history dashboard** |           ✅           |      ⚠️ Limited      |     ❌     |        ❌        |       ⚠️ Limited       |
+| **Screenshot / OCR**          |           ✅           |      ⚠️ Limited      |     ❌     |        ✅        |       ⚠️ Limited       |
+| **Stealth mode**              |    ✅ Undetectable     |          ❌          |     ❌     |        ❌        | ❌ Visible to proctors |
+| **Resume / JD context**       |         ✅ Pro         |          ❌          |     ❌     |        ✅        |           ✅           |
+| **Data breach history**       |        ✅ None         | ❌ 83k users exposed |  ✅ None   |     ✅ None      |        ✅ None         |
 
 > **Legend:** ✅ Full support · ⚠️ Partial or limited · ❌ Not available
 
@@ -725,7 +725,6 @@ Natively is a free, open-source alternative to:
 - **Otter.ai** — transcription and meeting summaries
 - **Fireflies.ai** — meeting recorder and AI notetaker
 - **Teal** — job search and interview assistant
-- **Moltbot** — AI interview assistant
 
 If you've outgrown any of these tools or want full control over your data, Natively is the privacy-first, bring-your-own-key alternative.
 
