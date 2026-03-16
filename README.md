@@ -3,7 +3,7 @@
 
 # Natively — free, open-source AI interview copilot & meeting assistant (no subscriptions, no data breaches)
 
-**The #1 Cluely alternative · Free interview AI assistant · Open source interview copilot · AI meeting assistant local**
+**The #1 Cluely alternative · Free interview AI assistant · Open source interview copilot · AI meeting assistant**
 
 <br/>
 
@@ -118,21 +118,21 @@ This demo shows **a complete live meeting scenario**:
 
 ## Full comparison
 
-| Feature                       |        Natively        |        Cluely        |   Pluely   |   LockedIn AI    |     Final Round AI     |
-| :---------------------------- | :--------------------: | :------------------: | :--------: | :--------------: | :--------------------: |
-| **Price**                     |     ✅ Free (BYOK)     |      ⚠️ $20/mo       |  ✅ Free   |   ❌ $55–70/mo   |       ❌ $149/mo       |
-| **Open source**               |      ✅ AGPL-3.0       |          ❌          |     ✅     |        ❌        |           ❌           |
-| **Local data / no telemetry** |           ✅           |   ❌ Cloud servers   |     ✅     | ❌ Cloud servers |    ❌ Cloud servers    |
-| **Any LLM (BYOK)**            |           ✅           |   ❌ Vendor-locked   | ⚠️ Limited | ❌ Vendor-locked |    ❌ Vendor-locked    |
-| **Local AI (Ollama)**         |           ✅           |          ❌          |     ❌     |        ❌        |           ❌           |
-| **Real-time <500ms**          |           ✅           |  ⚠️ 5–90s reported   |     ✅     |    ✅ ~116ms     |       ⚠️ Slowest       |
-| **Dual audio channels**       |    ✅ System + Mic     |   ❌ Single stream   |     ❌     |        ❌        |           ❌           |
-| **Local RAG memory**          | ✅ SQLite + sqlite-vec |          ❌          |     ❌     |        ❌        |           ❌           |
-| **Meeting history dashboard** |           ✅           |      ⚠️ Limited      |     ❌     |        ❌        |       ⚠️ Limited       |
-| **Screenshot / OCR**          |           ✅           |      ⚠️ Limited      |     ❌     |        ✅        |       ⚠️ Limited       |
-| **Stealth mode**              |    ✅ Undetectable     |          ❌          |     ❌     |        ❌        | ❌ Visible to proctors |
-| **Resume / JD context**       |         ✅ Pro         |          ❌          |     ❌     |        ✅        |           ✅           |
-| **Data breach history**       |        ✅ None         | ❌ 83k users exposed |  ✅ None   |     ✅ None      |        ✅ None         |
+| Feature                  | Natively               | Cluely               | Pluely     | LockedIn AI      | Final Round AI         |
+| :----------------------- | :--------------------- | :------------------- | :--------- | :--------------- | :--------------------- |
+| **Price**                | ✅ Free (BYOK)         | ⚠️ $20/mo            | ✅ Free    | ❌ $55–70/mo     | ❌ $149/mo             |
+| **Open source**          | ✅ AGPL-3.0            | ❌                   | ✅         | ❌               | ❌                     |
+| **Local data / private** | ✅ Yes                 | ❌ Cloud servers     | ✅ Yes     | ❌ Cloud servers | ❌ Cloud servers       |
+| **Any LLM (BYOK)**       | ✅ Yes                 | ❌ Vendor-locked     | ⚠️ Limited | ❌ Vendor-locked | ❌ Vendor-locked       |
+| **Local AI (Ollama)**    | ✅ Yes                 | ❌                   | ❌         | ❌               | ❌                     |
+| **Real-time <500ms**     | ✅ Yes                 | ⚠️ 5–90s lag         | ✅ Yes     | ✅ ~116ms        | ⚠️ Slowest             |
+| **Dual audio channels**  | ✅ System + Mic        | ❌ Single stream     | ❌         | ❌               | ❌                     |
+| **Local RAG memory**     | ✅ SQLite + sqlite-vec | ❌                   | ❌         | ❌               | ❌                     |
+| **Meeting history**      | ✅ Full dashboard      | ⚠️ Limited           | ❌         | ❌               | ⚠️ Limited             |
+| **Screenshot OCR**       | ✅ Yes                 | ⚠️ Limited           | ❌         | ✅ Yes           | ⚠️ Limited             |
+| **Stealth mode**         | ✅ Undetectable        | ❌                   | ❌         | ❌               | ❌ Visible to proctors |
+| **Resume & context**     | ✅ Pro                 | ❌                   | ❌         | ✅ Yes           | ✅ Yes                 |
+| **Data breach history**  | ✅ None                | ❌ 83k users exposed | ✅ None    | ✅ None          | ✅ None                |
 
 > **Legend:** ✅ Full support · ⚠️ Partial or limited · ❌ Not available
 
@@ -173,18 +173,6 @@ But Pluely is a basic overlay. It has no local RAG, no meeting history, no dual 
 - **No built-in mock interview mode** — Final Round AI has dedicated mock interview practice; Natively focuses on live, real-time assistance
 
 ---
-
-## Support Natively
-
-The community around **Natively** created a Pump.fun token to support the project.
-
-Creator rewards help cover **AI/API bills** and ongoing development costs.
-
-<p align="center">
-  <a href="https://pump.fun/coin/B5opQ9euCVcJALeeCQbrFv5kePG8cCcoYqnXfx4Ppump">
-    <img src="assets/pumpfun-card.png" alt="Support Natively on Pump.fun" width="520" />
-  </a>
-</p>
 
 ## Why Natively?
 
@@ -731,6 +719,20 @@ If you've outgrown any of these tools or want full control over your data, Nativ
 ---
 
 `ai-assistant` · `meeting-notes` · `interview-helper` · `cluely-alternative` · `cluely` · `lockhead-ai` · `lockheed-ai` · `parakeet-ai` · `interview-coder` · `final-round-ai` · `metaview-alternative` · `otter-ai-alternative` · `fireflies-alternative` · `local-ai` · `ollama` · `electron` · `privacy-first` · `open-source` · `real-time-transcription` · `interview-copilot` · `ai-meeting-assistant` · `moltbot`
+
+---
+
+## Support Natively
+
+The community around **Natively** created a Pump.fun token to support the project.
+
+Creator rewards help cover **AI/API bills** and ongoing development costs.
+
+<p align="center">
+  <a href="https://pump.fun/coin/B5opQ9euCVcJALeeCQbrFv5kePG8cCcoYqnXfx4Ppump">
+    <img src="assets/pumpfun-card.png" alt="Support Natively on Pump.fun" width="520" />
+  </a>
+</p>
 
 ---
 
