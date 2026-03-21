@@ -36,7 +36,7 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="hero-headline text-[#111827] drop-shadow-sm"
           >
-            #1 Undetectable
+            #1 Intelligent
           </motion.h1>
 
           {/* Main Heading Line 2 - Word by Word */}

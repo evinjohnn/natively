@@ -21,10 +21,11 @@ export interface LatestAssets {
 /**
  * Fetches the latest release metadata from GitHub API
  */
-export async function fetchLatestRelease(): Promise<LatestAssets | null> {
+export async function fetchLatestRelease(signal?: AbortSignal): Promise<LatestAssets | null> {
     try {
         const response = await fetch(
-            "https://api.github.com/repos/evinjohnn/natively-cluely-ai-assistant/releases/latest"
+            "https://api.github.com/repos/evinjohnn/natively-cluely-ai-assistant/releases/latest",
+            { signal }
         );
         
         if (!response.ok) {

@@ -141,18 +141,26 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     const [hasClicked, setHasClicked] = useState(false);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         // Detect platform first
         detectPlatform().then((detectedPlatform) => {
             setPlatform(detectedPlatform);
             setDownloadInfo(getDownloadInfo(detectedPlatform));
 
             // Then fetch latest release info dynamically
-            fetchLatestRelease().then((latestAssets) => {
+            fetchLatestRelease(controller.signal).then((latestAssets) => {
                 if (latestAssets) {
                     setDownloadInfo(getDownloadInfo(detectedPlatform, latestAssets));
                 }
+            }).catch(err => {
+                if (err.name !== 'AbortError') {
+                    console.error('GitHub fetch failed:', err);
+                }
             });
         });
+
+        return () => controller.abort();
     }, []);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
