@@ -181,7 +181,7 @@ const HeroSection = () => {
               src={desktopUI}
               alt="MacOS Desktop Interface"
               loading="eager" // Keep eager as it's above fold
-              className="scale-101 -mt-[1%] block relative"
+              className="scale-101 -mt-[4%] block relative"
             />
 
             {/* Video Placeholder - Drops from top */}

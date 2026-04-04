@@ -12,6 +12,7 @@ import { HelmetProvider } from "react-helmet-async";
 // Lazy load the pages
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Pro = lazy(() => import("./pages/Pro"));
 
 // SEO Pages
 const AIInterviewAssistant = lazy(() => import("./pages/seo/AIInterviewAssistant"));
@@ -58,6 +59,7 @@ const App = () => (
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/pro" element={<Pro />} />
               <Route path="/ai-interview-assistant" element={<AIInterviewAssistant />} />
               <Route path="/cluely-alternative" element={<CluelyAlternative />} />
               <Route path="/ai-coding-interview-helper" element={<AICodingInterviewHelper />} />

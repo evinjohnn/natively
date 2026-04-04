@@ -12,8 +12,9 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
-  const navLinks: { label: string; href: string; isNew?: boolean }[] = [
+  const navLinks: { label: string; href: string; isNew?: boolean; isPro?: boolean }[] = [
     { label: "Preview", href: "#" },
+    { label: "Pro", href: "/pro", isPro: true },
     { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
     { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
     { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
@@ -51,9 +52,18 @@ const Navbar = () => {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.label)}
-                className="text-[14px] font-medium flex items-center gap-2 transition-colors text-white hover:opacity-70"
+                className={`text-[14px] font-medium flex items-center gap-2 transition-colors ${
+                  link.isPro
+                    ? "text-amber-400 hover:text-amber-300 font-semibold"
+                    : "text-white hover:opacity-70"
+                }`}
               >
                 {link.label}
+                {link.isPro && (
+                  <span className="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 text-[10px] font-bold border border-amber-500/25">
+                    ✦
+                  </span>
+                )}
                 {link.isNew && (
                   <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[10px] font-bold">
                     New

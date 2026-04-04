@@ -6,6 +6,7 @@ import { lazy, Suspense } from "react";
 const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
 const StepsSection = lazy(() => import("@/components/StepsSection"));
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
+const ProSection = lazy(() => import("@/components/ProSection"));
 const TranscriptionSection = lazy(() => import("@/components/TranscriptionSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
@@ -25,6 +26,7 @@ const Index = () => {
           <FeaturesSection />
           <StepsSection />
           <ComparisonSection />
+          <ProSection />
           <TranscriptionSection />
           <FAQSection />
           <CTASection />
