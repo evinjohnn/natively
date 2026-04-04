@@ -14,9 +14,9 @@ const Navbar = () => {
 
   const navLinks: { label: string; href: string; isNew?: boolean; isPro?: boolean }[] = [
     { label: "Preview", href: "#" },
-    { label: "Pro", href: "/pro", isPro: true },
     { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
     { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
+    { label: "Pro", href: "/pro", isPro: true },
     { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
   ];
 
@@ -59,11 +59,6 @@ const Navbar = () => {
                 }`}
               >
                 {link.label}
-                {link.isPro && (
-                  <span className="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 text-[10px] font-bold border border-amber-500/25">
-                    ✦
-                  </span>
-                )}
                 {link.isNew && (
                   <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[10px] font-bold">
                     New
