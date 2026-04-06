@@ -64,7 +64,7 @@ function RollingNumber({ value }: { value: number }) {
     );
 }
 
-export default function JellyClayGithubStars() {
+export default function JellyClayGithubStars({ isDark = true }: { isDark?: boolean }) {
     const [repo] = useState("evinjohnn/natively-cluely-ai-assistant");
     const [stars, setStars] = useState<number>(0);
     const [loading, setLoading] = useState(false);
@@ -127,9 +127,9 @@ export default function JellyClayGithubStars() {
                 </div>
 
                 {loading ? (
-                    <span className="text-white/60 text-lg font-semibold">...</span>
+                    <span className={`text-lg font-semibold ${isDark ? "text-white/60" : "text-muted-foreground/60"}`}>...</span>
                 ) : (
-                    <div className="text-white font-semibold text-xl tracking-tight flex items-center">
+                    <div className={`font-semibold text-xl tracking-tight flex items-center ${isDark ? "text-white" : "text-foreground"}`}>
                         <RollingNumber value={stars} />
                     </div>
                 )}

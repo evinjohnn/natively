@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ isDark = true }: { isDark?: boolean }) {
   const { i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={toggleLanguage}
-      className="text-[14px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1"
+      className={`text-[14px] font-medium transition-colors flex items-center gap-1 ${isDark ? "text-white/80 hover:text-white" : "text-foreground/80 hover:text-foreground"}`}
       aria-label="Switch language"
     >
       {i18n.language === 'en' ? 'RU' : 'EN'}

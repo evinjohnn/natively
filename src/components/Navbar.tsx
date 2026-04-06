@@ -4,6 +4,7 @@ import JellyClayButton from "@/components/JellyClayButton";
 import JellyClayGithubStars from "@/components/JellyClayGithubStars";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLocalePath } from "@/components/LocaleLink";
+import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import previewVideo from "@/assets/preview.mp4";
 import { motion } from "framer-motion";
@@ -14,6 +15,8 @@ const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/re
 const Navbar = () => {
   const { t } = useTranslation();
   const localePath = useLocalePath();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/" || location.pathname === "/ru" || location.pathname === "/ru/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
@@ -41,12 +44,12 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+        className={`top-0 left-0 right-0 z-50 ${isHomePage ? "absolute bg-transparent" : "sticky bg-white border-b border-border/20"}`}
       >
         <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
           <a href={localePath("/")} className="flex items-center gap-2.5">
-            <img src={logo} alt="Natively Logo" className="w-8 h-8 object-contain" />
-            <span className="font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight text-white flex flex-col md:flex-row md:items-center md:gap-2">
+            <img src={logo} alt="Natively Logo" className={`w-8 h-8 object-contain ${isHomePage ? "" : "brightness-0"}`} />
+            <span className={`font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight flex flex-col md:flex-row md:items-center md:gap-2 ${isHomePage ? "text-white" : "text-foreground"}`}>
               <span>Natively</span>
             </span>
           </a>
@@ -59,8 +62,10 @@ const Navbar = () => {
                 onClick={(e) => handleLinkClick(e, link.label)}
                 className={`text-[14px] font-medium flex items-center gap-2 transition-colors ${
                   link.isPro
-                    ? "text-amber-400 hover:text-amber-300 font-semibold"
-                    : "text-white hover:opacity-70"
+                    ? "text-amber-500 hover:text-amber-400 font-semibold"
+                    : isHomePage
+                      ? "text-white hover:opacity-70"
+                      : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -74,12 +79,12 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <LanguageSwitcher />
-            <JellyClayGithubStars />
+            <LanguageSwitcher isDark={isHomePage} />
+            <JellyClayGithubStars isDark={isHomePage} />
           </div>
 
           <button
-            className="md:hidden p-2 text-white"
+            className={`md:hidden p-2 ${isHomePage ? "text-white" : "text-foreground"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -101,7 +106,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex items-center justify-center gap-4">
-                <LanguageSwitcher />
+                <LanguageSwitcher isDark={false} />
               </div>
               <div className="flex justify-center w-full">
                 <JellyClayButton href={GITHUB_URL} className="w-full h-12 text-lg px-6">
