@@ -1,11 +1,12 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function LocalAICodingAssistant() {
   return (
     <SEOTemplate
       title="The Premier Local AI Coding Assistant | Secure Interview Help"
       description="Download the fastest local AI coding assistant. Process complex interview questions securely offline with zero latency and total invisibility."
+      ru={{ title: "Лучший локальный ИИ-ассистент для программирования | Безопасная помощь", description: "Скачайте самый быстрый локальный ИИ-ассистент. Решайте сложные задачи собеседований оффлайн с нулевой задержкой и полной невидимостью." }}
       canonicalPath="/local-ai-coding-assistant"
       h1="Local AI Coding Assistant: Secure, Fast, Invisible"
     >
@@ -15,7 +16,7 @@ export default function LocalAICodingAssistant() {
           A local AI coding assistant is a highly-tuned application built for software engineers that runs entirely on local device hardware. Unlike generic web-based chatbots, a local assistant leverages on-device Neural Engines (such as Apple Silicon) to process Optical Character Recognition (OCR) and audio transcripts offline.
         </p>
         <p className="mb-4">
-          This offline processing makes a local assistant the ultimate <Link to="/ai-interview-assistant" className="text-primary hover:underline">copilot for technical recruiting</Link>. It silently parses your screen to read coding assessment questions and generates complex algorithms directly to your display, never requiring access to the public internet.
+          This offline processing makes a local assistant the ultimate <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">copilot for technical recruiting</LocaleLink>. It silently parses your screen to read coding assessment questions and generates complex algorithms directly to your display, never requiring access to the public internet.
         </p>
       </section>
 
@@ -25,7 +26,7 @@ export default function LocalAICodingAssistant() {
           During systemic design or dynamic programming challenges, candidates often mentally freeze while attempting to recall rote boilerplate code. The assistant immediately surfaces these fundamental syntaxes, allowing the developer to maintain a conversational flow state with the hiring manager.
         </p>
         <p className="mb-4">
-          By utilizing an <Link to="/ai-coding-interview-helper" className="text-primary hover:underline">interview helper</Link>, candidates effectively level the playing field against grueling algorithmic trivia, letting their actual problem-solving and communication skills drive the screening success.
+          By utilizing an <LocaleLink to="/ai-coding-interview-helper" className="text-primary hover:underline">interview helper</LocaleLink>, candidates effectively level the playing field against grueling algorithmic trivia, letting their actual problem-solving and communication skills drive the screening success.
         </p>
       </section>
 
@@ -43,7 +44,7 @@ export default function LocalAICodingAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Advantages of Local AI Assistants</h2>
         <p className="mb-4">
-          A <Link to="/local-ai-assistant" className="text-primary hover:underline">local AI assistant</Link> completely circumvents cloud vulnerabilities by keeping all data on your machine's physical storage. 
+          A <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">local AI assistant</LocaleLink> completely circumvents cloud vulnerabilities by keeping all data on your machine's physical storage. 
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2">
           <li><strong>Zero Data Exfiltration:</strong> Because there is no network egress, the assistant guarantees complete professional discretion.</li>
@@ -55,7 +56,7 @@ export default function LocalAICodingAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Solution</h2>
         <p className="mb-4">
-          Natively provides the definitive local coding assistant. Offering the computational output of heavy web apps with the uncompromised security of an offline executable, Natively stands as the premium <Link to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud providers</Link>. Download your fully private, localized intelligence hub today.
+          Natively provides the definitive local coding assistant. Offering the computational output of heavy web apps with the uncompromised security of an offline executable, Natively stands as the premium <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>. Download your fully private, localized intelligence hub today.
         </p>
       </section>
     </SEOTemplate>

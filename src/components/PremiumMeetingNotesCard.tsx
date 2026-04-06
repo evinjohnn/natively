@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function PremiumMeetingNotesCard() {
+    const { t } = useTranslation();
     return (
         <div className="w-full h-auto min-h-[330px] md:h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
             <motion.div
@@ -79,12 +81,12 @@ export default function PremiumMeetingNotesCard() {
                         {/* Notes Section */}
                         <div className="flex flex-col gap-1.5 mt-4">
                             <h2 className="text-lg font-semibold text-[#2f3542]">
-                                Beautiful meeting notes
+                                {t('features.card4_notes_title')}
                             </h2>
                             <div className="w-full h-1.5 mt-1 rounded-full bg-[#dde2ec]" />
                             <div className="w-4/5 h-1.5 rounded-full bg-[#e3e7ef]" />
                             <p className="text-[14px] text-[#9aa3b2] font-medium mt-2">
-                                Instant shareable meeting notes by AI
+                                {t('features.card4_notes_desc')}
                             </p>
                         </div>
 

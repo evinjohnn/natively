@@ -1,10 +1,12 @@
 import JellyClayButton from "@/components/JellyClayButton";
 import bottomImg from "@/assets/bottom.webp";
 import Footer from "./Footer";
+import { useTranslation } from "react-i18next";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/latest";
 
 const CTASection = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative overflow-hidden min-h-[800px] flex flex-col justify-between bg-white">
       {/* Background Image - Anchored Bottom */}
@@ -25,10 +27,10 @@ const CTASection = () => {
           {/* Left Content */}
           <div className="text-left">
             <h2 className="font-medium text-[#111827] text-[32px] md:text-[40px] leading-tight mb-4 tracking-tight font-geist">
-              Meeting AI that helps during the call, not after.
+              {t('cta.title')}
             </h2>
             <p className="font-geist text-[20px] text-[#64748B] mb-8 font-normal">
-              Try Cluely on your next meeting today.
+              {t('cta.subtitle')}
             </p>
 
             <div className="scale-100 origin-left">

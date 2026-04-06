@@ -1,11 +1,12 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function CluelyAlternative() {
   return (
     <SEOTemplate
       title="The Top Local Cluely Alternative for Coding Interviews | Natively"
       description="Looking for an alternative to Cluely? Natively provides a 100% local, ultra-fast, and deeply private AI meeting assistant for technical interviews."
+      ru={{ title: "Лучшая локальная альтернатива Cluely | Natively", description: "Ищете альтернативу Cluely? Natively — 100% локальный, сверхбыстрый и приватный ИИ-ассистент для технических собеседований." }}
       canonicalPath="/cluely-alternative"
       h1="The Best Cluely Alternative for Private Interviews"
     >
@@ -15,7 +16,7 @@ export default function CluelyAlternative() {
           While generative AI has revolutionized the technical interview process, the tools used to deliver this intelligence fall into two distinct architectural categories: cloud-based solutions (like Cluely) and local, on-device solutions (like Natively). 
         </p>
         <p className="mb-4">
-          For software engineers navigating rigorous screening algorithms, data privacy, latency, and reliability are paramount. Cloud-based assistants routinely struggle with real-time performance due to network lag. They also expose users to significant corporate security risks by broadcasting screen data to remote third-party servers. Finding a secure, hyper-fast <Link to="/local-ai-assistant" className="text-primary hover:underline">local alternative</Link> is no longer just an option—it is a necessity.
+          For software engineers navigating rigorous screening algorithms, data privacy, latency, and reliability are paramount. Cloud-based assistants routinely struggle with real-time performance due to network lag. They also expose users to significant corporate security risks by broadcasting screen data to remote third-party servers. Finding a secure, hyper-fast <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">local alternative</LocaleLink> is no longer just an option—it is a necessity.
         </p>
       </section>
 
@@ -72,7 +73,7 @@ export default function CluelyAlternative() {
         </p>
         <h3 className="text-xl font-medium text-foreground mt-8 mb-4">The NDA Vulnerability</h3>
         <p className="mb-4">
-          During a technical interview with a Tier-1 tech company, you are regularly interacting with proprietary code snippets and internal system architectures. By uploading this data to a third-party server, you actively violate Non-Disclosure Agreements. A <Link to="/local-ai-coding-assistant" className="text-primary hover:underline">local alternative</Link> processes data natively on your machine, ensuring your screen recordings, interview questions, and audio never leave your silicon.
+          During a technical interview with a Tier-1 tech company, you are regularly interacting with proprietary code snippets and internal system architectures. By uploading this data to a third-party server, you actively violate Non-Disclosure Agreements. A <LocaleLink to="/local-ai-coding-assistant" className="text-primary hover:underline">local alternative</LocaleLink> processes data natively on your machine, ensuring your screen recordings, interview questions, and audio never leave your silicon.
         </p>
       </section>
 

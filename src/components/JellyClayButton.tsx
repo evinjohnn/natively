@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { fetchLatestRelease, type LatestAssets } from "@/utils/github";
 import { CONFIG } from "@/config/app";
 import { detectPlatform, type OSType } from "@/utils/os";
@@ -15,6 +16,7 @@ interface LinuxModalProps {
 }
 
 function LinuxModal({ isOpen, onClose }: LinuxModalProps) {
+    const { t } = useTranslation();
     return (
         <AnimatePresence>
             {isOpen && (
@@ -32,15 +34,15 @@ function LinuxModal({ isOpen, onClose }: LinuxModalProps) {
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm bg-[#111827] border border-white/10 rounded-2xl p-6 z-50 shadow-2xl"
                     >
-                        <h3 className="text-xl font-semibold text-white mb-2">Linux Support Coming Soon</h3>
+                        <h3 className="text-xl font-semibold text-white mb-2">{t('linux_modal.title')}</h3>
                         <p className="text-gray-400 mb-6">
-                            We're actively working on a Linux build. Stay tuned for updates!
+                            {t('linux_modal.desc')}
                         </p>
                         <button
                             onClick={onClose}
                             className="w-full py-2.5 bg-white text-black font-medium rounded-xl hover:bg-gray-100 transition-colors"
                         >
-                            Close
+                            {t('linux_modal.close')}
                         </button>
                     </motion.div>
                 </>

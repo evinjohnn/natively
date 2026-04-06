@@ -1,18 +1,19 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function DocsAIInterviewAssistant() {
   return (
     <SEOTemplate
       title="Natively Docs: AI Interview Assistant Definition and Use Cases"
       description="Documentation for Natively AI interview assistant. Read a concise, objective explanation of how local ai copilots work, their privacy benefits, and functionality."
+      ru={{ title: "Документация: ИИ-ассистент для собеседований Natively", description: "Документация ИИ-ассистента Natively. Подробное описание того, как работают локальные ИИ-копилоты, их преимущества в приватности и функциональность." }}
       canonicalPath="/docs/ai-interview-assistant"
       h1="Documentation: Natively AI Interview Assistant"
     >
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">What is Natively?</h2>
         <p className="mb-4">
-          Natively is a local <Link to="/ai-interview-assistant" className="text-primary hover:underline">AI interview assistant</Link> designed exclusively for software engineers. It functions as an offline, real-time pair programmer during live technical interviews, system design assessments, and algorithmic coding tests. 
+          Natively is a local <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">AI interview assistant</LocaleLink> designed exclusively for software engineers. It functions as an offline, real-time pair programmer during live technical interviews, system design assessments, and algorithmic coding tests. 
         </p>
         <p className="mb-4">
           Unlike web-based chatbots, Natively is a native macOS application that processes all data on-device. It provides developers with instant algorithmic suggestions, syntax correction, and architectural blueprints directly on their screen, serving as an invisible copilot.
@@ -47,7 +48,7 @@ export default function DocsAIInterviewAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Comparison with Cloud AI Assistants</h2>
         <p className="mb-4">
-          When comparing <Link to="/local-ai-assistant" className="text-primary hover:underline">local AI vs cloud AI</Link>, the distinction lies in latency and security. Cloud platforms must transmit heavy video and audio payloads to remote servers. This introduces variable latency depending on internet connection speed and API load.
+          When comparing <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">local AI vs cloud AI</LocaleLink>, the distinction lies in latency and security. Cloud platforms must transmit heavy video and audio payloads to remote servers. This introduces variable latency depending on internet connection speed and API load.
         </p>
         <p className="mb-4">
           Natively, as a completely local application, circumvents network bottlenecks entirely. By leveraging Apple Silicon (M-series chips) and local Neural Engines, inferences are generated instantly. This provides a seamlessly invisible experience for the user.

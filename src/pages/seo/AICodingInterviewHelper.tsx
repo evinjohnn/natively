@@ -1,11 +1,12 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function AICodingInterviewHelper() {
   return (
     <SEOTemplate
       title="Elite AI Coding Interview Helper | Technical Interview Copilot"
       description="Leverage a local AI coding interview helper to tackle challenging algorithm and data structure problems with real-time feedback and high privacy."
+      ru={{ title: "Элитный ИИ-помощник для код-собеседований | Копилот для собеседований", description: "Используйте локальный ИИ-помощник для решения сложных алгоритмических задач с обратной связью в реальном времени и полной приватностью." }}
       canonicalPath="/ai-coding-interview-helper"
       h1="AI Coding Interview Helper: Your Invisible Pair Programming Copilot"
     >
@@ -15,7 +16,7 @@ export default function AICodingInterviewHelper() {
           An AI coding interview helper is specialized software designed to assist software engineers during live, technical assessments. Unlike standard generative AI chatbots that require context switching and manual typing, an interview helper operates as an integrated overlay on your desktop. It actively reads the coding challenges presented on your screen and listens to the interviewer's prompts to generate immediate, contextual advice.
         </p>
         <p className="mb-4">
-          Think of this tool as your personal <Link to="/ai-interview-assistant" className="text-primary hover:underline">interview copilot</Link>. It silently parses the coding challenges posed to you and synthesizes structured hints, pseudo-code, and algorithm strategies. Whether you're facing a LeetCode Hard problem or a complex system design question, the helper ensures you always have the right starting point.
+          Think of this tool as your personal <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">interview copilot</LocaleLink>. It silently parses the coding challenges posed to you and synthesizes structured hints, pseudo-code, and algorithm strategies. Whether you're facing a LeetCode Hard problem or a complex system design question, the helper ensures you always have the right starting point.
         </p>
       </section>
 
@@ -60,7 +61,7 @@ export default function AICodingInterviewHelper() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Advantages of Local AI Assistants</h2>
         <p className="mb-4">
-          To combat these risks, engineers prefer a <Link to="/local-ai-assistant" className="text-primary hover:underline">local AI assistant</Link>. A local infrastructure utilizes your machine's native processing power (such as Apple Silicon Neural Engines) to execute large language models securely offline.
+          To combat these risks, engineers prefer a <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">local AI assistant</LocaleLink>. A local infrastructure utilizes your machine's native processing power (such as Apple Silicon Neural Engines) to execute large language models securely offline.
         </p>
         <p className="mb-4">
           The advantages of local computing are twofold: <strong>Speed and Invisibility</strong>. The AI runs at hardware speeds, processing local OCR (Optical Character Recognition) and audio feeds in milliseconds. This directly improves developer confidence, as responses appear instantaneously without the dreaded "waiting for server" lag. Furthermore, offline processes cannot be intercepted by network monitoring tools, ensuring the application remains undetectable.
@@ -73,7 +74,7 @@ export default function AICodingInterviewHelper() {
           Natively provides the premier offline AI assistant designed specifically for coding interviews because it is completely self-contained. Our proprietary local pipeline gives you unparalleled transcription accuracy and instant code responses completely out of sight.
         </p>
         <p className="mb-4">
-          Comparing against cloud-based alternatives like <Link to="/cluely-alternative" className="text-primary hover:underline">Cluely</Link>, a local helper like Natively doesn't experience API throttling. You rely only on the resources of your own machine, preventing bandwidth bottlenecks or internet connectivity issues from failing you mid-sentence. Natively empowers developers to take total control of their technical assessments, guaranteeing privacy, performance, and ultimate success.
+          Comparing against cloud-based alternatives like <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cluely</LocaleLink>, a local helper like Natively doesn't experience API throttling. You rely only on the resources of your own machine, preventing bandwidth bottlenecks or internet connectivity issues from failing you mid-sentence. Natively empowers developers to take total control of their technical assessments, guaranteeing privacy, performance, and ultimate success.
         </p>
       </section>
     </SEOTemplate>

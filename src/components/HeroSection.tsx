@@ -1,5 +1,6 @@
 import JellyClayButton from "@/components/JellyClayButton";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import heroBackdrop from "@/assets/hero.webp";
 import desktopUI from "@/assets/desktopui.webp";
@@ -7,6 +8,7 @@ import heroVideo from "@/assets/hero.webm";
 import heroPoster from "@/assets/hero-poster.webp";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative pt-24 md:pt-32 pb-24 overflow-hidden min-h-screen flex items-center">
       {/* Backdrop Image - Full Width */}
@@ -36,12 +38,12 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="hero-headline text-[#111827] drop-shadow-sm"
           >
-            #1 Intelligent
+            {t('hero.title_line1')}
           </motion.h1>
 
           {/* Main Heading Line 2 - Word by Word */}
           <div className="hero-headline text-[#111827] drop-shadow-sm flex gap-3">
-            {["AI", "for", "Meetings"].map((word, i) => (
+            {(t('hero.title_words', { returnObjects: true }) as string[]).map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 16 }}

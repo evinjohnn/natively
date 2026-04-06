@@ -2,26 +2,31 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import JellyClayButton from "@/components/JellyClayButton";
 import JellyClayGithubStars from "@/components/JellyClayGithubStars";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLocalePath } from "@/components/LocaleLink";
 import logo from "@/assets/logo.png";
 import previewVideo from "@/assets/preview.mp4";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const GITHUB_URL = "https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/latest";
 
 const Navbar = () => {
+  const { t } = useTranslation();
+  const localePath = useLocalePath();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
   const navLinks: { label: string; href: string; isNew?: boolean; isPro?: boolean }[] = [
-    { label: "Preview", href: "#" },
+    { label: t('nav.preview'), href: "#" },
     { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
-    { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
-    { label: "Pro", href: "/pro", isPro: true },
-    { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
+    { label: t('nav.github'), href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
+    { label: t('nav.pro'), href: localePath("/pro"), isPro: true },
+    { label: t('nav.donate'), href: "https://buymeacoffee.com/evinjohnn" },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string) => {
-    if (label === "Preview") {
+    if (label === t('nav.preview')) {
       e.preventDefault();
       setShowPreview(true);
       setMobileOpen(false);
@@ -39,7 +44,7 @@ const Navbar = () => {
         className="absolute top-0 left-0 right-0 z-50 bg-transparent"
       >
         <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5">
+          <a href={localePath("/")} className="flex items-center gap-2.5">
             <img src={logo} alt="Natively Logo" className="w-8 h-8 object-contain" />
             <span className="font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight text-white flex flex-col md:flex-row md:items-center md:gap-2">
               <span>Natively</span>
@@ -69,6 +74,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <JellyClayGithubStars />
           </div>
 
@@ -94,10 +100,13 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <div className="flex items-center justify-center gap-4">
+                <LanguageSwitcher />
+              </div>
               <div className="flex justify-center w-full">
                 <JellyClayButton href={GITHUB_URL} className="w-full h-12 text-lg px-6">
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Download
+                    {t('nav.download')}
                   </span>
                 </JellyClayButton>
               </div>
@@ -106,7 +115,6 @@ const Navbar = () => {
         )}
       </motion.nav>
 
-      {/* Video Overlay */}
       {showPreview && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 animate-in fade-in duration-300"

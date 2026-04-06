@@ -1,10 +1,12 @@
 import { Check, X, Bot, ChevronsLeftRight, Sparkles, Pencil, Share2, MoreHorizontal } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.webp";
 import otherAI from "@/assets/otherai.webp";
 import nativelyNote from "@/assets/nativelynote.webp";
 
 const ComparisonSection = () => {
+  const { t } = useTranslation();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -51,10 +53,8 @@ const ComparisonSection = () => {
     <section className="py-24 bg-white">
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 flex flex-col items-center">
-          <p className="text-[#3B82F6] font-medium mb-4 uppercase tracking-wider">Works with all platforms</p>
-          <h2 className="hero-headline !text-black text-[36px] md:text-[80px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl">
-            No meeting bots.<br />100% Undetectable.
-          </h2>
+          <p className="text-[#3B82F6] font-medium mb-4 uppercase tracking-wider">{t('comparison.label')}</p>
+          <h2 className="hero-headline !text-black text-[36px] md:text-[80px] leading-[1.1] mb-4 text-center mx-auto max-w-4xl" dangerouslySetInnerHTML={{ __html: t('comparison.title') }} />
         </div>
 
         <div className="w-full max-w-[1055px] grid grid-cols-1 lg:grid-cols-2 h-auto lg:h-[520px] rounded-[32px] overflow-hidden gap-8 lg:gap-0">
@@ -70,7 +70,7 @@ const ComparisonSection = () => {
                 <div className="bg-gray-200 rounded-full p-0.5">
                   <X className="w-3 h-3 text-gray-500" />
                 </div>
-                <span className="text-[15px]">Joins as an invasive participant</span>
+                <span className="text-[15px]">{t('comparison.other_ai_subtitle')}</span>
               </div>
             </div>
 
@@ -95,7 +95,7 @@ const ComparisonSection = () => {
 
               {/* Bottom Left Text */}
               <div className="flex items-center gap-2 text-white/90">
-                <span className="text-lg font-medium">Roy's AI Notetaker</span>
+                <span className="text-lg font-medium">{t('comparison.other_ai_bot_name')}</span>
                 <div className="bg-white/20 p-1 rounded-md">
                   <Bot className="w-4 h-4 text-white" />
                 </div>
@@ -134,7 +134,7 @@ const ComparisonSection = () => {
                 <div className="w-full max-w-[420px] h-full pt-6 px-6 pb-5 flex flex-col relative">
                   {/* Badge */}
                   <div className="self-start bg-white text-black text-[12px] font-bold px-3 py-1.5 rounded-full mb-4 shadow-sm">
-                    Visible to you
+                    {t('comparison.visible_badge')}
                   </div>
                   {/* Skeleton UI */}
                   <div className="space-y-2 mb-4 animate-breathe">
@@ -189,7 +189,7 @@ const ComparisonSection = () => {
 
                   {/* Badge */}
                   <div className="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[12px] font-medium px-3 py-1.5 rounded-full mb-6 relative z-10 transition-transform">
-                    Invisible to others
+                    {t('comparison.invisible_badge')}
                   </div>
                 </div>
               </div>

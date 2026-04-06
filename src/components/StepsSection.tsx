@@ -2,41 +2,43 @@ import { Play, CheckCircle, FileCheck } from "lucide-react";
 import startNativelyImg from "@/assets/startnatively.webp";
 import endNativelyImg from "@/assets/endnatively.webp";
 import notesImg from "@/assets/notes.webp";
-
-const steps = [
-  {
-    number: "01",
-    icon: Play,
-    title: "Start Natively",
-    description: "Open Natively before your meeting starts. It works with Zoom, Meet, and Teams.",
-    image: startNativelyImg,
-    imageClass: "w-full h-full object-cover scale-125 translate-y-5 translate-x-[-2px]",
-  },
-  {
-    number: "02",
-    icon: CheckCircle,
-    title: "End Meeting",
-    description: "Stop the recording when your meeting finishes to process the transcript.",
-    image: endNativelyImg,
-    imageClass: "w-full h-full object-cover scale-125 translate-x-3",
-  },
-  {
-    number: "03",
-    icon: FileCheck,
-    title: "Get Notes",
-    description: "Receive your structured notes and action items instantly in your inbox.",
-    image: notesImg,
-    imageClass: " object-cover translate-y-12",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const StepsSection = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: "01",
+      icon: Play,
+      title: t('steps.step1_title'),
+      description: t('steps.step1_desc'),
+      image: startNativelyImg,
+      imageClass: "w-full h-full object-cover scale-125 translate-y-5 translate-x-[-2px]",
+    },
+    {
+      number: "02",
+      icon: CheckCircle,
+      title: t('steps.step2_title'),
+      description: t('steps.step2_desc'),
+      image: endNativelyImg,
+      imageClass: "w-full h-full object-cover scale-125 translate-x-3",
+    },
+    {
+      number: "03",
+      icon: FileCheck,
+      title: t('steps.step3_title'),
+      description: t('steps.step3_desc'),
+      image: notesImg,
+      imageClass: " object-cover translate-y-12",
+    },
+  ];
   return (
     <section className="section-spacing bg-white">
       <div className="max-w-[1350px] mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="hero-headline !text-[#111827] text-[32px] md:text-[80px] leading-tight mb-4 mx-auto text-center">Meeting notes in 3 steps</h2>
-          <p className="text-[20px] text-[#6B7280] font-normal font-geist">The easiest way to get beautiful, shareable meeting notes.</p>
+          <h2 className="hero-headline !text-[#111827] text-[32px] md:text-[80px] leading-tight mb-4 mx-auto text-center">{t('steps.title')}</h2>
+          <p className="text-[20px] text-[#6B7280] font-normal font-geist">{t('steps.subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12 relative">

@@ -1,56 +1,59 @@
 import { Github, Twitter } from "lucide-react";
 import logo from "@/assets/logo.webp";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const columns = [
     {
-      title: "Product",
+      titleKey: "footer.product",
       links: [
         { label: "GitHub", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant" },
         { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
-        { label: "Contribute", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/pulls" },
-        { label: "License", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/LICENSE" },
-        { label: "Changelog", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/CHANGELOG.md" },
+        { labelKey: "footer.contribute", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/pulls" },
+        { labelKey: "footer.license", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/LICENSE" },
+        { labelKey: "footer.changelog", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/CHANGELOG.md" },
       ],
     },
     {
-      title: "Legal",
+      titleKey: "footer.legal",
       links: [
-        { label: "Security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/SECURITY.md" },
-        { label: "Privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/PRIVACY.md" },
+        { labelKey: "footer.security", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/SECURITY.md" },
+        { labelKey: "footer.privacy", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/blob/main/PRIVACY.md" },
       ],
     },
     {
-      title: "Resources",
+      titleKey: "footer.resources",
       links: [
-        { label: "AI Interview Assistant", href: "/ai-interview-assistant" },
-        { label: "Cluely Alternative", href: "/cluely-alternative" },
-        { label: "Coding Interview Helper", href: "/ai-coding-interview-helper" },
-        { label: "Local AI Assistant", href: "/local-ai-assistant" },
-        { label: "AI for Coding Exams", href: "/ai-assistant-for-coding-interviews" },
-        { label: "How AI Helps You", href: "/how-ai-helps-in-coding-interviews" },
-        { label: "Local Coding Copilot", href: "/local-ai-coding-assistant" },
-        { label: "Top Technical AI Tools", href: "/ai-tools-for-technical-interviews" },
+        { labelKey: "footer.ai_interview", href: "/ai-interview-assistant" },
+        { labelKey: "footer.cluely_alt", href: "/cluely-alternative" },
+        { labelKey: "footer.coding_helper", href: "/ai-coding-interview-helper" },
+        { labelKey: "footer.local_ai", href: "/local-ai-assistant" },
+        { labelKey: "footer.ai_coding_exams", href: "/ai-assistant-for-coding-interviews" },
+        { labelKey: "footer.how_ai_helps", href: "/how-ai-helps-in-coding-interviews" },
+        { labelKey: "footer.local_coding", href: "/local-ai-coding-assistant" },
+        { labelKey: "footer.tech_ai_tools", href: "/ai-tools-for-technical-interviews" },
       ],
     },
     {
-      title: "Blog",
+      titleKey: "footer.blog",
       links: [
-        { label: "Interview Assistant Guide", href: "/blog/ai-interview-assistant-guide" },
-        { label: "Local vs Cloud AI", href: "/blog/local-ai-vs-cloud-ai-assistants" },
-        { label: "AI for Coding Exams", href: "/blog/how-ai-can-help-with-coding-interviews" },
-        { label: "How Interview Copilots Work", href: "/blog/how-ai-interview-assistants-work" },
-        { label: "Top 5 AI Tools (2026)", href: "/blog/best-ai-tools-for-coding-interviews" },
-        { label: "Preparing for Screenings", href: "/blog/preparing-for-technical-interviews-with-ai" },
+        { labelKey: "footer.interview_guide", href: "/blog/ai-interview-assistant-guide" },
+        { labelKey: "footer.local_vs_cloud", href: "/blog/local-ai-vs-cloud-ai-assistants" },
+        { labelKey: "footer.ai_coding_exams_blog", href: "/blog/how-ai-can-help-with-coding-interviews" },
+        { labelKey: "footer.interview_copilots", href: "/blog/how-ai-interview-assistants-work" },
+        { labelKey: "footer.top_ai_tools", href: "/blog/best-ai-tools-for-coding-interviews" },
+        { labelKey: "footer.preparing_screenings", href: "/blog/preparing-for-technical-interviews-with-ai" },
       ],
     },
     {
-      title: "Support",
+      titleKey: "footer.support",
       links: [
-        { label: "Donate", href: "https://buymeacoffee.com/evinjohnn" },
-        { label: "Contact", href: "mailto:natively.contact@gmail.com" },
-        { label: "Report a Bug", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/issues" },
+        { labelKey: "footer.donate", href: "https://buymeacoffee.com/evinjohnn" },
+        { labelKey: "footer.contact", href: "mailto:natively.contact@gmail.com" },
+        { labelKey: "footer.report_bug", href: "https://github.com/evinjohnn/natively-cluely-ai-assistant/issues" },
       ],
     },
   ];
@@ -71,27 +74,30 @@ const Footer = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 md:pr-12">
             {columns.map((col, i) => (
               <div key={i}>
-                <h4 className="font-semibold text-[#111827] mb-4 font-geist">{col.title}</h4>
+                <h4 className="font-semibold text-[#111827] mb-4 font-geist">{t(col.titleKey)}</h4>
                 <ul className="space-y-3">
-                  {col.links.map((link, j) => (
+                  {col.links.map((link, j) => {
+                    const label = link.labelKey ? t(link.labelKey) : link.label;
+                    return (
                     <li key={j}>
                       {link.href.startsWith("/") ? (
-                        <Link
+                        <LocaleLink
                           to={link.href}
                           className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
                         >
-                          {link.label}
-                        </Link>
+                          {label}
+                        </LocaleLink>
                       ) : (
                         <a
                           href={link.href}
                           className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
                         >
-                          {link.label}
+                          {label}
                         </a>
                       )}
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             ))}

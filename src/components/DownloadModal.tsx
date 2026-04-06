@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import zipImg from "@/assets/zip.webp";
 import copyImg from "@/assets/copy.webp";
 import errorImg from "@/assets/error.webp";
@@ -13,6 +14,7 @@ interface DownloadModalProps {
 }
 
 export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: DownloadModalProps) {
+    const { t } = useTranslation();
     const [copied, setCopied] = useState(false);
     const command = "xattr -cr /Applications/Natively.app";
 
@@ -56,10 +58,10 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                             <div className="pt-12 pb-8 flex flex-col items-center text-center px-6">
                                 <div className="flex items-center gap-2 mb-4 bg-green-50 px-3 py-1 rounded-full border border-green-100">
                                     <CheckCircle2 size={16} className="text-green-500 fill-green-100" />
-                                    <span className="text-sm font-semibold text-green-700 uppercase tracking-wide">Downloaded</span>
+                                    <span className="text-sm font-semibold text-green-700 uppercase tracking-wide">{t('download_modal.downloaded')}</span>
                                 </div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
-                                    How to install Natively
+                                    {t('download_modal.title')}
                                 </h2>
                             </div>
 
@@ -81,10 +83,8 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                             </div>
                                         </div>
                                         <div className="space-y-2 text-center md:text-left px-2">
-                                            <h3 className="font-semibold text-gray-900 text-lg">Extract the ZIP file</h3>
-                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">
-                                                Open <span className="font-medium text-gray-900 bg-gray-100 px-1.5 py-0.5 rounded text-sm">Natively.zip</span> from your Downloads folder.
-                                            </p>
+                                            <h3 className="font-semibold text-gray-900 text-lg">{t('download_modal.step1_title')}</h3>
+                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: t('download_modal.step1_desc') }} />
                                         </div>
                                     </div>
 
@@ -103,10 +103,8 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                             </div>
                                         </div>
                                         <div className="space-y-2 text-center md:text-left px-2">
-                                            <h3 className="font-semibold text-gray-900 text-lg">Move to Applications</h3>
-                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">
-                                                Drag <span className="font-medium text-gray-900 bg-gray-100 px-1.5 py-0.5 rounded text-sm">Natively.app</span> into your Applications folder.
-                                            </p>
+                                            <h3 className="font-semibold text-gray-900 text-lg">{t('download_modal.step2_title')}</h3>
+                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: t('download_modal.step2_desc') }} />
                                         </div>
                                     </div>
 
@@ -125,10 +123,8 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                             </div>
                                         </div>
                                         <div className="space-y-2 text-center md:text-left px-2">
-                                            <h3 className="font-semibold text-gray-900 text-lg">If macOS asks...</h3>
-                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">
-                                                This is a standard check for unsigned apps. It's safe to proceed.
-                                            </p>
+                                            <h3 className="font-semibold text-gray-900 text-lg">{t('download_modal.step3_title')}</h3>
+                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">{t('download_modal.step3_desc')}</p>
                                         </div>
                                     </div>
 
@@ -147,7 +143,7 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
 
                                             {/* Terminal Body */}
                                             <div className="flex-1 p-4 flex flex-col justify-center relative font-mono">
-                                                <div className="text-gray-400 text-xs mb-2 select-none">$ Fix "Damaged App"</div>
+                                                <div className="text-gray-400 text-xs mb-2 select-none">$ {t('download_modal.fix_damaged')}</div>
                                                 <div className="bg-black/30 rounded-lg p-2.5 flex items-center justify-between group/cmd border border-white/10 animate-glow-breathe transition-colors">
                                                     <code className="text-[11px] text-green-400 font-mono whitespace-nowrap overflow-x-auto scrollbar-none mr-2">
                                                         {command}
@@ -163,10 +159,8 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                                             </div>
                                         </div>
                                         <div className="space-y-2 text-center md:text-left px-2">
-                                            <h3 className="font-semibold text-gray-900 text-lg">Quick Fix Command</h3>
-                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">
-                                                Paste into Terminal, hit Enter, then open the app again.
-                                            </p>
+                                            <h3 className="font-semibold text-gray-900 text-lg">{t('download_modal.step4_title')}</h3>
+                                            <p className="text-[15px] text-gray-600 leading-relaxed font-normal">{t('download_modal.step4_desc')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -175,12 +169,12 @@ export default function DownloadModal({ isOpen, onClose, onDownloadAgain }: Down
                             {/* Footer Section */}
                             <div className="bg-gray-50 border-t border-gray-200 py-5 flex items-center justify-center">
                                 <p className="text-[15px] text-gray-500 flex items-center gap-1.5">
-                                    Download didn't start?
+                                    {t('download_modal.didn\'t_start')}
                                     <button
                                         onClick={onDownloadAgain}
                                         className="text-[#0A84FF] hover:text-[#0070e0] font-medium transition-colors hover:underline decoration-2 underline-offset-2"
                                     >
-                                        Try again
+                                        {t('download_modal.try_again')}
                                     </button>
                                 </p>
                             </div>

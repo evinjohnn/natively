@@ -5,6 +5,7 @@ export default function AIInterviewAssistant() {
     <SEOTemplate
       title="Best AI Interview Assistant — Ace Coding Interviews | Natively"
       description="Discover how an AI interview assistant running entirely locally on your device can help you ace technical and coding interviews without compromising your privacy."
+      ru={{ title: "Лучший ИИ-ассистент для собеседований | Natively", description: "Узнайте, как ИИ-ассистент, работающий полностью локально на вашем устройстве, поможет пройти технические и код-собеседования без компромиссов с приватностью." }}
       canonicalPath="/ai-interview-assistant"
       h1="What is an AI Interview Assistant? Your Ultimate Guide to Acing Technical Interviews"
     >

@@ -1,6 +1,8 @@
 import transcriptImg from "@/assets/trancript.webp";
+import { useTranslation } from "react-i18next";
 
 const TranscriptionSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-24 bg-white">
       <div className="max-content">
@@ -19,15 +21,15 @@ const TranscriptionSection = () => {
 
           {/* Stats Blocks */}
           <div className="flex flex-col pl-0 pt-8 md:pl-4 md:pt-0">
-            <h2 className="hero-headline !text-black text-[32px] md:text-[80px] md:leading-[1.1] leading-tight mb-6 text-left">Real-time transcription</h2>
+            <h2 className="hero-headline !text-black text-[32px] md:text-[80px] md:leading-[1.1] leading-tight mb-6 text-left">{t('transcription.title')}</h2>
 
             <div className="flex flex-col">
               <div className="flex gap-8 py-6 border-t border-gray-100 first:border-t-0 items-start">
-                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">7+</div>
+                <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">{t('transcription.providers_count')}</div>
                 <div>
-                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Speech Providers</h3>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">{t('transcription.providers_title')}</h3>
                   <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
-                    We support over 7 different speech providers, including Google, Deepgram, and more.
+                    {t('transcription.providers_desc')}
                   </p>
                 </div>
               </div>
@@ -37,9 +39,9 @@ const TranscriptionSection = () => {
                   300<span className="text-[24px]">ms</span>
                 </div>
                 <div>
-                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Response time</h3>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">{t('transcription.response_time_title')}</h3>
                   <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
-                    We have the fastest live transcription available. Test us against any other competitor.
+                    {t('transcription.response_time_desc')}
                   </p>
                 </div>
               </div>
@@ -47,9 +49,9 @@ const TranscriptionSection = () => {
               <div className="flex gap-8 py-6 border-t border-gray-100 items-start">
                 <div className="w-[140px] shrink-0 text-[48px] font-medium text-[#111827] leading-none font-geist">95%</div>
                 <div>
-                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">Transcription accuracy</h3>
+                  <h3 className="text-[24px] font-medium text-[#111827] mb-2 font-geist">{t('transcription.accuracy_title')}</h3>
                   <p className="body-text-geist text-[#6B7280] text-[16px] leading-relaxed">
-                    Trusted by many teams for reliable transcription. All processed with industry-leading accuracy.
+                    {t('transcription.accuracy_desc')}
                   </p>
                 </div>
               </div>

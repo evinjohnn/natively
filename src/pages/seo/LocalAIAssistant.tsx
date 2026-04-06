@@ -1,18 +1,19 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function LocalAIAssistant() {
   return (
     <SEOTemplate
       title="Secure Local AI Assistant for Offline Computing | Natively"
       description="Use an offline, local AI assistant to secure your interview process. Get real-time answers directly from your device hardware without cloud tracking."
+      ru={{ title: "Безопасный локальный ИИ-ассистент для оффлайн-работы | Natively", description: "Используйте оффлайн ИИ-ассистент для безопасного прохождения собеседований. Получайте ответы в реальном времени напрямую с вашего устройства." }}
       canonicalPath="/local-ai-assistant"
       h1="Secure, Local AI Assistant: The Future of Private Computing"
     >
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">What is a Local AI Assistant?</h2>
         <p className="mb-4">
-          A <Link to="/ai-interview-assistant" className="text-primary hover:underline">local AI assistant</Link> is a highly specialized intelligent application that operates entirely on your physical device hardware, rather than relying on remote cloud servers. By downloading the artificial intelligence models (LLMs) directly to your machine, the assistant can process text, audio, and visual data autonomously without requiring an active internet connection.
+          A <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">local AI assistant</LocaleLink> is a highly specialized intelligent application that operates entirely on your physical device hardware, rather than relying on remote cloud servers. By downloading the artificial intelligence models (LLMs) directly to your machine, the assistant can process text, audio, and visual data autonomously without requiring an active internet connection.
         </p>
         <p className="mb-4">
           In the context of technical recruiting, a local AI assistant is an entirely offline processing engine that generates transcriptions, solves algorithm challenges, and provides real-time programming answers right on your host machine. It serves as an invisible copilot that guarantees absolute discretion and speed.
@@ -33,7 +34,7 @@ export default function LocalAIAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Developers Prefer Local AI Assistants</h2>
         <p className="mb-4">
-          Developers are naturally skeptical of opaque cloud architectures. They prioritize rigorous control over their development environments. With a <Link to="/ai-coding-interview-helper" className="text-primary hover:underline">local coding helper</Link>, engineers eliminate third-party latency, arbitrary subscription limits, and potential corporate data mining.
+          Developers are naturally skeptical of opaque cloud architectures. They prioritize rigorous control over their development environments. With a <LocaleLink to="/ai-coding-interview-helper" className="text-primary hover:underline">local coding helper</LocaleLink>, engineers eliminate third-party latency, arbitrary subscription limits, and potential corporate data mining.
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2">
           <li><strong>Deterministic Performance:</strong> Local execution means the AI response time is always consistent. You never have to worry about a cloud provider experiencing an outage mid-interview.</li>
@@ -58,7 +59,7 @@ export default function LocalAIAssistant() {
           Running an offline AI assistant means zero telemetry. Your conversations, desktop screen snippets, and live coding drafts are confined strictly to your local RAM and disk drive. Nothing is serialized, and nothing is transmitted over the network. 
         </p>
         <p className="mb-4">
-          In a cloud setup like <Link to="/cluely-alternative" className="text-primary hover:underline">Cluely</Link>, you implicitly surrender the sanctity of your privacy to their infrastructure. A local approach empowers the user, offering equivalent—and often superior—inference quality with demonstrably superior data sovereignty. With local AI, you hold the keys to your own data.
+          In a cloud setup like <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cluely</LocaleLink>, you implicitly surrender the sanctity of your privacy to their infrastructure. A local approach empowers the user, offering equivalent—and often superior—inference quality with demonstrably superior data sovereignty. With local AI, you hold the keys to your own data.
         </p>
       </section>
 

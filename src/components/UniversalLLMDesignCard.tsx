@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import openaiLogo from "../assets/openai.png";
 import claudeLogo from "../assets/claude.png";
 import geminiLogo from "../assets/gemini.webp";
 
 export default function UniversalLLMDesignCard() {
+    const { t } = useTranslation();
     return (
         <div className="w-full flex items-center justify-center 
             bg-[#eef0f4] 
@@ -26,10 +28,10 @@ export default function UniversalLLMDesignCard() {
                 {/* Heading */}
                 <div className="space-y-4 max-w-[85%]">
                     <h3 className="text-[28px] md:text-[38px] leading-[1.1] font-semibold tracking-[-0.02em] text-[#2b3445]">
-                        Universal LLM Interface
+                        {t('features.card2_title')}
                     </h3>
                     <p className="text-[16px] md:text-[18px] text-[#7b8596] leading-[1.5] font-medium">
-                        Invoke, orchestrate, and monitor multiple AI providers through one refined surface.
+                        {t('features.card2_desc')}
                     </p>
                 </div>
 
@@ -56,7 +58,7 @@ export default function UniversalLLMDesignCard() {
                         <div className="flex items-center justify-between pb-4 border-b border-black/5">
                             <div className="flex items-center gap-2.5 bg-white/60 px-3 py-1.5 rounded-full shadow-sm border border-white/50">
                                 <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
-                                <span className="text-[11px] md:text-[13px] font-semibold text-neutral-600">3 Models Active</span>
+                                <span className="text-[11px] md:text-[13px] font-semibold text-neutral-600">{t('features.card2_models_active')}</span>
                             </div>
 
                             {/* Add Key Button - Premium Blue Jelly Style */}
@@ -73,7 +75,7 @@ export default function UniversalLLMDesignCard() {
                                 {/* Inner Gloss Effect */}
                                 <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
 
-                                <span className="relative drop-shadow-sm">+ Add Key</span>
+                                <span className="relative drop-shadow-sm">{t('features.card2_add_key')}</span>
                             </motion.button>
                         </div>
 

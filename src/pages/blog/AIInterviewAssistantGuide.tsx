@@ -1,25 +1,26 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function AIInterviewAssistantGuide() {
   return (
     <SEOTemplate
       title="The Definitive Guide to Using an AI Interview Assistant"
       description="Read our comprehensive guide on maximizing an AI interview assistant to effortlessly pass technical coding interviews."
+      ru={{ title: "Полное руководство по использованию ИИ-ассистента для собеседований", description: "Подробное руководство по максимальной эффективности ИИ-ассистента для успешного прохождения технических собеседований." }}
       canonicalPath="/blog/ai-interview-assistant-guide"
       h1="The Definitive Guide to Using an AI Interview Assistant"
     >
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">What is an AI interview assistant?</h2>
         <p>
-          Passing interviews at top tech companies is notoriously difficult. An AI interview assistant bridges the gap between your real engineering skill and the artificial environment of an interview by serving as an invisible copilot. You can think of it as an interactive <Link to="/ai-interview-assistant" className="text-primary hover:underline">real-time reference manual</Link>.
+          Passing interviews at top tech companies is notoriously difficult. An AI interview assistant bridges the gap between your real engineering skill and the artificial environment of an interview by serving as an invisible copilot. You can think of it as an interactive <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">real-time reference manual</LocaleLink>.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">How AI helps with coding interviews</h2>
         <p>
-          In a high-pressure environment, our memory can fail us on the specific APIs of standard libraries. An <Link to="/ai-coding-interview-helper" className="text-primary hover:underline">AI coding interview helper</Link> acts as a real-time pair, suggesting approaches to problems organically, letting you lead the architectural conversation confidently.
+          In a high-pressure environment, our memory can fail us on the specific APIs of standard libraries. An <LocaleLink to="/ai-coding-interview-helper" className="text-primary hover:underline">AI coding interview helper</LocaleLink> acts as a real-time pair, suggesting approaches to problems organically, letting you lead the architectural conversation confidently.
         </p>
       </section>
 
@@ -33,14 +34,14 @@ export default function AIInterviewAssistantGuide() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Why developers use local AI assistants</h2>
         <p>
-          Engineers respect precision and performance. They favor a <Link to="/local-ai-assistant" className="text-primary hover:underline">local assistant</Link> to achieve zero latency, ensuring the advice given by the copilot arrives while the interviewer is still talking, perfectly syncing with the conversation flow.
+          Engineers respect precision and performance. They favor a <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">local assistant</LocaleLink> to achieve zero latency, ensuring the advice given by the copilot arrives while the interviewer is still talking, perfectly syncing with the conversation flow.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Comparison with cloud-based assistants</h2>
         <p>
-          When comparing against <Link to="/cluely-alternative" className="text-primary hover:underline">Cluely alternatives</Link>, cloud systems represent a single point of failure. Your local offline pipeline, however, functions seamlessly even on compromised or unstable Wi-Fi networks.
+          When comparing against <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cluely alternatives</LocaleLink>, cloud systems represent a single point of failure. Your local offline pipeline, however, functions seamlessly even on compromised or unstable Wi-Fi networks.
         </p>
       </section>
 

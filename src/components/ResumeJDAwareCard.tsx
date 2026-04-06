@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function ResumeJDAwareCard() {
+    const { t } = useTranslation();
     return (
         <div className="w-full h-auto min-h-[330px] md:h-[330px] flex items-center justify-center bg-[#eef0f4] rounded-[36px] overflow-hidden relative group hover:shadow-lg transition-all duration-300">
             <motion.div
@@ -15,17 +17,16 @@ export default function ResumeJDAwareCard() {
                     <div className="space-y-4 sm:space-y-5">
                         <div className="space-y-2">
                             <div className="text-[12px] tracking-[0.2em] uppercase text-[#7b8596] font-semibold font-geist">
-                                Context Intelligence
+                                {t('features.card3_label')}
                             </div>
 
                             <h2 className="text-[26px] sm:text-[30px] font-semibold tracking-[-0.02em] text-[#2f3542] leading-snug font-geist">
-                                Resume Aware
-                                Responses
+                                {t('features.card3_title')}
                             </h2>
                         </div>
 
                         <p className="text-[#64748b] text-sm leading-relaxed font-medium max-w-[90%]">
-                            Analyzes your resume and the job description to provide tailored answers.
+                            {t('features.card3_desc')}
                         </p>
                     </div>
 

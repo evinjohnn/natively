@@ -1,11 +1,12 @@
 import SEOTemplate from "../SEOTemplate";
-import { Link } from "react-router-dom";
+import { LocaleLink } from "@/components/LocaleLink";
 
 export default function AIAssistantForCodingInterviews() {
   return (
     <SEOTemplate
       title="The Best AI Assistant for Coding Interviews | Real-Time Help"
       description="Find the perfect AI assistant for coding interviews. Learn how an offline, AI-powered pair programmer helps you solve algorithms and system design problems instantly."
+      ru={{ title: "Лучший ИИ-ассистент для код-собеседований | Помощь в реальном времени", description: "Найдите идеального ИИ-ассистента для код-собеседований. Узнайте, как оффлайн-ассистент помогает мгновенно решать алгоритмические задачи и задачи системного дизайна." }}
       canonicalPath="/ai-assistant-for-coding-interviews"
       h1="The Best AI Assistant for Coding Interviews"
     >
@@ -15,7 +16,7 @@ export default function AIAssistantForCodingInterviews() {
           An AI assistant for coding interviews is a sophisticated application designed to act as an invisible, real-time pair programmer. While you share your screen or converse with an interviewer, the assistant quietly processes the problem statements and generates optimal code snippets, architectural hints, and algorithmic strategies directly onto your display.
         </p>
         <p className="mb-4">
-          This technology serves to level the playing field. Technical interviews often lean on memorization of obscure computer science trivia or complex standard libraries. An <Link to="/ai-interview-assistant" className="text-primary hover:underline">interview copilot</Link> handles the rote memorization, allowing developers to focus their cognitive energy on high-level system design and effective communication.
+          This technology serves to level the playing field. Technical interviews often lean on memorization of obscure computer science trivia or complex standard libraries. An <LocaleLink to="/ai-interview-assistant" className="text-primary hover:underline">interview copilot</LocaleLink> handles the rote memorization, allowing developers to focus their cognitive energy on high-level system design and effective communication.
         </p>
       </section>
 
@@ -43,7 +44,7 @@ export default function AIAssistantForCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Advantages of Local AI Assistants</h2>
         <p className="mb-4">
-          If you intend to use an assistant, it must operate on-device. <Link to="/local-ai-assistant" className="text-primary hover:underline">Local AI assistants</Link> are built to bypass internet constraints entirely, running high-performance Large Language Models directly on your physical hardware.
+          If you intend to use an assistant, it must operate on-device. <LocaleLink to="/local-ai-assistant" className="text-primary hover:underline">Local AI assistants</LocaleLink> are built to bypass internet constraints entirely, running high-performance Large Language Models directly on your physical hardware.
         </p>
         <ul className="list-disc pl-6 mb-6 space-y-2">
           <li><strong>Zero Latency:</strong> Because data doesn't travel to a remote server, transcription and hint generation occur in absolute real-time.</li>
@@ -55,7 +56,7 @@ export default function AIAssistantForCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is Different</h2>
         <p className="mb-4">
-          When seeking the ultimate AI assistant for coding interviews, engineers turn to Natively. As a <Link to="/cluely-alternative" className="text-primary hover:underline">premier alternative</Link> to cloud-based platforms, Natively transforms your Mac into a private intelligence hub. By keeping all processing local, we ensure you ace your technical screening securely, swiftly, and invisibly.
+          When seeking the ultimate AI assistant for coding interviews, engineers turn to Natively. As a <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">premier alternative</LocaleLink> to cloud-based platforms, Natively transforms your Mac into a private intelligence hub. By keeping all processing local, we ensure you ace your technical screening securely, swiftly, and invisibly.
         </p>
       </section>
     </SEOTemplate>
