@@ -10,7 +10,7 @@ interface SEOTemplateProps {
   canonicalPath: string;
   children: React.ReactNode;
   h1: string;
-  ru?: { title: string; description: string };
+  ru?: { title: string; description: string; h1?: string; children?: React.ReactNode };
 }
 
 export default function SEOTemplate({ title, description, canonicalPath, children, h1, ru }: SEOTemplateProps) {
@@ -19,6 +19,8 @@ export default function SEOTemplate({ title, description, canonicalPath, childre
   const isRu = i18n.language === "ru";
   const displayTitle = isRu && ru ? ru.title : title;
   const displayDesc = isRu && ru ? ru.description : description;
+  const displayH1 = isRu && ru?.h1 ? ru.h1 : h1;
+  const displayChildren = isRu && ru?.children ? ru.children : children;
   const displayPath = localePath(canonicalPath);
 
   return (
@@ -28,10 +30,10 @@ export default function SEOTemplate({ title, description, canonicalPath, childre
       <main className="flex-1 pt-32 pb-24 px-6 max-w-4xl mx-auto w-full">
         <article className="prose prose-invert lg:prose-xl w-full max-w-none">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-8 text-foreground tracking-tight">
-            {h1}
+            {displayH1}
           </h1>
           <div className="text-muted-foreground leading-relaxed space-y-8">
-            {children}
+            {displayChildren}
           </div>
           
           <div className="mt-16 bg-card border border-border/50 rounded-2xl p-8 text-center">
