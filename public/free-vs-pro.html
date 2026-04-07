@@ -750,11 +750,7 @@ function applyTranslations() {
   Object.entries(map).forEach(([id, key]) => {
     const el = $(id);
     if (el) {
-      // Preserve SVG icons, only translate text nodes
-      const textNodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
-      if (textNodes.length > 0) {
-        textNodes[0].textContent = t(key);
-      }
+      el.textContent = t(key);
     }
   });
 

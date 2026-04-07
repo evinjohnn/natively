@@ -111,18 +111,10 @@ export default function LanguageSwitcher({ isDark = true }: { isDark?: boolean }
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             role="listbox"
             aria-label="Select language"
-            className={`absolute right-0 top-full mt-2 w-[160px] rounded-xl border shadow-xl overflow-hidden z-50 ${
-              isDark
-                ? 'bg-gray-900/95 backdrop-blur-md border-white/10'
-                : 'bg-white border-gray-200'
-            }`}
+            className="absolute right-0 top-full mt-2 w-[160px] rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden z-50"
           >
-            <div className={`px-3 py-2 border-b ${
-              isDark ? 'border-white/5' : 'border-gray-100'
-            }`}>
-              <span className={`text-[11px] font-semibold uppercase tracking-wider ${
-                isDark ? 'text-white/40' : 'text-gray-400'
-              }`}>
+            <div className="px-3 py-2 border-b border-gray-100">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                 Language
               </span>
             </div>
@@ -140,26 +132,18 @@ export default function LanguageSwitcher({ isDark = true }: { isDark?: boolean }
                     onMouseEnter={() => setFocusedIndex(i)}
                     className={`w-full flex items-center justify-between rounded-lg px-3 py-2 text-[14px] font-medium transition-all duration-150 cursor-pointer ${
                       isSelected
-                        ? isDark
-                          ? 'bg-white/10 text-white'
-                          : 'bg-gray-100 text-foreground'
+                        ? 'bg-gray-100 text-foreground'
                         : isFocused
-                          ? isDark
-                            ? 'text-white/80 bg-white/5'
-                            : 'text-foreground bg-gray-50'
-                          : isDark
-                            ? 'text-white/60 hover:text-white hover:bg-white/5'
-                            : 'text-foreground/60 hover:text-foreground hover:bg-gray-50'
+                          ? 'text-foreground bg-gray-50'
+                          : 'text-foreground/60 hover:text-foreground hover:bg-gray-50'
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-[12px] font-bold opacity-60">{lang.label}</span>
+                      <span className="text-[12px] font-bold text-gray-400">{lang.label}</span>
                       <span>{lang.name}</span>
                     </div>
                     {isSelected && (
-                      <div className={`rounded-full p-0.5 ${
-                        isDark ? 'bg-white/10' : 'bg-gray-200'
-                      }`}>
+                      <div className="rounded-full bg-gray-200 p-0.5">
                         <Check className="w-3 h-3" />
                       </div>
                     )}
