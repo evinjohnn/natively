@@ -25,7 +25,7 @@ export default function LanguageSwitcher({ isDark = true }: { isDark?: boolean }
       className={`text-[14px] font-medium transition-colors flex items-center gap-1 ${isDark ? "text-white/80 hover:text-white" : "text-foreground/80 hover:text-foreground"}`}
       aria-label="Switch language"
     >
-      {i18n.language === 'en' ? 'RU' : 'EN'}
+      {i18n.language === 'ru' ? 'RU' : 'EN'}
     </button>
   );
 }
