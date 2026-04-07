@@ -600,6 +600,226 @@ html, body { width: 100vw; height: 100vh; overflow: hidden; font-family: 'Geist'
 </div><!-- /desktop -->
 
 <script>
+// ═══════════════════ i18n ═══════════════════
+const LANG = new URLSearchParams(window.location.search).get('lang') || 'en';
+document.documentElement.lang = LANG;
+
+const i18n = {
+  en: {
+    sl_badge_pro: "One-time · yours forever",
+    hide: "Hide",
+    listening: "Listening for interviewer...",
+    chip_what: "What to answer?",
+    chip_shorten: "Shorten",
+    chip_recap: "Recap",
+    chip_fup: "Follow Up",
+    chip_answer: "Answer",
+    inp_free: "Ask anything on screen or conversation...",
+    inp_pro: "Ask anything — Natively knows your resume and this company...",
+    ctx_label: "Pro context active",
+    ctx_stripe: "Stripe · Senior Backend",
+    ctx_resume: "Resume loaded",
+    ctx_yoe: "5 YOE · Infra",
+    ctx_nego: "Negotiation ON",
+    say_this: "Say this",
+    say_this_stripe: "Say this · tailored to Stripe",
+    nego_head: "Negotiation copilot · Stripe L5",
+    nego_badge: "Live · Mar 2026",
+    cite_eng: "Stripe Eng blog cited",
+    cite_resume: "Matched your resume",
+    cite_tradeoff: "Tradeoff included",
+    nego_l5: "L5 TC: $245K–$310K",
+    nego_anchor: "Anchor: $280–295K",
+    nego_flex: 'Don\'t say "flexible" first',
+    nego_counter: "Counter within 15%",
+    fup_label: "Follow-up questions",
+    fup_label_stripe: "Follow-up questions · Stripe-tailored",
+    recording: "Recording...",
+    q1_ann: '"Walk me through designing a rate limiter at scale."',
+    q1_press: 'Both panels: pressing "What to answer?"',
+    q2_ann: '"What compensation are you targeting for this role?"',
+    q2_press: 'Both panels: holding "Answer" to speak',
+    q3_ann: '"Do you have any questions for us?"',
+    q3_press: 'Both panels: pressing "Follow Up"',
+    end_free_eyebrow: "Natively Free",
+    end_free_h: 'Good enough<br>to <em>get by.</em>',
+    end_free_sub: "Real-time AI. Any model. Runs locally. Free forever with your own API keys.",
+    end_free_f1: "Live transcription & AI answers",
+    end_free_f2: "Screenshot OCR analysis",
+    end_free_f3: "Undetectable stealth mode",
+    end_free_f4: "Local RAG memory",
+    end_free_btn: "Download free →",
+    end_replay: "↺ Replay",
+    end_note_free: "AGPL-3.0 open source · github.com/evinjohnn/natively",
+    end_pro_eyebrow: "Natively Pro",
+    end_pro_h: 'Built to get<br><em>the offer.</em>',
+    end_pro_sub: "Everything in Free, plus resume & JD context, live company intelligence, and salary negotiation copilot.",
+    end_pro_f1: "Resume & JD context awareness",
+    end_pro_f2: "Live company research & dossiers",
+    end_pro_f3: "Salary negotiation copilot",
+    end_pro_f4: "Priority support & feature access",
+    end_pro_btn: "Get Natively Pro →",
+    end_replay_demo: "↺ Replay Demo",
+    end_note_pro: "One-time purchase · No subscription · yours forever",
+    q1_free_answer: "For a rate limiter at scale, I'd use a token bucket backed by Redis. Each node performs atomic operations using Lua scripts to decrement a shared counter. For clock skew across distributed nodes, a sliding window with a small tolerance margin — about 1-2 seconds — helps maintain consistency without requiring tight synchronization.",
+    q1_pro_answer: "At Stripe's scale I'd use a sliding window counter in Redis with atomic Lua scripts — the same pattern Stripe Engineering uses for payment rate controls. For clock skew, NTP with a 1-second tolerance keeps p99 under 2ms. Worth flagging the tradeoff: sub-millisecond precision would push you to token bucket with local state plus async Redis reconciliation.",
+    q2_free_answer: '"I\'m open to discussing compensation. I\'m targeting something competitive with market rate for this role and location. I\'m flexible and happy to discuss the full package."',
+    q2_pro_answer: '"Based on my research, I\'m targeting $280–295K total comp for this level at Stripe. That\'s anchored to L5 benchmarks on levels.fyi and reflects my distributed infrastructure background."',
+    q3_free_qs: ["How does the team handle rate limiter failures during incidents?","What does the on-call rotation look like for infra engineers?","How much ownership does an engineer have over architecture decisions?"],
+    q3_pro_qs: ["How does Stripe's rate limiter handle failover across regions during incidents?","What's the team's philosophy on consistency vs. availability at Stripe's scale?","How much architecture ownership does an L5 have over infra decisions?"],
+    q1_user: "What to answer?",
+    q2_user: "What should I say about salary?",
+    q3_user: "Questions I should ask them?",
+  },
+  ru: {
+    hide: "Скрыть",
+    listening: "Слушаем интервьюера...",
+    chip_what: "Что ответить?",
+    chip_shorten: "Короче",
+    chip_recap: "Итоги",
+    chip_fup: "Уточнить",
+    chip_answer: "Ответ",
+    inp_free: "Спросите что-нибудь об экране или разговоре...",
+    inp_pro: "Спросите что угодно — Natively знает ваше резюме и эту компанию...",
+    ctx_label: "Pro контекст активен",
+    ctx_stripe: "Stripe · Senior Backend",
+    ctx_resume: "Резюме загружено",
+    ctx_yoe: "5 лет опыта · Инфра",
+    ctx_nego: "Переговоры ВКЛ",
+    say_this: "Скажите это",
+    say_this_stripe: "Скажите это · адаптировано для Stripe",
+    nego_head: "Помощник переговоров · Stripe L5",
+    nego_badge: "Live · Мар 2026",
+    cite_eng: "Цитата из Stripe Eng",
+    cite_resume: "Совпадение с резюме",
+    cite_tradeoff: "Компромисс включён",
+    nego_l5: "L5 TC: $245K–$310K",
+    nego_anchor: "Якорь: $280–295K",
+    nego_flex: "Не говорите «гибкий» первым",
+    nego_counter: "Контрпредложение в пределах 15%",
+    fup_label: "Вопросы для собеседования",
+    fup_label_stripe: "Вопросы · адаптировано для Stripe",
+    recording: "Запись...",
+    q1_ann: '"Расскажите, как вы спроектируете rate limiter в масштабе."',
+    q1_press: 'Обе панели: нажата кнопка "Что ответить?"',
+    q2_ann: '"На какую компенсацию вы рассчитываете?"',
+    q2_press: 'Обе панели: удержание кнопки "Ответ"',
+    q3_ann: '"Есть ли у вас вопросы к нам?"',
+    q3_press: 'Обе панели: нажата кнопка "Уточнить"',
+    end_free_eyebrow: "Natively Free",
+    end_free_h: 'Хватит, чтобы<br><em>справиться.</em>',
+    end_free_sub: "ИИ в реальном времени. Любая модель. Работает локально. Бесплатно навсегда со своими API-ключами.",
+    end_free_f1: "Транскрипция и ответы ИИ в реальном времени",
+    end_free_f2: "OCR-анализ скриншотов",
+    end_free_f3: "Незаметный режим стелс",
+    end_free_f4: "Локальная RAG-память",
+    end_free_btn: "Скачать бесплатно →",
+    end_replay: "↺ Повтор",
+    end_note_free: "AGPL-3.0 open source · github.com/evinjohnn/natively",
+    end_pro_eyebrow: "Natively Pro",
+    end_pro_h: 'Создан, чтобы<br><em>получить оффер.</em>',
+    end_pro_sub: "Всё из Free, плюс контекст резюме и вакансии, разведка о компании и помощник переговоров по зарплате.",
+    end_pro_f1: "Контекст резюме и описания вакансии",
+    end_pro_f2: "Разведка о компании и досье",
+    end_pro_f3: "Помощник переговоров по зарплате",
+    end_pro_f4: "Приоритетная поддержка и доступ к функциям",
+    end_pro_btn: "Получить Natively Pro →",
+    end_replay_demo: "↺ Повтор демо",
+    end_note_pro: "Одноразовая покупка · Без подписки · навсегда",
+    q1_free_answer: "Для rate limiter в масштабе я бы использовал token bucket на базе Redis. Каждый узел выполняет атомарные операции через Lua-скрипты для декремента общего счётчика. Для рассинхронизации часов в распределённых узлах — скользящее окно с допуском 1-2 секунды помогает поддерживать согласованность без жёсткой синхронизации.",
+    q1_pro_answer: "На масштабе Stripe я бы использовал скользящий счётчик в Redis с атомарными Lua-скриптами — тот же паттерн, что Stripe Engineering использует для контроля rate limit платежей. Для рассинхронизации часов NTP с допуском 1 секунда держит p99 ниже 2мс. Стоит отметить компромисс: субмиллисекундная точность потребует token bucket с локальным состоянием и асинхронной реконсиляцией Redis.",
+    q2_free_answer: '"Я открыт к обсуждению компенсации. Рассчитываю на конкурентную рыночную ставку для этой роли и локации. Гибкий и готов обсудить полный пакет."',
+    q2_pro_answer: '"По моим данным, я рассчитываю на $280–295K общего дохода для этого уровня в Stripe. Это основано на L5 бенчмарках levels.fyi и отражает мой опыт в распределённой инфраструктуре."',
+    q3_free_qs: ["Как команда обрабатывает сбои rate limiter во время инцидентов?","Как выглядит дежурство онколл для инфраструктурных инженеров?","Насколько инженер владеет архитектурными решениями?"],
+    q3_pro_qs: ["Как rate limiter Stripe обрабатывает фейловер между регионами во время инцидентов?","Какова философия команды по консистентности vs доступности на масштабе Stripe?","Насколько L5 владеет архитектурными решениями в инфраструктуре?"],
+    q1_user: "Что ответить?",
+    q2_user: "Что мне сказать про зарплату?",
+    q3_user: "Какие вопросы им задать?",
+  }
+};
+
+function t(key) { return i18n[LANG]?.[key] || i18n.en[key] || key; }
+
+// Apply static translations
+function applyTranslations() {
+  const map = {
+    'ft-txt': 'listening', 'pt-txt': 'listening',
+    'fc-what': 'chip_what', 'fc-short': 'chip_shorten', 'fc-recap': 'chip_recap', 'fc-fup': 'chip_fup', 'fc-ans': 'chip_answer',
+    'pc-what': 'chip_what', 'pc-short': 'chip_shorten', 'pc-recap': 'chip_recap', 'pc-fup': 'chip_fup', 'pc-ans': 'chip_answer',
+  };
+  Object.entries(map).forEach(([id, key]) => {
+    const el = $(id);
+    if (el) {
+      // Preserve SVG icons, only translate text nodes
+      const textNodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
+      if (textNodes.length > 0) {
+        textNodes[0].textContent = t(key);
+      }
+    }
+  });
+
+  // Input bars — they are divs with text content
+  document.querySelectorAll('.inp-bar').forEach(el => {
+    if (el.classList.contains('pro-inp')) {
+      el.textContent = t('inp_pro');
+    } else {
+      el.textContent = t('inp_free');
+    }
+  });
+
+  // Context card
+  const ctxLabel = document.querySelector('.ctx-label');
+  if (ctxLabel) ctxLabel.textContent = t('ctx_label');
+  const ctxTags = document.querySelectorAll('.ctx-tag');
+  if (ctxTags[0]) ctxTags[0].textContent = t('ctx_stripe');
+  if (ctxTags[1]) ctxTags[1].textContent = t('ctx_resume');
+  if (ctxTags[2]) ctxTags[2].textContent = t('ctx_yoe');
+  if (ctxTags[3]) ctxTags[3].textContent = t('ctx_nego');
+
+  // End card
+  const endEls = {
+    'end-eyebrow dark': 'end_free_eyebrow',
+    'end-h dark': 'end_free_h',
+    'end-sub dark': 'end_free_sub',
+    'end-btn btn-dark': 'end_free_btn',
+    'end-btn btn-ghost-dark': 'end_replay',
+    'end-note dark': 'end_note_free',
+    'end-eyebrow light': 'end_pro_eyebrow',
+    'end-h light': 'end_pro_h',
+    'end-sub light': 'end_pro_sub',
+    'end-btn btn-amber': 'end_pro_btn',
+    'end-btn btn-ghost': 'end_replay_demo',
+    'end-note light': 'end_note_pro',
+  };
+  Object.entries(endEls).forEach(([sel, key]) => {
+    const el = document.querySelector('.' + sel.split(' ').join('.'));
+    if (el) el.innerHTML = t(key);
+  });
+
+  // End features - translate text nodes only, preserve SVGs
+  const endFeats = document.querySelectorAll('.end-feat');
+  const featKeys = ['end_free_f1','end_free_f2','end_free_f3','end_free_f4','end_pro_f1','end_pro_f2','end_pro_f3','end_pro_f4'];
+  endFeats.forEach((el, i) => {
+    if (featKeys[i]) {
+      const featCk = el.querySelector('.feat-ck');
+      const textNodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
+      // Remove old text nodes
+      textNodes.forEach(n => n.remove());
+      // Add translated text
+      el.appendChild(document.createTextNode(t(featKeys[i])));
+    }
+  });
+
+  // Hide buttons (tp-center span)
+  document.querySelectorAll('.tp-center span').forEach(el => {
+    el.textContent = t('hide');
+  });
+
+  // Pro badge
+  const proBadge = document.querySelector('.sl-badge.pro');
+  if (proBadge) proBadge.textContent = LANG === 'ru' ? i18n.ru.sl_badge_pro : i18n.en.sl_badge_pro;
+}
+
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const $ = id => document.getElementById(id);
 const setP = p => $('prog').style.width = p + '%';
@@ -634,8 +854,8 @@ async function rollTranscript(text) {
   pdot.classList.remove('gold-on'); ptxt.classList.remove('speaking');
 }
 
-function showAnn(t, dur=2800) {
-  const a=$('ann'); a.textContent=t; a.classList.add('show');
+function showAnn(text, dur=2800) {
+  const a=$('ann'); a.textContent=text; a.classList.add('show');
   setTimeout(()=>a.classList.remove('show'), dur);
 }
 
@@ -667,28 +887,28 @@ function addThinking(chatId) {
 
 // ── Q1 answers ──
 async function freeAnswer1(chat) {
-  const t=addThinking(chat); await wait(1800); t.remove();
+  const thinking=addThinking(chat); await wait(1800); thinking.remove();
   const w=addMsg(chat, false);
   w.innerHTML=`<div class="card card-green"><div class="card-label cl-green">
     <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4ade80" stroke-width="1.5"/><path d="M3.5 5l1 1 2-2" stroke="#4ade80" stroke-width="1.3" stroke-linecap="round"/></svg>
-    Say this</div><div class="card-text" id="fa1"></div></div>`;
+    ${t('say_this')}</div><div class="card-text" id="fa1"></div></div>`;
   $(chat).scrollTop=99999;
-  await typeInto($('fa1'), "For a rate limiter at scale, I'd use a token bucket backed by Redis. Each node performs atomic operations using Lua scripts to decrement a shared counter. For clock skew across distributed nodes, a sliding window with a small tolerance margin — about 1-2 seconds — helps maintain consistency without requiring tight synchronization.", 14, 'g');
+  await typeInto($('fa1'), t('q1_free_answer'), 14, 'g');
 }
 
 async function proAnswer1(chat) {
-  const t=addThinking(chat); await wait(1800); t.remove();
+  const thinking=addThinking(chat); await wait(1800); thinking.remove();
   const w=addMsg(chat, false);
   w.innerHTML=`<div class="card card-amber"><div class="card-label cl-amber">
     <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 1l1 2.5L8.5 4l-2 1.8.5 2.7L5 7 2.5 8.5 3 5.8 1 4l2.5-.5z" stroke="#fbbf24" stroke-width="1" stroke-linejoin="round"/></svg>
-    Say this · tailored to Stripe</div><div class="card-text" id="pa1"></div>
+    ${t('say_this_stripe')}</div><div class="card-text" id="pa1"></div>
     <div class="cite-row" id="pa1-cites" style="display:none">
-      <div class="cite"><div class="cite-dot"></div>Stripe Eng blog cited</div>
-      <div class="cite"><div class="cite-dot"></div>Matched your resume</div>
-      <div class="cite"><div class="cite-dot"></div>Tradeoff included</div>
+      <div class="cite"><div class="cite-dot"></div>${t('cite_eng')}</div>
+      <div class="cite"><div class="cite-dot"></div>${t('cite_resume')}</div>
+      <div class="cite"><div class="cite-dot"></div>${t('cite_tradeoff')}</div>
     </div></div>`;
   $(chat).scrollTop=99999;
-  await typeInto($('pa1'), "At Stripe's scale I'd use a sliding window counter in Redis with atomic Lua scripts — the same pattern Stripe Engineering uses for payment rate controls. For clock skew, NTP with a 1-second tolerance keeps p99 under 2ms. Worth flagging the tradeoff: sub-millisecond precision would push you to token bucket with local state plus async Redis reconciliation.", 13, 'a');
+  await typeInto($('pa1'), t('q1_pro_answer'), 13, 'a');
   $('pa1-cites').style.display='flex';
 }
 
@@ -696,95 +916,96 @@ async function proAnswer1(chat) {
 async function freeSalary(chat) {
   const cAns=$('fc-ans');
   cAns.className='chip c-red';
-  cAns.innerHTML='<div class="rec-dot"></div> Recording...';
+  cAns.innerHTML='<div class="rec-dot"></div> '+t('recording');
   await wait(1900);
   cAns.className='chip';
-  cAns.innerHTML=`<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6H11L8.1 6.7l1.2 3.8L6 8.8l-3.3 1.7 1.2-3.8L1 4.6h3.8z" stroke="currentColor" stroke-width="1.1"/></svg> Answer`;
-  addUser(chat, 'What should I say about salary?');
-  const t=addThinking(chat); await wait(1600); t.remove();
+  cAns.innerHTML=`<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6H11L8.1 6.7l1.2 3.8L6 8.8l-3.3 1.7 1.2-3.8L1 4.6h3.8z" stroke="currentColor" stroke-width="1.1"/></svg> ${t('chip_answer')}`;
+  addUser(chat, t('q2_user'));
+  const thinking=addThinking(chat); await wait(1600); thinking.remove();
   const w=addMsg(chat, false);
-  w.innerHTML=`<div class="card card-green"><div class="card-label cl-green">Say this</div><div class="card-text" id="fa2"></div></div>`;
+  w.innerHTML=`<div class="card card-green"><div class="card-label cl-green">${t('say_this')}</div><div class="card-text" id="fa2"></div></div>`;
   $(chat).scrollTop=99999;
-  await typeInto($('fa2'), '"I\'m open to discussing compensation. I\'m targeting something competitive with market rate for this role and location. I\'m flexible and happy to discuss the full package."', 15, 'g');
+  await typeInto($('fa2'), t('q2_free_answer'), 15, 'g');
 }
 
 async function proSalary(chat) {
   const cAns=$('pc-ans');
   cAns.className='chip c-red';
-  cAns.innerHTML='<div class="rec-dot"></div> Recording...';
+  cAns.innerHTML='<div class="rec-dot"></div> '+t('recording');
   await wait(1900);
   cAns.className='chip pro-chip';
-  cAns.innerHTML=`<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6H11L8.1 6.7l1.2 3.8L6 8.8l-3.3 1.7 1.2-3.8L1 4.6h3.8z" stroke="currentColor" stroke-width="1.1"/></svg> Answer`;
-  addUser(chat, 'What should I say about salary?');
-  const t=addThinking(chat); await wait(1600); t.remove();
+  cAns.innerHTML=`<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6H11L8.1 6.7l1.2 3.8L6 8.8l-3.3 1.7 1.2-3.8L1 4.6h3.8z" stroke="currentColor" stroke-width="1.1"/></svg> ${t('chip_answer')}`;
+  addUser(chat, t('q2_user'));
+  const thinking=addThinking(chat); await wait(1600); thinking.remove();
   const w=addMsg(chat, false);
-  w.innerHTML=`<div class="card-dark"><div class="nego-head"><div class="nego-head-lbl">Negotiation copilot · Stripe L5</div><div class="nego-head-badge">Live · Mar 2026</div></div>
+  w.innerHTML=`<div class="card-dark"><div class="nego-head"><div class="nego-head-lbl">${t('nego_head')}</div><div class="nego-head-badge">${t('nego_badge')}</div></div>
     <div class="nego-body">
       <div class="nego-quote" id="pa2"></div>
       <div class="nego-tags" id="pa2-tags" style="display:none">
-        <div class="nt nt-g">L5 TC: $245K–$310K</div>
-        <div class="nt nt-a">Anchor: $280–295K</div>
-        <div class="nt nt-x">Don't say "flexible" first</div>
-        <div class="nt nt-x">Counter within 15%</div>
+        <div class="nt nt-g">${t('nego_l5')}</div>
+        <div class="nt nt-a">${t('nego_anchor')}</div>
+        <div class="nt nt-x">${t('nego_flex')}</div>
+        <div class="nt nt-x">${t('nego_counter')}</div>
       </div>
     </div></div>`;
   $(chat).scrollTop=99999;
-  await typeInto($('pa2'), '"Based on my research, I\'m targeting $280–295K total comp for this level at Stripe. That\'s anchored to L5 benchmarks on levels.fyi and reflects my distributed infrastructure background."', 13, 'a');
+  await typeInto($('pa2'), t('q2_pro_answer'), 13, 'a');
   $('pa2-tags').style.display='flex';
 }
 
 // ── Q3 follow-up ──
 async function freeFup(chat) {
   flashChip('fc-fup');
-  addUser(chat, 'Questions I should ask them?');
-  const t=addThinking(chat); await wait(1400); t.remove();
+  addUser(chat, t('q3_user'));
+  const thinking=addThinking(chat); await wait(1400); thinking.remove();
   const w=addMsg(chat, false);
-  w.innerHTML=`<div class="card card-violet"><div class="card-label cl-violet">Follow-up questions</div><div id="ffup"></div></div>`;
-  const fl=$('ffup'); const qs=["How does the team handle rate limiter failures during incidents?","What does the on-call rotation look like for infra engineers?","How much ownership does an engineer have over architecture decisions?"];
+  w.innerHTML=`<div class="card card-violet"><div class="card-label cl-violet">${t('fup_label')}</div><div id="ffup"></div></div>`;
+  const fl=$('ffup'); const qs=t('q3_free_qs');
   for(let i=0;i<qs.length;i++){await wait(380);const el=document.createElement('div');el.className='fup-item';el.innerHTML=`<span class="fup-n">${i+1}.</span><span>${qs[i]}</span>`;fl.appendChild(el);await wait(40);el.classList.add('show');$(chat).scrollTop=$(chat).scrollHeight;}
 }
 
 async function proFup(chat) {
   flashChip('pc-fup');
-  addUser(chat, 'Questions I should ask them?');
-  const t=addThinking(chat); await wait(1400); t.remove();
+  addUser(chat, t('q3_user'));
+  const thinking=addThinking(chat); await wait(1400); thinking.remove();
   const w=addMsg(chat, false);
-  w.innerHTML=`<div class="card card-amber"><div class="card-label cl-amber">Follow-up questions · Stripe-tailored</div><div id="pfup"></div></div>`;
-  const fl=$('pfup'); const qs=["How does Stripe's rate limiter handle failover across regions during incidents?","What's the team's philosophy on consistency vs. availability at Stripe's scale?","How much architecture ownership does an L5 have over infra decisions?"];
+  w.innerHTML=`<div class="card card-amber"><div class="card-label cl-amber">${t('fup_label_stripe')}</div><div id="pfup"></div></div>`;
+  const fl=$('pfup'); const qs=t('q3_pro_qs');
   for(let i=0;i<qs.length;i++){await wait(380);const el=document.createElement('div');el.className='fup-item';el.innerHTML=`<span class="fup-n">${i+1}.</span><span>${qs[i]}</span>`;fl.appendChild(el);await wait(40);el.classList.add('show');$(chat).scrollTop=$(chat).scrollHeight;}
 }
 
 // ═══════════ MAIN ═══════════
 async function run() {
+  applyTranslations();
   await wait(1800); setP(4);
 
   // Q1
-  showAnn('"Walk me through designing a rate limiter at scale."', 4000);
-  await rollTranscript('"Walk me through designing a rate limiter at scale."');
+  showAnn(t('q1_ann'), 4000);
+  await rollTranscript(t('q1_ann'));
   $('ctx-card').style.display='block';
   setP(12);
-  showAnn('Both panels: pressing "What to answer?"', 2400);
+  showAnn(t('q1_press'), 2400);
   flashChip('fc-what'); flashChip('pc-what');
-  addUser('free-chat','What to answer?'); addUser('pro-chat','What to answer?');
+  addUser('free-chat', t('q1_user')); addUser('pro-chat', t('q1_user'));
   await wait(300); setP(20);
   await Promise.all([freeAnswer1('free-chat'), proAnswer1('pro-chat')]);
   setP(40); await wait(1300);
 
   // Q2 — update question banner
-  if($('q-text')) $('q-text').textContent = '"What compensation are you targeting for this role?"';
-  showAnn('"What compensation are you targeting for this role?"', 4000);
-  await rollTranscript('"What compensation are you targeting for this role?"');
+  if($('q-text')) $('q-text').textContent = t('q2_ann');
+  showAnn(t('q2_ann'), 4000);
+  await rollTranscript(t('q2_ann'));
   setP(50); await wait(400);
-  showAnn('Both panels: holding "Answer" to speak', 2400);
+  showAnn(t('q2_press'), 2400);
   await Promise.all([freeSalary('free-chat'), proSalary('pro-chat')]);
   setP(68); await wait(1300);
 
   // Q3 — update question banner
-  if($('q-text')) $('q-text').textContent = '"Do you have any questions for us?"';
-  showAnn('"Do you have any questions for us?"', 3500);
-  await rollTranscript('"Do you have any questions for us?"');
+  if($('q-text')) $('q-text').textContent = t('q3_ann');
+  showAnn(t('q3_ann'), 3500);
+  await rollTranscript(t('q3_ann'));
   setP(78); await wait(300);
-  showAnn('Both panels: pressing "Follow Up"', 2400);
+  showAnn(t('q3_press'), 2400);
   await Promise.all([freeFup('free-chat'), proFup('pro-chat')]);
   setP(92); await wait(2200);
 
