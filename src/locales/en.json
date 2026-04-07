@@ -1,10 +1,19 @@
 {
+  "download": {
+    "mac": "Get for Mac",
+    "intel_mac": "Using Intel Mac? Download Intel version",
+    "windows": "Get for Windows",
+    "portable": "Download portable version",
+    "linux": "Get for Linux"
+  },
   "nav": {
     "preview": "Preview",
     "github": "GitHub",
     "pro": "Pro",
     "donate": "Donate",
-    "download": "Download"
+    "download": "Download",
+    "new": "New",
+    "toggle_menu": "Toggle menu"
   },
   "hero": {
     "title_line1": "#1 Intelligent",
@@ -18,7 +27,8 @@
     "interface_followup": "Follow-up",
     "interface_recap": "Recap",
     "interface_answer": "Answer",
-    "input_placeholder": "Ask anything about the screen or conversation"
+    "input_placeholder": "Ask anything about the screen or conversation",
+    "interface_ai_response": "I hear you on the integration concerns, that's usually the first thing that comes up. We've actually built direct connectors for the tools you mentioned, and our average setup time is only half a day."
   },
   "features": {
     "title": "Four ways we make your<br/>meetings better",
@@ -28,6 +38,7 @@
     "card2_desc": "Invoke, orchestrate, and monitor multiple AI providers through one refined surface.",
     "card2_add_key": "+ Add Key",
     "card2_models_active": "3 Models Active",
+    "card2_connect": "Connect",
     "card3_title": "Resume Aware Responses",
     "card3_label": "Context Intelligence",
     "card3_desc": "Analyzes your resume and the job description to provide tailored answers.",

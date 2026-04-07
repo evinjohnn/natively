@@ -74,10 +74,9 @@ const Icons = {
  * Generates the download info based on detected platform
  * Modified to support dynamic URLs from GitHub API
  */
-function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = null) {
+function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = null, t: (key: string) => string) {
     const { BASE_URL, MACOS, WINDOWS } = CONFIG.DOWNLOADS;
 
-    // Use dynamic URLs if available, otherwise fallback to CONFIG
     const urls = {
         macArm64: dynamicAssets?.macArm64 || `${BASE_URL}/v${MACOS.VERSION}/${MACOS.ARM64}`,
         macIntel: dynamicAssets?.macIntel || `${BASE_URL}/v${MACOS.VERSION}/${MACOS.INTEL}`,
@@ -89,15 +88,15 @@ function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = 
         case 'mac-arm64':
             return {
                 url: urls.macArm64,
-                text: "Get for Mac",
+                text: t('download.mac'),
                 secondaryUrl: urls.macIntel,
-                secondaryText: "Using Intel Mac? Download Intel version",
+                secondaryText: t('download.intel_mac'),
                 fileName: urls.macArm64.split('/').pop() || MACOS.ARM64
             };
         case 'mac-intel':
             return {
                 url: urls.macIntel,
-                text: "Get for Mac",
+                text: t('download.mac'),
                 secondaryUrl: null,
                 secondaryText: null,
                 fileName: urls.macIntel.split('/').pop() || MACOS.INTEL
@@ -105,15 +104,15 @@ function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = 
         case 'windows':
             return {
                 url: urls.winInstaller,
-                text: "Get for Windows",
+                text: t('download.windows'),
                 secondaryUrl: urls.winPortable,
-                secondaryText: "Download portable version",
+                secondaryText: t('download.portable'),
                 fileName: urls.winInstaller.split('/').pop() || WINDOWS.INSTALLER
             };
         case 'linux':
             return {
-                url: "#", // Handled by modal
-                text: "Get for Linux",
+                url: "#",
+                text: t('download.linux'),
                 secondaryUrl: null,
                 secondaryText: null,
                 fileName: "linux-source"
@@ -121,9 +120,9 @@ function getDownloadInfo(platform: OSType, dynamicAssets: LatestAssets | null = 
         default:
             return {
                 url: urls.macArm64,
-                text: "Get for Mac",
+                text: t('download.mac'),
                 secondaryUrl: urls.macIntel,
-                secondaryText: "Using Intel Mac? Download Intel version",
+                secondaryText: t('download.intel_mac'),
                 fileName: urls.macArm64.split('/').pop() || MACOS.ARM64
             };
     }
@@ -136,8 +135,9 @@ interface JellyClayButtonProps {
 }
 
 export default function JellyClayButton({ className, children, href }: JellyClayButtonProps) {
+    const { t } = useTranslation();
     const [platform, setPlatform] = useState<OSType>('mac-arm64');
-    const [downloadInfo, setDownloadInfo] = useState(getDownloadInfo('mac-arm64'));
+    const [downloadInfo, setDownloadInfo] = useState(getDownloadInfo('mac-arm64', null, t));
     const [isLinuxModalOpen, setIsLinuxModalOpen] = useState(false);
     const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
     const [hasClicked, setHasClicked] = useState(false);
@@ -145,15 +145,13 @@ export default function JellyClayButton({ className, children, href }: JellyClay
     useEffect(() => {
         const controller = new AbortController();
 
-        // Detect platform first
         detectPlatform().then((detectedPlatform) => {
             setPlatform(detectedPlatform);
-            setDownloadInfo(getDownloadInfo(detectedPlatform));
+            setDownloadInfo(getDownloadInfo(detectedPlatform, null, t));
 
-            // Then fetch latest release info dynamically
             fetchLatestRelease(controller.signal).then((latestAssets) => {
                 if (latestAssets) {
-                    setDownloadInfo(getDownloadInfo(detectedPlatform, latestAssets));
+                    setDownloadInfo(getDownloadInfo(detectedPlatform, latestAssets, t));
                 }
             }).catch(err => {
                 if (err.name !== 'AbortError') {
@@ -163,7 +161,7 @@ export default function JellyClayButton({ className, children, href }: JellyClay
         });
 
         return () => controller.abort();
-    }, []);
+    }, [t]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         // Prevent default initially for all types to handle tracking + delays

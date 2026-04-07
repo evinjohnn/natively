@@ -139,7 +139,7 @@ export default function UniversalLLMDesignCard() {
                                         </div>
                                     ) : (
                                         <div className="px-3 py-1.5 rounded-full bg-[#f1f3f7] text-[#64748b] text-[11px] font-bold tracking-wide hover:bg-[#e2e6ea] transition-colors">
-                                            Connect
+                                            {t('features.card2_connect')}
                                         </div>
                                     )}
                                 </motion.div>

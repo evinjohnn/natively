@@ -66,7 +66,7 @@ const FirstFeatureCard = () => {
           {/* Content */}
           <div className="px-5 pb-5">
             <p className="text-white/90 text-[14px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
-              I hear you on the integration concerns, that's usually the first thing that comes up. We've actually built direct connectors for the tools you mentioned, and our average setup time is only half a day.
+              {t('hero.interface_ai_response')}
             </p>
 
             {/* Actions Row */}

@@ -71,7 +71,7 @@ const Navbar = () => {
                 {link.label}
                 {link.isNew && (
                   <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-600 text-[10px] font-bold">
-                    New
+                    {t('nav.new')}
                   </span>
                 )}
               </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
           <button
             className={`md:hidden p-2 ${isHomePage ? "text-white" : "text-foreground"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={t('nav.toggle_menu')}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

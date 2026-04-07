@@ -69,7 +69,7 @@ const HeroSection = () => {
             transition={{ delay: 2.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-lg leading-relaxed"
           >
-            Natively takes perfect meeting notes and gives real-time answers,
+            {t('hero.subtitle_line1')}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -77,7 +77,7 @@ const HeroSection = () => {
             transition={{ delay: 2.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-lg"
           >
-            all while completely undetectable
+            {t('hero.subtitle_line2')}
           </motion.p>
         </div>
 
@@ -99,7 +99,7 @@ const HeroSection = () => {
             />
           </div>
           <p className="text-sm text-gray-600 font-medium tracking-wide">
-            Trusted by 3,000+ Users
+            {t('hero.trusted')}
           </p>
 
         </motion.div>
@@ -160,7 +160,7 @@ const HeroSection = () => {
                 className="absolute top-1/2 left-1/2 px-4 py-2 rounded-full flex items-center gap-2 bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg backdrop-blur-xl border border-white/20 z-20 whitespace-nowrap origin-center"
               >
                 <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
-                <span className="text-white text-[12px] font-medium drop-shadow-sm">What should I say?</span>
+                <span className="text-white text-[12px] font-medium drop-shadow-sm">{t('hero.interface_title')}</span>
               </motion.div>
             </motion.div>
 
@@ -226,7 +226,7 @@ const HeroSection = () => {
               >
                 <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
 
-                <span className="text-white text-[13px] font-medium drop-shadow-sm">What should I say?</span>
+                <span className="text-white text-[13px] font-medium drop-shadow-sm">{t('hero.interface_title')}</span>
               </motion.div>
             </motion.div>
 
@@ -299,8 +299,9 @@ const HeroSection = () => {
   );
 };
 
-// Extracted Sub-component for Natively Interface Card
+// Extracted sub-component for Natively Interface Card
 const NativelyInterfaceCard = ({ className, isMobile }: { className: string, isMobile: boolean }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={isMobile ? { opacity: 0, y: 20 } : { scale: 0.985, x: "-50%" }}
@@ -319,35 +320,35 @@ const NativelyInterfaceCard = ({ className, isMobile }: { className: string, isM
           <div className="relative bg-gradient-to-br from-blue-400 to-blue-600 px-3 py-1.5 rounded-full text-white text-[13px] font-semibold tracking-wide shadow-[0_8px_20px_rgba(37,99,235,0.35)] border border-white/20">
             {/* Gloss effect */}
             <div className="absolute top-0.5 left-2 right-2 h-[45%] rounded-full bg-gradient-to-b from-white/70 to-white/5 blur-[0.5px] pointer-events-none" />
-            <span className="relative drop-shadow-sm">What should I say?</span>
+            <span className="relative drop-shadow-sm">{t('hero.interface_title')}</span>
           </div>
         </div>
 
         {/* Content */}
         <div className="px-5 pb-5">
           <p className="text-white/90 text-[14px] leading-relaxed font-light font-geist text-left mb-6 drop-shadow-md">
-            Natively is open-source, runs locally, and completely undetectable. Takes notes automatically and gives you real-time answers during meetings. Works with Zoom, Meet, and Teams—totally free.
+            {t('hero.interface_desc')}
           </p>
 
           <div className="flex items-center justify-between mb-4 text-[11px] text-white/50 font-medium">
             <div className="flex items-center gap-1.5 hover:text-white/80 transition-colors cursor-pointer">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-              What should I say?
+              {t('hero.interface_title')}
             </div>
             <span>•</span>
             <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-              Follow-up
+              {t('hero.interface_followup')}
             </div>
             <span>•</span>
             <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
-              Recap
+              {t('hero.interface_recap')}
             </div>
             <span>•</span>
             <div className="flex items-center gap-2 hover:text-white/80 transition-colors cursor-pointer">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-              Answer
+              {t('hero.interface_answer')}
             </div>
           </div>
 
@@ -355,7 +356,7 @@ const NativelyInterfaceCard = ({ className, isMobile }: { className: string, isM
           <div className="relative group">
             <input
               type="text"
-              placeholder="Ask anything about the screen or conversation"
+              placeholder={t('hero.input_placeholder')}
               className="w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-[13px] text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-white/30 transition-all font-light"
               readOnly
             />

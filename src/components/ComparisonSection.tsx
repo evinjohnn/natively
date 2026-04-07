@@ -64,7 +64,7 @@ const ComparisonSection = () => {
 
             <div className="relative z-10 flex flex-col items-center">
               <h3 className="text-[32px] font-semibold text-gray-900 mb-4 font-geist tracking-tight">
-                Other AI Notetakers
+                {t('comparison.other_ai_title')}
               </h3>
               <div className="flex items-center gap-2 text-gray-400 font-medium">
                 <div className="bg-gray-200 rounded-full p-0.5">
@@ -210,7 +210,7 @@ const ComparisonSection = () => {
               <div className="flex items-center gap-3 mb-4">
                 <img src={logo} alt="Natively Logo" className="w-8 h-8 brightness-0 invert" />
                 <h3 className="text-[32px] font-semibold text-white font-geist tracking-tight">
-                  Natively
+                  {t('comparison.natively_title')}
                 </h3>
               </div>
 
@@ -218,7 +218,7 @@ const ComparisonSection = () => {
                 <div className="bg-white/20 rounded-full p-0.5">
                   <Check className="w-3 h-3 text-white" />
                 </div>
-                <span className="text-[15px]">Undetectable to screen share, visible to you</span>
+                <span className="text-[15px]">{t('comparison.natively_subtitle')}</span>
               </div>
 
             </div>
