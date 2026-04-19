@@ -341,7 +341,7 @@ export default function PricingSection() {
       </div>
 
       {/* ── 3. Pro — editorial dark section ─────────────────── */}
-      <div className="relative overflow-hidden" style={{ background: "#0a0a0a" }}>
+      <div className="relative overflow-hidden" style={{ background: "#171717" }}>
         <AmbientGlow />
 
         {/* Grain texture */}
@@ -359,25 +359,25 @@ export default function PricingSection() {
           style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.2), transparent)" }}
         />
 
-        <div className="max-content pt-28 pb-32 relative">
+        <div className="max-content py-16 lg:py-24 relative">
 
           {/* ── Hero heading ── */}
           <motion.div
-            className="mb-20"
+            className="mb-8 lg:mb-12"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.65, ease: EASE_OUT }}
           >
-            <p className="text-[10px] font-bold text-amber-400/50 uppercase tracking-[0.3em] mb-7 font-geist">
+            <p className="text-[10px] font-bold text-amber-400/50 uppercase tracking-[0.3em] mb-4 font-geist">
               Natively Pro
             </p>
             <h2
-              className="text-white mb-8"
+              className="text-white mb-6"
               style={{
                 fontFamily: "'Instrument Serif', serif",
-                fontSize: "clamp(58px, 8.5vw, 116px)",
-                lineHeight: 0.92,
+                fontSize: "clamp(42px, 6vw, 84px)",
+                lineHeight: 0.95,
                 letterSpacing: "-0.025em",
                 fontWeight: 400,
               }}
@@ -387,15 +387,21 @@ export default function PricingSection() {
             </h2>
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <p className="text-[16px] text-white/35 font-geist leading-relaxed" style={{ maxWidth: "46ch" }}>
+              <p className="text-[15px] text-white/35 font-geist leading-relaxed" style={{ maxWidth: "46ch" }}>
                 Connect your own API keys. One payment unlocks all 7 modes — no subscription, no metering.
               </p>
               <a
                 href="https://natively.software/pro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-1.5 text-[13px] font-medium
-                  text-amber-400/50 hover:text-amber-400 transition-colors duration-200 group"
+                className="shrink-0 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider
+                  text-[#fbbf24] px-4 py-2 rounded-full transition-all duration-300 group
+                  hover:bg-[#fbbf24]/20 hover:border-[#fbbf24]/40"
+                style={{
+                  background: "rgba(245,158,11,0.08)",
+                  border: "1px solid rgba(245,158,11,0.2)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)"
+                }}
               >
                 See Pro in action
                 <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -404,48 +410,44 @@ export default function PricingSection() {
           </motion.div>
 
           {/* ── Body ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 lg:gap-10 items-center">
 
             {/* Left — feature tile grid */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[28px]"
-              style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3"
               variants={stagger}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-40px" }}
             >
-              {proFeatures.map((f, i) => {
-                const isLastRow = i >= 6;
-                const isRightCol = i % 2 === 1;
-                return (
-                  <motion.div
-                    key={f.label}
-                    variants={fadeUpFast}
-                    className="flex items-start gap-4 p-5"
+              {proFeatures.map((f) => (
+                <motion.div key={f.label} variants={fadeUpFast} className="h-full">
+                  <SpotlightCard
+                    isDark={true}
+                    className="flex items-start gap-3.5 p-4 rounded-[20px] h-full"
                     style={{
-                      background: "rgba(255,255,255,0.025)",
-                      borderBottom: !isLastRow ? "1px solid rgba(255,255,255,0.06)" : "none",
-                      borderRight: !isRightCol ? "1px solid rgba(255,255,255,0.06)" : "none",
+                      background: "rgba(255,255,255,0.02)",
+                      border: "1px solid rgba(255,255,255,0.05)",
+                      backdropFilter: "blur(12px)"
                     }}
                   >
                     <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0 mt-0.5"
                       style={{
-                        background: "rgba(245,158,11,0.08)",
-                        border: "1px solid rgba(245,158,11,0.14)",
-                        boxShadow: "inset 0 1px 0 rgba(245,158,11,0.08)",
+                        background: "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.02) 100%)",
+                        border: "1px solid rgba(245,158,11,0.15)",
+                        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.1)",
                       }}
                     >
-                      <f.icon size={13} style={{ color: "#f59e0b", opacity: 0.65 }} />
+                      <f.icon size={15} style={{ color: "#fbbf24", opacity: 0.9 }} />
                     </div>
                     <div>
-                      <p className="text-[13px] font-semibold text-white/85 font-geist leading-tight mb-1">{f.label}</p>
-                      <p className="text-[11px] text-white/30 font-geist leading-relaxed">{f.desc}</p>
+                      <p className="text-[14px] font-semibold text-white/90 font-geist tracking-tight mb-0.5">{f.label}</p>
+                      <p className="text-[12px] text-white/40 font-geist leading-snug line-clamp-2" title={f.desc}>{f.desc}</p>
                     </div>
-                  </motion.div>
-                );
-              })}
+                  </SpotlightCard>
+                </motion.div>
+              ))}
             </motion.div>
 
             {/* Right — license cards */}
@@ -462,31 +464,37 @@ export default function PricingSection() {
                 href="https://checkout.dodopayments.com/buy/pdt_0NcM4QBwy0CDcPV9CXaNP"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileTap={{ scale: 0.97, transition: { duration: 0.1 } }}
-                className="group flex items-center justify-between gap-4 p-6 rounded-[22px] cursor-pointer transition-all duration-200"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
-                }}
+                whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
+                className="block"
               >
-                <div>
-                  <p
-                    className="text-white mb-1 tracking-tight"
-                    style={{ fontFamily: "'Instrument Serif', serif", fontSize: "22px", fontWeight: 400 }}
-                  >
-                    Yearly License
-                  </p>
-                  <p className="text-[12px] text-white/30 font-geist">All Pro features. Renews annually.</p>
-                </div>
-                <div
-                  className="shrink-0 px-4 py-2 rounded-[12px] text-[12px] font-semibold text-white/45
-                    whitespace-nowrap transition-all duration-200
-                    group-hover:text-white/80 group-hover:bg-white/[0.10]"
-                  style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.09)" }}
+                <SpotlightCard
+                  isDark={true}
+                  className="group flex items-center justify-between gap-3 p-4 rounded-[20px] cursor-pointer transition-all duration-300 hover:bg-white/[0.04]"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(12px)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                  }}
                 >
-                  Get Yearly →
-                </div>
+                  <div>
+                    <p
+                      className="text-white mb-0.5 tracking-tight group-hover:text-amber-100 transition-colors"
+                      style={{ fontFamily: "'Instrument Serif', serif", fontSize: "20px", fontWeight: 400 }}
+                    >
+                      Yearly License
+                    </p>
+                    <p className="text-[12px] text-white/40 font-geist">All Pro features. Renews annually.</p>
+                  </div>
+                  <div
+                    className="shrink-0 px-3.5 py-2 rounded-[10px] text-[12px] font-semibold text-white/60
+                      whitespace-nowrap transition-all duration-300
+                      group-hover:text-white group-hover:bg-white/[0.12] group-hover:border-white/[0.15]"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    Get Yearly →
+                  </div>
+                </SpotlightCard>
               </motion.a>
 
               {/* Lifetime — hero (Peak-End Rule) */}
@@ -494,66 +502,76 @@ export default function PricingSection() {
                 href="https://checkout.dodopayments.com/buy/pdt_0NbHo6EnXlNPqNcZ14OTi"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileTap={{ scale: 0.97, transition: { duration: 0.1 } }}
-                className="group relative flex flex-col gap-5 p-7 rounded-[22px] cursor-pointer overflow-hidden transition-all duration-200"
-                style={{
-                  background: "rgba(245,158,11,0.06)",
-                  border: "1px solid rgba(245,158,11,0.22)",
-                  boxShadow: "0 0 60px rgba(245,158,11,0.07), inset 0 1px 0 rgba(245,158,11,0.12)",
-                }}
+                whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
+                className="block"
               >
-                {/* Top specular line */}
-                <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-                  style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.45), transparent)" }} />
-
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p
-                      className="mb-1"
-                      style={{ fontFamily: "'Instrument Serif', serif", fontSize: "26px", fontWeight: 400, color: "#fbbf24", fontStyle: "italic" }}
-                    >
-                      Lifetime License
-                    </p>
-                    <p className="text-[12px] text-white/35 font-geist">One payment. All future updates included.</p>
-                  </div>
-                  <span
-                    className="shrink-0 text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest mt-1"
-                    style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", color: "#fbbf24" }}
-                  >
-                    Best value
-                  </span>
-                </div>
-
-                <ul className="flex flex-col gap-2">
-                  {["Resume & JD context awareness", "Live negotiation coaching", "7 expert interview modes", "All future updates"].map((feat) => (
-                    <li key={feat} className="flex items-center gap-2.5 text-[12px] text-white/55 font-geist">
-                      <div
-                        className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.2)" }}
-                      >
-                        <svg width="7" height="7" viewBox="0 0 10 10" fill="none">
-                          <path d="M2.5 5l2 2 3-3" stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" />
-                        </svg>
-                      </div>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-
-                <div
-                  className="w-full py-3.5 rounded-[14px] text-[14px] font-bold text-[#0a0a0a] text-center
-                    transition-all duration-200 group-hover:brightness-110"
+                <SpotlightCard
+                  isDark={true}
+                  className="group relative flex flex-col gap-5 p-6 rounded-[24px] cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
                   style={{
-                    background: "#f59e0b",
-                    boxShadow: "0 8px 32px rgba(245,158,11,0.4), inset 0 1px 0 rgba(255,255,255,0.3)",
+                    background: "linear-gradient(165deg, rgba(245,158,11,0.08) 0%, rgba(10,10,10,0.5) 100%)",
+                    border: "1px solid rgba(245,158,11,0.25)",
+                    backdropFilter: "blur(20px)",
+                    boxShadow: "0 25px 50px -12px rgba(245,158,11,0.15), inset 0 1px 0 rgba(255,255,255,0.1)",
                   }}
                 >
-                  Get Lifetime →
-                </div>
+                  {/* Top specular line */}
+                  <div className="absolute top-0 left-0 right-0 h-px pointer-events-none opacity-60"
+                    style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.8), transparent)" }} />
 
-                <p className="text-center text-[10px] text-white/25 font-geist -mt-2">
-                  One-time purchase · No subscription · yours forever
-                </p>
+                  {/* Corner glow */}
+                  <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-amber-500/20 blur-3xl pointer-events-none group-hover:bg-amber-500/30 transition-colors duration-500" />
+
+                  <div className="flex items-start justify-between gap-2 relative z-10">
+                    <div>
+                      <p
+                        className="mb-1"
+                        style={{ fontFamily: "'Instrument Serif', serif", fontSize: "28px", fontWeight: 400, color: "#fbbf24", fontStyle: "italic", lineHeight: 1 }}
+                      >
+                        Lifetime License
+                      </p>
+                      <p className="text-[12px] text-white/40 font-geist">One payment. All future updates included.</p>
+                    </div>
+                    <span
+                      className="shrink-0 text-[9px] font-bold px-2.5 py-1.5 rounded-full uppercase tracking-[0.1em] mt-1
+                        group-hover:bg-amber-500/20 group-hover:border-amber-400/40 transition-all duration-300"
+                      style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", color: "#fbbf24" }}
+                    >
+                      Best value
+                    </span>
+                  </div>
+
+                  <ul className="flex flex-col gap-2.5 relative z-10">
+                    {["Resume & JD context awareness", "Live negotiation coaching", "7 expert interview modes", "All future updates"].map((feat) => (
+                      <li key={feat} className="flex items-center gap-2.5 text-[12px] text-white/70 font-geist font-medium">
+                        <div
+                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.2)]"
+                          style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)" }}
+                        >
+                          <svg width="7" height="7" viewBox="0 0 10 10" fill="none">
+                            <path d="M2.5 5l2 2 3-3" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div
+                    className="w-full py-3.5 rounded-[14px] text-[14px] font-bold text-[#0a0a0a] text-center relative z-10
+                      transition-all duration-300 group-hover:brightness-110 group-hover:scale-[1.02]"
+                    style={{
+                      background: "linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)",
+                      boxShadow: "0 8px 32px rgba(245,158,11,0.4), inset 0 2px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    Get Lifetime →
+                  </div>
+
+                  <p className="text-center text-[10px] text-white/30 font-geist -mt-1.5 relative z-10">
+                    One-time purchase · No subscription · yours forever
+                  </p>
+                </SpotlightCard>
               </motion.a>
 
             </motion.div>

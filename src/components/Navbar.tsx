@@ -21,11 +21,10 @@ const Navbar = () => {
   const [showPreview, setShowPreview] = useState(false);
 
   const navLinks: { label: string; href: string; isNew?: boolean; isPro?: boolean }[] = [
-    { label: t('nav.preview'), href: "#" },
+    { label: "Product Hunt", href: "https://www.producthunt.com/products/natively-ai-2?utm_source=other&utm_medium=social" },
     { label: "Hacker News", href: "https://news.ycombinator.com/item?id=46923304" },
     { label: t('nav.github'), href: "https://github.com/Natively-AI-assistant/natively-cluely-ai-assistant" },
     { label: t('nav.pro'), href: localePath("/pro"), isPro: true },
-    { label: t('nav.donate'), href: "https://buymeacoffee.com/evinjohnn" },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string) => {
