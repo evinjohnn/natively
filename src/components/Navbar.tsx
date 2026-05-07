@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
           <a href={localePath("/")} className="flex items-center gap-2.5">
             <img src={logo} alt="Natively Logo" className={`w-8 h-8 object-contain ${isHomePage ? "" : "brightness-0"}`} />
-            <span className={`font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight flex flex-col md:flex-row md:items-center md:gap-2 ${isHomePage ? "text-white" : "text-foreground"}`}>
+            <span className={`font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight flex items-center gap-2 ${isHomePage ? "text-white" : "text-foreground"}`}>
               <span>Natively</span>
             </span>
           </a>

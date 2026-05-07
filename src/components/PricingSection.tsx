@@ -169,7 +169,7 @@ export default function PricingSection() {
     <section className="bg-white" id="pricing">
 
       {/* ── 1. Heading ──────────────────────────────────────── */}
-      <div className="max-content pt-24 pb-16">
+      <div className="max-content pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <h2
@@ -205,7 +205,7 @@ export default function PricingSection() {
       </div>
 
       {/* ── 2. API Plans ────────────────────────────────────── */}
-      <div className="max-content pb-24">
+      <div className="max-content pb-16 md:pb-24">
         <div className="rounded-[40px] p-6 md:p-8" style={{ background: "#f5f5f7" }}>
 
           <div className="mb-7">

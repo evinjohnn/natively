@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const TranscriptionSection = () => {
   const { t } = useTranslation();
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-content">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 

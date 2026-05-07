@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Natively — Free vs Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -373,9 +374,46 @@ html, body { width: 100vw; height: 100vh; overflow: hidden; font-family: 'Geist'
 .end-note.dark { color: rgba(0,0,0,0.28); }
 .end-note.light { color: rgba(255,255,255,0.32); }
 @keyframes popIn { to { transform: scale(1); opacity: 1; } }
+
+/* ═══════════════════ MOBILE FALLBACK ═══════════════════ */
+.mobile-fallback { display: none; }
+@media (max-width: 900px) {
+  html, body { height: auto; min-height: 100vh; overflow: auto; width: 100%; }
+  .desktop { display: none; }
+  .mobile-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 24px;
+    text-align: center;
+    background: linear-gradient(160deg, #f2ede3 0%, #f8f5ef 60%, #ede9e0 100%);
+    color: #111;
+    font-family: 'Geist', sans-serif;
+  }
+  .mf-tier { font-size: 13px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #f59e0b; margin-bottom: 12px; }
+  .mf-title { font-family: 'Instrument Serif', serif; font-size: clamp(40px, 12vw, 64px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .mf-title em { font-style: italic; color: #b45309; }
+  .mf-sub { font-size: 16px; line-height: 1.55; color: rgba(0,0,0,0.6); max-width: 36ch; margin-bottom: 32px; }
+  .mf-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 52px; padding: 0 28px; border-radius: 999px;
+    background: #111; color: #fff; font-size: 15px; font-weight: 600;
+    text-decoration: none; border: none;
+  }
+  .mf-note { margin-top: 20px; font-size: 12px; color: rgba(0,0,0,0.45); max-width: 32ch; }
+}
 </style>
 </head>
 <body>
+<div class="mobile-fallback">
+  <div class="mf-tier">Natively Pro</div>
+  <h1 class="mf-title">Built to get<br><em>the offer.</em></h1>
+  <p class="mf-sub">The interactive Free vs Pro comparison is best experienced on a desktop. Open this page on a larger screen to see it animate live.</p>
+  <a class="mf-cta" href="/">Back to Natively</a>
+  <p class="mf-note">Or scroll the home page to learn more about Pro — no desktop required.</p>
+</div>
 <div class="desktop">
 
   <!-- SPLIT HALVES -->

@@ -27,16 +27,16 @@ export default function SEOTemplate({ title, description, canonicalPath, childre
     <div className="min-h-screen bg-background flex flex-col">
       <SEOHead title={displayTitle} description={displayDesc} canonicalPath={displayPath} />
       <Navbar />
-      <main className="flex-1 pt-32 pb-24 px-6 max-w-4xl mx-auto w-full">
-        <article className="prose prose-invert lg:prose-xl w-full max-w-none">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-8 text-foreground tracking-tight">
+      <main className="flex-1 pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-6 max-w-4xl mx-auto w-full">
+        <article className="lg:prose-xl w-full max-w-none">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-8 text-foreground tracking-tight break-words">
             {displayH1}
           </h1>
           <div className="text-muted-foreground leading-relaxed space-y-8">
             {displayChildren}
           </div>
-          
-          <div className="mt-16 bg-card border border-border/50 rounded-2xl p-8 text-center">
+
+          <div className="mt-12 md:mt-16 bg-card border border-border/50 rounded-2xl p-6 md:p-8 text-center">
             <h2 className="text-2xl font-bold text-foreground mb-4">{isRu ? "Готовы попробовать Natively?" : "Ready to try Natively?"}</h2>
             <p className="text-muted-foreground mb-6">
               {isRu
@@ -45,7 +45,7 @@ export default function SEOTemplate({ title, description, canonicalPath, childre
             </p>
             <a
               href={localePath("/")}
-              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+              className="inline-flex h-12 w-full sm:w-auto items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             >
               {isRu ? "Начать бесплатно" : "Get Started Free"}
             </a>

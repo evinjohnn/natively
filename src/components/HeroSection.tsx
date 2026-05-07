@@ -35,7 +35,7 @@ const HeroSection = () => {
 
       <div className="max-content relative z-10 flex flex-col items-center text-center pt-8">
         {/* Title */}
-        <div className="mb-6 flex flex-col items-center">
+        <div className="mb-6 flex flex-col items-center w-full px-4 md:px-0">
           {/* Main Heading Line 1 */}
           <motion.h1
             initial={{ opacity: 0, y: 24, filter: "blur(3px)" }}
@@ -67,12 +67,12 @@ const HeroSection = () => {
         </div>
 
         {/* Subheading */}
-        <div className="flex flex-col items-center mb-12">
+        <div className="flex flex-col items-center mb-12 w-full px-4 md:px-0">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-sm md:text-[17px] leading-relaxed px-2 md:px-0"
+            className="body-text-geist !text-[#6B7280] w-full max-w-[540px] drop-shadow-none font-medium text-sm md:text-[17px] leading-relaxed text-center"
           >
             {t('hero.subtitle_line1')}
           </motion.p>
@@ -80,7 +80,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.85, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="body-text-geist !text-[#6B7280] max-w-[540px] drop-shadow-none font-medium text-sm md:text-[17px] px-2 md:px-0"
+            className="body-text-geist !text-[#6B7280] w-full max-w-[540px] drop-shadow-none font-medium text-sm md:text-[17px] text-center"
           >
             {t('hero.subtitle_line2')}
           </motion.p>
@@ -110,7 +110,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Hero Mockup Composition */}
-        <div className="relative w-full max-w-[1040px] mx-auto mt-4 md:mt-12 md:scale-[1.1] md:-translate-y-12 px-3 md:px-0">
+        <div className="relative w-full max-w-[1040px] mt-4 md:mt-12 md:scale-[1.1] md:-translate-y-12 -mx-6 md:mx-auto px-0">
           {/* Main Aura: Orange -> Purple -> Blue vertical gradient */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -127,14 +127,14 @@ const HeroSection = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[108%] h-[80%] bg-gradient-to-tr from-[#3B82F6]/50 via-[#A855F7]/50 to-[#FB923C]/50 blur-[60px] rounded-full z-0 pointer-events-none"
           />
 
-          {/* --- MOBILE LAYOUT (Stack) --- */}
-          <div className="md:hidden flex flex-col relative z-10 w-full px-4">
+          {/* --- MOBILE LAYOUT (Overlay: card on top of video) --- */}
+          <div className="md:hidden relative z-10 w-full">
             {/* Mobile Video Container */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 1.2, ease: "easeOut" }}
-              className="w-full relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 aspect-video bg-black z-0"
+              className="w-full relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 aspect-video bg-black z-0"
             >
               <video
                 src={heroVideo}
@@ -168,8 +168,12 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Mobile Interface Card */}
-            <NativelyInterfaceCard className="w-full mt-4 relative z-10" isMobile={true} hideMessages />
+            {/* Mobile Interface Card — overlaid on the video, naturally ~2:1 */}
+            <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+              <div className="w-[88%] max-w-[420px] pointer-events-auto">
+                <NativelyInterfaceCard isMobile={true} hideMessages className="w-full" />
+              </div>
+            </div>
           </div>
 
           {/* --- DESKTOP LAYOUT (Monitor Composition) --- */}

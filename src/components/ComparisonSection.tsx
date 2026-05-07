@@ -50,7 +50,7 @@ const ComparisonSection = () => {
   }, [isDragging, handleMove]);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 flex flex-col items-center">
           <p className="text-[#3B82F6] font-medium mb-4 uppercase tracking-wider">{t('comparison.label')}</p>
@@ -85,7 +85,7 @@ const ComparisonSection = () => {
             />
 
             {/* Inner Blue Box */}
-            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[280px] bg-[#3B5998] rounded-[32px] shadow-2xl flex flex-col justify-between p-6 z-20">
+            <div className="absolute top-[60%] sm:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[240px] sm:h-[280px] bg-[#3B5998] rounded-[32px] shadow-2xl flex flex-col justify-between p-6 z-20">
               {/* Center Logo */}
               <div className="flex-1 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
@@ -121,7 +121,7 @@ const ComparisonSection = () => {
             {/* Inner Split Box */}
             <div
               ref={containerRef}
-              className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[280px] rounded-[32px] overflow-hidden z-20 cursor-ew-resize select-none"
+              className="absolute top-[60%] sm:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] h-[240px] sm:h-[280px] rounded-[32px] overflow-hidden z-20 cursor-ew-resize select-none"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
             >

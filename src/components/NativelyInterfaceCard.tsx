@@ -10,11 +10,18 @@ const GLOSS = (
   <div className="absolute inset-x-1 top-0.5 h-[45%] rounded-full bg-gradient-to-b from-white/20 to-white/0 blur-[0.5px] pointer-events-none" />
 );
 
-const hotkeys = [
+const HOTKEYS_FULL = [
   { label: "What should I answer?", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M2 3.5h5M2 8.5h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg> },
   { label: "Clarify", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" strokeWidth="1.2"/><path d="M6 8V6M6 4h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg> },
   { label: "Follow up questions", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg> },
   { label: "Recap", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M10 6A4 4 0 112 6M10 6l-1.5-1.5M10 6l1.5-1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg> },
+];
+
+const HOTKEYS_COMPACT = [
+  { label: "What to answer", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M2 3.5h5M2 8.5h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg> },
+  { label: "Recap", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M10 6A4 4 0 112 6M10 6l-1.5-1.5M10 6l1.5-1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg> },
+  { label: "Clarify", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" strokeWidth="1.2"/><path d="M6 8V6M6 4h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg> },
+  { label: "Follow up", icon: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg> },
 ];
 
 interface Props {
@@ -31,6 +38,8 @@ interface Props {
 }
 
 const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = false, hidePill = false, hideMessages = false, dreamyVariant = false, spreadHotkeys = false }: Props) => {
+  const hotkeys = isMobile ? HOTKEYS_COMPACT : HOTKEYS_FULL;
+  const useSpread = spreadHotkeys || isMobile;
   const motionProps = isStatic
     ? {
         initial: { opacity: 0, y: 16 },
@@ -50,7 +59,7 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
     <div className={className} style={{ transform: isStatic ? undefined : (isMobile ? "scale(1)" : "scale(0.85)"), transformOrigin: "top center" }}>
       <motion.div
         {...motionProps}
-        className="flex flex-col items-center gap-2 w-full"
+        className={`flex flex-col items-center w-full h-full ${isMobile ? "gap-1" : "gap-2"}`}
       >
         {/* ── TopPill ── */}
         {!hidePill && (
@@ -84,7 +93,7 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
 
         {/* ── Main Panel ── */}
         <div
-          className="w-full border overflow-hidden flex flex-col relative"
+          className="w-full flex-1 min-h-0 border overflow-hidden flex flex-col relative"
           style={dreamyVariant ? {
             background: "rgba(255, 255, 255, 0.08)",
             backdropFilter: "blur(30px)",
@@ -116,7 +125,7 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
 
           {/* AI response */}
           {!hideMessages && (
-          <div className="px-4 pb-2">
+          <div className="px-4 pb-2 flex-1 min-h-0 overflow-hidden">
             <p className="text-white/90 text-[14px] leading-relaxed font-normal whitespace-pre-wrap">
               "A discounted cash flow model values a company by projecting future free cash flows and discounting them to present value using the weighted average cost of capital."
             </p>
@@ -124,11 +133,11 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
           )}
 
           {/* Hotkeys */}
-          <div className={`flex items-center px-[18px] pb-0 ${hideMessages ? "pt-5" : "pt-[6px]"} w-full ${spreadHotkeys ? "justify-between gap-1" : "gap-2 overflow-x-auto hide-scrollbar scroll-smooth flex-nowrap"}`}>
+          <div className={`flex items-center ${isMobile ? "px-2" : "px-[14px]"} pb-0 ${hideMessages ? (isMobile ? "pt-2" : "pt-4") : "pt-[6px]"} w-full ${useSpread ? `justify-between ${isMobile ? "gap-1" : "gap-1.5"}` : "gap-2 overflow-x-auto hide-scrollbar scroll-smooth flex-nowrap"}`}>
             {hotkeys.map((a) => (
               <button
                 key={a.label}
-                className="flex items-center justify-center gap-[5px] px-[12px] py-[6px] rounded-full text-[10px] font-semibold flex-nowrap shrink-0 relative overflow-hidden"
+                className={`flex items-center justify-center ${isMobile ? "gap-1 px-2 py-1 text-[9px]" : "gap-[5px] px-[12px] py-[6px] text-[10px]"} rounded-full font-semibold flex-nowrap min-w-0 relative overflow-hidden`}
                 style={dreamyVariant ? {
                   background: "rgba(255,255,255,0.08)",
                   color: "rgba(255,255,255,0.8)",
@@ -146,10 +155,10 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
           </div>
 
           {/* Input */}
-          <div className="px-3 pb-[11px] pt-[7px]">
+          <div className={`px-3 ${isMobile ? "pb-[6px] pt-[4px]" : "pb-[11px] pt-[7px]"}`}>
             <div className="relative">
-              <div 
-                className="w-full border rounded-[12px] px-[13px] py-[9px] text-[12px]"
+              <div
+                className={`w-full border rounded-[12px] px-[13px] ${isMobile ? "py-[6px] text-[11px]" : "py-[9px] text-[12px]"}`}
                 style={dreamyVariant ? {
                   background: "rgba(255,255,255,0.06)",
                   borderColor: "rgba(255,255,255,0.15)",
@@ -174,7 +183,7 @@ const NativelyInterfaceCard = ({ className = "", isMobile = false, isStatic = fa
                 )}
               </div>
             </div>
-            <div className="flex items-center justify-between mt-[7px] px-[1px]">
+            <div className={`flex items-center justify-between ${isMobile ? "mt-[4px]" : "mt-[7px]"} px-[1px]`}>
               <button 
                 className="flex items-center gap-[5px] rounded-[7px] px-[9px] py-[4px] text-[10px] font-medium border"
                 style={dreamyVariant ? {

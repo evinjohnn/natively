@@ -35,7 +35,7 @@ export default function ListeningCard() {
       style={{ fontFamily: "'Biennale', sans-serif" }}
     >
       <h2 
-        className="hero-headline !text-[#3f3f46] text-[28px] md:text-[60px] lg:text-[68px] leading-[1.1] mb-10 text-center mx-auto w-full md:whitespace-nowrap tracking-tight block"
+        className="hero-headline !text-[#3f3f46] text-[28px] md:text-[60px] lg:text-[68px] leading-[1.1] mb-10 text-center mx-auto w-full lg:whitespace-nowrap tracking-tight block"
         style={{ fontFamily: "'EB Garamond', serif" }}
       >
         How Natively helps during a meeting

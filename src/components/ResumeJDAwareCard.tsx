@@ -38,18 +38,18 @@ export default function ResumeJDAwareCard() {
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-[36px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-[#eef0f4] aspect-[6/6] md:aspect-[6/5]">
+    <div className="rounded-[28px] sm:rounded-[36px] flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-lg bg-[#eef0f4] aspect-[4/5] sm:aspect-[6/6] md:aspect-[6/5]">
 
       {/* Glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-blue-400/20 blur-[120px] rounded-full" />
         <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-emerald-300/15 blur-[100px] rounded-full" />
       </div>
-      <div className="absolute inset-0 rounded-[36px] shadow-[inset_0_0_140px_rgba(30,41,59,0.06)] pointer-events-none" />
+      <div className="absolute inset-0 rounded-[28px] sm:rounded-[36px] shadow-[inset_0_0_140px_rgba(30,41,59,0.06)] pointer-events-none" />
 
       {/* UI area */}
       <div className="relative flex-1 min-h-0">
-        <div className="absolute inset-0 flex flex-col justify-between px-7 pt-7 pb-5">
+        <div className="absolute inset-0 flex flex-col justify-between px-4 pt-5 pb-3 sm:px-7 sm:pt-7 sm:pb-5">
 
           {/* Context pills row */}
           <motion.div
@@ -59,10 +59,10 @@ export default function ResumeJDAwareCard() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: EASE }}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
               <div className="w-[6px] h-[6px] rounded-full bg-emerald-500 animate-pulse" style={{ boxShadow: "0 0 6px rgba(34,197,94,0.7)" }} />
-              <span className="text-[11px] font-semibold text-[#9CA3AF] font-geist tracking-[0.06em]">3 contexts active</span>
-              <div className="flex items-center gap-1.5 ml-1">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-[#9CA3AF] font-geist tracking-[0.06em]">3 contexts active</span>
+              <div className="flex items-center gap-1 sm:gap-1.5 sm:ml-1 flex-wrap">
               {(Object.entries(SOURCES) as [Src, typeof SOURCES[Src]][]).map(([key, s], i) => (
                 <motion.span
                   key={key}
@@ -70,7 +70,7 @@ export default function ResumeJDAwareCard() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ ...SPRING, delay: 0.05 + i * 0.05 }}
-                  className="relative text-[11px] font-semibold px-3 py-[4px] rounded-full font-geist text-white overflow-hidden"
+                  className="relative text-[10px] sm:text-[11px] font-semibold px-2 sm:px-3 py-[3px] sm:py-[4px] rounded-full font-geist text-white overflow-hidden"
                   style={{ background: s.grad, boxShadow: `0 4px 12px ${s.shadow}`, border: "1px solid rgba(255,255,255,0.2)" }}
                 >
                   <div className="absolute top-0.5 left-1.5 right-1.5 h-[45%] rounded-full bg-gradient-to-b from-white/60 to-white/5 blur-[0.5px] pointer-events-none" />
@@ -79,11 +79,11 @@ export default function ResumeJDAwareCard() {
               ))}
               </div>
             </div>
-            <p className="text-[10px] text-[#B0B8C8] font-geist">Natively reads your resume, job description, and prep notes to answer for you.</p>
+            <p className="text-[10px] text-[#B0B8C8] font-geist leading-snug">Natively reads your resume, job description, and prep notes to answer for you.</p>
           </motion.div>
 
           {/* Chat bubbles */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2 sm:gap-3">
 
             {/* Interviewer */}
             <motion.div
@@ -104,14 +104,14 @@ export default function ResumeJDAwareCard() {
                 />
               </div>
               <div
-                className="rounded-[16px] rounded-tr-[4px] px-4 py-3"
+                className="rounded-[16px] rounded-tr-[4px] px-3 py-2 sm:px-4 sm:py-3"
                 style={{
                   background: "rgba(255,255,255,0.78)",
                   border: "1px solid rgba(255,255,255,0.95)",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.06), 0 0 0 0.5px rgba(0,0,0,0.03)",
                 }}
               >
-                <p className="text-[12.5px] text-[#4B5563] font-geist leading-[2] font-semibold">
+                <p className="text-[11.5px] sm:text-[12.5px] text-[#4B5563] font-geist leading-[1.55] sm:leading-[2] font-semibold">
                   Why are you interested in this role specifically?
                 </p>
               </div>
@@ -138,14 +138,14 @@ export default function ResumeJDAwareCard() {
               </div>
 
               <div
-                className="rounded-[18px] rounded-tl-[5px] px-4 py-4"
+                className="rounded-[18px] rounded-tl-[5px] px-3 py-3 sm:px-4 sm:py-4"
                 style={{
                   background: "rgba(255,255,255,0.72)",
                   border: "1px solid rgba(255,255,255,0.95)",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,1)",
                 }}
               >
-                <p className="text-[12.5px] text-[#374151] font-geist leading-[2]">
+                <p className="text-[11.5px] sm:text-[12.5px] text-[#374151] font-geist leading-[1.6] sm:leading-[2]">
                   {segments.map((seg, i) =>
                     seg.src
                       ? <Citation key={i} text={seg.text} src={seg.src} />
@@ -160,11 +160,11 @@ export default function ResumeJDAwareCard() {
       </div>
 
       {/* Text — pinned bottom */}
-      <div className="relative p-8 pt-4 shrink-0">
-        <h3 className="text-[22px] md:text-[32px] leading-[1.1] font-semibold mb-2 text-[#2b3445] font-geist tracking-[-0.02em]">
+      <div className="relative p-5 pt-3 sm:p-8 sm:pt-4 shrink-0">
+        <h3 className="text-[20px] sm:text-[22px] md:text-[32px] leading-[1.15] font-semibold mb-2 text-[#2b3445] font-geist tracking-[-0.02em]">
           {t("features.card3_title")}
         </h3>
-        <p className="text-[16px] leading-relaxed max-w-[90%] text-[#7b8596] font-geist">
+        <p className="text-[14px] sm:text-[16px] leading-relaxed max-w-full sm:max-w-[90%] text-[#7b8596] font-geist">
           {t("features.card3_desc")}
         </p>
       </div>

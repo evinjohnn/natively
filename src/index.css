@@ -195,7 +195,7 @@
 
 @layer utilities {
   .max-content {
-    @apply max-w-[var(--max-width)] mx-auto px-6;
+    @apply w-full max-w-[var(--max-width)] mx-auto px-6;
   }
 
   .section-spacing {
@@ -220,10 +220,13 @@
     letter-spacing: -0.5px;
     color: #FFFFFF;
     text-align: center;
+    width: 100%;
     max-width: 900px;
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga", "kern";
     -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   @media (min-width: 768px) {
