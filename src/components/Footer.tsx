@@ -1,6 +1,7 @@
 import { Github, Twitter } from "lucide-react";
 import logo from "@/assets/logo.webp";
 import { LocaleLink } from "@/components/LocaleLink";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
@@ -21,7 +22,9 @@ const Footer = () => {
       titleKey: "footer.legal",
       links: [
         { labelKey: "footer.security", href: "https://github.com/Natively-AI-assistant/natively-cluely-ai-assistant/blob/main/SECURITY.md" },
-        { labelKey: "footer.privacy", href: "https://github.com/Natively-AI-assistant/natively-cluely-ai-assistant/blob/main/PRIVACY.md" },
+        { label: "Privacy Policy", href: "/privacy", noLocale: true },
+        { label: "Refund Policy", href: "/refundpolicy", noLocale: true },
+        { label: "Terms & Conditions", href: "/termsandconditions", noLocale: true },
       ],
     },
     {
@@ -82,12 +85,21 @@ const Footer = () => {
                     return (
                     <li key={j}>
                       {link.href.startsWith("/") ? (
-                        <LocaleLink
-                          to={link.href}
-                          className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
-                        >
-                          {label}
-                        </LocaleLink>
+                        link.noLocale ? (
+                          <Link
+                            to={link.href}
+                            className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
+                          >
+                            {label}
+                          </Link>
+                        ) : (
+                          <LocaleLink
+                            to={link.href}
+                            className="text-[14px] text-[#64748B] hover:text-[#111827] transition-colors font-geist flex items-center gap-2"
+                          >
+                            {label}
+                          </LocaleLink>
+                        )
                       ) : (
                         <a
                           href={link.href}

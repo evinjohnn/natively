@@ -24,3 +24,21 @@ dist-ssr
 *.sw?
 
 /.opencode/
+
+# Secrets & Sensitive Data — DO NOT COMMIT
+api_keys.json
+pro_licenses.json
+openapi.json
+scratch/api_keys_dump.json
+scratch/pro_licenses_dump.json
+scratch/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+*credentials*.json
+*secret*.json

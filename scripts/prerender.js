@@ -240,6 +240,38 @@ const seoRoutes = [
         }
     },
     {
+        path: '/refundpolicy',
+        title: 'Refund Policy — Natively',
+        desc: 'Refund policy for Natively Pro and the Natively API.',
+        skipRu: true
+    },
+    {
+        path: '/privacy',
+        title: 'Privacy Policy — Natively',
+        desc: 'How Natively handles your data: privacy-first, local-first, no central server for your meeting data.',
+        skipRu: true
+    },
+    {
+        path: '/termsandconditions',
+        title: 'Terms & Conditions — Natively',
+        desc: 'Terms governing the Natively desktop app, Natively Pro, and the Natively API.',
+        skipRu: true
+    },
+    {
+        path: '/nativelypro/t&c',
+        title: 'Terms & Conditions — Natively',
+        desc: 'Terms governing the Natively desktop app, Natively Pro, and the Natively API.',
+        canonical: '/termsandconditions',
+        skipRu: true
+    },
+    {
+        path: '/nativelyapi/t&c',
+        title: 'Terms & Conditions — Natively',
+        desc: 'Terms governing the Natively desktop app, Natively Pro, and the Natively API.',
+        canonical: '/termsandconditions',
+        skipRu: true
+    },
+    {
         path: '/interview-copilot',
         title: 'Local AI Interview Copilot — Real-Time Coding Help | Natively',
         desc: 'Natively is the only local AI interview copilot that runs 100% on your device. Real-time coding, algorithm, and system design answers during live interviews — zero cloud, zero cost.',
@@ -306,12 +338,15 @@ async function prerenderMetaTags() {
         );
 
         // Inject hreflang tags for multilingual SEO
-        const hreflangTags = `\n  <link rel="alternate" hreflang="en" href="https://natively.software${route.path}" />\n  <link rel="alternate" hreflang="ru" href="https://natively.software/ru${route.path}" />\n  <link rel="alternate" hreflang="x-default" href="https://natively.software${route.path}" />`;
+        const hreflangTags = route.skipRu
+            ? `\n  <link rel="alternate" hreflang="en" href="https://natively.software${route.path}" />\n  <link rel="alternate" hreflang="x-default" href="https://natively.software${route.path}" />`
+            : `\n  <link rel="alternate" hreflang="en" href="https://natively.software${route.path}" />\n  <link rel="alternate" hreflang="ru" href="https://natively.software/ru${route.path}" />\n  <link rel="alternate" hreflang="x-default" href="https://natively.software${route.path}" />`;
         
-        // Ensure canonical tag matches the route
+        // Ensure canonical tag matches the route (or an explicit canonical if provided)
+        const canonicalPath = route.canonical || route.path;
         newHTML = newHTML.replace(
             /<link\s+rel=["']canonical["']\s+href=["'][^"']*["']\s*\/?>/i,
-            `<link rel="canonical" href="https://natively.software${route.path}" />`
+            `<link rel="canonical" href="https://natively.software${canonicalPath}" />`
         );
 
         // Generate JSON-LD Schemas
@@ -373,8 +408,8 @@ async function prerenderMetaTags() {
         fs.writeFileSync(path.join(dir, 'index.html'), newHTML);
         console.log(`Successfully mapped ${route.path}`);
 
-        // Generate /ru/ variant if Russian translations exist
-        if (route.ru) {
+        // Generate /ru/ variant if Russian translations exist (skip for routes that opt out)
+        if (route.ru && !route.skipRu) {
             const ruPath = `/ru${route.path}`;
             console.log(`Injecting Tags for ${ruPath}...`);
 

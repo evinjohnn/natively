@@ -14,6 +14,9 @@ import LanguageRouter from "@/components/LanguageRouter";
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Pro = lazy(() => import("./pages/Pro"));
+const RefundPolicy = lazy(() => import("./pages/legal/RefundPolicy"));
+const TermsAndConditions = lazy(() => import("./pages/legal/TermsAndConditions"));
+const PrivacyPolicy = lazy(() => import("./pages/legal/PrivacyPolicy"));
 
 const AIInterviewAssistant = lazy(() => import("./pages/seo/AIInterviewAssistant"));
 const NativelyAlternative = lazy(() => import("./pages/seo/NativelyAlternative"));
@@ -67,6 +70,11 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/pro" element={<Pro />} />
+              <Route path="/refundpolicy" element={<RefundPolicy />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/termsandconditions" element={<TermsAndConditions canonicalPath="/termsandconditions" />} />
+              <Route path="/nativelypro/t&c" element={<TermsAndConditions canonicalPath="/termsandconditions" />} />
+              <Route path="/nativelyapi/t&c" element={<TermsAndConditions canonicalPath="/termsandconditions" />} />
               <Route path="/ai-interview-assistant" element={<AIInterviewAssistant />} />
               <Route path="/cluely-alternative" element={<NativelyAlternative />} />
               <Route path="/ai-coding-interview-helper" element={<AICodingInterviewHelper />} />
