@@ -44,12 +44,12 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`top-0 left-0 right-0 z-50 ${isHomePage ? "absolute bg-transparent" : "sticky bg-white border-b border-border/20"}`}
+        className={`top-0 left-0 right-0 z-50 min-w-[1280px] ${isHomePage ? "absolute bg-transparent" : "sticky bg-white border-b border-border/20"}`}
       >
-        <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
+        <div className="w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
           <a href={localePath("/")} className="flex items-center gap-2.5">
             <img src={logo} alt="Natively Logo" className={`w-8 h-8 object-contain ${isHomePage ? "" : "brightness-0"}`} />
-            <span className={`font-['Biennale',sans-serif] text-[18px] md:text-[20px] font-semibold leading-tight flex flex-col md:flex-row md:items-center md:gap-2 ${isHomePage ? "text-white" : "text-foreground"}`}>
+            <span className={`font-['Biennale',sans-serif] text-[20px] font-semibold leading-tight flex items-center gap-2 ${isHomePage ? "text-white" : "text-foreground"}`}>
               <span>Natively</span>
             </span>
           </a>

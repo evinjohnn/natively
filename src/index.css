@@ -185,17 +185,17 @@
     @apply bg-[var(--background-hex)] text-[var(--primary-text)] font-sans antialiased;
     font-family: var(--font-body);
     font-weight: 400;
-    overflow-x: hidden;
+    min-width: 1280px;
   }
 
   #root {
-    overflow-x: hidden;
+    min-width: 1280px;
   }
 }
 
 @layer utilities {
   .max-content {
-    @apply max-w-[var(--max-width)] mx-auto px-6;
+    @apply w-[1280px] mx-auto px-6;
   }
 
   .section-spacing {
