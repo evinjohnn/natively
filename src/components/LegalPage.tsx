@@ -25,9 +25,7 @@ export default function LegalPage({
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEOHead title={title} description={description} canonicalPath={canonicalPath} />
-      <div className="print:hidden">
-        <Navbar />
-      </div>
+      <Navbar />
       <main className="flex-1 pt-32 pb-[25vh] px-6 max-w-[42rem] mx-auto w-full print:pt-8 print:pb-8 print:max-w-none">
         <article className="w-full text-[#111827] font-geist">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
