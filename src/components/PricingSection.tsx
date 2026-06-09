@@ -146,6 +146,145 @@ const AmbientGlow = memo(function AmbientGlow() {
   );
 });
 
+const renderMicroGraphic = (key: string) => {
+  switch (key) {
+    case "modes":
+      return (
+        <div className="h-6 overflow-hidden relative text-[8.5px] font-mono text-indigo-500 font-bold w-14 text-right pr-1 select-none">
+          <motion.div
+            animate={{ y: [0, -14, -28, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", times: [0, 0.33, 0.66, 1] }}
+            className="space-y-[4px]"
+          >
+            <div>Interview</div>
+            <div>Sales</div>
+            <div>Lecture</div>
+          </motion.div>
+        </div>
+      );
+    case "resume":
+      return (
+        <div className="w-12 h-6 bg-slate-100/60 rounded border border-slate-200/50 relative overflow-hidden flex flex-col justify-around p-1 shrink-0 select-none">
+          <div className="w-7 h-0.5 bg-slate-300 rounded" />
+          <div className="w-9 h-0.5 bg-slate-300 rounded" />
+          <div className="w-5 h-0.5 bg-slate-300 rounded" />
+          <motion.div 
+            className="absolute left-0 right-0 h-px bg-indigo-500/50 shadow-[0_0_3px_rgba(99,102,241,0.5)]"
+            animate={{ top: ["10%", "90%", "10%"] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          />
+        </div>
+      );
+    case "context":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex items-center justify-center select-none">
+          <motion.div 
+            className="absolute w-1.5 h-1.5 bg-indigo-400/80 rounded-sm"
+            animate={{ 
+              x: [-14, 0], 
+              y: [-5, 0], 
+              opacity: [0, 1, 0] 
+            }}
+            transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut" }}
+          />
+          <motion.div 
+            className="absolute w-1.5 h-1.5 bg-indigo-400/80 rounded-sm"
+            animate={{ 
+              x: [14, 0], 
+              y: [5, 0], 
+              opacity: [0, 1, 0] 
+            }}
+            transition={{ repeat: Infinity, duration: 2.2, delay: 1.1, ease: "easeOut" }}
+          />
+          <div className="w-4.5 h-4.5 rounded bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-sm bg-indigo-500/30" />
+          </div>
+        </div>
+      );
+    case "negotiation":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex items-end select-none">
+          <svg className="w-full h-full text-indigo-500/80" viewBox="0 0 40 20">
+            <motion.path
+              d="M2 18 Q 12 15, 22 8 T 38 4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeDasharray="40"
+              animate={{ strokeDashoffset: [40, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+            />
+            <motion.circle
+              cx="38" cy="4" r="1.5" fill="currentColor"
+              animate={{ opacity: [0.2, 1, 0.2] }}
+              transition={{ repeat: Infinity, duration: 1 }}
+            />
+          </svg>
+        </div>
+      );
+    case "system":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex items-center justify-around px-1 bg-slate-100/50 rounded border border-slate-200/30 select-none">
+          <span className="w-1 h-1 rounded-full bg-indigo-400/70 animate-pulse" />
+          <div className="w-4 h-0.5 bg-indigo-200 relative overflow-hidden">
+            <motion.div 
+              className="absolute top-0 bottom-0 left-0 w-2 bg-indigo-500"
+              animate={{ left: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+            />
+          </div>
+          <span className="w-1 h-1 rounded-full bg-indigo-400/70 animate-pulse" />
+        </div>
+      );
+    case "mock":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex items-center justify-center gap-[1.5px] select-none">
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-[1.8px] bg-indigo-400 rounded-full"
+              style={{ height: "60%", originY: 0.5 }}
+              animate={{ scaleY: [0.5, 1.4, 0.5] }}
+              transition={{ repeat: Infinity, duration: 1 + i * 0.15, ease: "easeInOut" }}
+            />
+          ))}
+        </div>
+      );
+    case "jd":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex flex-col justify-around select-none">
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <motion.div className="w-1 h-1 rounded-full bg-emerald-500" animate={{ scale: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 2 }} />
+            </div>
+            <div className="w-6 h-0.5 bg-slate-200 rounded" />
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <motion.div className="w-1 h-1 rounded-full bg-emerald-500" animate={{ scale: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 2, delay: 0.6 }} />
+            </div>
+            <div className="w-4 h-0.5 bg-slate-200 rounded" />
+          </div>
+        </div>
+      );
+    case "company":
+      return (
+        <div className="w-12 h-6 relative overflow-hidden shrink-0 flex items-center justify-center select-none">
+          <div className="w-5 h-5 rounded-full border border-indigo-500/20 flex items-center justify-center relative">
+            <motion.div 
+              className="absolute inset-0 rounded-full border border-indigo-500/40"
+              animate={{ scale: [0.6, 1.3], opacity: [1, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeOut" }}
+            />
+            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+          </div>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
+
 /* ─── Stagger orchestration variants ─────────────────────── */
 const stagger = {
   hidden: {},
@@ -468,7 +607,7 @@ export default function PricingSection() {
                   <motion.div key={f.key} variants={fadeUpFast} className="h-full">
                     <SpotlightCard
                       isDark={false}
-                      className="flex items-start gap-3.5 p-4 rounded-[20px] h-full transition-all duration-300 border border-slate-200/40 hover:border-indigo-500/20 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
+                      className="group flex items-start justify-between gap-3 p-4 rounded-[20px] h-full transition-all duration-300 border border-slate-200/40 hover:border-indigo-500/20 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
                       style={{
                         background: "#F2F4F8",
                         boxShadow: [
@@ -479,26 +618,31 @@ export default function PricingSection() {
                         ].join(", ")
                       }}
                     >
-                      <div
-                        className="w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-105"
-                        style={{
-                          background: "linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.02) 100%)",
-                          border: "1px solid rgba(99,102,241,0.18)",
-                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.8)",
-                        }}
-                      >
-                        <f.icon size={15} style={{ color: "#6366f1", opacity: 0.9 }} className="transition-opacity duration-300 group-hover:opacity-100" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <p className="text-[14px] font-semibold text-slate-900 font-geist tracking-tight">{title}</p>
-                          {f.comingSoon && (
-                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full border bg-indigo-500/10 border-indigo-500/20 text-indigo-600 uppercase tracking-wider">
-                              Soon
-                            </span>
-                          )}
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
+                        <div
+                          className="w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-105"
+                          style={{
+                            background: "linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.02) 100%)",
+                            border: "1px solid rgba(99,102,241,0.18)",
+                            boxShadow: "inset 0 1px 1px rgba(255,255,255,0.8)",
+                          }}
+                        >
+                          <f.icon size={15} style={{ color: "#6366f1", opacity: 0.9 }} className="transition-opacity duration-300 group-hover:opacity-100" />
                         </div>
-                        <p className="text-[12px] text-slate-500 font-geist leading-snug line-clamp-2" title={desc}>{desc}</p>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <p className="text-[14px] font-semibold text-slate-900 font-geist tracking-tight truncate">{title}</p>
+                            {f.comingSoon && (
+                              <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full border bg-indigo-500/10 border-indigo-500/20 text-indigo-600 uppercase tracking-wider shrink-0">
+                                Soon
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[12px] text-slate-500 font-geist leading-snug line-clamp-2" title={desc}>{desc}</p>
+                        </div>
+                      </div>
+                      <div className="shrink-0 group-hover:opacity-100 opacity-40 transition-opacity duration-300 mt-1 select-none">
+                        {renderMicroGraphic(f.key)}
                       </div>
                     </SpotlightCard>
                   </motion.div>
