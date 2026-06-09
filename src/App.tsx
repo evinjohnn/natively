@@ -39,6 +39,9 @@ const PreparingForTechnicalInterviewsWithAI = lazy(() => import('./pages/blog/Pr
 const IsCluelySafe = lazy(() => import('./pages/blog/IsCluelySafe'));
 const BestAIInterviewAssistants = lazy(() => import('./pages/blog/BestAIInterviewAssistants'));
 
+const CluelyBreach = lazy(() => import('./pages/blog/CluelyBreach'));
+const NativelyVsFinalRoundAI = lazy(() => import('./pages/blog/NativelyVsFinalRoundAI'));
+
 const LeetCodeAIHelper = lazy(() => import('./pages/seo/LeetCodeAIHelper'));
 const OfflineAIInterview = lazy(() => import('./pages/seo/OfflineAIInterview'));
 
@@ -51,6 +54,9 @@ const FreeAIInterviewAssistant = lazy(() => import('./pages/seo/FreeAIInterviewA
 const NativelyVsLockedInAI = lazy(() => import('./pages/seo/NativelyVsLockedInAI'));
 const NativelyVsInterviewCoder = lazy(() => import('./pages/seo/NativelyVsInterviewCoder'));
 const UndetectableInterviewAI = lazy(() => import('./pages/seo/UndetectableInterviewAI'));
+const OpenSourceCluelyClone = lazy(() => import('./pages/seo/OpenSourceCluelyClone'));
+const FreeInterviewCopilot = lazy(() => import('./pages/seo/FreeInterviewCopilot'));
+const InterviewCoderFreeAlternative = lazy(() => import('./pages/seo/InterviewCoderFreeAlternative'));
 
 const queryClient = new QueryClient();
 
@@ -108,9 +114,15 @@ const App = () => (
               <Route path="/natively-vs-lockedinai" element={<NativelyVsLockedInAI />} />
               <Route path="/natively-vs-interviewcoder" element={<NativelyVsInterviewCoder />} />
               <Route path="/undetectable-interview-ai" element={<UndetectableInterviewAI />} />
+              <Route path="/open-source-cluely-clone" element={<OpenSourceCluelyClone />} />
+              <Route path="/free-interview-copilot" element={<FreeInterviewCopilot />} />
+              <Route path="/interview-coder-free-alternative" element={<InterviewCoderFreeAlternative />} />
 
               <Route path="/blog/is-cluely-safe" element={<IsCluelySafe />} />
               <Route path="/blog/best-ai-interview-assistants" element={<BestAIInterviewAssistants />} />
+
+              <Route path="/blog/cluely-breach-ai-privacy" element={<CluelyBreach />} />
+              <Route path="/blog/natively-vs-final-round-ai" element={<NativelyVsFinalRoundAI />} />
 
               <Route path="/ru" element={<Index />} />
               <Route path="/ru/pro" element={<Pro />} />
@@ -132,6 +144,9 @@ const App = () => (
               <Route path="/ru/blog/best-ai-tools-for-coding-interviews" element={<BestAIToolsForCodingInterviews />} />
               <Route path="/ru/blog/preparing-for-technical-interviews-with-ai" element={<PreparingForTechnicalInterviewsWithAI />} />
 
+              <Route path="/ru/blog/cluely-breach-ai-privacy" element={<CluelyBreach />} />
+              <Route path="/ru/blog/natively-vs-final-round-ai" element={<NativelyVsFinalRoundAI />} />
+
               <Route path="/ru/docs/ai-interview-assistant" element={<DocsAIInterviewAssistant />} />
 
               <Route path="/ru/finalroundai-alternative" element={<FinalRoundAIAlternative />} />
@@ -144,6 +159,9 @@ const App = () => (
               <Route path="/ru/natively-vs-lockedinai" element={<NativelyVsLockedInAI />} />
               <Route path="/ru/natively-vs-interviewcoder" element={<NativelyVsInterviewCoder />} />
               <Route path="/ru/undetectable-interview-ai" element={<UndetectableInterviewAI />} />
+              <Route path="/ru/open-source-cluely-clone" element={<OpenSourceCluelyClone />} />
+              <Route path="/ru/free-interview-copilot" element={<FreeInterviewCopilot />} />
+              <Route path="/ru/interview-coder-free-alternative" element={<InterviewCoderFreeAlternative />} />
 
               <Route path="/ru/blog/is-cluely-safe" element={<IsCluelySafe />} />
               <Route path="/ru/blog/best-ai-interview-assistants" element={<BestAIInterviewAssistants />} />
