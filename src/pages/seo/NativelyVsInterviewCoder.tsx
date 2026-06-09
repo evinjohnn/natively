@@ -43,7 +43,7 @@ export default function NativelyVsInterviewCoder() {
                     <tr>
                       <td className="p-4 border-b border-border/50 font-medium">Цена</td>
                       <td className="p-4 border-b border-border/50 text-red-400">$60 / месяц (Pro)</td>
-                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">Бесплатно (основные функции) / Premium $19</td>
+                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">Бесплатно (BYOK/Ollama) / Natively API от $8/мес</td>
                     </tr>
                     <tr>
                       <td className="p-4 border-b border-border/50 font-medium">Обработка данных</td>
@@ -183,7 +183,7 @@ export default function NativelyVsInterviewCoder() {
               <tr>
                 <td className="p-4 border-b border-border/50 font-medium">Price</td>
                 <td className="p-4 border-b border-border/50 text-red-400">$60 / month (Pro)</td>
-                <td className="p-4 border-b border-border/50 text-green-500 font-medium">Free (core features) / $19 Premium</td>
+                <td className="p-4 border-b border-border/50 text-green-500 font-medium">Free (BYOK/Ollama) / Natively API from $8/mo</td>
               </tr>
               <tr>
                 <td className="p-4 border-b border-border/50 font-medium">Data Processing</td>

@@ -78,28 +78,76 @@
     "offers": [
       {
         "@type": "Offer",
-        "name": "Free",
+        "name": "Free (BYOK / Ollama)",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free plan with core AI interview assistance features",
+        "description": "Free forever — bring your own API key and pay only for tokens used, or run 100% offline and at zero cost with Ollama. No credit card required.",
         "availability": "https://schema.org/InStock",
         "url": "https://natively.software/"
       },
       {
         "@type": "Offer",
-        "name": "Premium",
-        "price": "19",
+        "name": "Natively API — Standard",
+        "price": "8",
         "priceCurrency": "USD",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "price": "19",
+          "price": "8",
           "priceCurrency": "USD",
           "billingDuration": "P1M",
           "unitText": "month"
         },
-        "description": "Unlimited meetings, custom templates, priority AI models, and advanced meeting notes",
+        "description": "Hosted, fully managed speech-to-text and LLM — no API keys needed.",
         "availability": "https://schema.org/InStock",
-        "url": "https://natively.software/"
+        "url": "https://natively.software/pro"
+      },
+      {
+        "@type": "Offer",
+        "name": "Natively API — Pro",
+        "price": "15",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "15",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M",
+          "unitText": "month"
+        },
+        "description": "Hosted API plus the Natively Pro desktop app and premium support.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://natively.software/pro"
+      },
+      {
+        "@type": "Offer",
+        "name": "Natively API — Max",
+        "price": "25",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "25",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M",
+          "unitText": "month"
+        },
+        "description": "Higher usage limits, includes the Natively Pro desktop app and premium support.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://natively.software/pro"
+      },
+      {
+        "@type": "Offer",
+        "name": "Natively API — Ultra",
+        "price": "35",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "35",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M",
+          "unitText": "month"
+        },
+        "description": "Maximum usage limits, includes the Natively Pro desktop app and premium support.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://natively.software/pro"
       }
     ],
     "downloadUrl": "https://github.com/Natively-AI-assistant/natively-cluely-ai-assistant/releases/download",
@@ -254,7 +302,7 @@
         "name": "Is Natively free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Natively offers a genuinely free tier with no account and no credit card required. In free mode you can run it 100% locally with Ollama — models like Llama 3.1, DeepSeek Coder, and Mistral run on your own hardware at $0 in API costs forever — or connect your own OpenAI, Anthropic, or Gemini key (BYOK) and pay only your provider's per-token rate, which is typically a fraction of a subscription. For comparison, FinalRoundAI runs around $50 per month and Interview Coder around $60 per month, both with no free local option. Natively's optional Premium plan is $19 per month and adds unlimited sessions, priority access to higher-capacity models, custom templates, and priority support, plus the fully managed Natively API that handles speech-to-text and the LLM for you. You can download Natively and start using the free tier immediately on macOS or Windows."
+          "text": "Yes. Natively is free and open source (AGPL-3.0), with no account and no credit card required. In free mode you can run it 100% locally with Ollama — models like Llama, Mistral, and CodeLlama run on your own hardware at $0 in API costs forever — or connect your own OpenAI, Anthropic, Gemini, or Groq key (BYOK) and pay only your provider's per-token rate, which is typically a fraction of a subscription. For comparison, LockedIn AI runs $55–70 per month and Final Round AI is $149 per month, both with no free local option. If you'd rather not manage keys, the optional hosted Natively API starts at $8 per month (Standard), with Pro at $15, Max at $25, and Ultra at $35 per month — the Pro tier and above also include the Natively Pro desktop app and premium support. You can download Natively and start using the free tier immediately on macOS or Windows."
         }
       },
       {
@@ -310,7 +358,7 @@
         "name": "What AI models does Natively use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Natively uses optimized local language models designed to run efficiently on consumer hardware without a GPU requirement. The Premium plan provides access to higher-capacity models for more complex reasoning tasks. All models are bundled with the application and do not require separate API keys or external model downloads after initial setup."
+          "text": "Natively works with whatever model you choose. Run local models fully offline through Ollama (Llama, Mistral, CodeLlama, Gemma) on consumer hardware, or bring your own cloud key for the latest frontier models — Google Gemini 3.1 (the recommended default, with a 2M-token context window), OpenAI GPT-5.4 and o3, Anthropic Claude 4.6, or Groq's Llama 3.3 and Llama 4 Scout for fast OCR and vision. You can also point Natively at any OpenAI-compatible endpoint such as vLLM, LM Studio, OpenRouter, or DeepSeek. If you prefer not to manage keys, the hosted Natively API handles the model and speech-to-text for you. You are never locked into a single vendor."
         }
       },
       {

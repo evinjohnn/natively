@@ -53,7 +53,7 @@ export default function AIAssistantForCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Чем Natively отличается</h2>
         <p className="mb-4">
-          В поисках终极 ИИ-ассистента для код-собеседований разработчики обращаются к Natively. Как <LocaleLink to="/natively-alternative" className="text-primary hover:underline">премиальная альтернатива</LocaleLink> облачным платформам, Natively превращает ваш Mac в частный интеллектуальный хаб. Сохраняя всю обработку локальной, мы гарантируем, что вы успешно пройдёте технический скрининг безопасно, быстро и незаметно.
+          В поисках终极 ИИ-ассистента для код-собеседований разработчики обращаются к Natively. Как <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">премиальная альтернатива</LocaleLink> облачным платформам, Natively превращает ваш Mac в частный интеллектуальный хаб. Сохраняя всю обработку локальной, мы гарантируем, что вы успешно пройдёте технический скрининг безопасно, быстро и незаметно.
         </p>
       </section>
     </>) }}
@@ -106,7 +106,7 @@ export default function AIAssistantForCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is Different</h2>
         <p className="mb-4">
-          When seeking the ultimate AI assistant for coding interviews, engineers turn to Natively. As a <LocaleLink to="/natively-alternative" className="text-primary hover:underline">premier alternative</LocaleLink> to cloud-based platforms, Natively transforms your Mac into a private intelligence hub. By keeping all processing local, we ensure you ace your technical screening securely, swiftly, and invisibly.
+          When seeking the ultimate AI assistant for coding interviews, engineers turn to Natively. As a <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">premier alternative</LocaleLink> to cloud-based platforms, Natively transforms your Mac into a private intelligence hub. By keeping all processing local, we ensure you ace your technical screening securely, swiftly, and invisibly.
         </p>
       </section>
     </SEOTemplate>

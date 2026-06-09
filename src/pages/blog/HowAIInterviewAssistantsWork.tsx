@@ -61,7 +61,7 @@ export default function HowAIInterviewAssistantsWork() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — технический стандарт</h2>
           <p className="mb-4">
-            Для программных инженеров, приоритизирующих безопасность, Natively представляет вершину ПО для технического рекрутинга. Работая полностью локализованно и оффлайн, Natively является ведущей <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернативой инструментам облачного наблюдения</LocaleLink>. Он безупречно интегрируется в ваше оборудование, чтобы безопасно и незаметно усиливать ваши код-собеседования.
+            Для программных инженеров, приоритизирующих безопасность, Natively представляет вершину ПО для технического рекрутинга. Работая полностью локализованно и оффлайн, Natively является ведущей <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернативой инструментам облачного наблюдения</LocaleLink>. Он безупречно интегрируется в ваше оборудование, чтобы безопасно и незаметно усиливать ваши код-собеседования.
           </p>
         </section>
       </>) }}
@@ -122,7 +122,7 @@ export default function HowAIInterviewAssistantsWork() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Technical Standard</h2>
         <p className="mb-4">
-          For software engineers prioritizing security, Natively represents the peak of technical recruitment software. Operating fully localized and offline, Natively is the premier <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to cloud surveillance tools</LocaleLink>. It integrates flawlessly into your hardware to empower your coding interviews securely and invisibly.
+          For software engineers prioritizing security, Natively represents the peak of technical recruitment software. Operating fully localized and offline, Natively is the premier <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud surveillance tools</LocaleLink>. It integrates flawlessly into your hardware to empower your coding interviews securely and invisibly.
         </p>
       </section>
     </SEOTemplate>

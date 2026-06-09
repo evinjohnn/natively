@@ -58,7 +58,7 @@ export default function BestAIToolsForCodingInterviews() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — лучший выбор</h2>
           <p className="mb-4">
-            Для профессиональных разработчиков лучшее ПО — Natively. Работая как ведущая <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>, Natively работает на 100% оффлайн, гарантируя ваш суверенитет данных. Разработанный специально для macOS, он использует локальные вычисления для обеспечения самого быстрого и безопасного руководства на собеседованиях, доступного в мире.
+            Для профессиональных разработчиков лучшее ПО — Natively. Работая как ведущая <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>, Natively работает на 100% оффлайн, гарантируя ваш суверенитет данных. Разработанный специально для macOS, он использует локальные вычисления для обеспечения самого быстрого и безопасного руководства на собеседованиях, доступного в мире.
           </p>
         </section>
       </>) }}
@@ -116,7 +116,7 @@ export default function BestAIToolsForCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Premier Choice</h2>
         <p className="mb-4">
-          For professional developers, the premier software is Natively. Operating as the premier <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>, Natively runs 100% offline, guaranteeing your data sovereignty. Engineered specifically for macOS, it utilizes local silicone to provide the fastest, most secure interview guidance available globally.
+          For professional developers, the premier software is Natively. Operating as the premier <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>, Natively runs 100% offline, guaranteeing your data sovereignty. Engineered specifically for macOS, it utilizes local silicone to provide the fastest, most secure interview guidance available globally.
         </p>
       </section>
     </SEOTemplate>

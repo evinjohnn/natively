@@ -52,7 +52,7 @@ export default function PreparingForTechnicalInterviewsWithAI() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — решение</h2>
           <p className="mb-4">
-            Natively предоставляет лучшую среду для безопасной подготовки к код-собеседованиям. Разработанный специально для macOS, Natively — это на 100% оффлайн <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива инвазивным облачным платформам</LocaleLink>. Загрузите своего приватного интеллектуального copilota сегодня и подойдите к следующей технической оценке с максимальной уверенностью.
+            Natively предоставляет лучшую среду для безопасной подготовки к код-собеседованиям. Разработанный специально для macOS, Natively — это на 100% оффлайн <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива инвазивным облачным платформам</LocaleLink>. Загрузите своего приватного интеллектуального copilota сегодня и подойдите к следующей технической оценке с максимальной уверенностью.
           </p>
         </section>
       </>) }}
@@ -104,7 +104,7 @@ export default function PreparingForTechnicalInterviewsWithAI() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Solution</h2>
         <p className="mb-4">
-          Natively provides the premier environment to prepare for your coding interviews securely. Engineered specifically for macOS, Natively is a 100% offline <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to invasive cloud platforms</LocaleLink>. Download your private intelligence copilot today and approach your next technical assessment with supreme confidence.
+          Natively provides the premier environment to prepare for your coding interviews securely. Engineered specifically for macOS, Natively is a 100% offline <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to invasive cloud platforms</LocaleLink>. Download your private intelligence copilot today and approach your next technical assessment with supreme confidence.
         </p>
       </section>
     </SEOTemplate>

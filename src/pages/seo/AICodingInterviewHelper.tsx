@@ -71,7 +71,7 @@ export default function AICodingInterviewHelper() {
           Natively предоставляет первоклассный оффлайн ИИ-ассистент, разработанный специально для код-собеседований, потому что он полностью автономен. Наш проприетарный локальный конвейер даёт вам непревзойдённую точность транскрипции и мгновенные ответы на код completely вне поля зрения.
         </p>
         <p className="mb-4">
-          По сравнению с облачными альтернативами, такими как <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, локальный помощник вроде Natively не испытывает троттлинга API. Вы полагаетесь только на ресурсы собственной машины, предотвращая узкие места пропускной способности или проблемы с интернет-соединением, которые могут подвести вас mid-sentence. Natively даёт разработчикам возможность полностью контролировать свои технические assessments, гарантируя приватность, производительность и окончательный успех.
+          По сравнению с облачными альтернативами, такими как <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, локальный помощник вроде Natively не испытывает троттлинга API. Вы полагаетесь только на ресурсы собственной машины, предотвращая узкие места пропускной способности или проблемы с интернет-соединением, которые могут подвести вас mid-sentence. Natively даёт разработчикам возможность полностью контролировать свои технические assessments, гарантируя приватность, производительность и окончательный успех.
         </p>
       </section>
     </>) }}
@@ -142,7 +142,7 @@ export default function AICodingInterviewHelper() {
           Natively provides the premier offline AI assistant designed specifically for coding interviews because it is completely self-contained. Our proprietary local pipeline gives you unparalleled transcription accuracy and instant code responses completely out of sight.
         </p>
         <p className="mb-4">
-          Comparing against cloud-based alternatives like <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, a local helper like Natively doesn't experience API throttling. You rely only on the resources of your own machine, preventing bandwidth bottlenecks or internet connectivity issues from failing you mid-sentence. Natively empowers developers to take total control of their technical assessments, guaranteeing privacy, performance, and ultimate success.
+          Comparing against cloud-based alternatives like <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, a local helper like Natively doesn't experience API throttling. You rely only on the resources of your own machine, preventing bandwidth bottlenecks or internet connectivity issues from failing you mid-sentence. Natively empowers developers to take total control of their technical assessments, guaranteeing privacy, performance, and ultimate success.
         </p>
       </section>
     </SEOTemplate>

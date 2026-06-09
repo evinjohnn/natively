@@ -53,7 +53,7 @@ export default function LocalAICodingAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — это решение</h2>
         <p className="mb-4">
-          Natively предоставляет definitive локальный ассистент для программирования. Предлагая вычислительную мощность тяжёлых веб-приложений с бескомпромиссной безопасностью оффлайн-исполняемого файла, Natively выступает как премиальная <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>. Скачайте ваш полностью приватный, локализованный интеллектуальный хаб сегодня.
+          Natively предоставляет definitive локальный ассистент для программирования. Предлагая вычислительную мощность тяжёлых веб-приложений с бескомпромиссной безопасностью оффлайн-исполняемого файла, Natively выступает как премиальная <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>. Скачайте ваш полностью приватный, локализованный интеллектуальный хаб сегодня.
         </p>
       </section>
     </>) }}
@@ -106,7 +106,7 @@ export default function LocalAICodingAssistant() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Solution</h2>
         <p className="mb-4">
-          Natively provides the definitive local coding assistant. Offering the computational output of heavy web apps with the uncompromised security of an offline executable, Natively stands as the premium <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>. Download your fully private, localized intelligence hub today.
+          Natively provides the definitive local coding assistant. Offering the computational output of heavy web apps with the uncompromised security of an offline executable, Natively stands as the premium <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>. Download your fully private, localized intelligence hub today.
         </p>
       </section>
     </SEOTemplate>

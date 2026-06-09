@@ -30,7 +30,7 @@ export default function BestAIInterviewAssistants() {
                 <strong>Лучше всего для:</strong> Инженеров-программистов, которым нужна помощь с кодингом в реальном времени без каких-либо компромиссов в приватности
               </p>
               <p className="mb-4">
-                <strong>Цена:</strong> Бесплатно (Ollama) / BYOK (~$0.02/сессия) / $19/мес Premium
+                <strong>Цена:</strong> Бесплатно (Ollama) / BYOK (~$0.02/сессия) / Natively API от $8/мес
               </p>
 
               <h3 className="text-xl font-medium text-foreground mt-6 mb-3">Почему он занимает #1</h3>
@@ -268,7 +268,7 @@ export default function BestAIInterviewAssistants() {
           <strong>Best for:</strong> Software engineers who need real-time coding help with zero privacy compromise
         </p>
         <p className="mb-4">
-          <strong>Price:</strong> Free (Ollama) / BYOK (~$0.02/session) / $19/mo Premium
+          <strong>Price:</strong> Free (Ollama) / BYOK (~$0.02/session) / Natively API from $8/mo
         </p>
 
         <h3 className="text-xl font-medium text-foreground mt-6 mb-3">Why It Ranks #1</h3>

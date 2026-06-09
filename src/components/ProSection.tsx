@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { RefreshCw } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import ProComparison from "@/components/ProComparison";
 
 const ProSection = () => {
   const { t } = useTranslation();
   const [key, setKey] = useState(0);
 
   return (
-    <section className="py-24 bg-white hidden md:block">
+    <section className="py-24 bg-white hidden md:block" id="pro-demo">
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8 max-w-[1200px] mx-auto">
         <div className="text-center mb-16 flex flex-col md:flex-row items-center justify-between w-full">
           <div className="flex-1"></div>
@@ -20,7 +21,7 @@ const ProSection = () => {
           <div className="flex-1 flex justify-end">
             <button 
               onClick={() => setKey(k => k + 1)}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:text-gray-900 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:text-gray-900 transition-colors shadow-sm"
             >
               <RefreshCw className="w-4 h-4" />
               {t('pro.replay')}
@@ -28,14 +29,8 @@ const ProSection = () => {
           </div>
         </div>
 
-        <div className="w-full h-[700px] rounded-[32px] overflow-hidden border border-gray-200 shadow-2xl bg-black">
-          <iframe 
-            key={key}
-            src="/free-vs-pro.html" 
-            className="w-full h-full border-none"
-            title="Natively Free vs Pro Demo"
-            loading="lazy"
-          />
+        <div className="w-full">
+          <ProComparison key={key} />
         </div>
       </div>
     </section>

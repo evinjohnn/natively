@@ -38,7 +38,7 @@ export default function LocalAIVsCloudAIAssistants() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Сравнение с облачными ассистентами</h2>
           <p>
-            Решения, полагающиеся на внешних провайдеров, несут огромные риски для приватности наряду с непредсказуемой задержкой. Ища <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернативу Cloud AI</LocaleLink>, переход на локальное решение убирает абонентские платы, связанные с облачными GPU-вычислениями, возвращая вычислительную мощность пользователю.
+            Решения, полагающиеся на внешних провайдеров, несут огромные риски для приватности наряду с непредсказуемой задержкой. Ища <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернативу Cloud AI</LocaleLink>, переход на локальное решение убирает абонентские платы, связанные с облачными GPU-вычислениями, возвращая вычислительную мощность пользователю.
           </p>
         </section>
 
@@ -83,7 +83,7 @@ export default function LocalAIVsCloudAIAssistants() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Comparison with cloud-based assistants</h2>
         <p>
-          Options relying on external providers present immense privacy risks alongside unpredictable latency lag. When looking for a <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI alternative</LocaleLink>, going local removes subscription fees tied to cloud GPU compute, handing the processing power back to the user.
+          Options relying on external providers present immense privacy risks alongside unpredictable latency lag. When looking for a <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI alternative</LocaleLink>, going local removes subscription fees tied to cloud GPU compute, handing the processing power back to the user.
         </p>
       </section>
 

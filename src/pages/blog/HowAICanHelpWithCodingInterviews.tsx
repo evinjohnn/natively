@@ -38,7 +38,7 @@ export default function HowAICanHelpWithCodingInterviews() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Сравнение с облачными ассистентами</h2>
           <p>
-            В отличие от тяжёлого облачного ПО, мощный <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива Cloud AI</LocaleLink>, работающий локально, оптимально использует вашу машину без задержек сервера. Опыт ощущается более отзывчивым, профессиональным и глубоко приватным.
+            В отличие от тяжёлого облачного ПО, мощный <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива Cloud AI</LocaleLink>, работающий локально, оптимально использует вашу машину без задержек сервера. Опыт ощущается более отзывчивым, профессиональным и глубоко приватным.
           </p>
         </section>
 
@@ -83,7 +83,7 @@ export default function HowAICanHelpWithCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Comparison with cloud-based assistants</h2>
         <p>
-          Unlike heavy cloud software, a powerful <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI alternative</LocaleLink> operating locally utilizes your machine optimally without imposing server lag. The experience feels snappier, more professional, and deeply private.
+          Unlike heavy cloud software, a powerful <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI alternative</LocaleLink> operating locally utilizes your machine optimally without imposing server lag. The experience feels snappier, more professional, and deeply private.
         </p>
       </section>
 

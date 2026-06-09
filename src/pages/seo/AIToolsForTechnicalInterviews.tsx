@@ -53,7 +53,7 @@ export default function AIToolsForTechnicalInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — это решение</h2>
         <p className="mb-4">
-          Как выдающийся ИИ-инструмент для технических собеседований и ведущая <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>, Natively гарантирует абсолютную скорость и приватность. Мы разработали Natively для обеспечения безупречного, аппаратно-ускоренного интеллекта, оставаясь необнаружимым для приложений совместного использования экрана. Максимизируйте свою производительность на следующем раунде системного дизайна с полным спокойствием.
+          Как выдающийся ИИ-инструмент для технических собеседований и ведущая <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива облачным провайдерам</LocaleLink>, Natively гарантирует абсолютную скорость и приватность. Мы разработали Natively для обеспечения безупречного, аппаратно-ускоренного интеллекта, оставаясь необнаружимым для приложений совместного использования экрана. Максимизируйте свою производительность на следующем раунде системного дизайна с полным спокойствием.
         </p>
       </section>
     </>) }}
@@ -106,7 +106,7 @@ export default function AIToolsForTechnicalInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Solution</h2>
         <p className="mb-4">
-          As the preeminent AI tool for technical interviews and the leading <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>, Natively guarantees absolute speed and privacy. We have engineered Natively to provide flawless, hardware-accelerated intelligence while remaining undetectable to screen-sharing apps. Maximize your performance on your next systems design round with total peace of mind.
+          As the preeminent AI tool for technical interviews and the leading <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud providers</LocaleLink>, Natively guarantees absolute speed and privacy. We have engineered Natively to provide flawless, hardware-accelerated intelligence while remaining undetectable to screen-sharing apps. Maximize your performance on your next systems design round with total peace of mind.
         </p>
       </section>
     </SEOTemplate>

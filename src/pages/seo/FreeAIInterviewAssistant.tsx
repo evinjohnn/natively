@@ -50,7 +50,7 @@ export default function FreeAIInterviewAssistant() {
 
               <h3 className="text-xl font-medium text-foreground mt-8 mb-4">Вариант 3: Бесплатный тариф Natively</h3>
               <p className="mb-4">
-                Бесплатный тариф Natively включает основные функции помощи на собеседованиях без необходимости указывать способ оплаты. Перейдите на Premium ($19/мес) для неограниченных сессий и доступа к продвинутым конфигурациям моделей.
+                Natively бесплатен и имеет открытый исходный код: используйте локальные модели через Ollama (полностью офлайн, $0) или свой собственный API-ключ (BYOK). Если вы предпочитаете не управлять ключами, размещённый Natively API начинается с $8/мес (Standard), а тарифы Pro, Max и Ultra стоят $15, $25 и $35/мес.
               </p>
             </section>
 
@@ -62,7 +62,7 @@ export default function FreeAIInterviewAssistant() {
                     <tr className="bg-muted/50 text-foreground">
                       <th className="p-4 border-b border-border/50 font-semibold">Функция</th>
                       <th className="p-4 border-b border-border/50 font-semibold">Бесплатно (Ollama/BYOK)</th>
-                      <th className="p-4 border-b border-border/50 font-semibold">Premium ($19/мес)</th>
+                      <th className="p-4 border-b border-border/50 font-semibold">Natively API (от $8/мес)</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
@@ -151,10 +151,10 @@ export default function FreeAIInterviewAssistant() {
                       <td className="p-4 border-b border-border/50 text-green-500 font-medium">Ваш API-ключ</td>
                     </tr>
                     <tr>
-                      <td className="p-4 border-b border-border/50 font-medium">Natively Premium</td>
-                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">$19</td>
-                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">$57</td>
-                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">100% локально</td>
+                      <td className="p-4 border-b border-border/50 font-medium">Natively API (Pro)</td>
+                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">$15</td>
+                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">$45</td>
+                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">Размещённый</td>
                     </tr>
                   </tbody>
                 </table>
@@ -225,7 +225,7 @@ export default function FreeAIInterviewAssistant() {
 
         <h3 className="text-xl font-medium text-foreground mt-8 mb-4">Option 3: Natively Free Tier</h3>
         <p className="mb-4">
-          Natively's free tier includes core interview assistance features with no payment method required. Upgrade to Premium ($19/month) for unlimited sessions and access to advanced model configurations.
+          Natively is free and open source: run local models via Ollama (fully offline, $0) or bring your own API key (BYOK). If you'd rather not manage keys, the hosted Natively API starts at $8/month (Standard), with Pro, Max, and Ultra at $15, $25, and $35/month.
         </p>
       </section>
 
@@ -237,7 +237,7 @@ export default function FreeAIInterviewAssistant() {
               <tr className="bg-muted/50 text-foreground">
                 <th className="p-4 border-b border-border/50 font-semibold">Feature</th>
                 <th className="p-4 border-b border-border/50 font-semibold">Free (Ollama/BYOK)</th>
-                <th className="p-4 border-b border-border/50 font-semibold">Premium ($19/mo)</th>
+                <th className="p-4 border-b border-border/50 font-semibold">Natively API (from $8/mo)</th>
               </tr>
             </thead>
             <tbody className="text-sm">
@@ -326,10 +326,10 @@ export default function FreeAIInterviewAssistant() {
                 <td className="p-4 border-b border-border/50 text-green-500 font-medium">Your API key</td>
               </tr>
               <tr>
-                <td className="p-4 border-b border-border/50 font-medium">Natively Premium</td>
-                <td className="p-4 border-b border-border/50 text-green-500 font-medium">$19</td>
-                <td className="p-4 border-b border-border/50 text-green-500 font-medium">$57</td>
-                <td className="p-4 border-b border-border/50 text-green-500 font-medium">100% local</td>
+                <td className="p-4 border-b border-border/50 font-medium">Natively API (Pro)</td>
+                <td className="p-4 border-b border-border/50 text-green-500 font-medium">$15</td>
+                <td className="p-4 border-b border-border/50 text-green-500 font-medium">$45</td>
+                <td className="p-4 border-b border-border/50 text-green-500 font-medium">Hosted</td>
               </tr>
             </tbody>
           </table>

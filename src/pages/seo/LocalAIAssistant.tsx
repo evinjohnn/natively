@@ -56,7 +56,7 @@ export default function LocalAIAssistant() {
           Запуск оффлайн ИИ-ассистента означает нулевую телеметрию. Ваши разговоры, фрагменты экрана рабочего стола и черновики живого кода строго ограничены вашей локальной RAM и диском. Ничего не сериализуется и ничего не передаётся по сети.
         </p>
         <p className="mb-4">
-          В облачной настройке, такой как <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, вы неявно передаёте святость своей приватности их инфраструктуре. Локальный подход расширяет возможности пользователя, предлагая эквивалентное — и часто превосходящее — качество вывода с доказуемо превосходящим суверенитетом данных. С локальным ИИ вы владеете ключами к своим собственным данным.
+          В облачной настройке, такой как <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, вы неявно передаёте святость своей приватности их инфраструктуре. Локальный подход расширяет возможности пользователя, предлагая эквивалентное — и часто превосходящее — качество вывода с доказуемо превосходящим суверенитетом данных. С локальным ИИ вы владеете ключами к своим собственным данным.
         </p>
       </section>
 
@@ -122,7 +122,7 @@ export default function LocalAIAssistant() {
           Running an offline AI assistant means zero telemetry. Your conversations, desktop screen snippets, and live coding drafts are confined strictly to your local RAM and disk drive. Nothing is serialized, and nothing is transmitted over the network. 
         </p>
         <p className="mb-4">
-          In a cloud setup like <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, you implicitly surrender the sanctity of your privacy to their infrastructure. A local approach empowers the user, offering equivalent—and often superior—inference quality with demonstrably superior data sovereignty. With local AI, you hold the keys to your own data.
+          In a cloud setup like <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI</LocaleLink>, you implicitly surrender the sanctity of your privacy to their infrastructure. A local approach empowers the user, offering equivalent—and often superior—inference quality with demonstrably superior data sovereignty. With local AI, you hold the keys to your own data.
         </p>
       </section>
 

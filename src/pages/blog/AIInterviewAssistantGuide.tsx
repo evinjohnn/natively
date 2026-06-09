@@ -38,7 +38,7 @@ export default function AIInterviewAssistantGuide() {
         <section>
           <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Сравнение с облачными ассистентами</h2>
           <p>
-            При сравнении с <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернативами Cloud AI</LocaleLink>, облачные системы представляют единую точку отказа. Ваш локальный оффлайн-пайплайн, однако, работает безупречно даже на повреждённых или нестабильных Wi-Fi сетях.
+            При сравнении с <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернативами Cloud AI</LocaleLink>, облачные системы представляют единую точку отказа. Ваш локальный оффлайн-пайплайн, однако, работает безупречно даже на повреждённых или нестабильных Wi-Fi сетях.
           </p>
         </section>
 
@@ -83,7 +83,7 @@ export default function AIInterviewAssistantGuide() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Comparison with cloud-based assistants</h2>
         <p>
-          When comparing against <LocaleLink to="/natively-alternative" className="text-primary hover:underline">Cloud AI alternatives</LocaleLink>, cloud systems represent a single point of failure. Your local offline pipeline, however, functions seamlessly even on compromised or unstable Wi-Fi networks.
+          When comparing against <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">Cloud AI alternatives</LocaleLink>, cloud systems represent a single point of failure. Your local offline pipeline, however, functions seamlessly even on compromised or unstable Wi-Fi networks.
         </p>
       </section>
 

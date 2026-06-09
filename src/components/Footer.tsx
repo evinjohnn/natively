@@ -31,7 +31,7 @@ const Footer = () => {
       titleKey: "footer.resources",
       links: [
         { labelKey: "footer.ai_interview", href: "/ai-interview-assistant" },
-        { labelKey: "footer.cluely_alt", href: "/natively-alternative" },
+        { labelKey: "footer.cluely_alt", href: "/cluely-alternative" },
         { labelKey: "footer.coding_helper", href: "/ai-coding-interview-helper" },
         { labelKey: "footer.local_ai", href: "/local-ai-assistant" },
         { labelKey: "footer.ai_coding_exams", href: "/ai-assistant-for-coding-interviews" },

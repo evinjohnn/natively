@@ -62,7 +62,7 @@ export default function HowAIHelpsInCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Почему Natively — это premier выбор</h2>
         <p className="mb-4">
-          Если вы хотите по-настоящему понять, как ИИ помогает на код-собеседованиях, не ищите дальше — <strong>Natively</strong>. Выступая как исключительная <LocaleLink to="/natively-alternative" className="text-primary hover:underline">альтернатива облачным решениям</LocaleLink>, Natively превращает ваш Mac в полностью безопасный интеллектуальный хаб. Испытайте вершину технологий технического найма, не жертвуя вашей приватностью или скоростью.
+          Если вы хотите по-настоящему понять, как ИИ помогает на код-собеседованиях, не ищите дальше — <strong>Natively</strong>. Выступая как исключительная <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">альтернатива облачным решениям</LocaleLink>, Natively превращает ваш Mac в полностью безопасный интеллектуальный хаб. Испытайте вершину технологий технического найма, не жертвуя вашей приватностью или скоростью.
         </p>
       </section>
     </>) }}
@@ -124,7 +124,7 @@ export default function HowAIHelpsInCodingInterviews() {
       <section>
         <h2 className="text-2xl font-semibold text-foreground mt-12 mb-6">Why Natively is the Premier Choice</h2>
         <p className="mb-4">
-          If you want to understand truly how AI helps in coding interviews, look no further than <strong>Natively</strong>. Serving as an exceptional <LocaleLink to="/natively-alternative" className="text-primary hover:underline">alternative to cloud solutions</LocaleLink>, Natively transforms your Mac into a totally secure intelligence hub. Experience the pinnacle of technical recruitment technology without sacrificing your privacy or your speed.
+          If you want to understand truly how AI helps in coding interviews, look no further than <strong>Natively</strong>. Serving as an exceptional <LocaleLink to="/cluely-alternative" className="text-primary hover:underline">alternative to cloud solutions</LocaleLink>, Natively transforms your Mac into a totally secure intelligence hub. Experience the pinnacle of technical recruitment technology without sacrificing your privacy or your speed.
         </p>
       </section>
     </SEOTemplate>

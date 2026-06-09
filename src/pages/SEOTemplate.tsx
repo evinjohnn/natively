@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
 import { useTranslation } from "react-i18next";
 import { useLocalePath } from "@/components/LocaleLink";
+import RelatedLinks from "@/components/RelatedLinks";
 
 interface SEOTemplateProps {
   title: string;
@@ -50,6 +51,8 @@ export default function SEOTemplate({ title, description, canonicalPath, childre
               {isRu ? "Начать бесплатно" : "Get Started Free"}
             </a>
           </div>
+
+          <RelatedLinks canonicalPath={canonicalPath} />
         </article>
       </main>
       <Footer />

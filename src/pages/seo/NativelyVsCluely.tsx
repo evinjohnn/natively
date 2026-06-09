@@ -47,7 +47,7 @@ export default function NativelyVsCluely() {
                     </tr>
                     <tr>
                       <td className="p-4 border-b border-border/50 font-medium">Цена</td>
-                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">Бесплатный тариф + Premium $19/мес</td>
+                      <td className="p-4 border-b border-border/50 text-green-500 font-medium">Бесплатно (BYOK/Ollama) + Natively API от $8/мес</td>
                       <td className="p-4 border-b border-border/50 text-red-400">Только платно (App Store)</td>
                     </tr>
                     <tr>
@@ -188,7 +188,7 @@ export default function NativelyVsCluely() {
               </tr>
               <tr>
                 <td className="p-4 border-b border-border/50 font-medium">Pricing</td>
-                <td className="p-4 border-b border-border/50 text-green-500 font-medium">Free tier + $19/mo Premium</td>
+                <td className="p-4 border-b border-border/50 text-green-500 font-medium">Free (BYOK/Ollama) + Natively API from $8/mo</td>
                 <td className="p-4 border-b border-border/50 text-red-400">Paid only (App Store)</td>
               </tr>
               <tr>

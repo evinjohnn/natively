@@ -2,19 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+# --- AI search & answer engines (explicitly welcomed for citation) ---
+
+# OpenAI / ChatGPT
 User-agent: GPTBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Anthropic-AI
 Allow: /
 
 User-agent: OAI-SearchBot
@@ -23,10 +14,49 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# Disallow scrapers that don't respect robots.txt anyway
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+# Google (Gemini / AI Overviews training & grounding)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Copilot / Bing
+User-agent: bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — bulk training-data scraper that often ignores robots.txt anyway.
+# Disallowed as a training-data opt-out (inference-time AI search bots above are
+# explicitly allowed, so AI citations are unaffected).
 User-agent: CCBot
 Disallow: /
 
+# Sitemap and AI context file
 Sitemap: https://natively.software/sitemap.xml
 
 # AI assistant context file: https://natively.software/llms.txt
