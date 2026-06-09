@@ -676,19 +676,37 @@ function stripBaseTag(html, re) {
     return html.replace(re, (m) => (/data-rh=/.test(m) ? m : ''));
 }
 
-// The base index.html ships a homepage-scoped SoftwareApplication JSON-LD block
-// (the one with `applicationSubCategory` + the full multi-tier offers list). Like
-// the other static schema in the template, it's captured onto every prerendered
-// interior page. On non-home pages it's wrong (its url is the site root) and, for
-// pages that declare schemaType: 'SoftwareApplication', it would collide with the
-// correct page-scoped block buildSchemaTags appends. Strip it from non-home pages
-// so each page carries at most one, page-accurate SoftwareApplication entity.
-// `applicationSubCategory` is unique to the homepage block, so it's a safe marker
-// that never removes the page-scoped block (which omits that field).
-function stripBaseSoftwareApplication(html) {
+// The base index.html ships 7 static (non-Helmet) JSON-LD blocks. Because they're
+// in the template <head>, the prerender capture copies ALL of them onto every
+// interior page. Two of those types are genuinely site-level and belong on every
+// page (Organization, WebSite); the rest describe the HOMEPAGE specifically and
+// must not leak onto interior pages:
+//   - SoftwareApplication / FAQPage / BreadcrumbList — re-emitted page-scoped by
+//     buildSchemaTags where applicable (leaving the base copy would double them up).
+//   - WebPage — names the page as the homepage (wrong url/title on interior pages).
+//   - VideoObject — the demo lives on the homepage, not on every page.
+const HOMEPAGE_ONLY_SCHEMA_TYPES = new Set([
+    'SoftwareApplication', 'WebPage', 'VideoObject', 'FAQPage', 'BreadcrumbList',
+]);
+
+// Strip the homepage-specific base JSON-LD blocks from an interior page's captured
+// HTML. Runs BEFORE buildSchemaTags appends the page-scoped replacements, so there
+// is no collision. Helmet never emits ld+json (only title/meta/canonical/og/twitter),
+// so every ld+json block present at this point is a base-template block — matching
+// by @type is safe. Unparseable blocks are left untouched.
+function stripHomepageSchema(html) {
     return html.replace(
-        /<script type=["']application\/ld\+json["']>[\s\S]*?<\/script>/g,
-        (m) => (m.includes('"applicationSubCategory"') ? '' : m),
+        /<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/g,
+        (full, body) => {
+            let type;
+            try {
+                const obj = JSON.parse(body);
+                type = Array.isArray(obj) ? (obj[0] && obj[0]['@type']) : obj['@type'];
+            } catch (_) {
+                return full;
+            }
+            return HOMEPAGE_ONLY_SCHEMA_TYPES.has(type) ? '' : full;
+        },
     );
 }
 
@@ -710,11 +728,13 @@ function finalizeHtml(html, job) {
     let out = html;
     const helmetActive = /data-rh=["']true["']/.test(out);
 
-    // Drop the homepage's SoftwareApplication block from interior pages (it leaks in
-    // from the base template). The homepage keeps it; pages that declare
-    // schemaType get their own page-scoped block appended below instead.
+    // Drop the homepage-specific JSON-LD blocks that leak in from the base template
+    // (SoftwareApplication, WebPage, VideoObject, FAQPage, BreadcrumbList). The
+    // homepage keeps them; interior pages get page-scoped Breadcrumb/FAQ/Software-
+    // Application re-emitted by buildSchemaTags below. Site-level Organization +
+    // WebSite are intentionally preserved on every page.
     if (route.path !== '/') {
-        out = stripBaseSoftwareApplication(out);
+        out = stripHomepageSchema(out);
     }
 
     if (helmetActive) {
