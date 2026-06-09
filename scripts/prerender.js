@@ -240,6 +240,26 @@ const seoRoutes = [
         }
     },
     {
+        path: '/blog/cluely-breach-ai-privacy',
+        title: 'The Cluely Breach: What 83k Exposed Users Taught Us About AI Privacy',
+        desc: 'In mid-2025, Cluely suffered a data breach exposing 83,000 users\' transcripts, screenshots, and personal data. Here\'s what it means for the AI meeting assistant industry — and why local-first architecture is the only real answer.',
+        schemaType: 'Article',
+        ru: {
+            title: 'Утечка Cluely: Чему нас научили 83 000 скомпрометированных пользователей',
+            desc: 'В середине 2025 года Cluely пострадала от утечки данных, в результате которой были раскрыты стенограммы, скриншоты и личные данные 83 000 пользователей. Вот что это значит для индустрии ИИ-ассистентов — и почему локальная архитектура является единственным реальным ответом.'
+        }
+    },
+    {
+        path: '/blog/natively-vs-final-round-ai',
+        title: 'Natively vs Final Round AI: The $149 Question',
+        desc: 'Final Round AI costs $149/month for interview copilot features. Natively is free, open-source, and local-first. Here\'s the full comparison — features, privacy, performance, and whether the premium is worth it.',
+        schemaType: 'Article',
+        ru: {
+            title: 'Natively против Final Round AI: Вопрос на $149',
+            desc: 'Final Round AI стоит $149/месяц за функции интервью-копилотов. Natively — бесплатный, открытый и локальный. Полное сравнение функций, приватности, производительности и того, стоит ли премиум своих денег.'
+        }
+    },
+    {
         path: '/refundpolicy',
         title: 'Refund Policy — Natively',
         desc: 'Refund policy for Natively Pro and the Natively API.',
@@ -283,6 +303,53 @@ const seoRoutes = [
         ru: {
             title: 'Локальный ИИ-копилот для собеседований — Помощь в реальном времени | Natively',
             desc: 'Natively — единственный локальный ИИ-копилот для собеседований, работающий 100% на вашем устройстве. Помощь с кодингом и системным дизайном без облака.'
+        }
+    },
+    // NEX-47: New Comparison Landing Pages
+    {
+        path: '/open-source-cluely-clone',
+        title: 'Open Source Cluely Clone — Free, Local AI Interview Copilot | Natively',
+        desc: 'Looking for an open-source Cluely clone? Natively is a free Cluely alternative with the same UI, more features, and zero subscriptions. Runs locally with any LLM.',
+        schemaType: 'SoftwareApplication',
+        faqs: [
+            { q: "Is Natively really a free Cluely clone?", a: "Yes. Natively is a completely free, open-source AI interview assistant that replicates and extends Cluely's core functionality." },
+            { q: "Does Natively have the same UI as Cluely?", a: "Natively provides a similar invisible overlay and real-time assistance experience with additional features Cluely doesn't have." },
+            { q: "Is Natively safer than Cluely?", a: "Yes. Natively processes everything locally on your device. Cluely sends your data to their cloud servers." },
+            { q: "Can I migrate from Cluely to Natively?", a: "Yes. Download Natively, configure your preferred AI provider, and start using it immediately. No data migration needed." }
+        ],
+        ru: {
+            title: 'Открытый клон Cluely — Бесплатный локальный ИИ-ассистент | Natively',
+            desc: 'Ищете открытый клон Cluely? Natively — бесплатная альтернатива Cluely с тем же UI, расширенными функциями и без подписок. Работает локально с любой LLM.'
+        }
+    },
+    {
+        path: '/free-interview-copilot',
+        title: 'Free Interview Copilot — AI Interview Assistant That Actually Works | Natively',
+        desc: 'Need a free interview copilot? Natively gives you real-time AI interview assistance for $0. No subscriptions, no cloud uploads, no data breaches. Works with any LLM.',
+        schemaType: 'SoftwareApplication',
+        faqs: [
+            { q: "Is Natively really a completely free interview copilot?", a: "Yes. Natively's core interview assistance features are 100% free. Use your own API key or run offline with Ollama at $0." },
+            { q: "Can a free interview copilot be detected?", a: "Cloud-based copilots generate network traffic. Natively with Ollama generates zero network traffic, making it undetectable." },
+            { q: "Does Natively work with LeetCode and HackerRank?", a: "Yes. Natively is specifically designed for coding interview platforms like LeetCode, HackerRank, and CoderPad." }
+        ],
+        ru: {
+            title: 'Бесплатный ИИ-копилот для собеседований | Natively',
+            desc: 'Нужен бесплатный ИИ-копилот для собеседований? Natively предоставляет помощь в реальном времени за $0. Без подписок, без облака, без утечек данных.'
+        }
+    },
+    {
+        path: '/interview-coder-free-alternative',
+        title: 'Interview Coder Free Alternative — Natively Does What Interview Coder Does for $0 | Natively',
+        desc: 'Looking for an Interview Coder free alternative? Natively is a free, open-source AI coding interview assistant that covers LeetCode, HackerRank, behavioral rounds, and system design. All for $0.',
+        schemaType: 'SoftwareApplication',
+        faqs: [
+            { q: "Is Natively really a free alternative to Interview Coder?", a: "Yes. Natively is completely free for core features, while Interview Coder charges $60/month. Natively also offers more features." },
+            { q: "Can Natively do OCR like Interview Coder?", a: "Yes. Natively uses local OCR to capture on-screen content, all done on your device without sending data to the cloud." },
+            { q: "Does Natively work with LeetCode, HackerRank, and CoderPad?", a: "Yes. Natively supports all major coding interview platforms with real-time invisible overlay assistance." }
+        ],
+        ru: {
+            title: 'Бесплатная альтернатива Interview Coder — Natively за $0 | Natively',
+            desc: 'Ищете бесплатную альтернативу Interview Coder? Natively — бесплатный ИИ-ассистент для код-собеседований с открытым исходным кодом. LeetCode, HackerRank, поведенческие вопросы — всё за $0.'
         }
     }
 ];
