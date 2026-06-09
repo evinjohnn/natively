@@ -551,7 +551,7 @@ export default function ProComparison() {
       {/* Progress slider indicator */}
       <div className="w-full h-1 bg-slate-100 relative overflow-hidden z-20">
         <motion.div 
-          className="absolute left-0 top-0 bottom-0 bg-[#C1440E]"
+          className="absolute left-0 top-0 bottom-0 bg-indigo-600"
           style={{ width: `${progress}%` }}
           transition={{ ease: "easeOut" }}
         />
@@ -571,7 +571,7 @@ export default function ProComparison() {
           <button 
             onClick={() => setMobileTab("pro")}
             className={`flex-1 py-2 text-center rounded-lg text-xs font-bold transition-all ${
-              mobileTab === "pro" ? "bg-[#060813] text-[#fbbf24] shadow-sm" : "text-slate-500"
+              mobileTab === "pro" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-500"
             }`}
           >
             Natively Pro
@@ -584,7 +584,7 @@ export default function ProComparison() {
 
         {/* Vertical Separator Line & VS Badge (Desktop Only) */}
         <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-slate-200 dark:bg-slate-800 z-30 -translate-x-1/2 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#111827] border border-white/10 flex items-center justify-center shadow-lg">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-indigo-600 border border-indigo-500 flex items-center justify-center shadow-lg">
             <span className="text-[10px] font-bold text-white uppercase tracking-widest">VS</span>
           </div>
         </div>
@@ -787,58 +787,58 @@ export default function ProComparison() {
         </div>
 
         {/* ══════════════════════════════════════════════════════════ */}
-        {/* RIGHT COLUMN: NATIVELY PRO (Deep Midnight Theme) */}
+        {/* RIGHT COLUMN: NATIVELY PRO (Premium Jelly-Clay Light Theme) */}
         {/* ══════════════════════════════════════════════════════════ */}
         <div 
           className={`relative p-6 md:p-10 flex flex-col justify-between overflow-hidden transition-all duration-500 ${
             mobileTab === "pro" ? "block w-full" : "hidden md:block w-full"
           }`}
           style={{
-            background: "linear-gradient(160deg, #04060E 0%, #060914 60%, #020306 100%)"
+            background: "linear-gradient(160deg, #F5F7FB 0%, #FAFBFD 60%, #EEF1F6 100%)"
           }}
         >
           {/* Subtle Grid Dotted pattern */}
           <div 
-            className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+            className="absolute inset-0 opacity-[0.05] pointer-events-none" 
             style={{
-              backgroundImage: "radial-gradient(circle, #FFF 1.2px, transparent 1.2px)",
+              backgroundImage: "radial-gradient(circle, #6366f1 1.2px, transparent 1.2px)",
               backgroundSize: "26px 26px"
             }}
           />
-          <div className="absolute -bottom-16 -right-16 w-96 h-96 bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute -bottom-16 -right-16 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
 
           {/* Header row */}
           <div className="flex items-center justify-between mb-8 z-10">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-amber-500/60 leading-none">Premium License</p>
-              <h4 className="text-[20px] font-bold text-white mt-1 font-geist">Natively Pro</h4>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-indigo-500/80 leading-none">Premium License</p>
+              <h4 className="text-[20px] font-bold text-slate-800 mt-1 font-geist">Natively Pro</h4>
             </div>
-            <span className="text-[11px] font-bold px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+            <span className="text-[11px] font-bold px-3 py-1 bg-indigo-500/10 text-indigo-600 rounded-full border border-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.06)]">
               {dict.sl_badge_pro}
             </span>
           </div>
 
           {/* Shell Container */}
-          <div className="flex-1 flex flex-col w-full max-w-[480px] mx-auto z-10 rounded-[24px] border border-amber-500/20 bg-slate-950/70 backdrop-blur-xl shadow-2xl overflow-hidden min-h-[360px] max-h-[380px] justify-between relative">
+          <div className="flex-1 flex flex-col w-full max-w-[480px] mx-auto z-10 rounded-[24px] border border-indigo-200/60 bg-white/80 backdrop-blur-xl shadow-2xl overflow-hidden min-h-[360px] max-h-[380px] justify-between relative">
             
             {/* Top Speckle Ambient Shimmer */}
-            <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent pointer-events-none" />
 
             {/* Title Bar */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-slate-50/50">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" style={{ boxShadow: "0 0 8px rgba(245,158,11,0.7)" }} />
-                <span className="text-[11px] font-semibold text-amber-400 font-geist">Natively API</span>
+                <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" style={{ boxShadow: "0 0 8px rgba(99,102,241,0.7)" }} />
+                <span className="text-[11px] font-semibold text-indigo-600 font-geist">Natively API</span>
               </div>
-              <div className="flex items-center gap-2 text-[10px] font-mono text-white/40">
+              <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
                 <span>Cloud Max Engine</span>
               </div>
             </div>
 
             {/* Live audio bar */}
-            <div className="flex items-center gap-2.5 px-4 py-2 border-b border-white/[0.02] bg-white/[0.01] text-white">
-              <div className={`w-2 h-2 rounded-full ${proListeningActive ? 'bg-amber-400 animate-pulse' : 'bg-white/20'}`} />
-              <p className={`text-[11px] font-geist truncate ${proListeningActive ? 'text-white font-medium' : 'text-white/40 font-light italic'}`}>
+            <div className="flex items-center gap-2.5 px-4 py-2 border-b border-slate-50 bg-slate-50/20 text-slate-800">
+              <div className={`w-2 h-2 rounded-full ${proListeningActive ? 'bg-indigo-500 animate-pulse' : 'bg-slate-300'}`} />
+              <p className={`text-[11px] font-geist truncate ${proListeningActive ? 'text-slate-800 font-medium' : 'text-slate-400 font-light italic'}`}>
                 {proListeningText}
               </p>
             </div>
@@ -851,9 +851,9 @@ export default function ProComparison() {
                 <motion.div 
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="w-full bg-white/[0.02] border border-amber-500/15 rounded-xl p-3 mb-2"
+                  className="w-full bg-indigo-500/[0.02] border border-indigo-500/10 rounded-xl p-3 mb-2"
                 >
-                  <p className="text-[8.5px] font-bold text-amber-400/80 uppercase tracking-widest mb-2 leading-none">
+                  <p className="text-[8.5px] font-bold text-indigo-500 uppercase tracking-widest mb-2 leading-none">
                     {dict.ctx_label}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -862,8 +862,8 @@ export default function ProComparison() {
                         key={i} 
                         className={`text-[9.5px] font-medium px-2 py-0.5 rounded border ${
                           tag === dict.ctx_nego
-                            ? "bg-emerald-500/10 border-emerald-500/25 text-emerald-400 font-bold"
-                            : "bg-amber-500/5 border-amber-500/15 text-amber-300"
+                            ? "bg-emerald-500/10 border-emerald-500/25 text-emerald-600 font-bold"
+                            : "bg-indigo-500/5 border-indigo-500/15 text-indigo-600"
                         }`}
                       >
                         {tag}
@@ -883,49 +883,49 @@ export default function ProComparison() {
                     className={`flex flex-col ${m.sender === "user" ? "items-end" : "items-start"}`}
                   >
                     {m.sender === "user" ? (
-                      <div className="max-w-[80%] bg-amber-400/10 border border-amber-400/25 text-amber-300 rounded-2xl rounded-tr-sm px-3.5 py-2 text-[12.5px] font-geist leading-normal">
+                      <div className="max-w-[80%] bg-indigo-500/10 border border-indigo-500/20 text-indigo-900 rounded-2xl rounded-tr-sm px-3.5 py-2 text-[12.5px] font-geist leading-normal">
                         {m.text}
                       </div>
                     ) : m.sender === "thinking" ? (
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-white/5 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/30 animate-bounce" style={{ animationDelay: '0ms' }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/30 animate-bounce" style={{ animationDelay: '150ms' }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/30 animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }} />
                       </div>
                     ) : m.type === "nego" ? (
                       // Negotiation custom card (Pro exclusive)
-                      <div className="w-full max-w-[90%] rounded-2xl overflow-hidden border border-amber-500/25 bg-[#0A0D1A]/90 shadow-xl">
-                        <div className="bg-amber-500/5 px-3.5 py-2 border-b border-amber-500/15 flex items-center justify-between">
-                          <span className="text-[9.5px] font-bold text-amber-400 uppercase tracking-widest">{dict.nego_head}</span>
-                          <span className="text-[8.5px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/25 font-bold">{dict.nego_badge}</span>
+                      <div className="w-full max-w-[90%] rounded-2xl overflow-hidden border border-indigo-500/20 bg-white shadow-xl">
+                        <div className="bg-indigo-5/50 px-3.5 py-2 border-b border-indigo-100 flex items-center justify-between">
+                          <span className="text-[9.5px] font-bold text-indigo-600 uppercase tracking-widest">{dict.nego_head}</span>
+                          <span className="text-[8.5px] font-mono text-emerald-700 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-200 font-bold">{dict.nego_badge}</span>
                         </div>
                         <div className="p-3.5">
-                          <p className="text-[12px] text-white/90 leading-relaxed font-geist mb-3">
+                          <p className="text-[12px] text-slate-800 leading-relaxed font-geist mb-3">
                             {m.text}
                           </p>
                           <div className="flex flex-wrap gap-1.5">
-                            <span className="text-[9.5px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-semibold">{dict.nego_l5}</span>
-                            <span className="text-[9.5px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded font-semibold">{dict.nego_anchor}</span>
-                            <span className="text-[9.5px] font-mono bg-white/5 text-white/45 border border-white/10 px-2 py-0.5 rounded">{dict.nego_flex}</span>
-                            <span className="text-[9.5px] font-mono bg-white/5 text-white/45 border border-white/10 px-2 py-0.5 rounded">{dict.nego_counter}</span>
+                            <span className="text-[9.5px] font-mono bg-emerald-500/10 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-semibold">{dict.nego_l5}</span>
+                            <span className="text-[9.5px] font-mono bg-indigo-500/10 text-indigo-700 border border-indigo-200 px-2 py-0.5 rounded font-semibold">{dict.nego_anchor}</span>
+                            <span className="text-[9.5px] font-mono bg-slate-50 text-slate-500 border border-slate-200 px-2 py-0.5 rounded">{dict.nego_flex}</span>
+                            <span className="text-[9.5px] font-mono bg-slate-50 text-slate-500 border border-slate-200 px-2 py-0.5 rounded">{dict.nego_counter}</span>
                           </div>
                         </div>
                       </div>
                     ) : (
-                      <div className="max-w-[85%] rounded-2xl rounded-tl-sm border border-amber-500/25 bg-amber-500/5 p-3.5">
-                        <div className="flex items-center gap-1.5 text-[9px] font-bold text-amber-400 uppercase tracking-widest mb-1.5">
-                          <Sparkles size={10} className="text-amber-400" />
+                      <div className="max-w-[85%] rounded-2xl rounded-tl-sm border border-indigo-500/20 bg-indigo-500/5 p-3.5">
+                        <div className="flex items-center gap-1.5 text-[9px] font-bold text-indigo-600 uppercase tracking-widest mb-1.5">
+                          <Sparkles size={10} className="text-indigo-500" />
                           <span>{dict.say_this_stripe}</span>
                         </div>
-                        <p className="text-[12px] text-white/90 leading-relaxed font-geist">
+                        <p className="text-[12px] text-slate-800 leading-relaxed font-geist">
                           {m.text}
                         </p>
                         
                         {m.cites && m.cites.length > 0 && (
-                          <div className="mt-3 flex flex-wrap gap-1.5 border-t border-white/5 pt-2">
+                          <div className="mt-3 flex flex-wrap gap-1.5 border-t border-slate-100 pt-2">
                             {m.cites.map((cite, idx) => (
-                              <div key={idx} className="flex items-center gap-1.5 px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[9.5px] font-mono rounded font-medium">
-                                <span className="w-1 h-1 rounded-full bg-amber-400" />
+                              <div key={idx} className="flex items-center gap-1.5 px-2 py-0.5 bg-indigo-500/10 text-indigo-600 border border-indigo-100 text-[9.5px] font-mono rounded font-medium">
+                                <span className="w-1 h-1 rounded-full bg-indigo-500" />
                                 {cite}
                               </div>
                             ))}
@@ -933,11 +933,11 @@ export default function ProComparison() {
                         )}
 
                         {m.type === "fup" && m.fupQuestions && m.fupQuestions.length > 0 && (
-                          <div className="mt-3 space-y-2 border-t border-white/5 pt-2">
-                            <span className="text-[9px] font-bold text-amber-400/80 uppercase tracking-wider block">{dict.fup_label_stripe}</span>
+                          <div className="mt-3 space-y-2 border-t border-slate-100 pt-2">
+                            <span className="text-[9px] font-bold text-indigo-500 uppercase tracking-wider block">{dict.fup_label_stripe}</span>
                             {m.fupQuestions.map((q, idx) => (
-                              <div key={idx} className="flex gap-1.5 text-[11px] text-white/70 font-geist">
-                                <span className="font-bold text-amber-400/70 shrink-0">{idx+1}.</span>
+                              <div key={idx} className="flex gap-1.5 text-[11px] text-slate-700 font-geist">
+                                <span className="font-bold text-indigo-400 shrink-0">{idx+1}.</span>
                                 <span>{q}</span>
                               </div>
                             ))}
@@ -951,7 +951,7 @@ export default function ProComparison() {
             </div>
 
             {/* Interactive chips */}
-            <div className="flex flex-wrap gap-1.5 p-3 border-t border-white/5 bg-white/[0.01] justify-center">
+            <div className="flex flex-wrap gap-1.5 p-3 border-t border-slate-100 bg-slate-50/50 justify-center">
               {["what", "shorten", "recap", "fup", "answer"].map((c) => {
                 const labelMap: Record<string, string> = {
                   what: dict.chip_what,
@@ -966,8 +966,8 @@ export default function ProComparison() {
                     key={c}
                     className={`text-[9.5px] font-medium px-2.5 py-1 rounded-full border transition-all duration-200 ${
                       isSelected 
-                        ? "bg-amber-400 text-black border-amber-400 scale-95 shadow-[0_0_12px_rgba(245,158,11,0.3)] font-bold" 
-                        : "bg-white/5 border-white/10 text-white/50"
+                        ? "bg-indigo-600 text-white border-indigo-600 scale-95 shadow-[0_4px_12px_rgba(99,102,241,0.2)] font-bold" 
+                        : "bg-white border-slate-200 text-slate-500"
                     }`}
                   >
                     {labelMap[c]}
@@ -977,12 +977,12 @@ export default function ProComparison() {
             </div>
 
             {/* Bottom Input Area */}
-            <div className="p-3 bg-white/[0.01] border-t border-white/5 flex items-center justify-between">
-              <span className="text-[11px] text-amber-500/60 font-geist font-light italic truncate max-w-[80%]">
+            <div className="p-3 bg-slate-50/40 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-[11px] text-indigo-500/60 font-geist font-light italic truncate max-w-[80%]">
                 {dict.inp_pro}
               </span>
-              <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                <ChevronRight size={12} className="text-white/40" />
+              <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                <ChevronRight size={12} className="text-slate-400" />
               </div>
             </div>
           </div>
@@ -995,24 +995,24 @@ export default function ProComparison() {
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute inset-0 bg-[#060813] z-40 p-6 md:p-10 flex flex-col justify-between"
+              className="absolute inset-0 bg-[#F5F7FB] z-40 p-6 md:p-10 flex flex-col justify-between"
             >
               <div className="flex-1 flex flex-col justify-center items-center text-center">
-                <span className="text-[10px] font-bold text-amber-400/80 uppercase tracking-[0.2em] mb-3">
+                <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-[0.2em] mb-3">
                   {dict.end_pro_eyebrow}
                 </span>
-                <h3 className="text-[26px] md:text-[36px] font-medium text-white font-geist leading-[1.1] mb-4">
+                <h3 className="text-[26px] md:text-[36px] font-medium text-slate-800 font-geist leading-[1.1] mb-4">
                   {dict.end_pro_h}
                 </h3>
-                <p className="text-[13px] md:text-[14px] text-white/40 max-w-[34ch] mb-8 leading-relaxed font-geist">
+                <p className="text-[13px] md:text-[14px] text-slate-500 max-w-[34ch] mb-8 leading-relaxed font-geist">
                   {dict.end_pro_sub}
                 </p>
 
                 <ul className="space-y-2.5 mb-8 text-left inline-block">
                   {[dict.end_pro_f1, dict.end_pro_f2, dict.end_pro_f3, dict.end_pro_f4].map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-[12px] font-medium text-white/90">
-                      <div className="w-4 h-4 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                        <Check size={8} className="text-[#fbbf24] stroke-[3]" />
+                    <li key={i} className="flex items-center gap-2 text-[12px] font-medium text-slate-700">
+                      <div className="w-4 h-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+                        <Check size={8} className="text-indigo-600 stroke-[3]" />
                       </div>
                       {f}
                     </li>
@@ -1025,17 +1025,17 @@ export default function ProComparison() {
                   href="https://checkout.dodopayments.com/buy/pdt_0NbHo6EnXlNPqNcZ14OTi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full max-w-[280px] py-3.5 rounded-[14px] text-[13px] font-bold text-[#0A0D1A] text-center shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full max-w-[280px] py-3.5 rounded-[14px] text-[13px] font-bold text-white text-center shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
                   style={{
-                    background: "linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)",
-                    boxShadow: "0 8px 24px rgba(245,158,11,0.25)",
+                    background: "linear-gradient(180deg, #6366f1 0%, #4f46e5 100%)",
+                    boxShadow: "0 8px 24px rgba(99,102,241,0.3), inset 0 2px 0 rgba(255,255,255,0.3)",
                   }}
                 >
                   {dict.end_pro_btn}
                 </a>
                 <button 
                   onClick={startDemo}
-                  className="flex items-center gap-1.5 text-[11px] font-bold text-amber-500/60 hover:text-amber-400 uppercase tracking-widest transition-colors py-2"
+                  className="flex items-center gap-1.5 text-[11px] font-bold text-indigo-500 hover:text-indigo-700 uppercase tracking-widest transition-colors py-2"
                 >
                   <RefreshCw size={11} />
                   {dict.end_replay_demo}

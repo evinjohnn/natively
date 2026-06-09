@@ -125,7 +125,7 @@ const AmbientGlow = memo(function AmbientGlow() {
       <motion.div
         className="absolute w-[800px] h-[800px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(250,204,21,0.05) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 65%)",
           top: "-25%", right: "-12%",
           willChange: "transform",
         }}
@@ -135,7 +135,7 @@ const AmbientGlow = memo(function AmbientGlow() {
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 65%)",
           bottom: "0%", left: "0%",
           willChange: "transform",
         }}
@@ -381,23 +381,23 @@ export default function PricingSection() {
         </div>
       </div>
 
-      {/* ── 3. Pro — editorial dark section ─────────────────── */}
-      <div className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
+      {/* ── 3. Pro — editorial premium light section ─────────────────── */}
+      <div className="relative overflow-hidden border-t border-slate-100" style={{ background: "#F8FAFC" }}>
         <AmbientGlow />
 
         {/* Grain texture */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.035]"
+          className="absolute inset-0 pointer-events-none opacity-[0.015]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
             backgroundSize: "200px 200px",
           }}
         />
 
-        {/* Amber horizon line */}
+        {/* Indigo horizon line */}
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[1px] pointer-events-none"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.25), transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(99,102,241,0.15), transparent)" }}
         />
 
         <div className="max-content py-16 lg:py-24 relative">
@@ -410,11 +410,16 @@ export default function PricingSection() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.65, ease: EASE_OUT }}
           >
-            <p className="text-[10px] font-bold text-amber-400/50 uppercase tracking-[0.3em] mb-4 font-geist">
-              {t('pricing.pro_label')}
-            </p>
+            {/* Jelly Clay badge instead of outdated label */}
+            <div className="mb-5">
+              <span className="relative inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full text-[10px] font-bold text-white shadow-[0_4px_12px_rgba(99,102,241,0.2),inset_0_1px_2px_rgba(255,255,255,0.4)] overflow-hidden">
+                <div className="absolute top-0.5 left-1 right-1 h-[45%] rounded-full bg-gradient-to-b from-white/50 to-white/5 blur-[0.3px] pointer-events-none" />
+                <span className="relative z-10 drop-shadow-sm uppercase tracking-[0.15em]">{t('pricing.pro_label')}</span>
+              </span>
+            </div>
+            
             <h2
-              className="text-white mb-6"
+              className="text-slate-900 mb-6"
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontSize: "clamp(42px, 6vw, 84px)",
@@ -424,25 +429,20 @@ export default function PricingSection() {
               }}
             >
               {t('pricing.pro_title_main')}<br />
-              <em style={{ color: "#f59e0b", fontStyle: "italic" }}>
+              <span className="italic font-serif bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 {t('pricing.pro_title_accent')}
-              </em>
+              </span>
             </h2>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <p className="text-[15px] text-white/45 font-geist leading-relaxed" style={{ maxWidth: "46ch" }}>
+            <div className="flex flex-col sm:flex-row sm:items-start md:items-center justify-between gap-6">
+              <p className="text-[15px] text-slate-500 font-geist leading-relaxed" style={{ maxWidth: "46ch" }}>
                 {t('pricing.pro_subtitle')}
               </p>
               <a
                 href="/pro"
                 className="shrink-0 inline-flex items-center justify-center min-h-[48px] md:min-h-0 gap-1.5 text-[11px] font-bold uppercase tracking-wider
-                  text-[#fbbf24] px-5 py-2.5 md:px-4 rounded-full transition-all duration-300 group
-                  hover:bg-[#fbbf24]/20 hover:border-[#fbbf24]/40"
-                style={{
-                  background: "rgba(245,158,11,0.08)",
-                  border: "1px solid rgba(245,158,11,0.22)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)"
-                }}
+                  text-indigo-600 px-5 py-2.5 md:px-4 rounded-full transition-all duration-300 group
+                  hover:bg-indigo-50 border border-indigo-200/60 bg-white shadow-sm"
               >
                 {t('pricing.pro_cta')}
                 <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -467,33 +467,38 @@ export default function PricingSection() {
                 return (
                   <motion.div key={f.key} variants={fadeUpFast} className="h-full">
                     <SpotlightCard
-                      isDark={true}
-                      className="flex items-start gap-3.5 p-4 rounded-[20px] h-full transition-all duration-300 border border-white/[0.03] hover:border-amber-500/20 hover:bg-white/[0.04]"
+                      isDark={false}
+                      className="flex items-start gap-3.5 p-4 rounded-[20px] h-full transition-all duration-300 border border-slate-200/40 hover:border-indigo-500/20 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
                       style={{
-                        background: "rgba(255,255,255,0.015)",
-                        backdropFilter: "blur(12px)"
+                        background: "#F2F4F8",
+                        boxShadow: [
+                          "inset 0 1px 0 rgba(255,255,255,1)",
+                          "inset 0 -1.5px 0 rgba(0,0,0,0.03)",
+                          "inset 1px 0 0 rgba(255,255,255,0.8)",
+                          "0 1px 2px rgba(0,0,0,0.02)"
+                        ].join(", ")
                       }}
                     >
                       <div
                         className="w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-105"
                         style={{
-                          background: "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.02) 100%)",
-                          border: "1px solid rgba(245,158,11,0.18)",
-                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.1)",
+                          background: "linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.02) 100%)",
+                          border: "1px solid rgba(99,102,241,0.18)",
+                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.8)",
                         }}
                       >
-                        <f.icon size={15} style={{ color: "#fbbf24", opacity: 0.9 }} className="transition-opacity duration-300 group-hover:opacity-100" />
+                        <f.icon size={15} style={{ color: "#6366f1", opacity: 0.9 }} className="transition-opacity duration-300 group-hover:opacity-100" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-0.5">
-                          <p className="text-[14px] font-semibold text-white/90 font-geist tracking-tight">{title}</p>
+                          <p className="text-[14px] font-semibold text-slate-900 font-geist tracking-tight">{title}</p>
                           {f.comingSoon && (
-                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full border bg-amber-400/10 border-amber-400/20 text-amber-400/80 uppercase tracking-wider">
+                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full border bg-indigo-500/10 border-indigo-500/20 text-indigo-600 uppercase tracking-wider">
                               Soon
                             </span>
                           )}
                         </div>
-                        <p className="text-[12px] text-white/40 font-geist leading-snug line-clamp-2" title={desc}>{desc}</p>
+                        <p className="text-[12px] text-slate-500 font-geist leading-snug line-clamp-2" title={desc}>{desc}</p>
                       </div>
                     </SpotlightCard>
                   </motion.div>
@@ -503,7 +508,7 @@ export default function PricingSection() {
 
             {/* Right — license cards */}
             <motion.div
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -520,28 +525,32 @@ export default function PricingSection() {
                 className="block"
               >
                 <SpotlightCard
-                  isDark={true}
-                  className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-3 p-5 sm:p-4 rounded-[20px] cursor-pointer transition-all duration-300 border border-white/[0.06] hover:border-amber-500/25 hover:bg-white/[0.04]"
+                  isDark={false}
+                  className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-3 p-5 sm:p-4 rounded-[20px] cursor-pointer transition-all duration-300 border border-slate-200/50 hover:border-indigo-500/30 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
                   style={{
-                    background: "rgba(255,255,255,0.02)",
-                    backdropFilter: "blur(12px)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+                    background: "#F2F4F8",
+                    boxShadow: [
+                      "inset 0 1px 0 rgba(255,255,255,1)",
+                      "inset 0 -1.5px 0 rgba(0,0,0,0.03)",
+                      "inset 1px 0 0 rgba(255,255,255,0.8)",
+                      "0 1px 2px rgba(0,0,0,0.02)"
+                    ].join(", ")
                   }}
                 >
                   <div>
                     <p
-                      className="text-white mb-0.5 tracking-tight group-hover:text-amber-100 transition-colors"
+                      className="text-slate-900 mb-0.5 tracking-tight group-hover:text-indigo-600 transition-colors"
                       style={{ fontFamily: "'Instrument Serif', serif", fontSize: "20px", fontWeight: 400 }}
                     >
                       {t('pricing.yearly_title')}
                     </p>
-                    <p className="text-[12px] text-white/40 font-geist">{t('pricing.yearly_desc')}</p>
+                    <p className="text-[12px] text-slate-500 font-geist">{t('pricing.yearly_desc')}</p>
                   </div>
                   <div
-                    className="shrink-0 px-4 sm:px-3.5 py-2.5 sm:py-2 rounded-[12px] sm:rounded-[10px] text-[13px] sm:text-[12px] font-semibold text-white/60
+                    className="shrink-0 px-4 sm:px-3.5 py-2.5 sm:py-2 rounded-[12px] sm:rounded-[10px] text-[13px] sm:text-[12px] font-semibold text-slate-600
                       whitespace-nowrap transition-all duration-300 text-center
-                      group-hover:text-white group-hover:bg-white/[0.12] group-hover:border-white/[0.15]"
-                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}
+                      group-hover:text-indigo-600 group-hover:bg-indigo-50 group-hover:border-indigo-200/40"
+                    style={{ background: "rgba(255,255,255,0.9)", border: "1px solid rgba(0,0,0,0.06)" }}
                   >
                     {t('pricing.yearly_cta')}
                   </div>
@@ -557,36 +566,36 @@ export default function PricingSection() {
                 className="block"
               >
                 <SpotlightCard
-                  isDark={true}
-                  className="group relative flex flex-col gap-5 p-6 rounded-[24px] cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(245,158,11,0.18)]"
+                  isDark={false}
+                  className="group relative flex flex-col gap-5 p-6 rounded-[24px] cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(99,102,241,0.15)]"
                   style={{
-                    background: "linear-gradient(165deg, rgba(245,158,11,0.1) 0%, rgba(10,10,10,0.6) 100%)",
-                    border: "1px solid rgba(245,158,11,0.3)",
+                    background: "linear-gradient(165deg, rgba(99,102,241,0.06) 0%, rgba(255,255,255,0.9) 100%)",
+                    border: "1px solid rgba(99,102,241,0.22)",
                     backdropFilter: "blur(20px)",
-                    boxShadow: "0 20px 45px -12px rgba(245,158,11,0.12), inset 0 1px 0 rgba(255,255,255,0.1)",
+                    boxShadow: "0 20px 45px -12px rgba(99,102,241,0.06), inset 0 1.5px 0 rgba(255,255,255,1)",
                   }}
                 >
                   {/* Top specular line */}
-                  <div className="absolute top-0 left-0 right-0 h-px pointer-events-none opacity-70"
-                    style={{ background: "linear-gradient(90deg, transparent, rgba(245,158,11,0.85), transparent)" }} />
+                  <div className="absolute top-0 left-0 right-0 h-px pointer-events-none opacity-60"
+                    style={{ background: "linear-gradient(90deg, transparent, rgba(99,102,241,0.5), transparent)" }} />
 
                   {/* Corner glow */}
-                  <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-amber-500/20 blur-3xl pointer-events-none group-hover:bg-amber-500/32 transition-colors duration-500" />
+                  <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none group-hover:bg-indigo-500/20 transition-colors duration-500" />
 
                   <div className="flex items-start justify-between gap-3 relative z-10 w-full">
                     <div className="pr-2">
                       <p
                         className="mb-1"
-                        style={{ fontFamily: "'Instrument Serif', serif", fontSize: "28px", fontWeight: 400, color: "#fbbf24", fontStyle: "italic", lineHeight: 1 }}
+                        style={{ fontFamily: "'Instrument Serif', serif", fontSize: "28px", fontWeight: 400, color: "#4f46e5", fontStyle: "italic", lineHeight: 1 }}
                       >
                         {t('pricing.lifetime_title')}
                       </p>
-                      <p className="text-[11px] sm:text-[12px] text-white/40 font-geist leading-snug">{t('pricing.lifetime_desc')}</p>
+                      <p className="text-[11px] sm:text-[12px] text-slate-500 font-geist leading-snug">{t('pricing.lifetime_desc')}</p>
                     </div>
                     <span
                       className="shrink-0 text-[8px] sm:text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-[0.1em] mt-1
-                        bg-amber-500/15 border border-amber-500/30 text-amber-400
-                        group-hover:bg-amber-500/22 group-hover:border-amber-400/45 transition-all duration-300"
+                        bg-indigo-50 border border-indigo-100 text-indigo-600
+                        group-hover:bg-indigo-100 group-hover:text-indigo-700 transition-all duration-300"
                     >
                       {t('pricing.lifetime_badge')}
                     </span>
@@ -599,13 +608,13 @@ export default function PricingSection() {
                       t('pricing.lifetime_feat3'),
                       t('pricing.lifetime_feat4')
                     ].map((feat) => (
-                      <li key={feat} className="flex items-center gap-2.5 text-[12px] text-white/75 font-geist font-medium">
+                      <li key={feat} className="flex items-center gap-2.5 text-[12px] text-slate-700 font-geist font-medium">
                         <div
-                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(245,158,11,0.25)]"
-                          style={{ background: "rgba(245,158,11,0.18)", border: "1px solid rgba(245,158,11,0.35)" }}
+                          className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 shadow-[0_2px_6px_rgba(99,102,241,0.1)]"
+                          style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.2)" }}
                         >
                           <svg width="7" height="7" viewBox="0 0 10 10" fill="none">
-                            <path d="M2.5 5l2 2 3-3" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M2.5 5l2 2 3-3" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </div>
                         {feat}
@@ -614,17 +623,20 @@ export default function PricingSection() {
                   </ul>
 
                   <div
-                    className="w-full py-3.5 rounded-[14px] text-[14px] font-bold text-[#0a0a0a] text-center relative z-10
+                    className="w-full py-3.5 rounded-[14px] text-[14px] font-bold text-white text-center relative z-10 overflow-hidden
                       transition-all duration-300 group-hover:brightness-110 group-hover:scale-[1.02]"
                     style={{
-                      background: "linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)",
-                      boxShadow: "0 8px 32px rgba(245,158,11,0.45), inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -2px 0 rgba(0,0,0,0.1)",
+                      background: "linear-gradient(180deg, #6366f1 0%, #4f46e5 100%)",
+                      boxShadow: "0 8px 24px rgba(99,102,241,0.3), inset 0 2px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.1)",
                     }}
                   >
-                    {t('pricing.lifetime_cta')}
+                    {/* Gloss specular shine inside jelly button */}
+                    <span className="absolute top-0.5 left-2 right-2 h-1/2 rounded-full bg-gradient-to-b from-white/60 to-white/5 blur-[0.5px] pointer-events-none" />
+                    
+                    <span className="relative z-10 drop-shadow-sm">{t('pricing.lifetime_cta')}</span>
                   </div>
 
-                  <p className="text-center text-[10px] text-white/30 font-geist -mt-1.5 relative z-10">
+                  <p className="text-center text-[10px] text-slate-400 font-geist -mt-1.5 relative z-10">
                     {t('pricing.lifetime_footer')}
                   </p>
                 </SpotlightCard>

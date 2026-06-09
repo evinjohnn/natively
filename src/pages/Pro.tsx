@@ -34,11 +34,16 @@ const Pro = () => {
       
       <main className="flex-1 w-full pt-28 pb-16 px-4 md:px-8 max-w-[1280px] mx-auto flex flex-col">
         {/* Editorial Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-bold text-amber-600 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full uppercase tracking-widest">
-            {isRu ? "Сравнение возможностей" : "Interactive Simulation"}
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight mt-4 mb-4 font-geist">
+        <div className="text-center max-w-2xl mx-auto mb-10 flex flex-col items-center">
+          <div className="mb-4">
+            <span className="relative inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full text-[10px] font-bold text-white shadow-[0_4px_12px_rgba(99,102,241,0.2),inset_0_1px_2px_rgba(255,255,255,0.4)] overflow-hidden">
+              <div className="absolute top-0.5 left-1 right-1 h-[45%] rounded-full bg-gradient-to-b from-white/50 to-white/5 blur-[0.3px] pointer-events-none" />
+              <span className="relative z-10 drop-shadow-sm uppercase tracking-[0.15em]">
+                {isRu ? "Сравнение возможностей" : "Interactive Simulation"}
+              </span>
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight mb-4 font-geist">
             {isRu ? "Создан получить оффер." : "Built to get the offer."}
           </h1>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed font-geist">

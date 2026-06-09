@@ -61,15 +61,15 @@ const Navbar = () => {
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.label)}
                 className={`text-[14px] font-medium flex items-center gap-2 transition-colors ${
-                  link.isToken
-                    ? "font-bold"
-                    : link.isPro
-                    ? "text-amber-500 hover:text-amber-400 font-semibold"
-                    : isHomePage
-                      ? "text-white hover:opacity-70"
-                      : "text-foreground/80 hover:text-foreground"
-                }`}
-                style={link.isToken ? {
+                  isHomePage
+                    ? "text-white hover:opacity-70"
+                    : link.isToken
+                      ? "font-bold"
+                      : link.isPro
+                        ? "text-amber-500 hover:text-amber-400 font-semibold"
+                        : "text-foreground/80 hover:text-foreground"
+                } ${link.isToken && isHomePage ? "font-extrabold" : ""} ${link.isPro && isHomePage ? "font-semibold" : ""}`}
+                style={(link.isToken && !isHomePage) ? {
                   background: "linear-gradient(135deg, #6d28d9 0%, #0284c7 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
