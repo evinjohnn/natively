@@ -96,8 +96,8 @@ export const SYSTEM_DESIGN_CASES: SystemDesignCase[] = [
     related: [
       { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
       { to: "/system-design/whatsapp", label: "System Design: WhatsApp" },
-      { to: "/ai-interview-assistant", label: "AI Interview Assistant" },
-      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+      { to: "/system-design/netflix", label: "System Design: Netflix" },
+      { to: "/system-design/twitter", label: "System Design: Twitter" },
     ],
   },
   {
@@ -163,7 +163,149 @@ export const SYSTEM_DESIGN_CASES: SystemDesignCase[] = [
     related: [
       { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
       { to: "/system-design/uber", label: "System Design: Uber" },
-      { to: "/ai-interview-assistant", label: "AI Interview Assistant" },
+      { to: "/system-design/netflix", label: "System Design: Netflix" },
+      { to: "/system-design/twitter", label: "System Design: Twitter" },
+    ],
+  },
+  {
+    path: "/system-design/netflix",
+    product: "Netflix",
+    title: "System Design: Netflix (Video Streaming) — Interview Walk-Through",
+    description:
+      "How to design a video streaming service like Netflix in a system design interview: ingestion, transcoding, CDN delivery, adaptive bitrate, and the trade-offs interviewers want.",
+    h1: "System Design Interview: Design Netflix",
+    intro: [
+      "\"Design Netflix\" is a read-heavy streaming problem dominated by one fact: serving video at global scale is a content-delivery and storage problem far more than a compute one. The interviewer wants to see you separate the control plane (browsing, search, recommendations) from the data plane (actually streaming bytes) and reason about delivering petabytes close to users.",
+      "Work it in order: clarify requirements, estimate scale, design the upload/transcode pipeline, then the playback path through a CDN, and finish on adaptive bitrate and trade-offs. The walk-through below follows that structure so you can practice the reasoning, not memorize an architecture.",
+    ],
+    sections: [
+      {
+        heading: "1. Clarify requirements",
+        body: [
+          "Separate functional from non-functional and scope tightly. The core is: users browse a catalog and stream video smoothly across devices and network conditions.",
+        ],
+        bullets: [
+          "Functional: browse/search the catalog, start playback, adaptive quality, resume where you left off, multi-device.",
+          "Non-functional: very high availability, low startup latency, smooth playback (no rebuffering), global reach.",
+          "Out of scope (say so): the recommendation ML internals, billing, DRM specifics — name them, then defer.",
+        ],
+      },
+      {
+        heading: "2. Estimate scale",
+        body: [
+          "Numbers justify the CDN-first design. Assume hundreds of millions of subscribers and many millions of concurrent streams at peak. A single stream is multiple Mbps, so aggregate egress is tens of terabits per second — impossible to serve from a few central data centers, which immediately motivates edge caching.",
+        ],
+      },
+      {
+        heading: "3. Ingestion and transcoding pipeline",
+        body: [
+          "Uploaded masters are processed offline, not on the playback path. Each title is transcoded into many renditions — multiple resolutions and bitrates — and segmented into small chunks (a few seconds each) for adaptive streaming.",
+        ],
+        bullets: [
+          "Transcoding farm: convert the master into H.264/H.265/AV1 renditions at several bitrates; this is embarrassingly parallel batch work.",
+          "Segmentation + packaging: split each rendition into short segments with a manifest (HLS/DASH) describing them.",
+          "Store outputs in object storage (e.g. S3-like) as the origin of truth, then push popular content to the edge.",
+        ],
+      },
+      {
+        heading: "4. CDN and the playback path",
+        body: [
+          "Playback is served from the edge, not the origin. Video segments are cached on CDN nodes physically close to users (Netflix runs its own Open Connect appliances inside ISPs). The client fetches the manifest, then pulls segments from the nearest healthy edge node.",
+          "The control plane (catalog, search, user profiles, 'continue watching') is a separate set of stateless API services backed by their own databases and caches — it returns metadata and a manifest URL, and is completely decoupled from the heavy byte delivery.",
+        ],
+        bullets: [
+          "Edge cache (CDN/Open Connect): serves the vast majority of bytes; pre-positions popular titles by region ahead of demand.",
+          "Origin storage: object store that backs cache misses.",
+          "Control-plane APIs: catalog, playback authorization, bookmarks — small payloads, horizontally scaled, cache-fronted.",
+        ],
+      },
+      {
+        heading: "5. Adaptive bitrate streaming",
+        body: [
+          "Smooth playback under variable networks comes from the client, not the server. The player monitors throughput and buffer level and switches segment quality up or down between segments using the manifest's rendition list — higher bitrate on fast connections, lower to avoid rebuffering on slow ones.",
+        ],
+      },
+      {
+        heading: "6. Trade-offs to verbalize",
+        body: [
+          "Close on the tensions an interviewer is listening for: precompute-all-renditions storage cost vs on-the-fly transcoding latency (Netflix precomputes — storage is cheaper than startup delay); cache-everything vs cache-popular at the edge (a long-tail catalog can't all live at every edge); and strong vs eventual consistency for control-plane data like 'continue watching' (eventual is fine). Naming these is what makes the answer senior.",
+        ],
+      },
+    ],
+    related: [
+      { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
+      { to: "/system-design/twitter", label: "System Design: Twitter" },
+      { to: "/system-design/uber", label: "System Design: Uber" },
+      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+    ],
+  },
+  {
+    path: "/system-design/twitter",
+    product: "Twitter",
+    title: "System Design: Twitter (Timeline) — Interview Walk-Through",
+    description:
+      "How to design a social feed like Twitter/X in a system design interview: tweet storage, timeline generation, fan-out, the celebrity problem, and the trade-offs interviewers expect.",
+    h1: "System Design Interview: Design Twitter",
+    intro: [
+      "\"Design Twitter\" is the canonical feed-generation problem. It looks simple — post a tweet, read a timeline — but the interesting part is generating each user's home timeline at scale, where the right answer is a hybrid fan-out strategy. The interviewer wants to see you discover that the naive approaches both break, and reason your way to the blend.",
+      "Move through it deliberately: clarify requirements, estimate the read/write ratio, design tweet storage, then the timeline — comparing fan-out-on-write vs fan-out-on-read and arriving at the hybrid that handles the celebrity problem. The walk-through below follows that path.",
+    ],
+    sections: [
+      {
+        heading: "1. Clarify requirements",
+        body: [
+          "Scope to the core feed problem. Users post tweets, follow others, and read a home timeline that merges tweets from everyone they follow, newest-first.",
+        ],
+        bullets: [
+          "Functional: post a tweet, follow/unfollow, home timeline (people you follow), user timeline (one author), basic search out of scope unless asked.",
+          "Non-functional: very read-heavy, low-latency timeline reads, high availability; eventual consistency for the timeline is acceptable.",
+          "Clarify: media, replies/threads, and ranking — acknowledge, then scope a chronological feed for this round.",
+        ],
+      },
+      {
+        heading: "2. Estimate scale and the read/write ratio",
+        body: [
+          "The ratio drives the whole design. Reads vastly outnumber writes — users scroll their timeline far more often than they post. With hundreds of millions of users, the system must make timeline reads cheap even if that makes writes more expensive. That single observation points toward precomputing timelines.",
+        ],
+      },
+      {
+        heading: "3. Tweet storage",
+        body: [
+          "Tweets themselves are simple, append-heavy data. Store them in a horizontally-partitioned store keyed by tweet ID (with a time-sortable ID like a Snowflake ID so ordering is embedded). A separate social graph store holds follower/following relationships.",
+        ],
+        bullets: [
+          "Tweets: distributed store, sharded by tweet ID; time-sortable IDs give cheap chronological ordering.",
+          "Social graph: who-follows-whom, optimized for 'get all followers of X' and 'get all followees of X'.",
+          "A cache (Redis) holds hot data — recent tweets and precomputed timelines.",
+        ],
+      },
+      {
+        heading: "4. Timeline generation: fan-out on write vs read",
+        body: [
+          "This is the heart of the problem. Fan-out-on-write (push) inserts each new tweet into every follower's precomputed timeline list at post time — timeline reads become a cheap cache lookup, but a post by someone with millions of followers triggers millions of writes. Fan-out-on-read (pull) builds the timeline at read time by merging recent tweets from everyone you follow — cheap writes, but expensive, slow reads for users following many accounts.",
+        ],
+        bullets: [
+          "Fan-out-on-write: fast reads, expensive writes; great for normal users.",
+          "Fan-out-on-read: cheap writes, expensive reads; needed for accounts with huge follower counts.",
+        ],
+      },
+      {
+        heading: "5. The celebrity problem and the hybrid",
+        body: [
+          "Neither pure approach wins, so combine them. Use fan-out-on-write for the vast majority of users, but for 'celebrity' accounts with very large follower counts, do NOT fan out their tweets on write. Instead, at read time, merge a follower's precomputed timeline with a live pull of the few celebrities they follow. This caps the write amplification while keeping reads fast — the answer interviewers are listening for.",
+        ],
+      },
+      {
+        heading: "6. Trade-offs to verbalize",
+        body: [
+          "Finish on the tensions: write amplification vs read latency (the whole fan-out decision), the storage cost of precomputed timelines vs recomputing them, and consistency — a few seconds of delay before a tweet appears in followers' timelines is acceptable, so eventual consistency lets you scale. Explicitly stating the hybrid's threshold (how you classify a 'celebrity') shows senior judgment.",
+        ],
+      },
+    ],
+    related: [
+      { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
+      { to: "/system-design/netflix", label: "System Design: Netflix" },
+      { to: "/system-design/whatsapp", label: "System Design: WhatsApp" },
       { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
     ],
   },

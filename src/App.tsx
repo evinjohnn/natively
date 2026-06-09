@@ -29,7 +29,8 @@ const {
   NativelyVsFireflies, NativelyVsOtter, FirefliesAlternative, OtterAlternative,
   SystemDesignInterviewAssistant, BehavioralInterviewAssistant, InterviewAnswerGenerator, LiveInterviewAssistant,
   InterviewQuestionsSWE, InterviewQuestionsPM, InterviewQuestionsDS, InterviewQuestionsAI,
-  SystemDesignUber, SystemDesignWhatsApp,
+  InterviewQuestionsGoogleSWE, InterviewQuestionsMetaSWE, InterviewQuestionsAmazonSWE, InterviewQuestionsMicrosoftSWE,
+  SystemDesignUber, SystemDesignWhatsApp, SystemDesignNetflix, SystemDesignTwitter,
 } = pages;
 
 const queryClient = new QueryClient();
@@ -133,8 +134,14 @@ const App = () => {
               <Route path="/interview-questions/product-manager" element={<InterviewQuestionsPM />} />
               <Route path="/interview-questions/data-scientist" element={<InterviewQuestionsDS />} />
               <Route path="/interview-questions/ai-engineer" element={<InterviewQuestionsAI />} />
+              <Route path="/interview-questions/google-software-engineer" element={<InterviewQuestionsGoogleSWE />} />
+              <Route path="/interview-questions/meta-software-engineer" element={<InterviewQuestionsMetaSWE />} />
+              <Route path="/interview-questions/amazon-software-engineer" element={<InterviewQuestionsAmazonSWE />} />
+              <Route path="/interview-questions/microsoft-software-engineer" element={<InterviewQuestionsMicrosoftSWE />} />
               <Route path="/system-design/uber" element={<SystemDesignUber />} />
               <Route path="/system-design/whatsapp" element={<SystemDesignWhatsApp />} />
+              <Route path="/system-design/netflix" element={<SystemDesignNetflix />} />
+              <Route path="/system-design/twitter" element={<SystemDesignTwitter />} />
 
               <Route path="/ru" element={<Index />} />
               <Route path="/ru/pro" element={<Pro />} />
@@ -191,8 +198,14 @@ const App = () => {
               <Route path="/ru/interview-questions/product-manager" element={<InterviewQuestionsPM />} />
               <Route path="/ru/interview-questions/data-scientist" element={<InterviewQuestionsDS />} />
               <Route path="/ru/interview-questions/ai-engineer" element={<InterviewQuestionsAI />} />
+              <Route path="/ru/interview-questions/google-software-engineer" element={<InterviewQuestionsGoogleSWE />} />
+              <Route path="/ru/interview-questions/meta-software-engineer" element={<InterviewQuestionsMetaSWE />} />
+              <Route path="/ru/interview-questions/amazon-software-engineer" element={<InterviewQuestionsAmazonSWE />} />
+              <Route path="/ru/interview-questions/microsoft-software-engineer" element={<InterviewQuestionsMicrosoftSWE />} />
               <Route path="/ru/system-design/uber" element={<SystemDesignUber />} />
               <Route path="/ru/system-design/whatsapp" element={<SystemDesignWhatsApp />} />
+              <Route path="/ru/system-design/netflix" element={<SystemDesignNetflix />} />
+              <Route path="/ru/system-design/twitter" element={<SystemDesignTwitter />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

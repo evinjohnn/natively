@@ -66,9 +66,17 @@ export const pages = {
   InterviewQuestionsDS: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsDS")),
   InterviewQuestionsAI: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsAI")),
 
+  // Programmatic: interview-questions/<company>-software-engineer
+  InterviewQuestionsGoogleSWE: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsGoogleSWE")),
+  InterviewQuestionsMetaSWE: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsMetaSWE")),
+  InterviewQuestionsAmazonSWE: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsAmazonSWE")),
+  InterviewQuestionsMicrosoftSWE: lazyWithPreload(() => import("./pages/programmatic/routes/InterviewQuestionsMicrosoftSWE")),
+
   // Programmatic: system-design/<product>
   SystemDesignUber: lazyWithPreload(() => import("./pages/programmatic/routes/SystemDesignUber")),
   SystemDesignWhatsApp: lazyWithPreload(() => import("./pages/programmatic/routes/SystemDesignWhatsApp")),
+  SystemDesignNetflix: lazyWithPreload(() => import("./pages/programmatic/routes/SystemDesignNetflix")),
+  SystemDesignTwitter: lazyWithPreload(() => import("./pages/programmatic/routes/SystemDesignTwitter")),
 } satisfies Record<string, PreloadableComponent>;
 
 export type PageKey = keyof typeof pages;
@@ -129,9 +137,15 @@ const pathToKey: Record<string, PageKey> = {
   "/interview-questions/product-manager": "InterviewQuestionsPM",
   "/interview-questions/data-scientist": "InterviewQuestionsDS",
   "/interview-questions/ai-engineer": "InterviewQuestionsAI",
+  "/interview-questions/google-software-engineer": "InterviewQuestionsGoogleSWE",
+  "/interview-questions/meta-software-engineer": "InterviewQuestionsMetaSWE",
+  "/interview-questions/amazon-software-engineer": "InterviewQuestionsAmazonSWE",
+  "/interview-questions/microsoft-software-engineer": "InterviewQuestionsMicrosoftSWE",
 
   "/system-design/uber": "SystemDesignUber",
   "/system-design/whatsapp": "SystemDesignWhatsApp",
+  "/system-design/netflix": "SystemDesignNetflix",
+  "/system-design/twitter": "SystemDesignTwitter",
 };
 
 // Preload the page chunk for the current location so hydration is synchronous.

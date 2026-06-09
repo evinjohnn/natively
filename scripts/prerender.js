@@ -518,6 +518,30 @@ const seoRoutes = [
         skipRu: true
     },
     {
+        path: '/interview-questions/google-software-engineer',
+        title: 'Google Software Engineer Interview Questions (2026) | Natively',
+        desc: 'Google software engineer interview questions for 2026 — algorithms, data structures, system design, and Googleyness behavioral rounds — with how to approach each.',
+        skipRu: true
+    },
+    {
+        path: '/interview-questions/meta-software-engineer',
+        title: 'Meta Software Engineer Interview Questions (2026) | Natively',
+        desc: 'Meta (Facebook) software engineer interview questions for 2026 — coding speed, system design, and behavioral rounds — with the approach interviewers reward.',
+        skipRu: true
+    },
+    {
+        path: '/interview-questions/amazon-software-engineer',
+        title: 'Amazon SDE Interview Questions (2026) — Leadership Principles | Natively',
+        desc: 'Amazon SDE interview questions for 2026 — coding, system design, and Leadership Principles behavioral rounds — with how to structure answers Amazon rewards.',
+        skipRu: true
+    },
+    {
+        path: '/interview-questions/microsoft-software-engineer',
+        title: 'Microsoft Software Engineer Interview Questions (2026) | Natively',
+        desc: 'Microsoft software engineer interview questions for 2026 — coding, problem-solving, design, and behavioral rounds — with how to approach each effectively.',
+        skipRu: true
+    },
+    {
         path: '/system-design/uber',
         title: 'System Design: Uber (Ride-Hailing) — Interview Walk-Through',
         desc: 'How to design a ride-hailing system like Uber in a system design interview: requirements, geospatial matching, real-time location, scaling, and the trade-offs interviewers want to hear.',
@@ -527,6 +551,18 @@ const seoRoutes = [
         path: '/system-design/whatsapp',
         title: 'System Design: WhatsApp (Chat) — Interview Walk-Through',
         desc: 'How to design a messaging system like WhatsApp in a system design interview: real-time delivery, message storage, online presence, group chat, and the trade-offs interviewers expect.',
+        skipRu: true
+    },
+    {
+        path: '/system-design/netflix',
+        title: 'System Design: Netflix (Video Streaming) — Interview Walk-Through',
+        desc: 'How to design a video streaming service like Netflix in a system design interview: ingestion, transcoding, CDN delivery, adaptive bitrate, and the trade-offs interviewers want.',
+        skipRu: true
+    },
+    {
+        path: '/system-design/twitter',
+        title: 'System Design: Twitter (Timeline) — Interview Walk-Through',
+        desc: 'How to design a social feed like Twitter/X in a system design interview: tweet storage, timeline generation, fan-out, the celebrity problem, and the trade-offs interviewers expect.',
         skipRu: true
     }
 ];

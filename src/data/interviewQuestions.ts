@@ -96,10 +96,12 @@ export const ROLE_QUESTION_SETS: RoleQuestionSet[] = [
       },
     ],
     related: [
+      { to: "/interview-questions/google-software-engineer", label: "Google Software Engineer Interview Questions" },
+      { to: "/interview-questions/meta-software-engineer", label: "Meta Software Engineer Interview Questions" },
+      { to: "/interview-questions/amazon-software-engineer", label: "Amazon SDE Interview Questions" },
+      { to: "/interview-questions/microsoft-software-engineer", label: "Microsoft Software Engineer Interview Questions" },
       { to: "/ai-coding-interview-helper", label: "AI Coding Interview Helper" },
       { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
-      { to: "/behavioral-interview-assistant", label: "Behavioral Interview Assistant" },
-      { to: "/interview-questions/ai-engineer", label: "AI Engineer Interview Questions" },
     ],
   },
   {
@@ -319,6 +321,260 @@ export const ROLE_QUESTION_SETS: RoleQuestionSet[] = [
       { to: "/ai-coding-interview-helper", label: "AI Coding Interview Helper" },
       { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
       { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+    ],
+  },
+
+  // ---- Company-specific software engineer pages ----
+  {
+    path: "/interview-questions/google-software-engineer",
+    role: "Google Software Engineer",
+    title: "Google Software Engineer Interview Questions (2026) | Natively",
+    description:
+      "Google software engineer interview questions for 2026 — algorithms, data structures, system design, and Googleyness behavioral rounds — with how to approach each.",
+    h1: "Google Software Engineer Interview Questions (2026)",
+    intro: [
+      "Google's software engineer loop is famous for its emphasis on data structures and algorithms. Most candidates face two or three coding rounds, at least one system design round (for L4 and above), and a behavioral round Google internally frames as \"Googleyness and Leadership.\" The bar is less about exotic tricks and more about clean, correct, well-communicated solutions with tight complexity analysis.",
+      "Interviewers are trained to probe how you think, not whether you've memorized a specific problem. They want to hear you clarify the problem, state assumptions, reason about time and space out loud, and handle follow-ups that tighten constraints. A working brute force you then optimize beats a half-remembered optimal solution you can't explain.",
+      "The questions below reflect the categories Google leans on. Practice narrating your approach: the difference between an L3 and an L4 signal is often communication and the ability to discuss trade-offs, not raw problem-solving speed.",
+    ],
+    nativelyAngle:
+      "In a live Google interview, Natively transcribes the question, reads the shared coding doc via on-screen OCR, and suggests a structured approach with complexity analysis in under 500 ms — fully on-device. Use it to stay structured across the algorithm and Googleyness rounds.",
+    questions: [
+      {
+        q: "Given a list of intervals, merge all overlapping intervals.",
+        approach:
+          "Sort by start time, then sweep once merging when the current start ≤ previous end. O(n log n) for the sort dominates. State the sorted invariant out loud — Google interviewers reward a clearly-stated approach before you code.",
+      },
+      {
+        q: "Find the k-th largest element in an unsorted array.",
+        approach:
+          "Offer a min-heap of size k (O(n log k)) and quickselect (O(n) average). Discuss the trade-off: quickselect is faster on average but O(n²) worst case; the heap is steadier and streams. Naming both signals depth.",
+      },
+      {
+        q: "Serialize and deserialize a binary tree.",
+        approach:
+          "Pick a traversal (preorder with null markers is clean) and show both directions are consistent. Discuss the delimiter and how you reconstruct. Google likes seeing you handle the null-node edge case explicitly.",
+      },
+      {
+        q: "Word ladder: shortest transformation sequence between two words.",
+        approach:
+          "Model as BFS over a graph where edges connect words differing by one letter. Discuss building adjacency efficiently (wildcard buckets) and why BFS guarantees the shortest path. Bidirectional BFS is a strong follow-up.",
+      },
+      {
+        q: "Design an LRU cache.",
+        approach:
+          "Hash map + doubly linked list for O(1) get/put. Walk the eviction path explicitly. This is a classic Google warm-up that tests whether you can combine two structures cleanly under time pressure.",
+      },
+      {
+        q: "Number of islands in a 2D grid.",
+        approach:
+          "DFS or BFS flood fill from each unvisited land cell, counting components. O(rows×cols). Mention in-place marking vs a visited set as a space trade-off — a common Google follow-up.",
+      },
+      {
+        q: "Design a system to return the top-k most frequent search queries.",
+        approach:
+          "Scope read vs write rate first. Discuss a count-min sketch or a heap over a hash map for approximate top-k at scale, and how you'd shard. This bridges into the system design round many Google loops include.",
+      },
+      {
+        q: "Tell me about a time you had to make a decision without complete data.",
+        approach:
+          "STAR. Google's 'Googleyness' round looks for comfort with ambiguity, bias to action balanced with judgment, and learning from the outcome. Pick a real example with a concrete result and what you'd do differently.",
+      },
+    ],
+    related: [
+      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+      { to: "/interview-questions/meta-software-engineer", label: "Meta Software Engineer Interview Questions" },
+      { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
+      { to: "/ai-coding-interview-helper", label: "AI Coding Interview Helper" },
+    ],
+  },
+  {
+    path: "/interview-questions/meta-software-engineer",
+    role: "Meta Software Engineer",
+    title: "Meta Software Engineer Interview Questions (2026) | Natively",
+    description:
+      "Meta (Facebook) software engineer interview questions for 2026 — coding speed, system design, and behavioral rounds — with the approach interviewers reward.",
+    h1: "Meta Software Engineer Interview Questions (2026)",
+    intro: [
+      "Meta's software engineer loop is known for its pace: coding rounds typically expect you to solve two medium problems in 35–40 minutes with clean, working code. The loop also includes a system design round (\"Ninja\"/product architecture for senior levels) and a behavioral round Meta calls \"Jedi,\" focused on conflict, impact, and how you operate.",
+      "Speed matters at Meta, but not at the cost of correctness — interviewers want you to talk and type at the same time, get to a working solution quickly, then optimize. Edge cases and clean code are explicitly scored. Practicing for throughput, not just difficulty, is the differentiator.",
+      "The questions below reflect Meta's coding and behavioral patterns. The behavioral round is weighted heavily for level calibration, so prepare concrete stories about driving impact and navigating disagreement, not just technical wins.",
+    ],
+    nativelyAngle:
+      "Meta's two-problems-in-40-minutes format rewards speed. In a live interview, Natively reads the on-screen problem, suggests an approach with complexity in under 500 ms, and helps you stay structured under time pressure — locally, with nothing leaving your device.",
+    questions: [
+      {
+        q: "Validate a binary search tree.",
+        approach:
+          "Recurse with min/max bounds rather than just comparing parent-child. State why the naive parent-child check fails. Meta rewards getting the correct invariant fast and stating the edge cases (duplicates, single node).",
+      },
+      {
+        q: "Merge k sorted lists.",
+        approach:
+          "Min-heap of k heads (O(N log k)) or divide-and-conquer pairwise merge. Code it cleanly and quickly — this is a common first problem and interviewers watch how fast you reach working code.",
+      },
+      {
+        q: "Subarray sum equals k.",
+        approach:
+          "Prefix-sum + hash map of counts in O(n). Explain why the running-sum-difference trick works. A frequent Meta problem that separates candidates who pattern-match prefix sums from those who brute force.",
+      },
+      {
+        q: "Right side view of a binary tree.",
+        approach:
+          "Level-order BFS taking the last node per level, or DFS tracking depth. Both O(n). Narrate while coding — Meta explicitly values talking through the solution as you type.",
+      },
+      {
+        q: "Random pick with weight.",
+        approach:
+          "Prefix sums + binary search on a random draw. Walk the probability reasoning. A Meta favorite because it tests whether you can map a probability requirement onto a clean data structure.",
+      },
+      {
+        q: "Design Facebook's News Feed.",
+        approach:
+          "Clarify scale and ranking scope. Discuss fan-out-on-write vs fan-out-on-read, the celebrity problem, caching, and ranking as a separable service. Meta's design round wants product-aware architecture, not just plumbing.",
+      },
+      {
+        q: "Add two numbers represented as linked lists.",
+        approach:
+          "Walk both lists with a carry, build the result node by node. O(max(m,n)). Handle the trailing carry edge case — interviewers check it deliberately.",
+      },
+      {
+        q: "Tell me about a time you disagreed with your manager or a teammate.",
+        approach:
+          "STAR. Meta's behavioral round screens for handling conflict directly and constructively, plus the impact of the resolution. Choose a story where you disagreed, engaged respectfully, and drove a concrete outcome.",
+      },
+    ],
+    related: [
+      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+      { to: "/interview-questions/google-software-engineer", label: "Google Software Engineer Interview Questions" },
+      { to: "/behavioral-interview-assistant", label: "Behavioral Interview Assistant" },
+      { to: "/ai-coding-interview-helper", label: "AI Coding Interview Helper" },
+    ],
+  },
+  {
+    path: "/interview-questions/amazon-software-engineer",
+    role: "Amazon SDE",
+    title: "Amazon SDE Interview Questions (2026) — Leadership Principles | Natively",
+    description:
+      "Amazon SDE interview questions for 2026 — coding, system design, and Leadership Principles behavioral rounds — with how to structure answers Amazon rewards.",
+    h1: "Amazon SDE Interview Questions (2026)",
+    intro: [
+      "Amazon's SDE loop is distinctive because the behavioral component is woven through almost every round, anchored to the 16 Leadership Principles (LPs). Expect coding rounds (data structures, algorithms), one or two system design discussions, and LP-based behavioral questions in nearly every interview — each interviewer is typically assigned specific principles to assess.",
+      "The coding bar is solid but rarely the hardest part for prepared candidates; the LP behavioral questions are where many loops are won or lost. Amazon uses the STAR method explicitly and looks for data-backed, first-person stories (\"I,\" not \"we\") with measurable results. Vague or team-credit answers score poorly.",
+      "The questions below mix Amazon's common coding patterns with the LP prompts you should have rehearsed stories for. Prepare two distinct stories per major principle, because interviewers will ask follow-ups that drill into your specific actions and the outcome.",
+    ],
+    nativelyAngle:
+      "Amazon weaves Leadership Principles through every round. Natively's behavioral mode helps you structure STAR answers grounded in your real experience in real time, and its coding support reads on-screen problems and suggests an approach — all on-device, under 500 ms.",
+    questions: [
+      {
+        q: "Two sum / find pairs summing to a target.",
+        approach:
+          "Hash map in one pass, O(n). State the space-for-time trade-off vs sorting + two pointers. A standard Amazon warm-up; get to optimal cleanly and discuss duplicates.",
+      },
+      {
+        q: "Find the most common word / top-k frequent elements.",
+        approach:
+          "Hash map counts + heap (O(n log k)) or bucket sort (O(n)). Amazon likes this because it scales into a discussion of doing it over a massive log stream.",
+      },
+      {
+        q: "Copy a linked list with random pointers.",
+        approach:
+          "Interleave copied nodes, then split — O(1) extra space — or a hash map from original to copy. Walk the pointer bookkeeping carefully; it's an Amazon favorite for testing precision.",
+      },
+      {
+        q: "Course schedule (detect a cycle / topological sort).",
+        approach:
+          "Model prerequisites as a directed graph; use Kahn's algorithm or DFS with a recursion stack to detect cycles. Explain why a cycle means the schedule is impossible.",
+      },
+      {
+        q: "Design a system like Amazon's order-fulfillment / a URL shortener.",
+        approach:
+          "Clarify requirements and scale, define the API, choose storage and an ID scheme, then discuss caching and consistency. Tie choices back to availability — an Amazon design value.",
+      },
+      {
+        q: "Tell me about a time you took ownership of a problem outside your scope. (Ownership)",
+        approach:
+          "STAR, first person, with data. Ownership is one of the most-tested LPs: show you saw a gap, acted beyond your role, and drove a measurable result you can quantify.",
+      },
+      {
+        q: "Describe a time you disagreed and committed. (Have Backbone; Disagree and Commit)",
+        approach:
+          "Pick a real disagreement where you voiced your view with data, then fully committed once a decision was made. Amazon wants both the backbone and the follow-through, with the outcome.",
+      },
+      {
+        q: "Tell me about a time you delivered results under a tight deadline. (Deliver Results)",
+        approach:
+          "STAR with metrics. Emphasize prioritization, what you cut, and the quantified outcome. Amazon screens hard for candidates who ship under constraint, not just plan.",
+      },
+    ],
+    related: [
+      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+      { to: "/behavioral-interview-assistant", label: "Behavioral Interview Assistant" },
+      { to: "/interview-questions/microsoft-software-engineer", label: "Microsoft Software Engineer Interview Questions" },
+      { to: "/system-design-interview-assistant", label: "System Design Interview Assistant" },
+    ],
+  },
+  {
+    path: "/interview-questions/microsoft-software-engineer",
+    role: "Microsoft Software Engineer",
+    title: "Microsoft Software Engineer Interview Questions (2026) | Natively",
+    description:
+      "Microsoft software engineer interview questions for 2026 — coding, problem-solving, design, and behavioral rounds — with how to approach each effectively.",
+    h1: "Microsoft Software Engineer Interview Questions (2026)",
+    intro: [
+      "Microsoft's software engineer loop tends to be collaborative and discussion-oriented. Coding rounds favor solid data-structure and problem-solving fundamentals over competition-grade tricks, and interviewers often engage with your thinking as you go rather than watching silently. Senior loops add a design round and deeper behavioral discussion aligned with Microsoft's growth-mindset culture.",
+      "Interviewers reward clear communication and genuine collaboration — asking good clarifying questions and responding to hints well is a positive signal, not a weakness. Edge cases, testing your own code, and explaining trade-offs matter as much as reaching the optimal solution.",
+      "The questions below reflect Microsoft's common patterns across coding and behavioral rounds. Practice thinking out loud and treating the interviewer as a collaborator; Microsoft's culture question often probes how you learn and work with others.",
+    ],
+    nativelyAngle:
+      "Microsoft's rounds are collaborative and discussion-heavy. Natively transcribes the conversation, reads on-screen code, and suggests a structured approach in real time — helping you stay clear and collaborative while keeping everything on your device.",
+    questions: [
+      {
+        q: "Reverse words in a sentence in place.",
+        approach:
+          "Reverse the whole string, then reverse each word — O(n) time, O(1) extra space for a mutable buffer. Walk the two-step trick clearly; Microsoft values a clean, well-explained in-place solution.",
+      },
+      {
+        q: "Find the middle of a linked list in one pass.",
+        approach:
+          "Fast/slow pointers. State the invariant (fast moves twice per slow step) and the even-length edge case. A classic Microsoft fundamentals check.",
+      },
+      {
+        q: "Check whether two strings are anagrams.",
+        approach:
+          "Frequency count (26-array or hash map), O(n). Clarify case and Unicode handling first — asking that clarifying question is itself a positive Microsoft signal.",
+      },
+      {
+        q: "Lowest common ancestor in a binary (search) tree.",
+        approach:
+          "For a BST, walk down comparing values, O(h). For a general binary tree, recurse and return where left and right subtrees both report a target. Distinguish the two cases explicitly.",
+      },
+      {
+        q: "Implement a function to compute sqrt(x) without the library call.",
+        approach:
+          "Binary search on the answer, or Newton's method; discuss precision and integer vs float versions. Microsoft likes seeing you reason about convergence and edge cases (0, 1, negatives).",
+      },
+      {
+        q: "Design a parking lot / an elevator system (OO design).",
+        approach:
+          "Identify entities, responsibilities, and interfaces; discuss how classes interact and where to extend. Microsoft's design rounds often probe object-oriented modeling and clean abstractions, not just scale.",
+      },
+      {
+        q: "Detect if a string has all unique characters.",
+        approach:
+          "Hash set or a bitmask for a fixed alphabet (O(1) space). Mention the no-extra-data-structure follow-up. Quick to solve, so spend the time on clean code and tests.",
+      },
+      {
+        q: "Tell me about a time you learned a new technology quickly to ship something.",
+        approach:
+          "STAR with a growth-mindset framing — Microsoft's culture explicitly values learning. Show how you ramped, what you delivered, and what the experience taught you.",
+      },
+    ],
+    related: [
+      { to: "/interview-questions/software-engineer", label: "Software Engineer Interview Questions" },
+      { to: "/interview-questions/amazon-software-engineer", label: "Amazon SDE Interview Questions" },
+      { to: "/interview-questions/google-software-engineer", label: "Google Software Engineer Interview Questions" },
+      { to: "/ai-coding-interview-helper", label: "AI Coding Interview Helper" },
     ],
   },
 ];
