@@ -59,4 +59,6 @@ Disallow: /
 # Sitemap and AI context file
 Sitemap: https://natively.software/sitemap.xml
 
-# AI assistant context file: https://natively.software/llms.txt
+# AI assistant context files:
+#   https://natively.software/llms.txt
+#   https://natively.software/llms-full.txt

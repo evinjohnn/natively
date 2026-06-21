@@ -33,6 +33,12 @@ export const pages = {
   BestAIInterviewAssistants: lazyWithPreload(() => import("./pages/blog/BestAIInterviewAssistants")),
   LeetCodeAIHelper: lazyWithPreload(() => import("./pages/seo/LeetCodeAIHelper")),
   OfflineAIInterview: lazyWithPreload(() => import("./pages/seo/OfflineAIInterview")),
+
+  // Meeting-vertical blog posts
+  BestAIMeetingAssistants: lazyWithPreload(() => import("./pages/blog/BestAIMeetingAssistants")),
+  BestFirefliesAlternatives: lazyWithPreload(() => import("./pages/blog/BestFirefliesAlternatives")),
+  LocalMeetingNotesWithoutBot: lazyWithPreload(() => import("./pages/blog/LocalMeetingNotesWithoutBot")),
+  AINoteTakerPrivacyGuide: lazyWithPreload(() => import("./pages/blog/AINoteTakerPrivacyGuide")),
   DocsAIInterviewAssistant: lazyWithPreload(() => import("./pages/seo/DocsAIInterviewAssistant")),
   FinalRoundAIAlternative: lazyWithPreload(() => import("./pages/seo/FinalRoundAIAlternative")),
   NativelyVsCluely: lazyWithPreload(() => import("./pages/seo/NativelyVsCluely")),
@@ -117,6 +123,10 @@ const pathToKey: Record<string, PageKey> = {
   "/undetectable-interview-ai": "UndetectableInterviewAI",
   "/blog/is-cluely-safe": "IsCluelySafe",
   "/blog/best-ai-interview-assistants": "BestAIInterviewAssistants",
+  "/blog/best-ai-meeting-assistants": "BestAIMeetingAssistants",
+  "/blog/best-fireflies-alternatives": "BestFirefliesAlternatives",
+  "/blog/local-meeting-notes-without-bot": "LocalMeetingNotesWithoutBot",
+  "/blog/ai-note-taker-privacy-guide": "AINoteTakerPrivacyGuide",
 
   "/ai-meeting-assistant": "AIMeetingAssistant",
   "/ai-note-taker": "AINoteTaker",

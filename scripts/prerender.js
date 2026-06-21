@@ -276,6 +276,70 @@ const seoRoutes = [
             desc: 'Мы протестировали 7 ИИ-ассистентов для собеседований в 2026. Сравнение FinalRoundAI, Cluely, Natively и других по приватности, стоимости и поддержке кодинга.'
         }
     },
+    {
+        path: '/blog/best-ai-meeting-assistants',
+        title: '7 Best AI Meeting Assistants in 2026 (Tested & Ranked)',
+        desc: 'We tested 7 AI meeting assistants in 2026. Compare Otter, Fireflies, Cluely, Natively, Fathom, tl;dv, and Granola — ranked by privacy, cost, real-time help, and local processing.',
+        schemaType: 'Article',
+        publishedDate: '2026-06-20T09:00:00Z',
+        faqs: [
+            { q: "What is the best AI meeting assistant in 2026?", a: "For privacy and real-time help, Natively ranks first because it processes audio, screen OCR, and AI inference entirely on-device with no bot in the call. Otter is best for team transcription and Fireflies for CRM integrations, but both are cloud-based." },
+            { q: "Is there an AI meeting assistant that doesn't use the cloud?", a: "Yes. Natively runs fully on-device via local Whisper and Ollama, so your meeting audio never leaves your machine. Otter, Fireflies, Cluely, Fathom, tl;dv, and Granola all process audio in the cloud." },
+            { q: "Which AI meeting assistant has no bot in the call?", a: "Natively and Cluely use an invisible overlay instead of a bot participant. Otter, Fireflies, and Fathom add a visible bot to the call. Of these, only Natively also processes everything locally." }
+        ],
+        ru: {
+            title: '7 лучших ИИ-ассистентов для встреч в 2026 (Тест и рейтинг)',
+            desc: 'Мы протестировали 7 ИИ-ассистентов для встреч в 2026. Сравнение Otter, Fireflies, Cluely, Natively, Fathom, tl;dv и Granola по приватности, стоимости и работе в реальном времени.'
+        }
+    },
+    {
+        path: '/blog/best-fireflies-alternatives',
+        title: '6 Best Fireflies & Otter Alternatives in 2026 (Ranked)',
+        desc: 'Looking for a Fireflies.ai or Otter alternative? We ranked 6 options for 2026 by privacy, price, and real-time help — including local-first Natively, which needs no bot in your call.',
+        schemaType: 'Article',
+        publishedDate: '2026-06-20T09:00:00Z',
+        faqs: [
+            { q: "What is the best Fireflies.ai alternative?", a: "For privacy and real-time help, Natively is the best Fireflies alternative — it processes meeting audio on-device with no cloud and no bot in the call. If you still need the cloud, Otter is the closest transcription-focused alternative." },
+            { q: "Is there a free alternative to Fireflies and Otter?", a: "Yes. Natively is free via Ollama (local) or BYOK, with no per-seat pricing and no minute caps in local mode. Fireflies and Otter both cap their free tiers by minutes and charge per seat above that." },
+            { q: "What's the difference between Natively and Fireflies or Otter?", a: "Natively processes everything on your device and joins no bot to the call, while Fireflies and Otter send your audio to cloud servers and attach a visible bot. Natively also assists in real time during the call, not just afterward." }
+        ],
+        ru: {
+            title: '6 лучших альтернатив Fireflies и Otter в 2026 (Рейтинг)',
+            desc: 'Ищете альтернативу Fireflies.ai или Otter? Мы составили рейтинг 6 вариантов на 2026 год по приватности, цене и помощи в реальном времени — включая локальный Natively без бота в звонке.'
+        }
+    },
+    {
+        path: '/blog/local-meeting-notes-without-bot',
+        title: 'How to Take Private Meeting Notes Without a Bot (2026)',
+        desc: 'Tired of a bot joining every call? Here is how to take private, AI-powered meeting notes locally — no cloud, no visible participant, no minute caps — using on-device transcription.',
+        schemaType: 'Article',
+        publishedDate: '2026-06-20T09:00:00Z',
+        faqs: [
+            { q: "Can I take AI meeting notes without a bot joining the call?", a: "Yes. A local notetaker like Natively captures system audio directly on your computer and transcribes it on-device, so no bot appears in the participant list. The other people on the call see no extra participant." },
+            { q: "How do local meeting notes work without the cloud?", a: "Local tools capture meeting audio at the system level, transcribe it with an on-device model such as local Whisper, then summarize it with a local LLM via Ollama. Nothing is sent to cloud servers, and it can run fully offline." },
+            { q: "Why avoid a note-taking bot in confidential meetings?", a: "A bot adds a visible third-party participant and sends your audio to cloud servers. For NDA meetings, salary negotiations, or confidential calls, local on-device note-taking keeps the conversation private with no outside party." }
+        ],
+        ru: {
+            title: 'Как вести приватные заметки со встреч без бота (2026)',
+            desc: 'Надоел бот в каждом звонке? Вот как вести приватные ИИ-заметки локально — без облака, без видимого участника и без лимитов минут — с помощью транскрипции на устройстве.'
+        }
+    },
+    {
+        path: '/blog/ai-note-taker-privacy-guide',
+        title: 'Are AI Note-Takers Private? Otter, Fireflies & Cluely (2026)',
+        desc: 'Are AI note-takers private? We explain what Otter, Fireflies, and Cluely actually do with your meeting audio — and how local, on-device note-taking keeps your conversations yours.',
+        schemaType: 'Article',
+        publishedDate: '2026-06-20T09:00:00Z',
+        faqs: [
+            { q: "Are AI note-takers private?", a: "Most are not. Tools like Otter, Fireflies, and Cluely send your meeting audio to cloud servers to transcribe and summarize it, so a copy of your conversation lives on third-party infrastructure. Only on-device tools like Natively keep audio fully private." },
+            { q: "What does Otter or Fireflies do with my meeting audio?", a: "They capture the audio, transmit it to their cloud servers, run speech-recognition and AI models on it, and store the transcript and summary in your account — subject to their retention policy and security." },
+            { q: "Which AI note-taker is genuinely private?", a: "Natively is, because it processes transcription and summarization entirely on your device via local Whisper and Ollama. Audio is never transmitted, no bot joins, and transcripts stay local for you to export or delete." }
+        ],
+        ru: {
+            title: 'Приватны ли ИИ-нотетейкеры? Otter, Fireflies и Cluely (2026)',
+            desc: 'Приватны ли ИИ-нотетейкеры? Объясняем, что Otter, Fireflies и Cluely на самом деле делают с аудио ваших встреч — и как локальные заметки на устройстве сохраняют ваши разговоры приватными.'
+        }
+    },
     // Legal / utility pages. Prerendered for direct visitors, but excludeFromSitemap
     // keeps them out of sitemap.xml — they carry no search intent and the two /t&c
     // aliases canonicalize to /termsandconditions anyway.
@@ -652,6 +716,10 @@ const ROUTE_SOURCE_FILES = {
     '/undetectable-interview-ai': 'src/pages/seo/UndetectableInterviewAI.tsx',
     '/blog/is-cluely-safe': 'src/pages/blog/IsCluelySafe.tsx',
     '/blog/best-ai-interview-assistants': 'src/pages/blog/BestAIInterviewAssistants.tsx',
+    '/blog/best-ai-meeting-assistants': 'src/pages/blog/BestAIMeetingAssistants.tsx',
+    '/blog/best-fireflies-alternatives': 'src/pages/blog/BestFirefliesAlternatives.tsx',
+    '/blog/local-meeting-notes-without-bot': 'src/pages/blog/LocalMeetingNotesWithoutBot.tsx',
+    '/blog/ai-note-taker-privacy-guide': 'src/pages/blog/AINoteTakerPrivacyGuide.tsx',
     '/ai-meeting-assistant': 'src/pages/seo/AIMeetingAssistant.tsx',
     '/ai-note-taker': 'src/pages/seo/AINoteTaker.tsx',
     '/sales-call-assistant': 'src/pages/seo/SalesCallAssistant.tsx',

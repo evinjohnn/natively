@@ -175,18 +175,44 @@ const RELATED: Record<string, RelatedItem[]> = {
     { to: "/leetcode-ai-helper", label: "LeetCode AI Helper", ru: "ИИ-помощник для LeetCode" },
   ],
 
+  // ---- Meeting-vertical blog posts ----
+  "/blog/best-ai-meeting-assistants": [
+    { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
+    { to: "/blog/best-fireflies-alternatives", label: "6 Best Fireflies & Otter Alternatives", ru: "6 лучших альтернатив Fireflies и Otter" },
+    { to: "/natively-vs-fireflies", label: "Natively vs Fireflies", ru: "Natively против Fireflies" },
+    { to: "/blog/ai-note-taker-privacy-guide", label: "Are AI Note-Takers Private?", ru: "Приватны ли ИИ-нотетейкеры?" },
+  ],
+  "/blog/best-fireflies-alternatives": [
+    { to: "/fireflies-alternative", label: "The Best Fireflies Alternative", ru: "Лучшая альтернатива Fireflies" },
+    { to: "/otter-alternative", label: "The Best Otter Alternative", ru: "Лучшая альтернатива Otter" },
+    { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
+    { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
+  ],
+  "/blog/local-meeting-notes-without-bot": [
+    { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
+    { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
+    { to: "/blog/ai-note-taker-privacy-guide", label: "Are AI Note-Takers Private?", ru: "Приватны ли ИИ-нотетейкеры?" },
+    { to: "/local-ai-assistant", label: "Secure Local AI Assistant", ru: "Безопасный локальный ИИ-ассистент" },
+  ],
+  "/blog/ai-note-taker-privacy-guide": [
+    { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
+    { to: "/blog/local-meeting-notes-without-bot", label: "Private Meeting Notes Without a Bot", ru: "Приватные заметки со встреч без бота" },
+    { to: "/blog/is-cluely-safe", label: "Is Cluely Safe?", ru: "Безопасен ли Cluely?" },
+    { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
+  ],
+
   // ---- Meeting / notes vertical ----
   "/ai-meeting-assistant": [
     { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
     { to: "/sales-call-assistant", label: "AI Sales Call Assistant", ru: "ИИ-ассистент для звонков по продажам" },
     { to: "/natively-vs-fireflies", label: "Natively vs Fireflies", ru: "Natively против Fireflies" },
-    { to: "/natively-vs-otter", label: "Natively vs Otter", ru: "Natively против Otter" },
+    { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
   ],
   "/ai-note-taker": [
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
     { to: "/lecture-note-taker", label: "AI Lecture Note Taker", ru: "ИИ для конспектов лекций" },
-    { to: "/otter-alternative", label: "The Best Otter Alternative", ru: "Лучшая альтернатива Otter" },
-    { to: "/fireflies-alternative", label: "The Best Fireflies Alternative", ru: "Лучшая альтернатива Fireflies" },
+    { to: "/blog/ai-note-taker-privacy-guide", label: "Are AI Note-Takers Private?", ru: "Приватны ли ИИ-нотетейкеры?" },
+    { to: "/blog/local-meeting-notes-without-bot", label: "Private Notes Without a Bot", ru: "Приватные заметки без бота" },
   ],
   "/sales-call-assistant": [
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
@@ -216,13 +242,13 @@ const RELATED: Record<string, RelatedItem[]> = {
   ],
   "/fireflies-alternative": [
     { to: "/natively-vs-fireflies", label: "Natively vs Fireflies (Full Comparison)", ru: "Natively против Fireflies (полное сравнение)" },
-    { to: "/otter-alternative", label: "The Best Otter Alternative", ru: "Лучшая альтернатива Otter" },
+    { to: "/blog/best-fireflies-alternatives", label: "6 Best Fireflies & Otter Alternatives", ru: "6 лучших альтернатив Fireflies и Otter" },
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
     { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
   ],
   "/otter-alternative": [
     { to: "/natively-vs-otter", label: "Natively vs Otter (Full Comparison)", ru: "Natively против Otter (полное сравнение)" },
-    { to: "/fireflies-alternative", label: "The Best Fireflies Alternative", ru: "Лучшая альтернатива Fireflies" },
+    { to: "/blog/best-fireflies-alternatives", label: "6 Best Fireflies & Otter Alternatives", ru: "6 лучших альтернатив Fireflies и Otter" },
     { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
     { to: "/lecture-note-taker", label: "AI Lecture Note Taker", ru: "ИИ для конспектов лекций" },
   ],

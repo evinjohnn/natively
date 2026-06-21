@@ -22,6 +22,7 @@ const {
   AIAssistantForCodingInterviews, HowAIHelpsInCodingInterviews, LocalAICodingAssistant,
   AIToolsForTechnicalInterviews, HowAIInterviewAssistantsWork, BestAIToolsForCodingInterviews,
   PreparingForTechnicalInterviewsWithAI, IsCluelySafe, BestAIInterviewAssistants,
+  BestAIMeetingAssistants, BestFirefliesAlternatives, LocalMeetingNotesWithoutBot, AINoteTakerPrivacyGuide,
   LeetCodeAIHelper, OfflineAIInterview, DocsAIInterviewAssistant, FinalRoundAIAlternative,
   NativelyVsCluely, InterviewCopilot, FreeAIInterviewAssistant, NativelyVsLockedInAI,
   NativelyVsInterviewCoder, UndetectableInterviewAI,
@@ -110,6 +111,10 @@ const App = () => {
 
               <Route path="/blog/is-cluely-safe" element={<IsCluelySafe />} />
               <Route path="/blog/best-ai-interview-assistants" element={<BestAIInterviewAssistants />} />
+              <Route path="/blog/best-ai-meeting-assistants" element={<BestAIMeetingAssistants />} />
+              <Route path="/blog/best-fireflies-alternatives" element={<BestFirefliesAlternatives />} />
+              <Route path="/blog/local-meeting-notes-without-bot" element={<LocalMeetingNotesWithoutBot />} />
+              <Route path="/blog/ai-note-taker-privacy-guide" element={<AINoteTakerPrivacyGuide />} />
 
               {/* Meeting / notes vertical */}
               <Route path="/ai-meeting-assistant" element={<AIMeetingAssistant />} />
@@ -178,6 +183,10 @@ const App = () => {
 
               <Route path="/ru/blog/is-cluely-safe" element={<IsCluelySafe />} />
               <Route path="/ru/blog/best-ai-interview-assistants" element={<BestAIInterviewAssistants />} />
+              <Route path="/ru/blog/best-ai-meeting-assistants" element={<BestAIMeetingAssistants />} />
+              <Route path="/ru/blog/best-fireflies-alternatives" element={<BestFirefliesAlternatives />} />
+              <Route path="/ru/blog/local-meeting-notes-without-bot" element={<LocalMeetingNotesWithoutBot />} />
+              <Route path="/ru/blog/ai-note-taker-privacy-guide" element={<AINoteTakerPrivacyGuide />} />
 
               <Route path="/ru/ai-meeting-assistant" element={<AIMeetingAssistant />} />
               <Route path="/ru/ai-note-taker" element={<AINoteTaker />} />
