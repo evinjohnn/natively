@@ -25,6 +25,7 @@ const {
   IsAIInterviewAssistantDetectable, HowToUseAIInJobInterview, BestFreeAIInterviewAssistant,
   InterviewCopilotPricing, InterviewCopilotBYOK, AIInterviewAssistantPrivacy,
   BestAIMeetingAssistants, BestFirefliesAlternatives, LocalMeetingNotesWithoutBot, AINoteTakerPrivacyGuide,
+  BestAIMeetingAssistantTools, CallAssistantProductiveMeetings,
   LeetCodeAIHelper, OfflineAIInterview, DocsAIInterviewAssistant, FinalRoundAIAlternative,
   NativelyVsCluely, InterviewCopilot, FreeAIInterviewAssistant, NativelyVsLockedInAI,
   NativelyVsInterviewCoder, UndetectableInterviewAI,
@@ -123,6 +124,8 @@ const App = () => {
               <Route path="/blog/best-fireflies-alternatives" element={<BestFirefliesAlternatives />} />
               <Route path="/blog/local-meeting-notes-without-bot" element={<LocalMeetingNotesWithoutBot />} />
               <Route path="/blog/ai-note-taker-privacy-guide" element={<AINoteTakerPrivacyGuide />} />
+              <Route path="/blog/best-ai-meeting-assistant-tools" element={<BestAIMeetingAssistantTools />} />
+              <Route path="/blog/how-a-call-assistant-makes-meetings-productive" element={<CallAssistantProductiveMeetings />} />
 
               {/* Meeting / notes vertical */}
               <Route path="/ai-meeting-assistant" element={<AIMeetingAssistant />} />
@@ -201,6 +204,8 @@ const App = () => {
               <Route path="/ru/blog/best-fireflies-alternatives" element={<BestFirefliesAlternatives />} />
               <Route path="/ru/blog/local-meeting-notes-without-bot" element={<LocalMeetingNotesWithoutBot />} />
               <Route path="/ru/blog/ai-note-taker-privacy-guide" element={<AINoteTakerPrivacyGuide />} />
+              <Route path="/ru/blog/best-ai-meeting-assistant-tools" element={<BestAIMeetingAssistantTools />} />
+              <Route path="/ru/blog/how-a-call-assistant-makes-meetings-productive" element={<CallAssistantProductiveMeetings />} />
 
               <Route path="/ru/ai-meeting-assistant" element={<AIMeetingAssistant />} />
               <Route path="/ru/ai-note-taker" element={<AINoteTaker />} />

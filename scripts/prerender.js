@@ -436,6 +436,42 @@ const seoRoutes = [
             desc: 'Приватны ли ИИ-нотетейкеры? Объясняем, что Otter, Fireflies и Cluely на самом деле делают с аудио ваших встреч — и как локальные заметки на устройстве сохраняют ваши разговоры приватными.'
         }
     },
+    {
+        path: '/blog/best-ai-meeting-assistant-tools',
+        title: 'Best AI Meeting Assistant Tools for Private, Smart Calls (2026)',
+        desc: 'Comparing AI meeting assistant tools in 2026? We rank the best options for private, smart calls — Natively, Granola, Krisp, Copilot, Fathom, Fireflies, Otter, Read AI, and tl;dv — by meeting presence, processing model, and real-time help.',
+        schemaType: 'Article',
+        publishedDate: '2026-07-02T09:00:00Z',
+        faqs: [
+            { q: "What is the best AI meeting assistant for private calls?", a: "Natively is the best fit for private real-time assistance because it supports live answers, transcription, and structured notes without adding a visible bot to Zoom or Google Meet. Granola and Krisp are also strong options if your main need is personal notes or cleaner audio." },
+            { q: "Do AI meeting assistants have to join as a bot?", a: "No. Some tools join as a visible meeting participant, while others capture audio through a desktop, browser, or audio-layer workflow. Botless tools are often better for private calls, but you still need to follow consent and recording rules." },
+            { q: "Are AI meeting assistants legal to use?", a: "They can be, but legality depends on your location, company policy, meeting type, and whether audio is recorded or transcribed. Always get appropriate consent and follow workplace or platform rules, especially for external calls and interviews." },
+            { q: "Which AI meeting assistant is best for sales calls?", a: "For live sales conversations, choose a tool that can provide real-time prompts, objection handling, and structured follow-up notes. Natively is a strong fit because it includes sales-focused assistance rather than only post-call summaries." },
+            { q: "What is the difference between an AI note taker and an AI meeting assistant?", a: "An AI note taker mainly captures and organizes what happened. An AI meeting assistant can also help during the call with answers, prompts, coaching, context, and next-step suggestions." }
+        ],
+        ru: {
+            title: 'Лучшие ИИ-ассистенты для приватных и умных звонков (2026)',
+            desc: 'Сравниваете ИИ-ассистентов для встреч в 2026? Мы составили рейтинг лучших вариантов для приватных, умных звонков — Natively, Granola, Krisp, Copilot, Fathom, Fireflies, Otter, Read AI и tl;dv — по присутствию в звонке, модели обработки и помощи в реальном времени.'
+        }
+    },
+    {
+        path: '/blog/how-a-call-assistant-makes-meetings-productive',
+        title: 'How a Call Assistant Can Make Meetings More Productive (2026)',
+        desc: 'A call assistant turns meetings into a workflow: live transcription, real-time support, structured notes, decisions, and follow-ups. Here is how it improves productivity before, during, and after every call.',
+        schemaType: 'Article',
+        publishedDate: '2026-07-02T09:00:00Z',
+        faqs: [
+            { q: "What is a call assistant?", a: "A call assistant is an AI tool that supports live conversations by transcribing speech, generating notes, suggesting responses, and organizing follow-ups during or after a call." },
+            { q: "How does a call assistant make meetings more productive?", a: "It reduces manual note-taking, captures decisions, creates action items, surfaces relevant context, and helps participants stay focused on the discussion instead of administrative work." },
+            { q: "Is a call assistant the same as an AI note taker?", a: "Not always. An AI note taker mainly captures and summarizes meetings. A call assistant can also provide real-time support, answer suggestions, expert modes, and context-aware prompts during the call." },
+            { q: "Can a call assistant be used for sales calls and interviews?", a: "Yes. Sales teams can use it for objection handling, discovery questions, and follow-ups. Interview candidates or hiring teams can use it for structured notes, answer support, and context from resumes or job descriptions." },
+            { q: "Are call assistants private?", a: "Privacy depends on the tool. Some process data in the cloud, while others offer local or on-device operation. Teams should review processing, storage, consent, and access controls before using any assistant for sensitive calls." }
+        ],
+        ru: {
+            title: 'Как ассистент для звонков делает встречи продуктивнее (2026)',
+            desc: 'Ассистент для звонков превращает встречу в рабочий процесс: живая транскрипция, помощь в реальном времени, структурированные заметки, решения и задачи. Как он повышает продуктивность до, во время и после звонка.'
+        }
+    },
     // Legal / utility pages. Prerendered for direct visitors, but excludeFromSitemap
     // keeps them out of sitemap.xml — they carry no search intent and the two /t&c
     // aliases canonicalize to /termsandconditions anyway.
@@ -822,6 +858,8 @@ const ROUTE_SOURCE_FILES = {
     '/blog/best-fireflies-alternatives': 'src/pages/blog/BestFirefliesAlternatives.tsx',
     '/blog/local-meeting-notes-without-bot': 'src/pages/blog/LocalMeetingNotesWithoutBot.tsx',
     '/blog/ai-note-taker-privacy-guide': 'src/pages/blog/AINoteTakerPrivacyGuide.tsx',
+    '/blog/best-ai-meeting-assistant-tools': 'src/pages/blog/BestAIMeetingAssistantTools.tsx',
+    '/blog/how-a-call-assistant-makes-meetings-productive': 'src/pages/blog/CallAssistantProductiveMeetings.tsx',
     '/ai-meeting-assistant': 'src/pages/seo/AIMeetingAssistant.tsx',
     '/ai-note-taker': 'src/pages/seo/AINoteTaker.tsx',
     '/sales-call-assistant': 'src/pages/seo/SalesCallAssistant.tsx',

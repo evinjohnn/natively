@@ -216,8 +216,8 @@ const RELATED: Record<string, RelatedItem[]> = {
   // ---- Meeting-vertical blog posts ----
   "/blog/best-ai-meeting-assistants": [
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
+    { to: "/blog/best-ai-meeting-assistant-tools", label: "Best AI Meeting Assistant Tools for Private Calls", ru: "Лучшие ИИ-ассистенты для приватных звонков" },
     { to: "/blog/best-fireflies-alternatives", label: "6 Best Fireflies & Otter Alternatives", ru: "6 лучших альтернатив Fireflies и Otter" },
-    { to: "/natively-vs-fireflies", label: "Natively vs Fireflies", ru: "Natively против Fireflies" },
     { to: "/blog/ai-note-taker-privacy-guide", label: "Are AI Note-Takers Private?", ru: "Приватны ли ИИ-нотетейкеры?" },
   ],
   "/blog/best-fireflies-alternatives": [
@@ -238,24 +238,36 @@ const RELATED: Record<string, RelatedItem[]> = {
     { to: "/blog/is-cluely-safe", label: "Is Cluely Safe?", ru: "Безопасен ли Cluely?" },
     { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
   ],
+  "/blog/best-ai-meeting-assistant-tools": [
+    { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
+    { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
+    { to: "/blog/how-a-call-assistant-makes-meetings-productive", label: "How a Call Assistant Makes Meetings Productive", ru: "Как ассистент для звонков делает встречи продуктивнее" },
+    { to: "/sales-call-assistant", label: "AI Sales Call Assistant", ru: "ИИ-ассистент для звонков по продажам" },
+  ],
+  "/blog/how-a-call-assistant-makes-meetings-productive": [
+    { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
+    { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
+    { to: "/sales-call-assistant", label: "AI Sales Call Assistant", ru: "ИИ-ассистент для звонков по продажам" },
+    { to: "/blog/best-ai-meeting-assistant-tools", label: "Best AI Meeting Assistant Tools for Private Calls", ru: "Лучшие ИИ-ассистенты для приватных звонков" },
+  ],
 
   // ---- Meeting / notes vertical ----
   "/ai-meeting-assistant": [
     { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
     { to: "/sales-call-assistant", label: "AI Sales Call Assistant", ru: "ИИ-ассистент для звонков по продажам" },
-    { to: "/natively-vs-fireflies", label: "Natively vs Fireflies", ru: "Natively против Fireflies" },
+    { to: "/blog/best-ai-meeting-assistant-tools", label: "Best AI Meeting Assistant Tools for Private Calls", ru: "Лучшие ИИ-ассистенты для приватных звонков" },
     { to: "/blog/best-ai-meeting-assistants", label: "7 Best AI Meeting Assistants (2026)", ru: "7 лучших ИИ-ассистентов для встреч (2026)" },
   ],
   "/ai-note-taker": [
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
     { to: "/lecture-note-taker", label: "AI Lecture Note Taker", ru: "ИИ для конспектов лекций" },
-    { to: "/blog/ai-note-taker-privacy-guide", label: "Are AI Note-Takers Private?", ru: "Приватны ли ИИ-нотетейкеры?" },
+    { to: "/blog/how-a-call-assistant-makes-meetings-productive", label: "How a Call Assistant Makes Meetings Productive", ru: "Как ассистент для звонков делает встречи продуктивнее" },
     { to: "/blog/local-meeting-notes-without-bot", label: "Private Notes Without a Bot", ru: "Приватные заметки без бота" },
   ],
   "/sales-call-assistant": [
     { to: "/ai-meeting-assistant", label: "AI Meeting Assistant", ru: "ИИ-ассистент для встреч" },
     { to: "/ai-note-taker", label: "AI Note Taker for Meetings", ru: "ИИ для заметок со встреч" },
-    { to: "/natively-vs-otter", label: "Natively vs Otter", ru: "Natively против Otter" },
+    { to: "/blog/how-a-call-assistant-makes-meetings-productive", label: "How a Call Assistant Makes Meetings Productive", ru: "Как ассистент для звонков делает встречи продуктивнее" },
     { to: "/local-ai-assistant", label: "Secure Local AI Assistant", ru: "Безопасный локальный ИИ-ассистент" },
   ],
   "/lecture-note-taker": [

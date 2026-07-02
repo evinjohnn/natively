@@ -47,6 +47,8 @@ export const pages = {
   BestFirefliesAlternatives: lazyWithPreload(() => import("./pages/blog/BestFirefliesAlternatives")),
   LocalMeetingNotesWithoutBot: lazyWithPreload(() => import("./pages/blog/LocalMeetingNotesWithoutBot")),
   AINoteTakerPrivacyGuide: lazyWithPreload(() => import("./pages/blog/AINoteTakerPrivacyGuide")),
+  BestAIMeetingAssistantTools: lazyWithPreload(() => import("./pages/blog/BestAIMeetingAssistantTools")),
+  CallAssistantProductiveMeetings: lazyWithPreload(() => import("./pages/blog/CallAssistantProductiveMeetings")),
   DocsAIInterviewAssistant: lazyWithPreload(() => import("./pages/seo/DocsAIInterviewAssistant")),
   FinalRoundAIAlternative: lazyWithPreload(() => import("./pages/seo/FinalRoundAIAlternative")),
   NativelyVsCluely: lazyWithPreload(() => import("./pages/seo/NativelyVsCluely")),
@@ -141,6 +143,8 @@ const pathToKey: Record<string, PageKey> = {
   "/blog/best-fireflies-alternatives": "BestFirefliesAlternatives",
   "/blog/local-meeting-notes-without-bot": "LocalMeetingNotesWithoutBot",
   "/blog/ai-note-taker-privacy-guide": "AINoteTakerPrivacyGuide",
+  "/blog/best-ai-meeting-assistant-tools": "BestAIMeetingAssistantTools",
+  "/blog/how-a-call-assistant-makes-meetings-productive": "CallAssistantProductiveMeetings",
 
   "/ai-meeting-assistant": "AIMeetingAssistant",
   "/ai-note-taker": "AINoteTaker",
